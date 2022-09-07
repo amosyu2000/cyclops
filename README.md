@@ -1,6 +1,6 @@
 # Project Name
 
-## Developer Names: \
+## Developer Names:
 [Aaron Li](https://github.com/aaronhsli) \
 [Amos Yu](https://github.com/amosyu2000) \
 Brian \
