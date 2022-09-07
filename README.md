@@ -1,10 +1,10 @@
 # Project Name
 
 Developer Names: \
-Aaron Li \
+[Aaron Li](https://github.com/aaronhsli) \
 [Amos Yu](https://github.com/amosyu2000) \
 Brian \
-[Manny Lemos](https://github.com/MannyLemos) \
+[Manny Lemos](https://github.com/MannyLemos)
 
 Date of project start:
 
