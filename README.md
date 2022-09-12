@@ -3,10 +3,10 @@
 ### Developer Names:
 [Aaron Li](https://github.com/aaronhsli) \
 [Amos Yu](https://github.com/amosyu2000) \
-Brian \
+[Brian Le](https://github.com/briantule)\
 [Manny Lemos](https://github.com/MannyLemos)
 
-### Date of project start:
+### Date of project start: September 7, 2022
 
 ### This project is ...
 
