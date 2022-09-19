@@ -1,3 +1,14 @@
+# Contributing to Cyclops
+
+| Table of Contents |
+|---|
+| [Setting up your Environment](#setting-up-your-environment) |
+| [Creating an Issue](#creating-an-issue) |
+| [Creating a New Branch](#creating-a-new-branch) |
+| [Submitting a Pull Request](#submitting-a-pull-request) |
+| [Reviewing a Pull Request](#reviewing-a-pull-request) |
+| [Amending a Pull Request](#amending-a-pull-request) |
+
 ## Setting up your Environment
 
 1. Set up Git on your computer.  
@@ -53,7 +64,7 @@ _To begin working on an issue, the first step is creating a new branch to work o
 
 _Once your code is ready to be merged, push it to remote repository and create a pull request._  
 
-1. Navigate to the Source Control page by clicking __Source Control__ on the left menu bar or typing __Ctrl+Shift+G G__.  
+1. In Visual Studio Code, navigate to the Source Control page.  
 1. Stage and commit your changes. Your commit message should include  
 ![image](https://user-images.githubusercontent.com/46848538/191038067-a3d7c7f3-2794-4ecb-8d33-0706f7c26a0b.png)
 	- The issue number
@@ -65,16 +76,34 @@ _Once your code is ready to be merged, push it to remote repository and create a
 	- The title and description should auto-fill.
 1. Add the __review__ label.  
 ![image](https://user-images.githubusercontent.com/46848538/191039209-01c9a947-56bf-4cf4-8850-821782f600d5.png)
-1. Ask other contributors to review your pull request and approve it if looks good.
-1. Once your pull request gets approved, you can merge the branch to master.  
+1. Ask other contributors to review your pull request and approve it if looks good.  
+1. Once your pull request gets approved and all review are resolved, merge the branch to main.  
 	- Once your branch is merged, it is automatically deleted.
+1. Once your pull request is merged, close the associated issue.  
+
+## Reviewing a Pull Request
+
+_Reviewing a pull request is the best way to double-check another person's work. Branches need a certain number of approvals on their pull request before they can be merged to main._  
+
+1. In GitHub, familiarize yourself with the issue associated with the pull request.  
+1. Look over the changes on the pull request.  
+1. Optionally, checkout a branch in Visual Studio Code to poke around on it locally.  
+![image](https://user-images.githubusercontent.com/46848538/191106450-7fcccf7a-ad07-41bc-9c94-9e662dcd38d7.png)
+	- In Visual Studio Code, navigate to the Source Control page.
+	- Click __… → Checkout to...__.
+	- Select the desired branch.
+1. In GitHub, create code reviews in the __Files changed__ tab of the pull request for any problems you see.  
+![image](https://user-images.githubusercontent.com/46848538/191107966-70ef4b59-8c18-4a1b-9075-6894eef3ded1.png)
+1. If everything looks good, approve the pull request.  
+	- As a common courtesy, do not merge a pull request unless you are the author.
 
 ## Amending a Pull Request
 
 _Sometimes you need to make additional changes after you've created a pull request._
 
+1. In Visual Studio Code, navigate to the Source Control page.  
 1. Stage your additional changes.  
-1. Click __… → Commit → Commit Staged (Amend)__.
+1. Click __… → Commit → Commit Staged (Amend)__.  
 ![image](https://user-images.githubusercontent.com/46848538/191058215-ab62e0df-ad60-4c40-8fcc-90e9e1193184.png)
 1. A tab named __COMMIT_EDITMSG__ will open. Here you can choose to also amend the commit message. Save and close this tab when you are done.  
 ![image](https://user-images.githubusercontent.com/46848538/191058700-7dbb6ace-8ce4-4294-ab61-0c2a64ae6a99.png)
