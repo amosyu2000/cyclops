@@ -5,7 +5,7 @@
         Cyclops 
     </H2>
     <p id="Author_Info">Manny Lemos - lemosm1</p>
-    <br><br><br>
+    <br><br>
     <p id="Revision_History">
         Table 1: Revision History
         <table style="width: 100%; text-align: left;">
@@ -21,6 +21,7 @@
             </tr>
         </table>
     </p>
+    <br><br>
 </div>
 
 ### 1. Problem Statement
