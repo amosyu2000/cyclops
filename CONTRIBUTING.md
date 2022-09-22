@@ -12,7 +12,7 @@
 ## Setting up your Environment
 
 1. Set up Git on your computer.  
-	- You can fine a guide [here](https://docs.github.com/en/get-started/quickstart/set-up-git).
+	- You can find a guide [here](https://docs.github.com/en/get-started/quickstart/set-up-git).
 1. Clone the repository.  
 	- Options for cloning can be found by clicking the __Code ▼__ button under the __Code__ tab of the GitHub repository.
 
