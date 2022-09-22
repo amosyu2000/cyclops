@@ -9,7 +9,6 @@ Group 9
 # 1 Revisions
 
 <div style="text-align: center;"> 
-    <br><br>
     <p id="Revision_History">
         Table 1: Revision History
         <table style="width: 100%; text-align: left;">
@@ -25,7 +24,6 @@ Group 9
             </tr>
         </table>
     </p>
-    <br><br>
 </div>
 
 # 2 Version Control
