@@ -8,7 +8,25 @@ Group 9
 
 # 1 Revisions
 
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
+<div style="text-align: center;"> 
+    <br><br>
+    <p id="Revision_History">
+        Table 1: Revision History
+        <table style="width: 100%; text-align: left;">
+            <tr>
+                <th>Date</th>
+                <th>Developer(s)</th>
+                <th>Change</th>
+            </tr>
+            <tr>
+                <td>2022-09-22</th>
+                <td>Brian Le</th>
+                <td>Document Created</th>
+            </tr>
+        </table>
+    </p>
+    <br><br>
+</div>
 
 # 2 Version Control
 
@@ -65,4 +83,4 @@ Once your file is linked to a synchronized location, StackEdit will periodically
 
 If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
 
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
+
