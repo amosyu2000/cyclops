@@ -28,7 +28,7 @@ Group 9
 
 # 2 Version Control
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+Team members are are expected to use the private Github repository. Team members will also be expected to maintain repos containing clean and accurate code. Members will are required to create new branches when developing different aspects of software before merging into the main branch once functionality has been verified and is stable. Changes are highly encouraged to be made through multiple commits with a new commit made for per module or per 50 lines of code. Pull Requests are to be processed with the validation of at least two other members within the team with discussions encouraged to be held within their respective topics.
 
 # Roles and Responsibilities
 
