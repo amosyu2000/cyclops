@@ -31,4 +31,7 @@ Cycling is an economic mode of transportation which has a negligible impact on t
 These are some great goals, wow!
 
 ### 3. Stretch Goals
-These are some great stretch goals, wow!
+- Call saved Emergency Contact for the user in the case of any accidents. 
+- Interface the embedded system with the mobile app.
+- Record the distance and places/roads travelled from start to finish on the mobile app. 
+- GPS Detection to alert the User of any road closures, accidents, heavy traffic. 
