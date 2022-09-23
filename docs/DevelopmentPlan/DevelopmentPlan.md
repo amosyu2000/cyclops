@@ -32,40 +32,44 @@ Team members are are expected to use the private Github repository. Team members
 
 # Roles and Responsibilities
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
-
 ## Aaron Li
 
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
+- Responsible for the design of mounting and the physical components of Cyclops
+- Ensuring the seamless integration of electrical and mechanical components
 
 ## Amos Cheung
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+- Responsible for the design of the electrical components of Cyclops
+- Ensure accurate reading of accelerometer and/or gyroscope 
 
 ## Amos Yu
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+- Responsible for crash detection module for Cyclops
+- Ensuring that proper logging system is in place
 
 ## Brian Le
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+- Responsible for blindspot detection module for Cyclops
+- Ensuring proper vehicle and cyclist detection
 
 ## Manny Lemos
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+- Responsible for censor and camera module of Cyclops
+- Ensuring proper communication between the crash detection and blindspot detection module for Cyclops
 
 
 # Process Workflow
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+Team members of Cyclops are expected to follow this general outline as a workflow:
 
-There are two types of synchronization and they can complement each other:
-
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
-
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
+ 1. Before beginning work on a new module, pull any new changes from the master branch.
+ 2. Create a new branch to develop on if a branch doesn't already exist for this module.
+ 3. Create a detailed plan of the structure of the module. 
+ 4. Implement the modules/functions.
+ 5. Perform unit testing on the modules and its functions.
+ 6. Push any changes to the current working branch.
+ 7. Repeats steps 4 through 6 towards the completion of the module.
+ 8. Merge new functionality to the Master branch after code review from 2 other team members.
 
 # Details on Steps to be Taken
 
