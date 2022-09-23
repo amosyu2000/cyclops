@@ -83,10 +83,16 @@ The following are steps that the Cyclops team aim to complete:
  6. Implement crash logging system for Cyclops.
  7. Implement communication between the crash detection system, blindspot detection system and the crash logging system.
  8. Assemble closed physical system.
- 
+
 # Development Tools
 
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
+The following are environments that team members will be using for the development and debugging of the system:
+
+ - Visual Studio Code: Utilized for computer vision and video log development.
+ - Arduino IDE: Will be used for the development of the crash detection system.
+ - Autodesk Inventor: Utilized for creating 3D models for the physical aspects of Cyclops including the mount and chassis. 
+ - Github: The version control and issue tracking platform utilized. 
+ - Bike: Tester bike will be used to simulate and test the functionalities of Cyclops in a real time environment.
 
 # Handling Changes
 
