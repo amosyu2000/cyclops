@@ -22,6 +22,11 @@ Group 9
                 <td>Brian Le</th>
                 <td>Document Created</th>
             </tr>
+            <tr>
+                <td>2022-09-23</th>
+                <td>Brian Le</th>
+                <td>Detailed steps and tools</th>
+            </tr>
         </table>
     </p>
 </div>
@@ -96,8 +101,13 @@ The following are environments that team members will be using for the developme
 
 # Handling Changes
 
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
+Team members will also be encouraged to follow the format within **CONTRIBUTING.md**:
 
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
+ 1. Create an issue in the Github page.
+ 2. Create a new branch if necessary with the name of the change. 
+ 3. Perform unit testings to verify that the issue is still prevalent.
+ 4. Perform regression testing to ensure that there are no further issues appearing.
+ 5. Merge to the Master branch.
+ 6. Close the issue
 
 
