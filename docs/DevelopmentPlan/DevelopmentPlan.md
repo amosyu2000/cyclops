@@ -73,8 +73,17 @@ Team members of Cyclops are expected to follow this general outline as a workflo
 
 # Details on Steps to be Taken
 
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
+The following are steps that the Cyclops team aim to complete:
 
+ 1. Create CAD designs, using Inventor or SolidWorks.
+ 2. Build base of Cyclops mount to support electrical and mechanical components.
+ 3. Build gyroscopic system with relevant electrical components and Arduino environment for the crash detection system.
+ 4. Gather feature set of vehicles to train models on vehicle recognition within the blindspot detection system. 
+ 5. Build blindspot detection system with relevant sensor and computer vision components with Python IDE.
+ 6. Implement crash logging system for Cyclops.
+ 7. Implement communication between the crash detection system, blindspot detection system and the crash logging system.
+ 8. Assemble closed physical system.
+ 
 # Development Tools
 
 You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
