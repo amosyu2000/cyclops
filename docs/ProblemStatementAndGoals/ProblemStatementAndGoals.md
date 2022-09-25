@@ -25,7 +25,7 @@
 </div>
 
 ## 1. Problem Statement
-Cycling is an economic mode of transportation which has a negligible impact on the environment. As North America pursues greener goals, is expected that more people will adopt cycling as their primary method of commuting. However, many North American roads were not designed with cyclists in mind; some roads do not have any bike lanes to speak of, and many of those that do are nothing more than additional paint on an already narrow lane-way. Naturally, a combined road where multi-ton vehicles are speeding past cyclists is a breeding ground for grave bodily injury to cyclists, and leaves the opportunity for motorists to commit hit-and-run crimes.
+Cycling is an economic mode of transportation which has an extremely low carbon footprint. As North America pursues greener goals, it is expected that more people will adopt cycling as their primary method of transportation. However, many North American roads were not designed with cyclists in mind; some roads do not have any bike lanes to speak of, and many of those that do are nothing more than additional paint on an already narrow lane-way. Naturally, a combined road where multi-ton vehicles are speeding past cyclists is a recipe for disaster. When vehicles impact cyclists, the mismatch in size and mass may result in a cyclist's serious injury or even death. Evidently, any means to improve the safety of cyclists before, during, and after a crash is of vital importance to all who share the road, and more specifically those who travel by bicycle.
 
 ## 2. Goals
 
