@@ -1,12 +1,3 @@
-<style>
-    h1  {font-family: Verdana, sans-serif, font-size: 20px;}
-    h2  {font-family: Verdana, sans-serif, font-size: 18px;}
-    h3  {font-family: Verdana, sans-serif, font-size: 16px;}
-    h4  {font-family: Verdana, sans-serif, font-size: 14px;}
-    p   {font-family: Arial, sans-serif, font-size: 12px;}
-    a   {color: white;}
-</style>
-
 <!--Title Page-->
 <div style="text-align: center;"> 
     <h1 id="Document_Title">Software Requirements Specification for Cyclops:</h1>
