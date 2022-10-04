@@ -1,14 +1,15 @@
 <!--Title Page-->
 <div style="text-align: center;"> 
     <h1 id="Document_Title">Software Requirements Specification for Cyclops:</h1>
-    <div id="Document Description">Real-time bicycle crash detection and blindspot monitoring</div>
-    <p id="Author_Info">
+    <h2 id="Document Description">Real-time bicycle crash detection and blindspot monitoring</h2>
+    <h4 id="Group_Info">Group 9</h4>
+    <h4 id="Author_Info">
         Aaron Li    - lia79     <br>
         Amos Cheung - cheuny2   <br>
         Amos Yu     - yua25     <br>
         Brian Le    - leb7      <br>
         Manny Lemos - lemosm1   <br>
-    </p>
+    </h4>
 </div>
 
 <!--Page Break-->
@@ -16,145 +17,100 @@
 
 <!-- Table of Contents-->
 # Table of Contents <!-- omit in toc -->
-- [1 Reference Material](#1-reference-material)
-  - [1.1 Table of Units](#11-table-of-units)
-  - [1.2 Table of Symbols](#12-table-of-symbols)
-  - [1.3 Abbreviations and Acronyms](#13-abbreviations-and-acronyms)
-  - [1.4 Mathematical Notation](#14-mathematical-notation)
-- [2 Introduction](#2-introduction)
-  - [2.1 Purpose of Document](#21-purpose-of-document)
-  - [2.2 Scope of Requirements](#22-scope-of-requirements)
-  - [2.3 Characteristics of Intended Reader](#23-characteristics-of-intended-reader)
-  - [2.4 Organization of Document](#24-organization-of-document)
-- [3 General System Description](#3-general-system-description)
-  - [3.1 System Context](#31-system-context)
-  - [3.2 User Characteristics](#32-user-characteristics)
-  - [3.3 System Constraints](#33-system-constraints)
-- [4 Specific System Description](#4-specific-system-description)
-  - [4.1 Problem Description](#41-problem-description)
-    - [4.1.1 Terminology and Definitions](#411-terminology-and-definitions)
-    - [4.1.2 Physical System Description](#412-physical-system-description)
-    - [4.1.3 Goal Statements](#413-goal-statements)
-  - [4.2. Solution Characteristics Specification](#42-solution-characteristics-specification)
-    - [4.2.1. Assumptions](#421-assumptions)
-    - [4.2.2 Theoretical Models](#422-theoretical-models)
-    - [4.2.3 General Definitions](#423-general-definitions)
-    - [4.2.4 Data Definitions](#424-data-definitions)
-    - [4.2.5 Data Types](#425-data-types)
-    - [4.2.6 Instance Models](#426-instance-models)
-    - [4.2.7 Input Data Constraints](#427-input-data-constraints)
-    - [4.2.8 Properties of a Correct Solution](#428-properties-of-a-correct-solution)
-- [5 Requirements](#5-requirements)
-  - [5.1 Functional Requirements](#51-functional-requirements)
-  - [5.2 Nonfunctional Requirements](#52-nonfunctional-requirements)
-- [6 Likely Changes](#6-likely-changes)
-- [7 Unlikely Changes](#7-unlikely-changes)
-- [8 Traceability Matrices and Graphs](#8-traceability-matrices-and-graphs)
-- [9 Development Plan](#9-development-plan)
-- [10 Values of Auxiliary Constants](#10-values-of-auxiliary-constants)
+- [1 Revisions](#1-revisions)
+- [2 Project Drivers](#2-project-drivers)
+  - [2.1 Project Purpose](#21-project-purpose)
+  - [2.2 Project Scope](#22-project-scope)
+  - [2.3 Typical Operations Overview](#23-typical-operations-overview)
+  - [2.4 Project Stakeholders](#24-project-stakeholders)
+  - [2.5 Product Users](#25-product-users)
+- [3 Project Constraints](#3-project-constraints)
+  - [3.1 Mandated Constraints](#31-mandated-constraints)
+  - [3.2 Naming Conventions and Definitions](#32-naming-conventions-and-definitions)
+  - [3.3 Relevant Facts and Assumptions](#33-relevant-facts-and-assumptions)
+- [4 Context Diagrams](#4-context-diagrams)
+- [5 Functional Decomposition Diagrams](#5-functional-decomposition-diagrams)
+- [6 Functional Requirements](#6-functional-requirements)
+  - [6.1 Scope of Work](#61-scope-of-work)
+  - [6.2 Business Data Model and Data Dictionary](#62-business-data-model-and-data-dictionary)
+  - [6.3 Scope of the Product](#63-scope-of-the-product)
+  - [Functional Requirements](#functional-requirements)
+- [7 Non-Functional Requirements](#7-non-functional-requirements)
+  - [7.1 Look and Feel Requirements](#71-look-and-feel-requirements)
+  - [7.2 Usability and Humanity Requirements](#72-usability-and-humanity-requirements)
+  - [7.3 Performance Requirements](#73-performance-requirements)
+  - [7.4 Optional and Environmental Requirements](#74-optional-and-environmental-requirements)
+  - [7.5 Maintainability and Support Requirements](#75-maintainability-and-support-requirements)
+  - [7.6 Security Requirements](#76-security-requirements)
+  - [7.7 Cultural and Political Requirements](#77-cultural-and-political-requirements)
+  - [7.8 Legal Requirements](#78-legal-requirements)
+- [8 Project Issues](#8-project-issues)
+  - [8.1 Open Issues](#81-open-issues)
+  - [8.2 Off-the-shelf Solutions](#82-off-the-shelf-solutions)
+  - [8.3 Risks](#83-risks)
+  - [8.4 Tasks](#84-tasks)
 
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
 
 <!--Revision History-->
-<p id="Revision_History">
-    Table 1: Revision History
-    <table style="width: 100%; text-align: left;">
-        <tr>
-            <th>Date</th>
-            <th>Developer(s)</th>
-            <th>Change</th>
-        </tr>
-        <tr>
-            <td>2022-10-03</th>
-            <td>Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos</th>
-            <td>Document Created</th>
-        </tr>
-    </table>
-</p>
+## 1 Revisions
+<table style="width: 100%; text-align: left;">
+    <tr>
+        <th>Date</th>
+        <th>Developer(s)</th>
+        <th>Change</th>
+    </tr>
+    <tr>
+        <td>2022-10-03</th>
+        <td>Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos</th>
+        <td>Document Created</th>
+    </tr>
+</table>
 
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
 
-## 1 Reference Material
-This section records information for easy reference.
-### 1.1 Table of Units
+## 2 Project Drivers
+### 2.1 Project Purpose
 add content
-### 1.2 Table of Symbols
+### 2.2 Project Scope
 add content
-### 1.3 Abbreviations and Acronyms
+### 2.3 Typical Operations Overview
 add content
-### 1.4 Mathematical Notation
+### 2.4 Project Stakeholders
 add content
+### 2.5 Product Users
+add content
+## 3 Project Constraints
+add content
+### 3.1 Mandated Constraints
+add content
+### 3.2 Naming Conventions and Definitions
+add content
+### 3.3 Relevant Facts and Assumptions
+add content
+## 4 Context Diagrams
+## 5 Functional Decomposition Diagrams
+## 6 Functional Requirements
+### 6.1 Scope of Work
+### 6.2 Business Data Model and Data Dictionary
+### 6.3 Scope of the Product
+### Functional Requirements
+## 7 Non-Functional Requirements
+### 7.1 Look and Feel Requirements
+### 7.2 Usability and Humanity Requirements
+### 7.3 Performance Requirements
+### 7.4 Optional and Environmental Requirements
+### 7.5 Maintainability and Support Requirements
+### 7.6 Security Requirements
+### 7.7 Cultural and Political Requirements
+### 7.8 Legal Requirements
+## 8 Project Issues
+### 8.1 Open Issues
+### 8.2 Off-the-shelf Solutions
+### 8.3 Risks
+### 8.4 Tasks
 
-## 2 Introduction
-add content
-### 2.1 Purpose of Document
-add content
-### 2.2 Scope of Requirements
-add content
-### 2.3 Characteristics of Intended Reader
-add content
-### 2.4 Organization of Document
-add content
 
-## 3 General System Description
-add content
-### 3.1 System Context
-add content
-### 3.2 User Characteristics
-add content
-### 3.3 System Constraints
-add content
-
-## 4 Specific System Description
-add content
-### 4.1 Problem Description
-add content
-#### 4.1.1 Terminology and Definitions
-add content
-#### 4.1.2 Physical System Description
-add content
-#### 4.1.3 Goal Statements
-add content
-### 4.2. Solution Characteristics Specification
-add content
-#### 4.2.1. Assumptions
-add content
-#### 4.2.2 Theoretical Models
-add content
-#### 4.2.3 General Definitions
-add content
-#### 4.2.4 Data Definitions
-add content
-#### 4.2.5 Data Types
-add content
-#### 4.2.6 Instance Models
-add content
-#### 4.2.7 Input Data Constraints
-add content
-#### 4.2.8 Properties of a Correct Solution
-add content
-
-## 5 Requirements
-add content
-### 5.1 Functional Requirements
-add content
-### 5.2 Nonfunctional Requirements
-add content
-
-## 6 Likely Changes
-add content
-
-## 7 Unlikely Changes
-add content
-
-## 8 Traceability Matrices and Graphs
-add content
-
-## 9 Development Plan
-add content
-
-## 10 Values of Auxiliary Constants
-add content
 
