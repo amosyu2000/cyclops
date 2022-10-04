@@ -1,7 +1,7 @@
 <!--Title Page-->
 <div style="text-align: center;"> 
     <h1 id="Document_Title">Software Requirements Specification for Cyclops:</h1>
-    <h2 id="Document Description">Real-time bicycle crash detection and blindspot monitoring</h2>
+    <div id="Document Description">Real-time bicycle crash detection and blindspot monitoring</div>
     <p id="Author_Info">
         Aaron Li    - lia79     <br>
         Amos Cheung - cheuny2   <br>
@@ -15,43 +15,43 @@
 <div style="page-break-after: always;"></div>
 
 <!-- Table of Contents-->
-# Table of Contents
-- [**1 Reference Material**](#1)
-  - [1.1 Table of Units](#1.1)
-  - [1.2 Table of Symbols](#1.2)
-  - [1.3 Abbreviations and Acronyms](#1.3)
-  - [1.4 Mathematical Notation](#1.4)
-- [**2 Introduction**](#2) <br>
-  - [2.1 Purpose of Document](#2.1)
-  - [2.2 Scope of Requirements](#2.2)
-  - [2.3 Characteristics of Intended Reader](#2.3)
-  - [2.4 Organization of Document](#2.4)
-- [**3 General System Description**](#3)
-  - [3.1 System Context](#3.1)
-  - [3.2 User Characteristics](#3.2)
-  - [3.3 System Constraints](#3.3)
-- [**4 Specific System Description**](#4)
-  - [4.1 Problem Description](#4.1)
-    - [4.1.1 Terminology and Definitions](#4.1.1)
-    - [4.1.2 Theoretical Models](#4.1.2)
-    - [4.1.3 Goal Statements](#4.1.3)
-  - [4.2 Solution Characteristics Specification](#4.2)
-    - [4.2.1 Assumptions](#4.2.1)
-    - [4.2.2 Theoretical Models](#4.2.2)
-    - [4.2.3 General Definitions](#4.2.3)
-    - [4.2.4 Data Definitions](#4.2.4)
-    - [4.2.5 Data Types](#4.2.5)
-    - [4.2.6 Instance Models](#4.2.6)
-    - [4.2.7 Input Data Constraints](#4.2.7)
-    - [4.2.8 Properties of a Correct Solution](#4.2.8)
-- [**5 Requirements**](#5)
-  - [5.1 Functional Requirements](#5.1)
-  - [5.2 Nonfunctional Requirements](#5.2)
-- [**6 Likely Changes**](#6)
-- [**7 Unlikely Changes**](#7)
-- [**8 Traceability Matrices and Graphs**](#8)
-- [**9 Development Plan**](#9)
-- [**10 Values of Auxiliary Constants**](#10)
+# Table of Contents <!-- omit in toc -->
+- [1 Reference Material](#1-reference-material)
+  - [1.1 Table of Units](#11-table-of-units)
+  - [1.2 Table of Symbols](#12-table-of-symbols)
+  - [1.3 Abbreviations and Acronyms](#13-abbreviations-and-acronyms)
+  - [1.4 Mathematical Notation](#14-mathematical-notation)
+- [2 Introduction](#2-introduction)
+  - [2.1 Purpose of Document](#21-purpose-of-document)
+  - [2.2 Scope of Requirements](#22-scope-of-requirements)
+  - [2.3 Characteristics of Intended Reader](#23-characteristics-of-intended-reader)
+  - [2.4 Organization of Document](#24-organization-of-document)
+- [3 General System Description](#3-general-system-description)
+  - [3.1 System Context](#31-system-context)
+  - [3.2 User Characteristics](#32-user-characteristics)
+  - [3.3 System Constraints](#33-system-constraints)
+- [4 Specific System Description](#4-specific-system-description)
+  - [4.1 Problem Description](#41-problem-description)
+    - [4.1.1 Terminology and Definitions](#411-terminology-and-definitions)
+    - [4.1.2 Physical System Description](#412-physical-system-description)
+    - [4.1.3 Goal Statements](#413-goal-statements)
+  - [4.2. Solution Characteristics Specification](#42-solution-characteristics-specification)
+    - [4.2.1. Assumptions](#421-assumptions)
+    - [4.2.2 Theoretical Models](#422-theoretical-models)
+    - [4.2.3 General Definitions](#423-general-definitions)
+    - [4.2.4 Data Definitions](#424-data-definitions)
+    - [4.2.5 Data Types](#425-data-types)
+    - [4.2.6 Instance Models](#426-instance-models)
+    - [4.2.7 Input Data Constraints](#427-input-data-constraints)
+    - [4.2.8 Properties of a Correct Solution](#428-properties-of-a-correct-solution)
+- [5 Requirements](#5-requirements)
+  - [5.1 Functional Requirements](#51-functional-requirements)
+  - [5.2 Nonfunctional Requirements](#52-nonfunctional-requirements)
+- [6 Likely Changes](#6-likely-changes)
+- [7 Unlikely Changes](#7-unlikely-changes)
+- [8 Traceability Matrices and Graphs](#8-traceability-matrices-and-graphs)
+- [9 Development Plan](#9-development-plan)
+- [10 Values of Auxiliary Constants](#10-values-of-auxiliary-constants)
 
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
@@ -76,107 +76,85 @@
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
 
-<!--Section 1: Reference Materials-->
-<h2 id="1">1 Reference Material</h2>
-    <p>This section records information for easy reference.</p>
-    <h3 id="1.1">1.1 Table of Units</h3>
-        <p>add content</p>
-    <h3 id="1.2">1.2 Table of Symbols</h3>
-        <p>add content</p>
-    <h3 id="1.3">1.3 Abbreviations and Acronyms</h3>
-        <p>add content</p>
-    <h3 id="1.4">1.4 Mathematical Notation</h3>
-        <p>add content</p>
+## 1 Reference Material
+This section records information for easy reference.
+### 1.1 Table of Units
+add content
+### 1.2 Table of Symbols
+add content
+### 1.3 Abbreviations and Acronyms
+add content
+### 1.4 Mathematical Notation
+add content
 
-<br>
+## 2 Introduction
+add content
+### 2.1 Purpose of Document
+add content
+### 2.2 Scope of Requirements
+add content
+### 2.3 Characteristics of Intended Reader
+add content
+### 2.4 Organization of Document
+add content
 
-<!--Section 2: Introduction-->
-<h2 id="2">2 Introduction</h2>
-    <p>add content</p>
-<h3 id="2.1">2.1 Purpose of Document</h3>
-    <p>add content</p>
-<h3 id="2.2">2.2 Scope of Requirements</h3>
-    <p>add content</p>
-<h3 id="2.3">2.3 Characteristics of Intended Reader</h3>
-    <p>add content</p>
-<h3 id="2.4">2.4 Organization of Document</h3>
-    <p>add content</p>
+## 3 General System Description
+add content
+### 3.1 System Context
+add content
+### 3.2 User Characteristics
+add content
+### 3.3 System Constraints
+add content
 
-<br>
+## 4 Specific System Description
+add content
+### 4.1 Problem Description
+add content
+#### 4.1.1 Terminology and Definitions
+add content
+#### 4.1.2 Physical System Description
+add content
+#### 4.1.3 Goal Statements
+add content
+### 4.2. Solution Characteristics Specification
+add content
+#### 4.2.1. Assumptions
+add content
+#### 4.2.2 Theoretical Models
+add content
+#### 4.2.3 General Definitions
+add content
+#### 4.2.4 Data Definitions
+add content
+#### 4.2.5 Data Types
+add content
+#### 4.2.6 Instance Models
+add content
+#### 4.2.7 Input Data Constraints
+add content
+#### 4.2.8 Properties of a Correct Solution
+add content
 
-<!--Section 3: General System Description-->
-<h2 id="3">3 General System Description</h2>
-    <p>add content</p>
-<h3 id="3.1">3.1 System Context</h3>
-    <p>add content</p>
-<h3 id="3.2">3.2 User Characteristics</h3>
-    <p>add content</p>
-<h3 id="3.3">3.3 System Constraints</h3>
-    <p>add content</p>
+## 5 Requirements
+add content
+### 5.1 Functional Requirements
+add content
+### 5.2 Nonfunctional Requirements
+add content
 
-<br>
+## 6 Likely Changes
+add content
 
-<!--Section 4: Specific System Description-->
-<h2 id="4">4 Specific System Description</h2>
-    <p>add content</p>
-<h3 id="4.1">4.1 Problem Description</h3>
-    <p>add content</p>
-<h4 id="4.1.1">4.1.1 Terminology and Definitions</h4>
-    <p>add content</p>
-<h4 id="4.1.2">4.1.2 Physical System Description</h4>
-    <p>add content</p>
-<h4 id="4.1.3">4.1.3 Goal Statements<h4>
-    <p>add content</p>
-<h3 id="4.2">4.2. Solution Characteristics Specification</h3>
-    <p>add content</p>
-<h4 id="4.2.1">4.2.1. Assumptions</h4>
-    <p>add content</p>
-<h4 id="4.2.2">4.2.2 Theoretical Models</h4>
-    <p>add content</p>
-<h4 id="4.2.3">4.2.3 General Definitions</h4>
-    <p>add content</p>
-<h4 id="4.2.4">4.2.4 Data Definitions</h4>
-    <p>add content</p>
-<h4 id="4.2.5">4.2.5 Data Types</h4>
-    <p>add content</p>
-<h4 id="4.2.6">4.2.6 Instance Models</h4>
-    <p>add content</p>
-<h4 id="4.2.7">4.2.7 Input Data Constraints</h4>
-    <p>add content</p>
-<h4 id="4.2.8">4.2.8 Properties of a Correct Solution</h4>
-    <p>add content</p>
+## 7 Unlikely Changes
+add content
 
-<br>
+## 8 Traceability Matrices and Graphs
+add content
 
-<h2 id="5">5 Requirements</h2>
-    <p>add content</p>
-<h3 id="5.1">5.1 Functional Requirements</h3>
-    <p>add content</p>
-<h3 id="5.2">5.2 Nonfunctional Requirements</h3>
-    <p>add content</p>
+## 9 Development Plan
+add content
 
-<br>
-
-<h2 id="6">6 Likely Changes</h2>
-    <p>add content</p>
-
-<br>
-
-<h2 id="7">7 Unlikely Changes</h2>
-    <p>add content</p>
-
-<br>
-
-<h2 id="8">8 Traceability Matrices and Graphs</h2>
-    <p>add content</p>
-
-<br>
-
-<h2 id="9">9 Development Plan</h2>
-    <p>add content</p>
-
-<br>
-
-<h2 id="10">10 Values of Auxiliary Constants</h2>
-    <p>add content</p>
+## 10 Values of Auxiliary Constants
+add content
 
