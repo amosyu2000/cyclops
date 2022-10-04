@@ -76,7 +76,7 @@
 add content
 ### 2.2 Project Scope
 add content
-### 2.3 Typical Operations Overview
+### 2.3 Behaviour Overview
 add content
 ### 2.4 Project Stakeholders
 add content
@@ -96,21 +96,25 @@ add content
 ### 6.1 Scope of Work
 ### 6.2 Business Data Model and Data Dictionary
 ### 6.3 Scope of the Product
-### Functional Requirements
+### 6.4 Functional Requirements
 ## 7 Non-Functional Requirements
 ### 7.1 Look and Feel Requirements
 ### 7.2 Usability and Humanity Requirements
 ### 7.3 Performance Requirements
-### 7.4 Optional and Environmental Requirements
-### 7.5 Maintainability and Support Requirements
-### 7.6 Security Requirements
-### 7.7 Cultural and Political Requirements
-### 7.8 Legal Requirements
+### 7.4 Operational Requirements
+### 7.5 Optional and Environmental Requirements
+### 7.6 Maintainability and Support Requirements
+### 7.7 Security Requirements
+### 7.8 Cultural and Political Requirements
+### 7.9 Legal Requirements
+
 ## 8 Project Issues
 ### 8.1 Open Issues
-### 8.2 Off-the-shelf Solutions
+### 8.2 Off-the-Shelf Solutions
 ### 8.3 Risks
 ### 8.4 Tasks
 
-
+## 9 Changes
+### 9.1 Likely Changes
+### 9.2 Unlikely Changes
 
