@@ -79,6 +79,8 @@
 - [8 Project Issues](#8-project-issues)
   - [8.1 Open Issues](#81-open-issues)
   - [8.2 Off-the-Shelf Solutions](#82-off-the-shelf-solutions)
+    - [INNOVV ThirdEYE](#innovv-thirdeye)
+    - [Senzar Motorcycle Sensor](#senzar-motorcycle-sensor)
   - [8.3 Risks](#83-risks)
   - [8.4 Costs](#84-costs)
 - [9 Changes](#9-changes)
@@ -116,16 +118,21 @@
 
 ## 2 Project Drivers
 ### 2.1 Project Purpose
-add content
-### 2.2 Project Scope
-add content
-### 2.3 Behaviour Overview
-add content
-### 2.4 Project Stakeholders
-add content
-### 2.5 Product Users
-add content
+The purpose of this project is to create a system that helps cyclists to have a more secured experience especially on roads without bike lanes.
 
+Cyclops Ride Assist (CRA) is going to be an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bike, such as blind spot detection and crash detection. The system will also have a built in headlamp that will illuminate during night time, not just for the cyclist to see but also for cars around to realize the bike. 
+### 2.2 Project Scope
+CRA is going to be a bike assist system with convenient mounting, accurate crash detection, video buffering and saving, reliable blindspot monitoring and a user controlled headlamp that helps cyclist to have a peace of mind while riding on the road. Although CRA is primarily targeted towards road cyclists, it will able be useful for cyclists who ride on mountains or trails.
+### 2.3 Behaviour Overview
+The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will store the past five minutes of footage so the user can look back at the events leading up to the crash. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an indicator. The system also has a headlamp that is easily switched on and off for dark environment.
+### 2.4 Project Stakeholders
+The project stakeholders are as follows:  
+- The project proposers (Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos)
+- The project supervisor (Dr Spencer Smith)
+- The teaching assistants (Nicholas Annable)
+- The user (cyclist)
+### 2.5 Product Users
+The user will be all cyclists.
 ## 3 Project Constraints
 add content
 ### 3.1 Mandated Constraints
