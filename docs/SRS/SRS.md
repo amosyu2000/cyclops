@@ -1,6 +1,6 @@
 <!--Title Page-->
 <div style="text-align: center;"> 
-    <h1 id="Document_Title">Software Requirements Specification for Cyclops:</h1>
+    <h1 id="Document_Title">Software Requirements Specification for Cyclops Ride Assist</h1>
     <h2 id="Document Description">Real-time bicycle crash detection and blindspot monitoring</h2>
     <h4 id="Group_Info">Group 9</h4>
     <h4 id="Author_Info">
@@ -16,7 +16,7 @@
 <div style="page-break-after: always;"></div>
 
 <!-- Table of Contents-->
-# Table of Contents <!-- omit in toc -->
+## Table of Contents <!-- omit in toc -->
 - [1 Revisions](#1-revisions)
 - [2 Project Drivers](#2-project-drivers)
   - [2.1 Project Purpose](#21-project-purpose)
@@ -85,14 +85,13 @@
   - [9.1 Likely Changes](#91-likely-changes)
   - [9.2 Unlikely Changes](#92-unlikely-changes)
 
-# List of Tables <!-- omit in toc -->
+## List of Tables <!-- omit in toc -->
 
-# List of Figures <!-- omit in toc -->
+## List of Figures <!-- omit in toc -->
 - [Figure 4.1: CRA System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
 - [Figure 5.1: CRA Functional Decomposition Diagram](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
 - [Figure 5.2: CRA Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
 - [Figure 5.3: Legend for the CRA Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
-
 
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
@@ -149,6 +148,11 @@ Real time analysis and response is an integral component of the cyclops ride ass
 
 ### 3.2 Naming Conventions and Definitions
 #### 3.2.1 Naming Conventions
+Client: see User.  
+CRA: abbreviation for Cyclops Ride Assist.  
+Cyclist: a person who operates a bicycle as a means of transportation.  
+User: a person who will operate the final product. See Cyclist.  
+
 #### 3.2.2 Constants
 - Gravity = 9.81 m/s<sup>2</sup>
 #### 3.2.3 Monitored Variables
