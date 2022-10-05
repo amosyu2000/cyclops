@@ -207,6 +207,16 @@ Figure 5.3: Legend for the CRA Data Flow Diagram
 ### 6.2 Business Data Model and Data Dictionary
 ### 6.3 Scope of the Product
 ### 6.4 Functional Requirements
+<table style="width: 100%; text-align: left;">
+    <tr>
+        <th>AF1</th>
+        <th>Developer(s)</th>
+    </tr>
+    <tr>
+        <td>Rationale</th>
+        <td>Aaron Li, Amos s</th>
+    </tr>
+</table>
 ## 7 Non-Functional Requirements
 ### 7.1 Look and Feel Requirements
 #### 7.1.1 Appearance Requirements 
