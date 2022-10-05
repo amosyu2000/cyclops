@@ -5,6 +5,4 @@ products>
 
 The folders and files for this folder are as follows:
 
-Describe ...
-
-Only one of the CA or SRS document should be completed
+SRS.md - This file is the Software Requirements Specification for Cyclops.

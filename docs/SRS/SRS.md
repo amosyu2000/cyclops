@@ -103,21 +103,65 @@ add content
 ### 6.4 Functional Requirements
 ## 7 Non-Functional Requirements
 ### 7.1 Look and Feel Requirements
+#### 7.1.1 Appearance Requirements 
+#### 7.1.2 Style Requirements 
 ### 7.2 Usability and Humanity Requirements
+#### 7.2.1 Ease of Use Requirements 
+#### 7.2.2 Personalization and Internationalization Requirements
+#### 7.2.3 Learning Requirements 
+#### 7.2.4 Understandability and Politeness Requirements 
+#### 7.2.5 Accessibility Requirements 
 ### 7.3 Performance Requirements
-### 7.4 Operational Requirements
-### 7.5 Optional and Environmental Requirements
-### 7.6 Maintainability and Support Requirements
-### 7.7 Security Requirements
-### 7.8 Cultural and Political Requirements
-### 7.9 Legal Requirements
+#### 7.3.1 Speed and Latency Requirements 
+#### 7.3.2 Safety-Critical Requirements 
+#### 7.3.3 Precision and Accuracy Requirements 
+#### 7.3.4 Reliability and Availability Requirements 
+#### 7.3.5 Robustness or Fault-Tolerance Requirements 
+#### 7.3.6 Capacity Requirements 
+#### 7.3.7 Scalability and Extensibility Requirements 
+#### 7.3.8 Longevity Requirements 
+### 7.4 Optional and Environmental Requirements
+#### 7.4.1 Expected Physical Environemnt 
+#### 7.4.2 Environmental Impact Requirements
+### 7.5 Maintainability and Support Requirements
+#### 7.5.1 Change Requirements
+#### 7.5.2 Requirements for Interfacing with Adjacent Systems
+#### 7.5.3 Productization Requirements 
+#### 7.5.4 Release Requirements 
+#### 7.5.5 Longevity Requirements 
+### 7.6 Security Requirements
+#### 7.6.1 Privacy Requirements
+#### 7.6.1 Privacy Requirements
 
+### 7.7 Cultural and Political Requirements
+#### 7.7.1  Requirements
+
+### 7.8 Legal Requirements
+### 7.8.1 Legal Release Requirements
 ## 8 Project Issues
 ### 8.1 Open Issues
+1.) Creating accurate documentation for the system specifications.
+2.) Starting to develop the software, purchasing some hardware to begin system creation.
 ### 8.2 Off-the-Shelf Solutions
-### 8.3 Risks
-### 8.4 Tasks
+#### INNOVV ThirdEYE
+INNOVV ThirdEYE is a blindspot detection system for motorcycles that uses sensors to determine if there are any objects close to the user. It can be either used through a mirror lens or a watch. 
+https://www.innovv.com/innovv-thirdeye
+#### Senzar Motorcycle Sensor
+The Senzar Motorcycle Sensor is another system that uses LEDs, vibration, and radar sensors. 
+https://meetsenzar.com/pages/senzar-m1-motorcycle-bsm
 
+### 8.3 Risks
+1.) Components (sensor, camera) will deteriorate over time, leading to inaccuracies.
+2.) Components can be damaged in case of a cycle crash.
+3.) Incorrect image (car vs a tree) is read through Computer Vision, leading to inaccuracies.
+4.) Storage space is exceeded or becomes corrupted.
+### 8.4 Costs
+1.) Raspberry PI Robot
+2.) Sensors
+3.) Cameras
+4.) 3D Printed Mount and Storage System
+5.) Cables/Wires
+6.) Bicycle
 ## 9 Changes
 ### 9.1 Likely Changes
 ### 9.2 Unlikely Changes
