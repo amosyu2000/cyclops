@@ -207,17 +207,37 @@ Figure 5.3: Legend for the CRA Data Flow Diagram
 ### 6.2 Business Data Model and Data Dictionary
 ### 6.3 Scope of the Product
 ### 6.4 Functional Requirements
-The following are functional requirements for Cyclops. They will be seperated into 3 main components: Microcontroller, Blindspot, Crash Detection.
+The following are functional requirements for CRA. They will be seperated into 3 main components: Microcontroller, Blindspot, Crash Detection.
 
 #### 6.4.1 Microcontroller Requirements
-<table style="width: 100%; text-align: left;">
+<table style="text-align: left;">
     <tr>
         <th>AF1</th>
-        <th>Developer(s)</th>
+        <th>CRA must be able to light up LED when a close car/vehicle is recognized</th>
     </tr>
     <tr>
         <td>Rationale</th>
-        <td>Aaron Li, Amos s</th>
+        <td>CRA should be able to visually inform the rider that there is a car in their blindspot</th>
+    </tr>
+</table>
+<table style="text-align: left;">
+    <tr>
+        <th>AF2</th>
+        <th>CRA must be able to take in live video feed of users blindspot</th>
+    </tr>
+    <tr>
+        <td>Rationale</th>
+        <td>CRA needs the live feed inorder for its computer vision to detect vehicles and for video logging from the crash detection</th>
+    </tr>
+</table>
+<table style="text-align: left;">
+    <tr>
+        <th>AF3</th>
+        <th>CRA must be able to take in accurate acceleration information</th>
+    </tr>
+    <tr>
+        <td>Rationale</th>
+        <td>CRA needs the accurate acceleration to determine when a crash has occured</th>
     </tr>
 </table>
 
@@ -233,10 +253,10 @@ The following are functional requirements for Cyclops. They will be seperated in
     </tr>
 </table>
 
-#### 6.4.2 Crash Detection Requirements
+#### 6.4.3 Crash Detection Requirements
 <table style="width: 100%; text-align: left;">
     <tr>
-        <th>AF3</th>
+        <th>AF3weofwoefjwofjweo</th>
         <th>Developer(s)</th>
     </tr>
     <tr>
