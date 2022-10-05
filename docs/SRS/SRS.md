@@ -77,15 +77,17 @@
 
 ## 2 Project Drivers
 ### 2.1 Project Purpose
-add content
+The purpose of this project is to create a system that helps cyclist to have a more secrued experience especially on roads without bike lans.
+
+Cyclops Ride Assist (CRA) is going to be an all in one easily mountable and setup system that add modern car safety featues onto a bike, such as blind spot detection and crash detection using computer vision and sesnors. The system will also have a built in headlamp that will illuminate during night time not just for the cyclist to see but also cars around to realize the bike. 
 ### 2.2 Project Scope
-add content
+CRA is going to be a convenient mounting system that has accurate crash detection, video buffering and saving, reliable blindspot monitoring and also a user controlled headlamp that helps cyclist to have a peace of mind while riding on the road.
 ### 2.3 Behaviour Overview
-add content
+The user press the power button to turn on CRA. Once it turns on, it will start to record the front point of view of the bike. If a bike crashed is detected, the system will store the past five minutes of footage into the SD card so the user can look back at the events leading up to the crash. Also on the back side of the bike, CRA is using computer vision to detect cars approaching the bike at blind spots and alert the cyclist with an indicator. The system also has a headlamp that is easily switched on and off for dark environment.
 ### 2.4 Project Stakeholders
-add content
+The project stakeholder will be the project proposer (Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos), project supervisor (Dr Spencer Smith), teaching assistants (Nicholas Annable), and user (cyclist).
 ### 2.5 Product Users
-add content
+The user will be all cyclist.
 ## 3 Project Constraints
 add content
 ### 3.1 Mandated Constraints
