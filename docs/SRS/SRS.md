@@ -220,7 +220,7 @@ The following are functional requirements for CRA. They will be seperated into 3
         <td align="left">CRA should be able to visually inform the rider that there is a car in their blindspot</th>
     </tr>
 </table>
-<table style="text-align: left;">
+<table style="text-align: left; borderL 1px solid red">
     <tr>
         <th align="left">AF2</th>
         <th align="left">CRA must be able to take in live video feed of users blindspot</th>
