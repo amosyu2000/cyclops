@@ -212,7 +212,7 @@ The following are functional requirements for CRA. They will be seperated into 3
 #### 6.4.1 Microcontroller Requirements
 <table style="text-align: left;">
     <tr>
-        <th align="left">AF1</th>
+        <th align="left">MF1</th>
         <th align="left">CRA must be able to light up LED when a close car/vehicle is recognized</th>
     </tr>
     <tr>
@@ -222,7 +222,7 @@ The following are functional requirements for CRA. They will be seperated into 3
 </table>
 <table style="text-align: left;">
     <tr>
-        <th align="left">AF2</th>
+        <th align="left">MF2</th>
         <th align="left">CRA must be able to take in live video feed of users blindspot</th>
     </tr>
     <tr>
@@ -232,7 +232,7 @@ The following are functional requirements for CRA. They will be seperated into 3
 </table>
 <table style="text-align: left">
     <tr>
-        <th align="left">AF3</th>
+        <th align="left">MF3</th>
         <th align="left">CRA must be able to take in accurate acceleration information</th>
     </tr>
     <tr>
@@ -264,6 +264,9 @@ The following are functional requirements for CRA. They will be seperated into 3
         <td>Aaron Li, Amos s</th>
     </tr>
 </table>
+| afsafdsafdsfdsf | Developers() |
+|---|---|
+|test | tset |
 <table style="width: 100%; text-align: left;">
     <tr>
         <th>AF4</th>
