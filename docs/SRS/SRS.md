@@ -217,6 +217,36 @@ Figure 5.3: Legend for the CRA Data Flow Diagram
         <td>Aaron Li, Amos s</th>
     </tr>
 </table>
+<table style="width: 100%; text-align: left;">
+    <tr>
+        <th>AF2</th>
+        <th>Developer(s)</th>
+    </tr>
+    <tr>
+        <td>Rationale</th>
+        <td>Aaron Li, Amos s</th>
+    </tr>
+</table>
+<table style="width: 100%; text-align: left;">
+    <tr>
+        <th>AF3</th>
+        <th>Developer(s)</th>
+    </tr>
+    <tr>
+        <td>Rationale</th>
+        <td>Aaron Li, Amos s</th>
+    </tr>
+</table>
+<table style="width: 100%; text-align: left;">
+    <tr>
+        <th>AF4</th>
+        <th>Developer(s)</th>
+    </tr>
+    <tr>
+        <td>Rationale</th>
+        <td>Aaron Li, Amos s</th>
+    </tr>
+</table>
 ## 7 Non-Functional Requirements
 ### 7.1 Look and Feel Requirements
 #### 7.1.1 Appearance Requirements 
