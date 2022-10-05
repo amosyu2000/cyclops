@@ -143,8 +143,18 @@ Real time analysis and response is an integral component of the cyclops ride ass
 #### 3.2.2 Constants
 - Gravity = 9.81 m/s<sup>2</sup>
 #### 3.2.3 Monitored Variables
-
+| Monitor Name | Monitor Description                                                                            | Monitor Type | Units  |
+|--------------|------------------------------------------------------------------------------------------------|--------------|--------|
+| αx           | Measures acceleration parallel to the path of  the bicycle.                                    | acceleration | m/s2   |
+| αy           | Measures acceleration perpendicular to the path of  the bicycle along the plane of the ground. | acceleration | m/s2   |
+| αz           | Measures acceleration in the vertical direction.                                               | acceleration | m/s2   |
+| tilt         | Measures the vertical tilt of the system relative to a calibrated absolute level.              | rotation     | rad    |
+| vfront       | Video feed from the front facing camera.                                                       | Video        | N/A    |
+| vrear        | Video feed from the rear facing camera.                                                        | Video        | N/A    |
 #### 3.2.4 Controlled Variables
+| Controlled Name | Controlled Description                             | Controlled Type | Units  |
+|-----------------|----------------------------------------------------|-----------------|--------|
+| led_blind_spot  | Indicates a vehicle is in the bicycles blind spot. | Boolean        | N/A    |
 ### 3.3 Relevant Facts and Assumptions  
 #### 3.3.1 Relevant Facts  
 - example fact 1
@@ -163,7 +173,6 @@ The system will not be able to distinguish between parked vehicles, which may ap
 ## 4 Context Diagrams  
 ![System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)
 ## 5 Functional Decomposition Diagrams
-![Functional Decomposition Diagram](https://user-images.githubusercontent.com/46848538/194113559-4d5de21a-f88a-4fbd-b3b5-558473bf8b25.png)
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
 ### 6.2 Business Data Model and Data Dictionary
