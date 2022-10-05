@@ -171,8 +171,11 @@ While on the road, cyclists will abide by traffic laws. This means travelling in
 The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers.  
 
 ## 4 Context Diagrams  
-![System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)
+![System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
 ## 5 Functional Decomposition Diagrams
+![User Diagram](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
+![Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
+![Legend](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
 ### 6.2 Business Data Model and Data Dictionary
@@ -228,17 +231,17 @@ The Senzar Motorcycle Sensor is another system that uses LEDs, vibration, and ra
 https://meetsenzar.com/pages/senzar-m1-motorcycle-bsm
 
 ### 8.3 Risks
-1.) Components (sensor, camera) will deteriorate over time, leading to inaccuracies.
-2.) Components can be damaged in case of a cycle crash.
-3.) Incorrect image (car vs a tree) is read through Computer Vision, leading to inaccuracies.
-4.) Storage space is exceeded or becomes corrupted.
+1. Components (sensor, camera) will deteriorate over time, leading to inaccuracies.
+2. Components can be damaged in case of a cycle crash.
+3. Incorrect image (car vs a tree) is read through Computer Vision, leading to inaccuracies.
+4. Storage space is exceeded or becomes corrupted.
 ### 8.4 Costs
-1.) Raspberry PI Robot
-2.) Sensors
-3.) Cameras
-4.) 3D Printed Mount and Storage System
-5.) Cables/Wires
-6.) Bicycle
+1. Raspberry PI Robot
+2. Sensors
+3. Cameras
+4. 3D Printed Mount and Storage System
+5. Cables/Wires
+6. Bicycle
 ## 9 Changes
 ### 9.1 Likely Changes
 ### 9.2 Unlikely Changes
