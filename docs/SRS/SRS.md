@@ -85,6 +85,15 @@
   - [9.1 Likely Changes](#91-likely-changes)
   - [9.2 Unlikely Changes](#92-unlikely-changes)
 
+# List of Tables <!-- omit in toc -->
+
+# List of Figures <!-- omit in toc -->
+- [Figure 4.1: CRA System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
+- [Figure 5.1: CRA Functional Decomposition Diagram](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
+- [Figure 5.2: CRA Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
+- [Figure 5.3: Legend for the CRA Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
+
+
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
 
@@ -171,11 +180,15 @@ While on the road, cyclists will abide by traffic laws. This means travelling in
 The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers.  
 
 ## 4 Context Diagrams  
-![System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
+![image](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
+Figure 4.1: CRA System Context Diagram
 ## 5 Functional Decomposition Diagrams
-![User Diagram](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
-![Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
-![Legend](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
+![image](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
+Figure 5.1: CRA Functional Decomposition Diagram  
+![image](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
+Figure 5.2: CRA Data Flow Diagram  
+![image](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
+Figure 5.3: Legend for the CRA Data Flow Diagram  
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
 ### 6.2 Business Data Model and Data Dictionary
@@ -245,4 +258,3 @@ https://meetsenzar.com/pages/senzar-m1-motorcycle-bsm
 ## 9 Changes
 ### 9.1 Likely Changes
 ### 9.2 Unlikely Changes
-
