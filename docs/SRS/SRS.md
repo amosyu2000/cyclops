@@ -37,19 +37,46 @@
   - [6.4 Functional Requirements](#64-functional-requirements)
 - [7 Non-Functional Requirements](#7-non-functional-requirements)
   - [7.1 Look and Feel Requirements](#71-look-and-feel-requirements)
+    - [7.1.1 Appearance Requirements](#711-appearance-requirements)
+    - [7.1.2 Style Requirements](#712-style-requirements)
   - [7.2 Usability and Humanity Requirements](#72-usability-and-humanity-requirements)
+    - [7.2.1 Ease of Use Requirements](#721-ease-of-use-requirements)
+    - [7.2.2 Personalization and Internationalization Requirements](#722-personalization-and-internationalization-requirements)
+    - [7.2.3 Learning Requirements](#723-learning-requirements)
+    - [7.2.4 Understandability and Politeness Requirements](#724-understandability-and-politeness-requirements)
+    - [7.2.5 Accessibility Requirements](#725-accessibility-requirements)
   - [7.3 Performance Requirements](#73-performance-requirements)
-  - [7.4 Operational Requirements](#74-operational-requirements)
-  - [7.5 Optional and Environmental Requirements](#75-optional-and-environmental-requirements)
-  - [7.6 Maintainability and Support Requirements](#76-maintainability-and-support-requirements)
-  - [7.7 Security Requirements](#77-security-requirements)
-  - [7.8 Cultural and Political Requirements](#78-cultural-and-political-requirements)
-  - [7.9 Legal Requirements](#79-legal-requirements)
+    - [7.3.1 Speed and Latency Requirements](#731-speed-and-latency-requirements)
+    - [7.3.2 Safety-Critical Requirements](#732-safety-critical-requirements)
+    - [7.3.3 Precision and Accuracy Requirements](#733-precision-and-accuracy-requirements)
+    - [7.3.4 Reliability and Availability Requirements](#734-reliability-and-availability-requirements)
+    - [7.3.5 Robustness or Fault-Tolerance Requirements](#735-robustness-or-fault-tolerance-requirements)
+    - [7.3.6 Capacity Requirements](#736-capacity-requirements)
+    - [7.3.7 Scalability and Extensibility Requirements](#737-scalability-and-extensibility-requirements)
+    - [7.3.8 Longevity Requirements](#738-longevity-requirements)
+  - [7.4 Optional and Environmental Requirements](#74-optional-and-environmental-requirements)
+    - [7.4.1 Expected Physical Environemnt](#741-expected-physical-environemnt)
+    - [7.4.2 Environmental Impact Requirements](#742-environmental-impact-requirements)
+  - [7.5 Maintainability and Support Requirements](#75-maintainability-and-support-requirements)
+    - [7.5.1 Change Requirements](#751-change-requirements)
+    - [7.5.2 Requirements for Interfacing with Adjacent Systems](#752-requirements-for-interfacing-with-adjacent-systems)
+    - [7.5.3 Productization Requirements](#753-productization-requirements)
+    - [7.5.4 Release Requirements](#754-release-requirements)
+    - [7.5.5 Longevity Requirements](#755-longevity-requirements)
+  - [7.6 Security Requirements](#76-security-requirements)
+    - [7.6.1 Privacy Requirements](#761-privacy-requirements)
+    - [7.6.1 Privacy Requirements](#761-privacy-requirements-1)
+  - [7.7 Cultural and Political Requirements](#77-cultural-and-political-requirements)
+    - [7.7.1  Requirements](#771--requirements)
+  - [7.8 Legal Requirements](#78-legal-requirements)
+  - [7.8.1 Legal Release Requirements](#781-legal-release-requirements)
 - [8 Project Issues](#8-project-issues)
   - [8.1 Open Issues](#81-open-issues)
   - [8.2 Off-the-Shelf Solutions](#82-off-the-shelf-solutions)
+    - [INNOVV ThirdEYE](#innovv-thirdeye)
+    - [Senzar Motorcycle Sensor](#senzar-motorcycle-sensor)
   - [8.3 Risks](#83-risks)
-  - [8.4 Tasks](#84-tasks)
+  - [8.4 Costs](#84-costs)
 - [9 Changes](#9-changes)
   - [9.1 Likely Changes](#91-likely-changes)
   - [9.2 Unlikely Changes](#92-unlikely-changes)
@@ -77,17 +104,21 @@
 
 ## 2 Project Drivers
 ### 2.1 Project Purpose
-The purpose of this project is to create a system that helps cyclist to have a more secrued experience especially on roads without bike lans.
+The purpose of this project is to create a system that helps cyclists to have a more secured experience especially on roads without bike lanes.
 
-Cyclops Ride Assist (CRA) is going to be an all in one easily mountable and setup system that add modern car safety featues onto a bike, such as blind spot detection and crash detection using computer vision and sesnors. The system will also have a built in headlamp that will illuminate during night time not just for the cyclist to see but also cars around to realize the bike. 
+Cyclops Ride Assist (CRA) is going to be an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bike, such as blind spot detection and crash detection. The system will also have a built in headlamp that will illuminate during night time, not just for the cyclist to see but also for cars around to realize the bike. 
 ### 2.2 Project Scope
-CRA is going to be a convenient mounting system that has accurate crash detection, video buffering and saving, reliable blindspot monitoring and also a user controlled headlamp that helps cyclist to have a peace of mind while riding on the road.
+CRA is going to be a bike assist system with convenient mounting, accurate crash detection, video buffering and saving, reliable blindspot monitoring and a user controlled headlamp that helps cyclist to have a peace of mind while riding on the road. Although CRA is primarily targeted towards road cyclists, it will able be useful for cyclists who ride on mountains or trails.
 ### 2.3 Behaviour Overview
-The user press the power button to turn on CRA. Once it turns on, it will start to record the front point of view of the bike. If a bike crashed is detected, the system will store the past five minutes of footage into the SD card so the user can look back at the events leading up to the crash. Also on the back side of the bike, CRA is using computer vision to detect cars approaching the bike at blind spots and alert the cyclist with an indicator. The system also has a headlamp that is easily switched on and off for dark environment.
+The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will store the past five minutes of footage so the user can look back at the events leading up to the crash. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an indicator. The system also has a headlamp that is easily switched on and off for dark environment.
 ### 2.4 Project Stakeholders
-The project stakeholder will be the project proposer (Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos), project supervisor (Dr Spencer Smith), teaching assistants (Nicholas Annable), and user (cyclist).
+The project stakeholders are as follows:  
+- The project proposers (Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos)
+- The project supervisor (Dr Spencer Smith)
+- The teaching assistants (Nicholas Annable)
+- The user (cyclist)
 ### 2.5 Product Users
-The user will be all cyclist.
+The user will be all cyclists.
 ## 3 Project Constraints
 add content
 ### 3.1 Mandated Constraints
