@@ -18,6 +18,24 @@
 <!-- Table of Contents-->
 # Table of Contents <!-- omit in toc -->
 - [1 Revisions](#1-revisions)
+- [2 Project Drivers](#2-project-drivers)
+  - [2.1 Project Purpose](#21-project-purpose)
+  - [2.2 Project Scope](#22-project-scope)
+  - [2.3 Behaviour Overview](#23-behaviour-overview)
+  - [2.4 Project Stakeholders](#24-project-stakeholders)
+  - [2.5 Product Users](#25-product-users)
+- [3 Project Constraints](#3-project-constraints)
+  - [3.1 Mandated Constraints](#31-mandated-constraints)
+  - [3.2 Naming Conventions and Definitions](#32-naming-conventions-and-definitions)
+    - [3.2.1 Naming Conventions](#321-naming-conventions)
+    - [3.2.2 Constants](#322-constants)
+    - [3.2.3 Monitored Variables](#323-monitored-variables)
+    - [3.2.4 Controlled Variables](#324-controlled-variables)
+  - [3.3 Relevant Facts and Assumptions](#33-relevant-facts-and-assumptions)
+    - [3.3.1 Relevant Facts](#331-relevant-facts)
+    - [3.3.2 Assumptions](#332-assumptions)
+- [4 Context Diagrams](#4-context-diagrams)
+- [5 Functional Decomposition Diagrams](#5-functional-decomposition-diagrams)
 - [6 Functional Requirements](#6-functional-requirements)
   - [6.1 Scope of Work](#61-scope-of-work)
   - [6.2 Business Data Model and Data Dictionary](#62-business-data-model-and-data-dictionary)
@@ -88,28 +106,64 @@
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
 
-<!-- Table of Contents-->
-# Table of Contents <!-- omit in toc -->
-- [1 Revisions](#1-revisions)
-- [2 Project Drivers](#2-project-drivers)
-  - [2.1 Project Purpose](#21-project-purpose)
-  - [2.2 Project Scope](#22-project-scope)
-  - [2.3 Behaviour Overview](#23-behaviour-overview)
-  - [2.4 Project Stakeholders](#24-project-stakeholders)
-  - [2.5 Product Users](#25-product-users)
-- [3 Project Constraints](#3-project-constraints)
-  - [3.1 Mandated Constraints](#31-mandated-constraints)
-  - [3.2 Naming Conventions and Definitions](#32-naming-conventions-and-definitions)
-    - [3.2.1 Naming Conventions](#321-naming-conventions)
-    - [3.2.2 Constants](#322-constants)
-    - [3.2.3 Monitored Variables](#323-monitored-variables)
-    - [3.2.4 Controlled Variables](#324-controlled-variables)
-  - [3.3 Relevant Facts and Assumptions](#33-relevant-facts-and-assumptions)
-    - [3.3.1 Relevant Facts](#331-relevant-facts)
-    - [3.3.2 Assumptions](#332-assumptions)
-- [4 Context Diagrams](#4-context-diagrams)
-- [5 Functional Decomposition Diagrams](#5-functional-decomposition-diagrams)
+## 2 Project Drivers
+### 2.1 Project Purpose
+add content
+### 2.2 Project Scope
+add content
+### 2.3 Behaviour Overview
+add content
+### 2.4 Project Stakeholders
+add content
+### 2.5 Product Users
+add content
 
+## 3 Project Constraints
+add content
+### 3.1 Mandated Constraints
+A list of constraints which will adhered to during the design and development of this system.
+
+**Mandated Constraint 1:**  
+This capstone project must be completed prior to the final demonstration.  
+**Rationale 1:**  
+Project deadlines provided in the course outline dictate project milestone which must be met. One such milestone is the final demonstration which occurs between March 20-31 2023.  
+
+**Mandated Constraint 2:**  
+The total cost of the components used in this design must not exceed $750.  
+**Rationale 2:**  
+The final deliverable must be a competitor in the open market. Further, using funds to purchase an off-the-shelf product is not allowed.  
+
+**Mandated Constraint 3:**  
+The system must be able to analyze inputs to produce desired results in real time.  
+**Rationale 3:**  
+Real time analysis and response is an integral component of the cyclops ride assist system. More precisely, desired results are only of value if they can be delivered on time every time.  
+
+### 3.2 Naming Conventions and Definitions
+#### 3.2.1 Naming Conventions
+#### 3.2.2 Constants
+- Gravity = 9.81
+#### 3.2.3 Monitored Variables
+
+#### 3.2.4 Controlled Variables
+### 3.3 Relevant Facts and Assumptions  
+#### 3.3.1 Relevant Facts  
+- example fact 1
+#### 3.3.2 Assumptions  
+Assumptions will enable developers to cull the scope of the problem(s) being undertaken. As such, assumptions will detail limitations of the system.  
+**Assumption 1:**  
+Cyclists will mount and dismount their bikes with care.  
+**Rationale 1:**  
+Violent mounting and dismounting of one's bicycle may result in unintended triggering of crash detection and subsequent video logging. The system will not be able to distinguish between violent (dis)mounting and true crashes.  
+
+**Assumption 2:**  
+While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available.  
+**Rationale 2:**  
+The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers.  
+
+## 4 Context Diagrams  
+![System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)
+## 5 Functional Decomposition Diagrams
+![Functional Decomposition Diagram](https://user-images.githubusercontent.com/68861121/193956013-84d3a52b-fdcb-43fb-8c86-9ae85c845518.png)
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
 ### 6.2 Business Data Model and Data Dictionary
