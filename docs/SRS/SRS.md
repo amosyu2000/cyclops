@@ -141,7 +141,7 @@ Real time analysis and response is an integral component of the cyclops ride ass
 ### 3.2 Naming Conventions and Definitions
 #### 3.2.1 Naming Conventions
 #### 3.2.2 Constants
-- Gravity = 9.81
+- Gravity = 9.81 m/s<sup>2</sup>
 #### 3.2.3 Monitored Variables
 
 #### 3.2.4 Controlled Variables
@@ -163,7 +163,7 @@ The system will not be able to distinguish between parked vehicles, which may ap
 ## 4 Context Diagrams  
 ![System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)
 ## 5 Functional Decomposition Diagrams
-![Functional Decomposition Diagram](https://user-images.githubusercontent.com/68861121/193956013-84d3a52b-fdcb-43fb-8c86-9ae85c845518.png)
+![Functional Decomposition Diagram](https://user-images.githubusercontent.com/46848538/194113559-4d5de21a-f88a-4fbd-b3b5-558473bf8b25.png)
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
 ### 6.2 Business Data Model and Data Dictionary
