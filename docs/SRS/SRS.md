@@ -1,6 +1,6 @@
 <!--Title Page-->
 <div style="text-align: center;"> 
-    <h1 id="Document_Title">Software Requirements Specification for Cyclops:</h1>
+    <h1 id="Document_Title">Software Requirements Specification for Cyclops Ride Assist</h1>
     <h2 id="Document Description">Real-time bicycle crash detection and blindspot monitoring</h2>
     <h4 id="Group_Info">Group 9</h4>
     <h4 id="Author_Info">
@@ -16,7 +16,7 @@
 <div style="page-break-after: always;"></div>
 
 <!-- Table of Contents-->
-# Table of Contents <!-- omit in toc -->
+## Table of Contents <!-- omit in toc -->
 - [1 Revisions](#1-revisions)
 - [2 Project Drivers](#2-project-drivers)
   - [2.1 Project Purpose](#21-project-purpose)
@@ -27,7 +27,13 @@
 - [3 Project Constraints](#3-project-constraints)
   - [3.1 Mandated Constraints](#31-mandated-constraints)
   - [3.2 Naming Conventions and Definitions](#32-naming-conventions-and-definitions)
+    - [3.2.1 Naming Conventions](#321-naming-conventions)
+    - [3.2.2 Constants](#322-constants)
+    - [3.2.3 Monitored Variables](#323-monitored-variables)
+    - [3.2.4 Controlled Variables](#324-controlled-variables)
   - [3.3 Relevant Facts and Assumptions](#33-relevant-facts-and-assumptions)
+    - [3.3.1 Relevant Facts](#331-relevant-facts)
+    - [3.3.2 Assumptions](#332-assumptions)
 - [4 Context Diagrams](#4-context-diagrams)
 - [5 Functional Decomposition Diagrams](#5-functional-decomposition-diagrams)
 - [6 Functional Requirements](#6-functional-requirements)
@@ -81,6 +87,14 @@
   - [9.1 Likely Changes](#91-likely-changes)
   - [9.2 Unlikely Changes](#92-unlikely-changes)
 
+## List of Tables <!-- omit in toc -->
+
+## List of Figures <!-- omit in toc -->
+- [Figure 4.1: CRA System Context Diagram](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
+- [Figure 5.1: CRA Functional Decomposition Diagram](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
+- [Figure 5.2: CRA Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
+- [Figure 5.3: Legend for the CRA Data Flow Diagram](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
+
 <!--Page Break-->
 <div style="page-break-after: always;"></div>
 
@@ -122,13 +136,70 @@ The user will be all cyclists.
 ## 3 Project Constraints
 add content
 ### 3.1 Mandated Constraints
-add content
+A list of constraints which will adhered to during the design and development of this system.
+
+**Mandated Constraint 1:**  
+This capstone project must be completed prior to the final demonstration.  
+**Rationale 1:**  
+Project deadlines provided in the course outline dictate project milestone which must be met. One such milestone is the final demonstration which occurs between March 20-31 2023.  
+
+**Mandated Constraint 2:**  
+The total cost of the components used in this design must not exceed $750.  
+**Rationale 2:**  
+The final deliverable must be a competitor in the open market. Further, using funds to purchase an off-the-shelf product is not allowed.  
+
+**Mandated Constraint 3:**  
+The system must be able to analyze inputs to produce desired results in real time.  
+**Rationale 3:**  
+Real time analysis and response is an integral component of the cyclops ride assist system. More precisely, desired results are only of value if they can be delivered on time every time.  
+
 ### 3.2 Naming Conventions and Definitions
-add content
-### 3.3 Relevant Facts and Assumptions
-add content
-## 4 Context Diagrams
+#### 3.2.1 Naming Conventions
+Client: see User.  
+CRA: abbreviation for Cyclops Ride Assist.  
+Cyclist: a person who operates a bicycle as a means of transportation.  
+User: a person who will operate the final product. See Cyclist.  
+
+#### 3.2.2 Constants
+- Gravity = 9.81 m/s<sup>2</sup>
+#### 3.2.3 Monitored Variables
+| Monitor Name | Monitor Description                                                                            | Monitor Type | Units  |
+|--------------|------------------------------------------------------------------------------------------------|--------------|--------|
+| αx           | Measures acceleration parallel to the path of  the bicycle.                                    | acceleration | m/s2   |
+| αy           | Measures acceleration perpendicular to the path of  the bicycle along the plane of the ground. | acceleration | m/s2   |
+| αz           | Measures acceleration in the vertical direction.                                               | acceleration | m/s2   |
+| tilt         | Measures the vertical tilt of the system relative to a calibrated absolute level.              | rotation     | rad    |
+| vfront       | Video feed from the front facing camera.                                                       | Video        | N/A    |
+| vrear        | Video feed from the rear facing camera.                                                        | Video        | N/A    |
+#### 3.2.4 Controlled Variables
+| Controlled Name | Controlled Description                             | Controlled Type | Units  |
+|-----------------|----------------------------------------------------|-----------------|--------|
+| led_blind_spot  | Indicates a vehicle is in the bicycles blind spot. | Boolean        | N/A    |
+### 3.3 Relevant Facts and Assumptions  
+#### 3.3.1 Relevant Facts  
+- example fact 1
+#### 3.3.2 Assumptions  
+Assumptions will enable developers to cull the scope of the problem(s) being undertaken. As such, assumptions will detail limitations of the system.  
+**Assumption 1:**  
+Cyclists will mount and dismount their bikes with care.  
+**Rationale 1:**  
+Violent mounting and dismounting of one's bicycle may result in unintended triggering of crash detection and subsequent video logging. The system will not be able to distinguish between violent (dis)mounting and true crashes.  
+
+**Assumption 2:**  
+While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available.  
+**Rationale 2:**  
+The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers.  
+
+## 4 Context Diagrams  
+![image](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
+Figure 4.1: CRA System Context Diagram
 ## 5 Functional Decomposition Diagrams
+![image](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
+Figure 5.1: CRA Functional Decomposition Diagram  
+![image](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
+Figure 5.2: CRA Data Flow Diagram  
+![image](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
+Figure 5.3: Legend for the CRA Data Flow Diagram  
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
 ### 6.2 Business Data Model and Data Dictionary
@@ -176,26 +247,25 @@ add content
 1.) Creating accurate documentation for the system specifications.
 2.) Starting to develop the software, purchasing some hardware to begin system creation.
 ### 8.2 Off-the-Shelf Solutions
-#### INNOVV ThirdEYE
-INNOVV ThirdEYE is a blindspot detection system for motorcycles that uses sensors to determine if there are any objects close to the user. It can be either used through a mirror lens or a watch. 
-https://www.innovv.com/innovv-thirdeye
-#### Senzar Motorcycle Sensor
-The Senzar Motorcycle Sensor is another system that uses LEDs, vibration, and radar sensors. 
+**INNOVV ThirdEYE**  
+INNOVV ThirdEYE is a blindspot detection system for motorcycles that uses sensors to determine if there are any objects close to the user. It can be either used through a mirror lens or a watch.   
+https://www.innovv.com/innovv-thirdeye  
+**Senzar Motorcycle Sensor**  
+The Senzar Motorcycle Sensor is another system that uses LEDs, vibration, and radar sensors.  
 https://meetsenzar.com/pages/senzar-m1-motorcycle-bsm
 
 ### 8.3 Risks
-1.) Components (sensor, camera) will deteriorate over time, leading to inaccuracies.
-2.) Components can be damaged in case of a cycle crash.
-3.) Incorrect image (car vs a tree) is read through Computer Vision, leading to inaccuracies.
-4.) Storage space is exceeded or becomes corrupted.
+1. Components (sensor, camera) will deteriorate over time, leading to inaccuracies.
+2. Components can be damaged in case of a cycle crash.
+3. Incorrect image (car vs a tree) is read through Computer Vision, leading to inaccuracies.
+4. Storage space is exceeded or becomes corrupted.
 ### 8.4 Costs
-1.) Raspberry PI Robot
-2.) Sensors
-3.) Cameras
-4.) 3D Printed Mount and Storage System
-5.) Cables/Wires
-6.) Bicycle
+1. Raspberry PI Robot
+2. Sensors
+3. Cameras
+4. 3D Printed Mount and Storage System
+5. Cables/Wires
+6. Bicycle
 ## 9 Changes
 ### 9.1 Likely Changes
 ### 9.2 Unlikely Changes
-
