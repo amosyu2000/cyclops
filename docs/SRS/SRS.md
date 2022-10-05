@@ -207,6 +207,9 @@ Figure 5.3: Legend for the CRA Data Flow Diagram
 ### 6.2 Business Data Model and Data Dictionary
 ### 6.3 Scope of the Product
 ### 6.4 Functional Requirements
+The following are functional requirements for Cyclops. They will be seperated into 3 main components: Microcontroller, Blindspot, Crash Detection.
+
+#### 6.4.1 Microcontroller Requirements
 <table style="width: 100%; text-align: left;">
     <tr>
         <th>AF1</th>
@@ -217,6 +220,8 @@ Figure 5.3: Legend for the CRA Data Flow Diagram
         <td>Aaron Li, Amos s</th>
     </tr>
 </table>
+
+#### 6.4.2 Blindspot Requirements
 <table style="width: 100%; text-align: left;">
     <tr>
         <th>AF2</th>
@@ -227,6 +232,8 @@ Figure 5.3: Legend for the CRA Data Flow Diagram
         <td>Aaron Li, Amos s</th>
     </tr>
 </table>
+
+#### 6.4.2 Crash Detection Requirements
 <table style="width: 100%; text-align: left;">
     <tr>
         <th>AF3</th>
