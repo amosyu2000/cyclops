@@ -83,9 +83,11 @@
 - [8 Project Issues](#8-project-issues)
   - [8.1 Open Issues](#81-open-issues)
   - [8.2 Off-the-Shelf Solutions](#82-off-the-shelf-solutions)
+    - [8.2.1 Ready-Made Products](#821-ready-made-products)
+    - [8.2.2 Reusable Components](#822-reusable-components)
   - [8.3 Risks](#83-risks)
   - [8.4 Costs](#84-costs)
-- [9 Changes](#9-changes)
+- [9 Waiting Room](#9-waiting-room)
   - [9.1 Likely Changes](#91-likely-changes)
   - [9.2 Unlikely Changes](#92-unlikely-changes)
 
@@ -280,9 +282,9 @@ The following are functional requirements for CRA. They will be seperated into 3
 |:--|:--|
 | Rationale | This is to ensure that the the components will not interfere with the system or with the physical bicycle itself.|
   
-| NFR3 | CRA will be contained in a mechanically created system mounted on the bicycle.|                                                                            
+| NFR3 | There will be no offensive painting or colours on CRA.|                                                                            
 |:--|:--|
-| Rationale | There will be no offensive painting or colours on CRA. This is to ensure that no one is offended by the design style.|
+| Rationale |  This is to ensure that no one is offended by the design style.|
 
 #### 7.1.2 Style Requirements 
 
@@ -403,7 +405,7 @@ The following are functional requirements for CRA. They will be seperated into 3
 | Rationale | This is to ensure that CRA is set up to withstand accidents at home or on the road. |
  
 #### 7.3.6 Capacity Requirements 
-| NFR30 | CRA will be able to store multiple 15 second videos in an external storage system. |                                                                            
+| NFR30 | CRA will be able to store multiple videos in an external storage system with a time of BUFFER_TIME_MINS. |                                                                            
 |:--|:--|
 | Rationale |This is to ensure that the user is able to see past videos and continuously record new videos, minimizing downtime. |
      
@@ -412,7 +414,7 @@ The following are functional requirements for CRA. They will be seperated into 3
 |:--|:--|
 | Rationale |This is to ensure that CRA is scaleable to additional upgrades. |
 
-| NFR32 | CRAt will be usable to all bicycle users within the next ten years.|                                                                            
+| NFR32 | CRA will be usable to all bicycle users within the next ten years.|                                                                            
 |:--|:--|
 | Rationale |This is to allow for continuous integration into newer bicycles.|
      
@@ -511,15 +513,22 @@ N/A
     
 ## 8 Project Issues
 ### 8.1 Open Issues
-1.) Creating accurate documentation for the system specifications.  
-2.) Starting to develop the software, purchasing some hardware to begin system creation.  
+1. Creating accurate documentation for the system specifications.  
+2. Starting to develop the software, purchasing some hardware to begin system creation.  
 ### 8.2 Off-the-Shelf Solutions
-INNOVV ThirdEYE  
+#### 8.2.1 Ready-Made Products
+1. INNOVV ThirdEYE  
 - INNOVV ThirdEYE is a blindspot detection system for motorcycles that uses sensors to determine if there are any objects close to the user. It can be either used through a mirror lens or a watch.   
 - https://www.innovv.com/innovv-thirdeye  
-Senzar Motorcycle Sensor
+2. Senzar Motorcycle Sensor
 - The Senzar Motorcycle Sensor is another system that uses LEDs, vibration, and radar sensors.   
 - https://meetsenzar.com/pages/senzar-m1-motorcycle-bsm  
+#### 8.2.2 Reusable Components
+1. Cameras
+2. Sensors
+3. Cables, Connectors, Wires
+4. Printed Circuit Boards
+
 ### 8.3 Risks
 1. Components (sensor, camera) will deteriorate over time, leading to inaccuracies.   
 2. Components can be damaged in case of a cycle crash.    
@@ -532,6 +541,7 @@ Senzar Motorcycle Sensor
 4. 3D Printed Mount and Storage System  
 5. Cables/Wires  
 6. Bicycle  
-## 9 Changes
+
+## 9 Waiting Room
 ### 9.1 Likely Changes
 ### 9.2 Unlikely Changes
