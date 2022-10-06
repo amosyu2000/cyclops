@@ -38,7 +38,6 @@
 - [5 Functional Decomposition Diagrams](#5-functional-decomposition-diagrams)
 - [6 Functional Requirements](#6-functional-requirements)
   - [6.1 Scope of Work](#61-scope-of-work)
-  - [6.2 Business Data Model and Data Dictionary](#62-business-data-model-and-data-dictionary)
   - [6.3 Scope of the Product](#63-scope-of-the-product)
   - [6.4 Functional Requirements](#64-functional-requirements)
     - [6.4.1 CRA Requirements](#641-cra-requirements)
@@ -200,18 +199,21 @@ The system will not be able to distinguish between parked vehicles, which may ap
 
 ## 4 Context Diagrams  
 ![image](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
-Figure 4.1: CRA System Context Diagram
+Figure 4.1: CRA System Context Diagram  
+
 ## 5 Functional Decomposition Diagrams
 ![image](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
 Figure 5.1: CRA Functional Decomposition Diagram  
+
 ![image](https://user-images.githubusercontent.com/46848538/194148013-97d6cb1a-f581-4c00-907a-5f27c3ee9485.png)  
 Figure 5.2: CRA Data Flow Diagram  
+
 ![image](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
 Figure 5.3: Legend for the CRA Data Flow Diagram  
+
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
-CRA will be seperated into 3 main components: Microcontroller, Blindspot, Crash Detection. The scope of the Functional requirements will include the microcontroller, blindspot monitoring, crash monitoring, and forward visibility systems. 
-### 6.2 Business Data Model and Data Dictionary
+CRA will be separated into 3 main components: Microcontroller, Blindspot, Crash Detection. The scope of the Functional requirements will include the mounting, microcontroller, blindspot monitoring, crash monitoring, and forward visibility systems. Each system will be developed as its own module and then brought together with communications between each module facilitated through the microcontroller. Members of the team will be distributed to each member to be completed with the final goal being to merge each for a final product.### 6.2 Business Data Model and Data Dictionary
 Refer to section 3.2.3 Monitored Variables for the dictionary used throughout the Functional Requirements.
 ### 6.3 Scope of the Product
 The scope of the product will be a physical enclosure which will contain all of the microcontrollers, sensors, and battery required to facilitate all of CRA's functionalities. The product will be mounted onto a bike where CRA can then monitor a riders blindspot and whether they get into a crash. The blindspot detection will be relayed to the user through a visible LED on the enclosure facing a side which the user can clearly see in their FOV. The product will be capable of clipping/logging the last few seconds of real time video when the user gets into a crash. When visibility becomes an issue during late riding hours, the user will also have a light to turn on at their disposal for increased clarity.
@@ -564,3 +566,22 @@ The scope of the product will be a physical enclosure which will contain all of 
 | LOW_BATTERY_ALERT_TIME_SECONDS | The maximum time after startup required to indicate if the system is low on battery (in seconds). |
 
 ### 10.2 Reflection
+
+
+There is a lot of knowledge and skills that our team is going to need to acquire to successfully complete our capstone project. From learning how to write formal documentation such as the SRS to pushing to our Github repository, all these tasks have taught our team a lot about the non-coding side of software. 
+As we move along in the project, there will be a lot of ideas and skills that the team are looking forward to learning. 
+
+Being an effective and productive team is a multifaceted problem which must be tackled strategically. Perhaps more important than any specific skill, learning to work together and play to one another's strengths will propel Cyclops to success. One important tool in achieving this success is project planning. Every individual in this group will take accountability for project planning. This consists of organizing meetings, scheduling work to meet deadlines, and clearly articulating one's own intentions of completing work to other group members. Frequent communication between team members is crucial in ensuring everyone is on the same page and working towards a common goal. Another critical skill involved in productive teamwork is conflict management. Undoubtedly, at some point during the capstone project, there will be differences in opinion. However, it is how team members react to these disagreements which will be the deciding factor between sinking or swimming. It is expected that team members will support one another and try their best to view problems from the other's point of view, be open-minded and respectful, and most importantly clearly communicate how they feel and what they expect from others. As the team progresses into the latter half of the course, presentations will become more frequent. Successful presentation skills can drastically elevate the perceived success of a project. As such, it is critical that team members practice their presentation skills, present as a united front understanding what and when our teammates will present, and be ready to assist them. 
+
+One of the skills that our team is looking forward to is the mechanical side of the project. As mainly mechatronics and software students, we rarely use CAD modeling software; however, we believe that these designs will be key to our capstone. A couple of approaches that we will be taking are learning through practice by watching online videos and tutorials, using coursework from previous courses, as well as consulting our colleagues and peers for their own input. Furthermore, we will be looking at models that exist already to further cement our own designs. Aaron Li will be heading this section as he has a lot of expertise, modeling in both AutoCAD and SolidWorks from his past co-op experiences. Every other team member will have input to the designs, prototypes, and final product. Being able to work together through every step of the mechanical process is going to set our team up for success now and in the future.  
+
+Electrical engineering will be the bridge between the software and hardware domains. It is the means by which the hardware domain can collect and send data to be processed, and by which the software is able to interact with the physical world. Amos Cheung will be in charge of electrical engineering. On top of a theoretical understanding of electrical systems, he will need to become comfortable with applying his knowledge in the form of soldering, handling electrical components, noise reduction, and heat management. This may require the team to invest time and money to ensure that Amos Cheung is properly equipped with the skills to reliably read and apply electrical schematics.
+
+This project will also require a significant amount of software development knowledge, as the software is ultimately the brains of the entire system. On top of learning the microcontroller's programming language at a syntactic level, we also need to ensure that the code being written is clean and maintainable. Although a bottleneck when initially beginning development, testing will save time in the long run by identifying bugs while they are small. Testing will also help in the separation of concerns between software and other domains - knowing that the software is functioning as intended will help pinpoint bugs in other areas. Amos Yu will be put in charge of getting software testing up and running for the team. Implementing a strong testing regime will be the best way to ensure that code remains maintainable as it grows and gets more complex.
+
+In order to optimize software processes, leverage APIs, and ultimately complete this project within the time constraints of a single university year, our team will undoubtedly have to take advantage of the many open-source software libraries/packages. For each package that we use, we will need to spend a considerable amount of time reading documentation to understand how to use the package correctly and effectively. 
+
+The scope of this project also includes the Computer Vision domain. This includes understanding how to facilitate machine learning and AI’s for the vehicle recognition system. Brian Le will take initiative in this aspect of the system because he has already had exposure to the technologies relating that would be then used to build the required functionalities. Manny Lemos is very interested as well in this field and is looking forward to assisting as well in this area. Approaches for the team to acquire knowledge within this domain would include diving deep into open sources projects with similar goals and technologies. Being able to experiment and play around in these open source projects will give our team understanding on how proper AI’s are trained and deployed as well as what theory is required in order to make an AI successful. Another route our team could take to ramp up on this domain would be to find feature sets online and use them to train models from scratch using different libraries and methods. Getting a feel on each model's use case would be very beneficial to understanding which model would fit the needs of our system the most.
+
+
+
