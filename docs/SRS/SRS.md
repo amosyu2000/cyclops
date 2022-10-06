@@ -163,10 +163,12 @@ Real time analysis and response is an integral component of the cyclops ride ass
 
 ### 3.2 Naming Conventions and Definitions
 #### 3.2.1 Naming Conventions
-Client: see User.  
-CRA: abbreviation for Cyclops Ride Assist.  
-Cyclist: a person who operates a bicycle as a means of transportation.  
-User: a person who will operate the final product. See Cyclist.  
+| Name    | Explanation                                                   |
+|---------|---------------------------------------------------------------|
+| Client  | See user.                                                     |
+| CRA     | Abbreviation of Cyclops Ride Assist.                          |
+| Cyclist | A person who operates a bicycle as a means of transportation. |
+| User    | A person who will operate the final product. See Cyclist.     |
 
 #### 3.2.2 Constants
 - Gravity = 9.81 m/s<sup>2</sup>
@@ -179,13 +181,15 @@ User: a person who will operate the final product. See Cyclist.
 | tilt         | Measures the vertical tilt of the system relative to a calibrated absolute level.              | rotation     | rad    |
 | vfront       | Video feed from the front facing camera.                                                       | Video        | N/A    |
 | vrear        | Video feed from the rear facing camera.                                                        | Video        | N/A    |
+| sw_flashlight        | Switch which controls the flashlight.                                                  | Boolean      | N/A    |
 #### 3.2.4 Controlled Variables
 | Controlled Name | Controlled Description                             | Controlled Type | Units  |
 |-----------------|----------------------------------------------------|-----------------|--------|
 | led_blind_spot  | Indicates a vehicle is in the bicycles blind spot. | Boolean        | N/A    |
+| flashlight  | Indicates the state of the flashlight. | Boolean        | N/A    |
 ### 3.3 Relevant Facts and Assumptions  
 #### 3.3.1 Relevant Facts  
-- example fact 1
+- A Raspberry Pi can consume up to [6.4 watts](https://www.pidramble.com/wiki/benchmarks/power-consumption) of power under maximum CPU load.
 #### 3.3.2 Assumptions  
 Assumptions will enable developers to cull the scope of the problem(s) being undertaken. As such, assumptions will detail limitations of the system.  
 **Assumption 1:**  
