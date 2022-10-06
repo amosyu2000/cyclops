@@ -559,7 +559,253 @@ The scope of the product will be a physical enclosure which will contain all of 
 
 ## 9 Waiting Room
 ### 9.1 Likely Changes
+| CNFR1 | The appearance of CRA will be white.|                                                                           
+|:--|:--|
+| Rationale | The appearance could be other colors if designers decide to make a change|
+
+| CNFR24 | The precision of CRA will be to three decimal places.|                                                                            
+|:--|:--|
+| Rationale | Based on the impplementation the precision could change to ensure better accuracy|
+
+| CNFR25 | The accuracy of CRA speed reading with be within 1 km/h.|                                                                            
+|:--|:--|
+| Rationale | Based on the impplementation the precision could change to ensure better accuracy|
+
+| CNFR26 | The accuracy of CRA timed camera reading with be within 1 second.|                                                                            
+|:--|:--|
+| Rationale | Based on the impplementation the precision could change to ensure better accuracy|
+
+| CNFR32 | CRA will be usable to all bicycle users within the next ten years.|                                                                            
+|:--|:--|
+| Rationale |The duration could change based on the method of implementation used during design process|
+
+| CNFR33 | CRA will have a lifespan of five years with expected cleaning and maintenance.|                                                                            
+|:--|:--|
+| Rationale |The lifespan could increase or decrease when designing the product|
 ### 9.2 Unlikely Changes
+| CFR1       | CRA must be able to light up LED when a close car/vehicle is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | This is one of the core function blind spot detection |
+
+| CFR2       | CRA must be able to provide a live video feed through out users ride                |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | This is one of the core function crash detection |
+
+| CFR3       | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az)               |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR4       | CRA must be able to take in accurate velocity information                |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection and blind spot detection |
+
+| CFR5       | CRA must know when the user is moving. Such that: Moving = V<sub>bike</sub> > 0              |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR7       | CRA must recognize the user has crashed. Such that: crashed = CrashMonitor(A<sub>bike</sub>) where if A<sub>bike</sub> > AcceptableG -> crashed = 1        |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR8       | CRA must clip/log the last BUFFER_TIME_MINUTES of the Video Feed when a crash is detected. Such that videoLog(vfront) - > V, SD = {C1, C2 ..}       |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR9       | CRA must be able to notify when the SD card is full. Such that: sdFull = isSDFull(SD) where if SD.size()/(clipSize * clipCount) $<$ clipSize -> sdFull = 1    |
+|:----------|:-----------------------------------------------------------------------bufferCFR----------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR10       | CRA must only be able to run the crash detection when an SD card is inserted into the system    |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR11       | CRA shall be able to determine when a componenet is no longer operational due to low power levels. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub>   |
+|:----------|:----------------------------------------------------------------------------------------|
+| Rationale | Components needed to be powered in order to have CRA fully working at all times |
+
+| CFR12       | CRA must be able to continue running its video feed after a clip has been logged |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR13       | CRA must be able to continue running its crash detection system after a crash has been detected |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | This is one of the core requirement of crash detection |
+
+| CFR14       | CRA must be able turn on front lights when prompted by the user. Such that lightON = illuminationResp(flashLightState) |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | This is the core function of the headlamp |
+
+| CNFR2 | CRA will be contained in a mechanically created system mounted on the bicycle.|                                                                            
+|:--|:--|
+| Rationale | A container would be needed to put all components together|
+
+| CNFR3 | There will be no offensive painting or colours on CRA.|                                                                            
+|:--|:--|
+| Rationale | This is one of the core value of the designers to keep everyone inclusive and safe while using the product|
+
+| CNFR4 | CRA will be non-bulky and constructed in a minimalist way.|                                                                            
+|:--|:--|
+| Rationale | CRA has to be carried around easily and also not obstructing the user when cycling|
+
+| CNFR5 | CRA can be easily attached to the bicycle with minimal effort.|                                                                            
+|:--|:--|
+| Rationale | This is one of the goal of the product|
+
+| CNFR6 | The software application of CRA will allow for a minimal amount of clicks or touches.|                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR7 | CRA will be designed in a way that can be easily understood and used by teenagers and adults for their own bicycles.|                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR8 | CRA will be able to be used by people with minimal education or training.|                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR9 | Users will be able to make small modifications to CRA.|                                                                            
+|:--|:--|
+| Rationale | Allowing changes to the system will make it more user friendly|
+
+| CNFR10 | CRA shall be easy for anyone to learn within a short time. |                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR11 | CRA will be able to be created by an engineer with one week of training.|                                                                            
+|:--|:--|
+| Rationale | This simplifies the maintanence process|
+
+| CNFR12 | The software application of CRA will use lanaguge, words, and symbols that are non-technical and understandable by a regular user.|                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR13 | CRA will have signals and cues to alert the user. |                                                                            
+|:--|:--|
+| Rationale | This is to make sure the system is inlcusive to all cyclist even if they might have disabilities|
+
+| CNFR14 | CRA will be able to be mounted to all types of bicycles. |                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR15 | CRA will have a maximum response time of 5 seconds.  |                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR16 | CRA will upload the video file to the external storage with a max time of 60 seconds.  |                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR17 |  CRA will be able to determine an accident within 1s. |                                                                            
+|:--|:--|
+| Rationale | This is a core function of crash detection|
+
+| CNFR18 |  CRA can see if a car is nearby to alert the user within 1s with a signal or  cue.|                                                                            
+|:--|:--|
+| Rationale | This is a core requirement for blind spot detection|
+
+| CNFR19 |  CRA will have an alert on its software application to let the user know if the storage is low.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure that the videoing part of crash detection would not be obstructed by other external factors|
+
+| CNFR20 |  CRA will have an alert within 5 seconds of startup on its software application to let the user know if the system components are running out of battery.|                                                                            
+|:--|:--|
+| Rationale | Components needed to be powered in order to have CRA fully working at all times|
+
+| CNFR21 |  CRA will not cause any external damage to the bicycle.|                                                                            
+|:--|:--|
+| Rationale | This is to keep the safety of the cyclist and also to keep the bike in it's original form|
+
+| CNFR22 | CRA will not emit any harmful toxins to the environment.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure the safety of the users and environment|
+
+| CNFR23 | CRA will have all wiring shielded from human contact.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure the safety of the users|
+
+| CNFR27 | The camera on CRA will be able to record once the previous video has finished uploading to storage.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure the product is functioning properly|
+
+| CNFR28 | CRA will be able to be used 24 hours per day, 365 days per year.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure the product is functioning properly|
+
+| CNFR29 | CRA will be able to work consistently even in the case of user drops when in transport. |                                                                            
+|:--|:--|
+| Rationale | This is a requirement to ensure product is durable|
+
+| CNFR30 | CRA will be able to store multiple videos in an external storage system with a time of BUFFER_TIME_MINS. |                                                                            
+|:--|:--|
+| Rationale | This is one of the core function of crash detection|
+
+| CNFR31 | CRA will have extra room in its software and hardware storage to allow for additional components.|                                                                            
+|:--|:--|
+| Rationale | This is needed to achieve strech goals of the project|
+
+| CNFR34 | The expected physical environment will be on a road. Other possible physical environments include trails, sidewalks, pathways.|                                                                            
+|:--|:--|
+| Rationale | This is required in order for the product to work|
+
+| CNFR35 | CRA will be used by cyclists in any type of weather.   |                                                                            
+|:--|:--|
+| Rationale | This is required in order for the product to work|
+
+| CNFR36 | Components of the CRA can be interfaced with other software applications and hardware systems such as PCs and adapters.   |                                                                            
+|:--|:--|
+| Rationale | This is desired to expand the product's usability|
+
+| CNFR37 | CRA's hardware and software will be publicly available for use to those interested in furthering the system.  |                                                                            
+|:--|:--|
+| Rationale | External help could improve and make the product more robust|
+
+| CNFR38 |  CRA will be available as a one-time download and system integration per user |                                                                            
+|:--|:--|
+| Rationale | External help could improve and make the product more robust|
+
+| CNFR39 |  CRA will have crash logs when the software or hardware fails. |                                                                            
+|:--|:--|
+| Rationale | This will help developers to make changes when nesessary to ensure the product is in good condition|
+
+| CNFR40 |  CRA will be built in several modules. |                                                                            
+|:--|:--|
+| Rationale | This is needed as the product has a lot of componenets and functions|
+
+| CNFR41 |  CRA will have an instruction manual included. |                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR42 |  CRA's external hardware storage will be able to run under any operating system to view files. |                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR43 |  CRA will allow the users to access their videos freely from an external hardware storage drive.|                                                                            
+|:--|:--|
+| Rationale | This is one of the requirement for a user friendly product|
+
+| CNFR44 |  CRA will not store any data in the cloud to protect the user's personal privacy. |                                                                            
+|:--|:--|
+| Rationale | This is to ensure the privacy of the user|
+
+| CNFR45 | CRA will be connected per user locally.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure the privacy of the user|
+
+| CNFR46 | CRA will have its primary language set as English (Canadian).|                                                                            
+|:--|:--|
+| Rationale | This is the most well known language around the world to ensure most people can understand and use the product|
+
+| CNFR47 | CRA will not have any offensive language|                                                                            
+|:--|:--|
+| Rationale | This is one of the core value of the designers to keep everyone inclusive and safe while using the product|
+
+| CNFR48 | CRA must follow all safety requirements according to the user's bicycle's standards and requirements.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure the safety of the user|
+
+| CNFR49 | CRA will comply with all product quality standards for automotive products.|                                                                            
+|:--|:--|
+| Rationale | This is to ensure the product is safe for the users and also the surroundings|
 
 ## 10 Appendix
 ### 10.1 Symbolic Parameters
