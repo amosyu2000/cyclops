@@ -142,7 +142,6 @@ The project stakeholders are as follows:
 ### 2.5 Product Users
 The user will be all cyclists.
 ## 3 Project Constraints
-add content
 ### 3.1 Mandated Constraints
 A list of constraints which will adhered to during the design and development of this system.
 
