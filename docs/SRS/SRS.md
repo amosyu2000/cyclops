@@ -612,14 +612,14 @@ The scope of the product will be a physical enclosure which will contain all of 
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR9       | CRA must be able to notify when the SD card is full. Such that: sdFull = isSDFull(SD) where if SD.size()/(clipSize * clipCount) $<$ clipSize -> sdFull = 1    |
-|:----------|:-----------------------------------------------------------------------bufferCFR----------------|
+|:----------|:---------------------------------------------------------------------------------------|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR10       | CRA must only be able to run the crash detection when an SD card is inserted into the system    |
 |:----------|:---------------------------------------------------------------------------------------|
 | Rationale | This is one of the core requirement of crash detection |
 
-| CFR11       | CRA shall be able to determine when a componenet is no longer operational due to low power levels. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub>   |
+| CFR11       | CRA shall be able to determine when a componenet is no longer operational due to low power levels. Such that: ErrorLowPower= V<sub>battery</sub> $<$ V<sub>min</sub>|
 |:----------|:----------------------------------------------------------------------------------------|
 | Rationale | Components needed to be powered in order to have CRA fully working at all times |
 
