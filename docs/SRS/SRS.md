@@ -193,7 +193,7 @@ Assumptions will enable developers to cull the scope of the problem(s) being und
 
 | Assumption 2 | While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available.                                                                                                                                                                                     |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Rationale 2  | The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers. |
+| Rationale 2  | The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers. | 
 
 ## 4 Context Diagrams  
 ![image](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
