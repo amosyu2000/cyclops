@@ -210,10 +210,12 @@ Figure 5.2: CRA Data Flow Diagram
 Figure 5.3: Legend for the CRA Data Flow Diagram  
 ## 6 Functional Requirements
 ### 6.1 Scope of Work
+CRA will be seperated into 3 main components: Microcontroller, Blindspot, Crash Detection. The scope of the Functional requirements will include the microcontroller, blindspot monitoring, crash monitoring, and forward visibility systems. 
 ### 6.2 Business Data Model and Data Dictionary
+Refer to section 3.2.3 Monitored Variables for the dictionary used throughout the Functional Requirements.
 ### 6.3 Scope of the Product
+The scope of the product will be a physical enclosure which will contain all of the microcontrollers, sensors, and battery required to facilitate all of CRA's functionalities. The product will be mounted onto a bike where CRA can then monitor a riders blindspot and whether they get into a crash. The blindspot detection will be relayed to the user through a visible LED on the enclosure facing a side which the user can clearly see in their FOV. The product will be capable of clipping/logging the last few seconds of real time video when the user gets into a crash. When visibility becomes an issue during late riding hours, the user will also have a light to turn on at their disposal for increased clarity.
 ### 6.4 Functional Requirements
-The following are functional requirements for CRA. They will be seperated into 3 main components: Microcontroller, Blindspot, Crash Detection.
 
 #### 6.4.1 CRA Requirements
 | CFR1       | CRA must be able to light up LED when a close car/vehicle is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
