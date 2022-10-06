@@ -209,6 +209,68 @@ Figure 5.3: Legend for the CRA Data Flow Diagram
 ### 6.2 Business Data Model and Data Dictionary
 ### 6.3 Scope of the Product
 ### 6.4 Functional Requirements
+The following are functional requirements for CRA. They will be seperated into 3 main components: Microcontroller, Blindspot, Crash Detection.
+
+#### 6.4.1 CRA Requirements
+| CF1       | CRA must be able to light up LED when a close car/vehicle is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | CRA should be able to visually inform the rider that there is a car in their blindspot |
+
+| CF2       | CRA must be able to provide a live video feed through out users ride                |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | CRA needs the live feed inorder for its computer vision to detect vehicles and for video logging from the crash detection |
+
+| CF3       | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az)               |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | CRA needs the accurate acceleration to determine when a crash has occured |
+
+| CF4       | CRA must be able to take in accurate velocity information                |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | CRA needs the accurate velocity to determine when the user is moving to activate both crash and blindspot systems |
+
+| CF5       | CRA must know when the user is moving. Such that: Moving = V<sub>bike</sub> > 0              |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | CRA should only log a crash once it has been establish that the user was moving on their bike |
+
+| CF6       | CRA must recognize a vehicle within the video feed. Such that: isVehicle = Feed(vrear) where if vrear contains vehicle -> isVehicle = 1            |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | CRA should recognize that there is a car in the users blindspot |
+
+| CF7       | CRA must recognize the user has crashed. Such that: crashed = CrashMonitor(A<sub>bike</sub>) where if A<sub>bike</sub> > AcceptableG -> crashed = 1        |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | CRA should recognize that there is a car in the users blindspot |
+
+| CF8       | CRA must clip/log the last 15 seconds of the Video Feed when a crash is detected. Such that videoLog(vfront) - > V, SD = {C1, C2 ..}       |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | CRA should save the video feed of the moments leading up to the crash on the integrated SD card |
+
+| CF9       | CRA must be able to notify when the SD card is full. Such that: sdFull = isSDFull(SD) where if SD.size()/(clipSize * clipCount) $<$ clipSize -> sdFull = 1    |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | CRA should save the video feed of the moments leading up to the crash on the integrated SD card |
+
+| CF10       | CRA must only be able to run the crash detection when an SD card is inserted into the system    |
+|:----------|:---------------------------------------------------------------------------------------|
+| Rationale | CRA should only be able to run the crash detection functionality once an SD card is included in the system |
+
+| CF11       | CRA shall be able to determine when a componenet is no longer operational due to low power levels. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub>   |
+|:----------|:----------------------------------------------------------------------------------------|
+| Rationale | CRA should only be able to run the crash detection functionality once an SD card is included in the system |
+
+| CF12       | CRA must be able to continue running its video feed after a clip has been logged |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
+
+| CF13       | CRA must be able to continue running its crash detection system after a crash has been detected |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
+
+| CF14       | CRA must be able turn on front lights when prompted by the user. Such that lightON = illuminationResp(flashLightState) |
+|:-----------|:----------------------------------------------------------------------------------------|
+| Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
+
+
+
+
 ## 7 Non-Functional Requirements
 ### 7.1 Look and Feel Requirements
 #### 7.1.1 Appearance Requirements 
