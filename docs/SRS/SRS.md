@@ -144,21 +144,17 @@ The user will be all cyclists.
 ## 3 Project Constraints
 ### 3.1 Mandated Constraints
 A list of constraints which will adhered to during the design and development of this system.
+| Mandated Constraint 1 | This capstone project must be completed prior to the final demonstration.                                                                                                          |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Rationale 1           | Project deadlines provided in the course outline dictate project milestone which must be met. One such milestone is the final demonstration which occurs between March 20-31 2023. |  
 
-**Mandated Constraint 1:**  
-This capstone project must be completed prior to the final demonstration.  
-**Rationale 1:**  
-Project deadlines provided in the course outline dictate project milestone which must be met. One such milestone is the final demonstration which occurs between March 20-31 2023.  
+| Mandated Constraint 2 | The total cost of the components used in this design must not exceed $750.                                                               |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| Rationale 2           | The final deliverable must be a competitor in the open market. Further, using funds to purchase an off-the-shelf product is not allowed. |
 
-**Mandated Constraint 2:**  
-The total cost of the components used in this design must not exceed $750.  
-**Rationale 2:**  
-The final deliverable must be a competitor in the open market. Further, using funds to purchase an off-the-shelf product is not allowed.  
-
-**Mandated Constraint 3:**  
-The system must be able to analyze inputs to produce desired results in real time.  
-**Rationale 3:**  
-Real time analysis and response is an integral component of the cyclops ride assist system. More precisely, desired results are only of value if they can be delivered on time every time.  
+| Mandated Constraint 3 | The system must be able to analyze inputs to produce desired results in real time.                                                                                                         |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Rationale 3           | Real time analysis and response is an integral component of the cyclops ride assist system. More precisely, desired results are only of value if they can be delivered on time every time. |
 
 ### 3.2 Naming Conventions and Definitions
 #### 3.2.1 Naming Conventions
@@ -191,15 +187,13 @@ Real time analysis and response is an integral component of the cyclops ride ass
 - A Raspberry Pi can consume up to [6.4 watts](https://www.pidramble.com/wiki/benchmarks/power-consumption) of power under maximum CPU load.
 #### 3.3.2 Assumptions  
 Assumptions will enable developers to cull the scope of the problem(s) being undertaken. As such, assumptions will detail limitations of the system.  
-**Assumption 1:**  
-Cyclists will mount and dismount their bikes with care.  
-**Rationale 1:**  
-Violent mounting and dismounting of one's bicycle may result in unintended triggering of crash detection and subsequent video logging. The system will not be able to distinguish between violent (dis)mounting and true crashes.  
+| Assumption 1 | Cyclists will mount and dismount their bikes with care.                                                                                                                                                                           |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Rationale 1  | Violent mounting and dismounting of one's bicycle may result in unintended triggering of crash detection and subsequent video logging. The system will not be able to distinguish between violent (dis)mounting and true crashes. |
 
-**Assumption 2:**  
-While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available.  
-**Rationale 2:**  
-The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers.  
+| Assumption 2 | While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available.                                                                                                                                                                                     |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Rationale 2  | The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers. | 
 
 ## 4 Context Diagrams  
 ![image](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
