@@ -62,7 +62,7 @@
 This document is the hazard analysis of Cyclops Ride Assist (CRA) system. CRA is going to be an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bike, such as blind spot detection and crash detection.
 
 ## 3. Scope and Purpose
-This document identifies potential hazards which arise due to failures in the hardware and software used in the Cyclops Ride Assist system, the causes and effects of these failures, plans for hazard mitigation, and the safety and security requirements which emerge as a result of this knowledge.
+This document identifies potential hazards which arise due to failures in the hardware and software used in the CRA system, the causes and effects of these failures, plans for hazard mitigation, and the safety and security requirements which emerge as a result of this knowledge.
 
 ## 4. Definition of Hazard
 A hazard is any property of the CRA system that has the potential to cause harm in both the user and the various systems that make up CRA. In CRA, there are hazards in safety (video logging, vehicle detection) and physical (mount, enclosure). 
