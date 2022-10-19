@@ -30,10 +30,10 @@
 	- [7.1. Hazards Out of Scope](#71-hazards-out-of-scope)
 	- [7.2. Failure Modes and Effect Analysis Table](#72-failure-modes-and-effect-analysis-table)
 - [8. Safety and Security Requirements](#8-safety-and-security-requirements)
-	- [8.1 Safety Requirements](#81-safety-requirements)
-	- [8.2 Access Requirements](#82-access-requirements)
-	- [8.3 Integrity Requirements](#83-integrity-requirements)
-	- [8.4 Privacy Requirements](#84-privacy-requirements)
+	- [8.1. Safety Requirements](#81-safety-requirements)
+	- [8.2. Access Requirements](#82-access-requirements)
+	- [8.3. Integrity Requirements](#83-integrity-requirements)
+	- [8.4. Privacy Requirements](#84-privacy-requirements)
 - [9. Roadmap](#9-roadmap)
 - [10. Appendix](#10-appendix)
 
@@ -90,7 +90,7 @@ Video Logging | H2-1 | Storage device cannot accommodate the loop of video attem
 
 ## 8. Safety and Security Requirements
 
-### 8.1 Safety Requirements
+### 8.1. Safety Requirements
 
 | SR1 |  A system welfare check will be conducted each time the CRA is powered on to verify that all cameras and sensors are successfully communicating with the microcontroller. |  
 |:--|:--|  
@@ -110,20 +110,20 @@ Video Logging | H2-1 | Storage device cannot accommodate the loop of video attem
 |:--|:--|  
 | Associated Hazards |  H2-1 |  
 
-### 8.2 Access Requirements
+### 8.2. Access Requirements
 | AR-1 |  CRA will allow the users to access their videos freely from an external hardware storage drive. |  
 |:--|:--|  
 | Rationale | This is to allow the user to connect it to their own personal systems to view, delete their videos. There is no need for encryption as this would complicate the process. |  
 |:--|:--| 
 | Associated Hazards |  N/A |  
-### 8.3 Integrity Requirements
+### 8.3. Integrity Requirements
 | IR-1 |  The mounting system will be made with solid and sustainable material to ensure mechanical integrity. |  
 |:--|:--|  
 | Rationale | This will be able to withstand changes in weather and temperature, accidental drops, and debris. |  
 |:--|:--| 
 | Associated Hazards |  H4-1, H5-1 |  
 
-### 8.4 Privacy Requirements
+### 8.4. Privacy Requirements
 | PR-1 |  CRA will not be connected to the internet but will be used and trained locally for CV purposes. |  
 |:--|:--|  
 | Rationale | This is to ensure that the footage of accidents will not be posted on the internet without the consent of the user. Instead all footage will be saved to an external hardware storage device. |  
