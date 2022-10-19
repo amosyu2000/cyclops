@@ -58,7 +58,7 @@ This document identifies potential hazards which arise due to failures in the ha
 A hazard is any property of the CRA system that has the potential to cause harm in both the user and the various systems that make up CRA. In CRA, there are hazards in safety (video logging, vehicle detection) and physical (mount, enclosure). 
 
 ## 5. Critical Assumptions
-
+There are no critical assumptions that were made. 
 ## 6. System Boundary
 The Cyclops Ride Assist system is composed of the following.
 
@@ -93,42 +93,40 @@ Video Logging | H2-1 | Storage device cannot accommodate the loop of video attem
 
 ### 8.1. Safety Requirements
 
-| SR1 |  A system welfare check will be conducted each time the CRA is powered on to verify that all cameras and sensors are successfully communicating with the microcontroller. |  
+| SR-1 |  A system welfare check will be conducted each time the CRA is powered on to verify that all cameras and sensors are successfully communicating with the microcontroller. |  
 |:--|:--|  
 | Rationale |A problem with the rear facing camera could result in unexpected blind spot detection behaviour (false positives or false negatives). A problem with the front or rear facing camera could result in footage of a crash being lost. A problem with crash detection sensors could result in unexpected crash detection behaviour (false positives or false negatives).|  
-|:--|:--|  
-| Associated Hazards |  H1-1, H1-2, H2-2, H3-1, H3-2 |  
+| Associated Hazards |  H1-1a, H1-2a, H2-2b, H3-1b, H3-1c, H3-2a |  
 
-| SR2 |  Safety instructions will be created to ensure that the CRA is properly equipped and mounted for the user.  |  
+| SR-2 |  Safety instructions will be created to ensure that the CRA is properly equipped and mounted for the user.  |  
 |:--|:--|  
 | Rationale | Instructions will allow the user to properly mount and maintain their system.|  
-|:--|:--|    
-| Associated Hazards |  H2-1, H4-1, H5-1 |  
+| Associated Hazards |  H4-1a, H4-1b, H5-1a, H5-1b |  
 
-| SR3 |  The storage device will be checked on startup by the system to ensure there is enough storage to hold two videos and will alert the user if the space is insufficient. |  
+| SR-3 |  The storage device will be checked on startup by the system to ensure there is enough storage to hold two videos and will alert the user if the space is insufficient. |  
 |:--|:--|  
 | Rationale | In the case that the storage memory device is full, videos will be cut short to ensure that the user has the footage of the latest accident that they have been involved in. |  
-|:--|:--|  
-| Associated Hazards |  H2-1 |  
+| Associated Hazards |  H2-1a |  
 
+| SR-4 |  The CV Vision will be checked on startup by the system to ensure that all required apps, images can still be accessed and used |  
+|:--|:--|  
+| Rationale | This is to ensure that the cameras are able to differentiate between vehicles and other objects |  
+| Associated Hazards |  H3-1a |  
 ### 8.2. Access Requirements
 | AR-1 |  CRA will allow the users to access their videos freely from an external hardware storage drive. |  
 |:--|:--|  
 | Rationale | This is to allow the user to connect it to their own personal systems to view, delete their videos. There is no need for encryption as this would complicate the process. |  
-|:--|:--| 
 | Associated Hazards |  N/A |  
 ### 8.3. Integrity Requirements
 | IR-1 |  The mounting system will be made with solid and sustainable material to ensure mechanical integrity. |  
 |:--|:--|  
 | Rationale | This will be able to withstand changes in weather and temperature, accidental drops, and debris. |  
-|:--|:--| 
-| Associated Hazards |  H4-1, H5-1 |  
+| Associated Hazards |  H2-2a, H4-1a, H4-1b, H5-1a, H5-1b |  
 
 ### 8.4. Privacy Requirements
 | PR-1 |  CRA will not be connected to the internet but will be used and trained locally for CV purposes. |  
 |:--|:--|  
-| Rationale | This is to ensure that the footage of accidents will not be posted on the internet without the consent of the user. Instead all footage will be saved to an external hardware storage device. |  
-|:--|:--| 
+| Rationale | This is to ensure that the footage of accidents will not be posted on the internet without the consent of the user. Instead all footage will be saved to an external hardware storage device. |   
 | Associated Hazards |  N/A |  
 ## 9. Roadmap
 The roadmap of CRA is a projection of the safety and security requirements listed above. The majority of these requirements will be implemented on the initial prototype and final application due to the nature of the system and its functionalities. Requirements will be constantly reevaluated with several factors in consideration such as time and project constraints. Towards the end of the project, the hazard analysis will be an evaluation over the project to get an understanding of what risks have been successfully mitigated and which ones will still require work.
