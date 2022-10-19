@@ -16,16 +16,25 @@
 - [4. Definition of Hazard](#4-definition-of-hazard)
 - [5. Critical Assumptions](#5-critical-assumptions)
 - [6. System Boundary](#6-system-boundary)
-	- [6.1. Front Facing Camera with Storage](#61-front-facing-camera-with-storage)
-	- [6.2. Crash Detection Sensors](#62-crash-detection-sensors)
-	- [6.3. Rear-Left Facing Camera with Storage](#63-rear-left-facing-camera-with-storage)
-	- [6.4. Microcontroller](#64-microcontroller)
-	- [6.5. Crash Detection Software](#65-crash-detection-software)
-	- [6.6. Crash Detection Software](#66-crash-detection-software)
-	- [6.7. Blindspot Detection Software](#67-blindspot-detection-software)
-	- [6.8. Box and Mount](#68-box-and-mount)
-	- [6.9. Lightswitch](#69-lightswitch)
-	- [6.10. Light](#610-light)
+	- [6.1. Chassis System Boundary](#61-chassis-system-boundary)
+		- [6.1.1. Physical Hazards](#611-physical-hazards)
+	- [6.2. Software System Boundary](#62-software-system-boundary)
+		- [6.2.1. Physical Hazards](#621-physical-hazards)
+		- [6.2.2. Software Hazards](#622-software-hazards)
+	- [6.3. Microcontroller System Boundary](#63-microcontroller-system-boundary)
+		- [6.3.1. Physical Hazards](#631-physical-hazards)
+		- [6.3.2. Software Hazards](#632-software-hazards)
+	- [6.4. Peripherals System Boundary](#64-peripherals-system-boundary)
+		- [6.4.1. Physical Hazards](#641-physical-hazards)
+		- [6.4.2. Software Hazards](#642-software-hazards)
+	- [6.5. Camera System Boundary](#65-camera-system-boundary)
+		- [6.5.1. Physical Hazards](#651-physical-hazards)
+		- [6.5.2. Software Hazards](#652-software-hazards)
+	- [6.6. Memory System Boundary](#66-memory-system-boundary)
+		- [6.6.1. Physical Hazards](#661-physical-hazards)
+		- [6.6.2. Software Hazards](#662-software-hazards)
+	- [6.7. Headlamp System Boundary](#67-headlamp-system-boundary)
+		- [6.7.1. Physical Hazards](#671-physical-hazards)
 - [7. Failure Modes and Effect Analysis](#7-failure-modes-and-effect-analysis)
 	- [7.1. Hazards Out of Scope](#71-hazards-out-of-scope)
 	- [7.2. Failure Modes and Effect Analysis Table](#72-failure-modes-and-effect-analysis-table)
@@ -61,18 +70,66 @@ A hazard is any property of the CRA system that has the potential to cause harm 
 ## 5. Critical Assumptions
 There are no critical assumptions that were made. 
 ## 6. System Boundary
-The Cyclops Ride Assist system is composed of the following.
+The hazard analysis as outlined in this document will be conducted within the physical/software space of the CRA system boundary. This system boundary consists of all components within and on the surface of the physical space of the chassis and mounting bracket. The hazards can be classified by subdividing the system boundary into sub-systems and domains.
 
-### 6.1. Front Facing Camera with Storage
-### 6.2. Crash Detection Sensors
-### 6.3. Rear-Left Facing Camera with Storage
-### 6.4. Microcontroller
-### 6.5. Crash Detection Software
-### 6.6. Crash Detection Software
-### 6.7. Blindspot Detection Software
-### 6.8. Box and Mount
-### 6.9. Lightswitch
-### 6.10. Light
+### 6.1. Chassis System Boundary
+#### 6.1.1. Physical Hazards
+- The temperature of the outside environment can cause extreme temperature conditions inside the chassis.
+- Rain and snow from the outside environment can introduce water into the chassis.
+- Accidentally dropping the device from the height of bike handlebars can damage the chassis.
+- A loose mounting bracket can cause the device to tilt/shift when mounted on the handlebars.
+- A bike crash can cause the chassis to release from the mounting bracket.
+- Poor ergonomics can strain the user after prolonged use.
+### 6.2. Software System Boundary
+#### 6.2.1. Physical Hazards
+- A faulty microcontroller can cause the software to malfunction.
+#### 6.2.2. Software Hazards
+- Unanticipated errors can cause the software process to crash.
+- A memory leak can cause the software process to crash after prolonged use.
+- A poor image-recognition implementation can result in improper recognition of vehicles in the blindspot.
+- Bottlenecks in the process can cause slow response and processing times.
+- Poor code upkeep can decrease code readability and maintainability.
+### 6.3. Microcontroller System Boundary
+#### 6.3.1. Physical Hazards
+- Poor mounting can cause the microcontroller to toss around within the chassis.
+- Openings in the chassis can introduce water and dust onto the microcontroller.
+- A power supply failure can damage the hardware on the microcontroller.
+- Forgetting to turn the microcontroller off can cause unnecessary battery consumption.
+#### 6.3.2. Software Hazards
+- A power supply failure can cause the software process to terminate at an illegal state.
+- Damage to the microcontroller board can cause the firmware to malfunction.
+### 6.4. Peripherals System Boundary
+#### 6.4.1. Physical Hazards
+- Agitation can cause the peripheral cables to come loose from the microcontroller.
+- Agitation can cause peripherals to come loose from their mounting points.
+- Flawed part manufacturing can cause peripherals to fail unexpectedly.
+- Openings in the chassis can introduce water and dust onto the peripherals.
+- A power supply failure can damage the peripherals.
+- Exposed wires can inflict electrical shock to the user.
+#### 6.4.2. Software Hazards
+- Loose peripherals can contaminate the data being collected by the accelerometer and cameras.
+- Requiring the peripherals to operate outside of their effective range can result in unexpected behaviour or damage.
+### 6.5. Camera System Boundary
+#### 6.5.1. Physical Hazards
+- Rain, mud, and dust can obscure the lens of the front- and rear-view cameras.
+- Poor lighting can affect the clarity of the captured footage.
+- A bike crash can cause the camera lenses to shatter.
+#### 6.5.2. Software Hazards
+- Excessive image compression can cause grainy/unclear footage.
+### 6.6. Memory System Boundary
+#### 6.6.1. Physical Hazards
+- A memory card with improper contact to the port can cause unexpected interruptions in operation.
+- Physical damage to the memory card can corrupt the card.
+#### 6.6.2. Software Hazards
+- Slow file writing can be a bottleneck, especially for large video files.
+- Running out of memory on the memory card will cut off the ability to save files.
+- A power supply failure during file writing can corrupt the card.
+### 6.7. Headlamp System Boundary
+#### 6.7.1. Physical Hazards
+- A loose switch can cause the headlamp to turn on/off unexpectedly.
+- Poor ergonomics can impede the operation of the switch in extreme conditions.
+- Shining light into the user's face can cause visual impairment.
+- Forgetting to turn the headlamp off can cause unnecessary battery consumption.
 
 ## 7. Failure Modes and Effect Analysis
 ### 7.1. Hazards Out of Scope
@@ -131,6 +188,5 @@ Video Logging | H2-1 | Storage device cannot accommodate the loop of video attem
 | Associated Hazards |  N/A |  
 ## 9. Roadmap
 The roadmap of CRA is a projection of the safety and security requirements listed above. The majority of these requirements will be implemented on the initial prototype and final application due to the nature of the system and its functionalities. Requirements will be constantly reevaluated with several factors in consideration such as time and project constraints. Towards the end of the project, the hazard analysis will be an evaluation over the project to get an understanding of what risks have been successfully mitigated and which ones will still require work.
-
 
 ## 10. Appendix
