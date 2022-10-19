@@ -10,20 +10,23 @@
 </p> 
 
 ## Table of Contents <!-- omit in toc -->
-- [1. Revisions](#1-revisions)
+- [1. Revision History](#1-revision-history)
 - [2. Version Control](#2-version-control)
 - [3. Roles and Responsibilities](#3-roles-and-responsibilities)
-  - [3.1. Aaron Li](#31-aaron-li)
-  - [3.2. Amos Cheung](#32-amos-cheung)
-  - [3.3. Amos Yu](#33-amos-yu)
-  - [3.4. Brian Le](#34-brian-le)
-  - [3.5. Manny Lemos](#35-manny-lemos)
+	- [3.1. Aaron Li](#31-aaron-li)
+	- [3.2. Amos Cheung](#32-amos-cheung)
+	- [3.3. Amos Yu](#33-amos-yu)
+	- [3.4. Brian Le](#34-brian-le)
+	- [3.5. Manny Lemos](#35-manny-lemos)
 - [4. Process Workflow](#4-process-workflow)
 - [5. Details on Steps to be Taken](#5-details-on-steps-to-be-taken)
 - [6. Development Tools](#6-development-tools)
 - [7. Handling Changes](#7-handling-changes)
 
-## 1. Revisions
+## List of Tables <!-- omit in toc -->
+- [Table 1.1: Revision History](#rh)
+
+## 1. Revision History
 
 <p id="rh">Table 1: Revision History</p>
 

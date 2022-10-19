@@ -43,7 +43,7 @@
 
 | Date | Developer(s) | Change |
 |:--|:--|:--|
-| 2022-10-19 | All | Document creation |
+| 2022-10-19 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
 
 ## 2. Introduction
 
