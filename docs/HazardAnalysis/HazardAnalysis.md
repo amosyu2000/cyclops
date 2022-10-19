@@ -29,7 +29,11 @@
 - [7. Failure Modes and Effect Analysis](#7-failure-modes-and-effect-analysis)
 	- [7.1. Hazards Out of Scope](#71-hazards-out-of-scope)
 	- [7.2. Failure Modes and Effect Analysis Table](#72-failure-modes-and-effect-analysis-table)
-- [8. Safety Requirements](#8-safety-requirements)
+- [8. Safety and Security Requirements](#8-safety-and-security-requirements)
+	- [8.1 Safety Requirements](#81-safety-requirements)
+	- [8.2 Access Requirements](#82-access-requirements)
+	- [8.3 Integrity Requirements](#83-integrity-requirements)
+	- [8.4 Privacy Requirements](#84-privacy-requirements)
 - [9. Roadmap](#9-roadmap)
 - [10. Appendix](#10-appendix)
 
@@ -76,17 +80,56 @@ The Cyclops Ride Assist system is composed of the following.
 
 | Design Function | Ref # | Failure Mode | Effects of Failures | Causes of Failure | Recommended Action | SR |
 |:--|:--|:--|:--|:--|:--|:--|
-Crash Detection		| H1-1		| False negative crash detection. | The current loop of video will not be logged to the storage device. | a. Sensor failure (bias, drift, complete failure, precision degradation). <br/> b. Crash was not violent enough to trigger a crash detection sequence.\end{tabular | a. Perform a sensor calibration and test when the system is turned on. Indicate an issue if one is detected. <br/> b. Allow users to force video loop logging with a  button. | a. SR-1 |
-| | H1-2 | False positive crash detection. | An unnecessary loop of video will be logged to the storage device. | a. Sensor failure (bias, drift, complete failure, precision degradation). <br/> b. A non-crash event had trademark features of a crash (e.g. high g forces, tipping). | a. Same as H1-1a <br/> b. Allow user to cancel video loop logging with a button. | a. SR-1 |
+Crash Detection		| H1-1		| False negative crash detection. | The current loop of video will not be logged to the storage device. | a. Sensor failure (bias, drift, complete failure, precision degradation). <br/> b. Crash was not violent enough to trigger a crash detection sequence.\end{tabular | a. Perform a sensor calibration and test when the system is turned on. Indicate an issue if one is detected. <br/> b. Allow users to force video loop logging with a  button. | SR-1 |
+| | H1-2 | False positive crash detection. | An unnecessary loop of video will be logged to the storage device. | a. Sensor failure (bias, drift, complete failure, precision degradation). <br/> b. A non-crash event had trademark features of a crash (e.g. high g forces, tipping). | a. Same as H1-1a <br/> b. Allow user to cancel video loop logging with a button. | SR-1 |
 Video Logging | H2-1 | Storage device cannot accommodate the loop of video attempting to be logged.	| Video loop will not be logged to the storage device. | a. Video loop is too large to be logged on the storage device. | a. Log the most recent half of the current video loop, and halve the length of the video loop going forward. When sufficient storage is available on the storage device, standard video loop length should be reinstated. 
-| | H2-2 | Front/Rear facing camera. | Camera footage will be void or non-optimal in the event of a camera loop logging. | a. Debris obstructs the camera's view. <br/> b. Complete camera or camera feed failure. | a. Place the camera in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Perform a camera feed check when the system is turned on. Indicate an issue if one is detected. | a. <br/> b. SR-1 |
-| Blind Spot Detection | H3-1 | False negative blind spot detection. | A vehicle exists in the users blind spot, but they are not alerted. | a. The vehicle is not recognized by the computer vision program. <br/> b. The rear facing camera is obstructed by debris. <br/> c. The rear facing camera or camera feed fails. | a. Provide a separate lesser warning for non-vehicles that are detected in the users blind spot. <br/> b. Same as H2-2a <br/> c. Same as H2-2b | a. <br/> b. <br/> c. SR-1 |
-| | H3-2 | False positive blind spot detection. | A user is alerted that a vehicle exists in their blindspot when no vehicle is present | a. Debris obstructs the rear facing camera's view. | a. Same as H2-2a | |
-| Housing to protect hardware. | H4-1 | Housing integrity is violated. | Internal hardware components  are damaged or destroyed. | a. Housing is submerged in water (e.g. rain, puddle lake). <br/> b. Housing is violently rattled. <br/> c. Housing is dropped to the ground. | a. Make housing waterproof <br/> b. Protect the microcontroller from vibrations using damping. <br/> c. Make the housing robust and resistant to damage do to shock. | |
-| Mount housing to bicycle. | H5-1 | Mount failure. | Housing is dropped to the ground. | a. Mount is impacted by debris. <br/> b. Rattling loosens mount grip. | a. Place mount in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Instruct user to firmly tighten the mount to their bicycle. Line the gripping portion of the mount with rubber. | |
+| SR-3 | H2-2 | Front/Rear facing camera. | Camera footage will be void or non-optimal in the event of a camera loop logging. | a. Debris obstructs the camera's view. <br/> b. Complete camera or camera feed failure. | a. Place the camera in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Perform a camera feed check when the system is turned on. Indicate an issue if one is detected. | SR-1 |
+| Blind Spot Detection | H3-1 | False negative blind spot detection. | A vehicle exists in the users blind spot, but they are not alerted. | a. The vehicle is not recognized by the computer vision program. <br/> b. The rear facing camera is obstructed by debris. <br/> c. The rear facing camera or camera feed fails. | a. Provide a separate lesser warning for non-vehicles that are detected in the users blind spot. <br/> b. Same as H2-2a <br/> c. Same as H2-2b | SR-1 |
+| | H3-2 | False positive blind spot detection. | A user is alerted that a vehicle exists in their blindspot when no vehicle is present | a. Debris obstructs the rear facing camera's view. | a. Same as H2-2a | SR-1 |
+| Housing to protect hardware. | H4-1 | Housing integrity is violated. | Internal hardware components  are damaged or destroyed. | a. Housing is submerged in water (e.g. rain, puddle lake). <br/> b. Housing is violently rattled. <br/> c. Housing is dropped to the ground. | a. Make housing waterproof <br/> b. Protect the microcontroller from vibrations using damping. <br/> c. Make the housing robust and resistant to damage do to shock. | SR-2 <br/> IR-1 |
+| Mount housing to bicycle. | H5-1 | Mount failure. | Housing is dropped to the ground. | a. Mount is impacted by debris. <br/> b. Rattling loosens mount grip. | a. Place mount in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Instruct user to firmly tighten the mount to their bicycle. Line the gripping portion of the mount with rubber. | SR-2 <br/> IR-1 |
 
-## 8. Safety Requirements
+## 8. Safety and Security Requirements
 
+### 8.1 Safety Requirements
+
+| SR1 |  A system welfare check will be conducted each time the CRA is powered on to verify that all cameras and sensors are successfully communicating with the microcontroller. |  
+|:--|:--|  
+| Rationale |A problem with the rear facing camera could result in unexpected blind spot detection behaviour (false positives or false negatives). A problem with the front or rear facing camera could result in footage of a crash being lost. A problem with crash detection sensors could result in unexpected crash detection behaviour (false positives or false negatives).|  
+|:--|:--|  
+| Associated Hazards |  H1-1, H1-2, H2-2, H3-1, H3-2 |  
+
+| SR2 |  Safety instructions will be created to ensure that the CRA is properly equipped and mounted for the user.  |  
+|:--|:--|  
+| Rationale | Instructions will allow the user to properly mount and maintain their system.|  
+|:--|:--|    
+| Associated Hazards |  H2-1, H4-1, H5-1 |  
+
+| SR3 |  The storage device will be checked on startup by the system to ensure there is enough storage to hold two videos and will alert the user if the space is insufficient. |  
+|:--|:--|  
+| Rationale | In the case that the storage memory device is full, videos will be cut short to ensure that the user has the footage of the latest accident that they have been involved in. |  
+|:--|:--|  
+| Associated Hazards |  H2-1 |  
+
+### 8.2 Access Requirements
+| AR-1 |  CRA will allow the users to access their videos freely from an external hardware storage drive. |  
+|:--|:--|  
+| Rationale | This is to allow the user to connect it to their own personal systems to view, delete their videos. There is no need for encryption as this would complicate the process. |  
+|:--|:--| 
+| Associated Hazards |  N/A |  
+### 8.3 Integrity Requirements
+| IR-1 |  The mounting system will be made with solid and sustainable material to ensure mechanical integrity. |  
+|:--|:--|  
+| Rationale | This will be able to withstand changes in weather and temperature, accidental drops, and debris. |  
+|:--|:--| 
+| Associated Hazards |  H4-1, H5-1 |  
+
+### 8.4 Privacy Requirements
+| PR-1 |  CRA will not be connected to the internet but will be used and trained locally for CV purposes. |  
+|:--|:--|  
+| Rationale | This is to ensure that the footage of accidents will not be posted on the internet without the consent of the user. Instead all footage will be saved to an external hardware storage device. |  
+|:--|:--| 
+| Associated Hazards |  N/A |  
 ## 9. Roadmap
 The roadmap of CRA is a projection of the safety and security requirements listed above. The majority of these requirements will be implemented on the initial prototype and final application due to the nature of the system and its functionalities. Requirements will be constantly reevaluated with several factors in consideration such as time and project constraints. Towards the end of the project, the hazard analysis will be an evaluation over the project to get an understanding of what risks have been successfully mitigated and which ones will still require work.
 
