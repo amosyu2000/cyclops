@@ -1,69 +1,70 @@
-# Development Plan
-Group 9
- - Aaron Li - lia79
- - Amos Cheung - cheuny2
- - Amos Yu - yua25
- - Brian Le - leb7
- - Manny Lemos - lemosm1
+<h1 align="center">Development Plan</h1> <!-- omit in toc -->
+<p align="center">
+	Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>
+	<b>Team 9</b><br/>
+	Aaron Li (lia79)<br/>
+	Amos Cheung (cheuny2)<br/>
+	Amos Yu (yua25)<br/>
+	Brian Le (leb7)<br/>
+	Manny Lemos (lemosm1)<br/>
+</p> 
 
-# 1 Revisions
+## Table of Contents <!-- omit in toc -->
+- [1. Revisions](#1-revisions)
+- [2. Version Control](#2-version-control)
+- [3. Roles and Responsibilities](#3-roles-and-responsibilities)
+  - [3.1. Aaron Li](#31-aaron-li)
+  - [3.2. Amos Cheung](#32-amos-cheung)
+  - [3.3. Amos Yu](#33-amos-yu)
+  - [3.4. Brian Le](#34-brian-le)
+  - [3.5. Manny Lemos](#35-manny-lemos)
+- [4. Process Workflow](#4-process-workflow)
+- [5. Details on Steps to be Taken](#5-details-on-steps-to-be-taken)
+- [6. Development Tools](#6-development-tools)
+- [7. Handling Changes](#7-handling-changes)
 
-<div style="text-align: center;"> 
-    <p id="Revision_History">
-        Table 1: Revision History
-        <table style="width: 100%; text-align: left;">
-            <tr>
-                <th>Date</th>
-                <th>Developer(s)</th>
-                <th>Change</th>
-            </tr>
-            <tr>
-                <td>2022-09-22</th>
-                <td>Brian Le</th>
-                <td>Document Created</th>
-            </tr>
-            <tr>
-                <td>2022-09-23</th>
-                <td>Brian Le</th>
-                <td>Detailed steps and tools</th>
-            </tr>
-        </table>
-    </p>
-</div>
+## 1. Revisions
 
-# 2 Version Control
+<p id="rh">Table 1: Revision History</p>
+
+| Date | Developer(s) | Change |
+|:--|:--|:--|
+| 2022-09-22 | Brian Le | Document Created |
+| 2022-09-23 | Brian Le | Detailed steps and tools |
+
+## 2. Version Control
 
 Team members are expected to use the private Github repository. Team members will also be expected to maintain repos containing clean and accurate code. Members are required to create new branches when developing different aspects of software before merging into the main branch once functionality has been verified and is stable. Changes are highly encouraged to be made through multiple commits with a new commit made for per module or per 50 lines of code. Pull Requests are to be processed with the validation of at least two other members within the team with discussions encouraged to be held within their respective topics.
 
-# Roles and Responsibilities
+## 3. Roles and Responsibilities
 
-## Aaron Li
+### 3.1. Aaron Li
 
 - Responsible for the design of mounting and the physical components of Cyclops
 - Ensuring the seamless integration of electrical and mechanical components
 
-## Amos Cheung
+### 3.2. Amos Cheung
 
 - Responsible for the design of the electrical components of Cyclops
 - Ensure accurate reading of accelerometer and/or gyroscope 
 
-## Amos Yu
+### 3.3. Amos Yu
 
 - Responsible for crash detection module for Cyclops
 - Ensuring that proper logging system is in place
 
-## Brian Le
+### 3.4. Brian Le
 
 - Responsible for blindspot detection module for Cyclops
 - Ensuring proper vehicle and cyclist detection
 
-## Manny Lemos
+### 3.5. Manny Lemos
 
 - Responsible for sensor and camera module of Cyclops
 - Ensuring proper communication between the crash detection and blindspot detection module for Cyclops
 
 
-# Process Workflow
+## 4. Process Workflow
 
 Team members of Cyclops are expected to follow this general outline as a workflow:
 
@@ -76,7 +77,7 @@ Team members of Cyclops are expected to follow this general outline as a workflo
  7. Repeats steps 4 through 6 towards the completion of the module.
  8. Merge new functionality to the Master branch after code review from 2 other team members.
 
-# Details on Steps to be Taken
+## 5. Details on Steps to be Taken
 
 The following are steps that the Cyclops team aim to complete:
 
@@ -89,7 +90,7 @@ The following are steps that the Cyclops team aim to complete:
  7. Implement communication between the crash detection system, blindspot detection system and the crash logging system.
  8. Assemble closed physical system.
 
-# Development Tools
+## 6. Development Tools
 
 The following are environments that team members will be using for the development and debugging of the system:
 
@@ -99,7 +100,7 @@ The following are environments that team members will be using for the developme
  - Github: The version control and issue tracking platform utilized. 
  - Bike: Tester bike will be used to simulate and test the functionalities of Cyclops in a real time environment.
 
-# Handling Changes
+## 7. Handling Changes
 
 Team members will also be encouraged to follow the format within **CONTRIBUTING.md**:
 

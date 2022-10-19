@@ -1,21 +1,14 @@
-<!--Title Page-->
-<div style="text-align: center;"> 
-    <h1 id="Document_Title">Software Requirements Specification for Cyclops Ride Assist</h1>
-    <h2 id="Document Description">Real-time bicycle crash detection and blindspot monitoring</h2>
-    <h4 id="Group_Info">Group 9</h4>
-    <h4 id="Author_Info">
-        Aaron Li    - lia79     <br>
-        Amos Cheung - cheuny2   <br>
-        Amos Yu     - yua25     <br>
-        Brian Le    - leb7      <br>
-        Manny Lemos - lemosm1   <br>
-    </h4>
-</div>
+<h1 align="center">Software Requirements Specification</h1> <!-- omit in toc -->
+<p align="center">
+  Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>
+  <b>Team 9</b><br/>
+  Aaron Li (lia79)<br/>
+  Amos Cheung (cheuny2)<br/>
+  Amos Yu (yua25)<br/>
+  Brian Le (leb7)<br/>
+  Manny Lemos (lemosm1)<br/>
+</p> 
 
-<!--Page Break-->
-<div style="page-break-after: always;"></div>
-
-<!-- Table of Contents-->
 ## Table of Contents <!-- omit in toc -->
 - [1 Revisions](#1-revisions)
 - [2 Project Drivers](#2-project-drivers)
