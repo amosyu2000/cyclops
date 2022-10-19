@@ -51,6 +51,7 @@
 This document identifies potential hazards which arise due to failures in the hardware and software used in the Cyclops Ride Assist system, the causes and effects of these failures, plans for hazard mitigation, and the safety and security requirements which emerge as a result of this knowledge.
 
 ## 4. Definition of Hazard
+A hazard is any property of the CRA system that has the potential to cause harm in both the user and the various systems that make up CRA. In CRA, there are hazards in safety (video logging, vehicle detection) and physical (mount, enclosure). 
 
 ## 5. Critical Assumptions
 
@@ -87,5 +88,7 @@ Video Logging | H2-1 | Storage device cannot accommodate the loop of video attem
 ## 8. Safety Requirements
 
 ## 9. Roadmap
+The roadmap of CRA is a projection of the safety and security requirements listed above. The majority of these requirements will be implemented on the initial prototype and final application due to the nature of the system and its functionalities. Requirements will be constantly reevaluated with several factors in consideration such as time and project constraints. Towards the end of the project, the hazard analysis will be an evaluation over the project to get an understanding of what risks have been successfully mitigated and which ones will still require work.
+
 
 ## 10. Appendix
