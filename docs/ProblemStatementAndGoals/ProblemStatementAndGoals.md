@@ -1,28 +1,29 @@
-<div style="text-align: center;"> 
-    <H2 id="Document_Title"> 
-        4TB6A: Problem Statement and Goals 
-        <br>
-        Cyclops 
-    </H2>
-    <p id="Author_Info">Manny Lemos - lemosm1</p>
-    <br><br>
-    <p id="Revision_History">
-        Table 1: Revision History
-        <table style="width: 100%; text-align: left;">
-            <tr>
-                <th>Date</th>
-                <th>Developer(s)</th>
-                <th>Change</th>
-            </tr>
-            <tr>
-                <td>2022-09-19</th>
-                <td>Manny Lemos, Aaron Li, Amos Yu</th>
-                <td>Document Created</th>
-            </tr>
-        </table>
-    </p>
-    <br><br>
-</div>
+<h1 align="center">Problem Statement and Goals</h1> <!-- omit in toc -->
+<p align="center">
+	Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>
+	<b>Team 9</b><br/>
+	Aaron Li (lia79)<br/>
+	Amos Cheung (cheuny2)<br/>
+	Amos Yu (yua25)<br/>
+	Brian Le (leb7)<br/>
+	Manny Lemos (lemosm1)<br/>
+</p> 
+
+## Table of Contents <!-- omit-in-toc -->
+- [Table of Contents](#table-of-contents)
+- [1. Problem Statement](#1-problem-statement)
+- [2. Goals](#2-goals)
+  - [2.1. Reliable Blindspot Monitoring](#21-reliable-blindspot-monitoring)
+  - [2.2. Convenient Mounting and Dismounting](#22-convenient-mounting-and-dismounting)
+  - [2.3. Accurate Crash Detection](#23-accurate-crash-detection)
+  - [2.4. Video Buffering and Saving](#24-video-buffering-and-saving)
+  - [2.5. Headlamp](#25-headlamp)
+- [3. Stretch Goals](#3-stretch-goals)
+  - [3.1. Emergency Response Integration](#31-emergency-response-integration)
+  - [3.2. Mobile App](#32-mobile-app)
+  - [3.3. Map Integration](#33-map-integration)
+- [4. Appendix](#4-appendix)
+  - [4.1. Symbolic Parameters](#41-symbolic-parameters)
 
 ## 1. Problem Statement
 Cycling is an economic mode of transportation which has an extremely low carbon footprint. As North America pursues greener goals, it is expected that more people will adopt cycling as their primary method of transportation. However, many North American roads were not designed with cyclists in mind; some roads do not have any bike lanes to speak of, and many of those that do are nothing more than additional paint on an already narrow lane-way. Naturally, a combined road where multi-ton vehicles are speeding past cyclists is a recipe for disaster. When vehicles impact cyclists, the mismatch in size and mass may result in a cyclist's serious injury or even death. Evidently, any means to improve the safety of cyclists before, during, and after a crash is of vital importance to all who share the road, and more specifically those who travel by bicycle.
