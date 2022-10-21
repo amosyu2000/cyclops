@@ -1,5 +1,9 @@
 <div align="center">
 
+<a href="https://github.com/amosyu2000/cyclops">
+	<img src="../../refs/header.svg" width="800" height="400" alt="Cyclops header">
+</a>
+
 # Hazard Analysis <!-- omit in toc -->
 Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
 __Team 9__  
@@ -10,6 +14,8 @@ Brian Le (leb7)
 Manny Lemos (lemosm1)  
 
 </div>
+
+<div style="page-break-after: always;"></div> <!-- Page Break -->
 
 ## Table Of Contents <!-- omit in toc -->
 - [1. Revision History](#1-revision-history)
