@@ -1,13 +1,15 @@
-<h1 align="center">Problem Statement and Goals</h1> <!-- omit in toc -->
-<p align="center">
-	Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>
-	<b>Team 9</b><br/>
-	Aaron Li (lia79)<br/>
-	Amos Cheung (cheuny2)<br/>
-	Amos Yu (yua25)<br/>
-	Brian Le (leb7)<br/>
-	Manny Lemos (lemosm1)<br/>
-</p> 
+<div align="center">
+
+# Problem Statement And Goals <!-- omit in toc -->
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+__Team 9__  
+Aaron Li (lia79)  
+Amos Cheung (cheuny2)  
+Amos Yu (yua25)  
+Brian Le (leb7)  
+Manny Lemos (lemosm1)  
+
+</div>
 
 ## Table of Contents <!-- omit in toc -->
 - [1. Revision History](#1-revision-history)
@@ -28,12 +30,19 @@
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
 
+## List of Figures <!-- omit in toc -->
+
 ## 1. Revision History
+<div align="center">
+
 <p id="rh">Table 1.1: Revision History</p>
 
 | Date | Developer(s) | Change |
 |:--|:--|:--|
 | 2022-10-19 | All | Document creation |
+| 2022-10-20 | Amos Yu | Improved formatting |
+
+</div>
 
 ## 2. Problem Statement
 Cycling is an economic mode of transportation which has an extremely low carbon footprint. As North America pursues greener goals, it is expected that more people will adopt cycling as their primary method of transportation. However, many North American roads were not designed with cyclists in mind; some roads do not have any bike lanes to speak of, and many of those that do are nothing more than additional paint on an already narrow lane-way. Naturally, a combined road where multi-ton vehicles are speeding past cyclists is a recipe for disaster. When vehicles impact cyclists, the mismatch in size and mass may result in a cyclist's serious injury or even death. Evidently, any means to improve the safety of cyclists before, during, and after a crash is of vital importance to all who share the road, and more specifically those who travel by bicycle.

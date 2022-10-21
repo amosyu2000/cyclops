@@ -1,13 +1,15 @@
-<h1 align="center">Software Requirements Specification</h1> <!-- omit in toc -->
-<p align="center">
-  Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>
-  <b>Team 9</b><br/>
-  Aaron Li (lia79)<br/>
-  Amos Cheung (cheuny2)<br/>
-  Amos Yu (yua25)<br/>
-  Brian Le (leb7)<br/>
-  Manny Lemos (lemosm1)<br/>
-</p> 
+<div align="center">
+
+# Software Requirements Specification <!-- omit in toc -->
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+__Team 9__  
+Aaron Li (lia79)  
+Amos Cheung (cheuny2)  
+Amos Yu (yua25)  
+Brian Le (leb7)  
+Manny Lemos (lemosm1)  
+
+</div>
 
 ## Table of Contents <!-- omit in toc -->
 - [1. Revision History](#1-revision-history)
@@ -90,6 +92,7 @@
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
+- 
 ## List of Figures <!-- omit in toc -->
 - [Figure 4.1: CRA System Context Diagram](#scd)  
 - [Figure 5.1: CRA Functional Decomposition Diagram](#fdd)  
@@ -97,11 +100,16 @@
 - [Figure 5.3: Legend for the CRA Data Flow Diagram](#lcdfd)  
 
 ## 1. Revision History
+<div align="center">
+
 <p id="rh">Table 1.1: Revision History</p>
 
 | Date | Developer(s) | Change |
 |:--|:--|:--|
 | 2022-10-03 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document Created |
+| 2022-10-20 | Amos Yu | Improved formatting |
+
+</div>
 
 ## 2. Project Drivers
 ### 2.1. Project Purpose
@@ -123,63 +131,68 @@ The user will be all cyclists.
 ## 3. Project Constraints
 ### 3.1. Mandated Constraints
 A list of constraints which will adhered to during the design and development of this system.
-| Mandated Constraint 1 | This capstone project must be completed prior to the final demonstration.                                                                                                          |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Rationale 1           | Project deadlines provided in the course outline dictate project milestone which must be met. One such milestone is the final demonstration which occurs between March 20-31 2023. |  
+| Mandated Constraint 1 | This capstone project must be completed prior to the final demonstration. |
+|:--|:--|
+| Rationale 1 | Project deadlines provided in the course outline dictate project milestone which must be met. One such milestone is the final demonstration which occurs between March 20-31 2023. |  
 
-| Mandated Constraint 2 | The total cost of the components used in this design must not exceed $750.                                                               |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Rationale 2           | The final deliverable must be a competitor in the open market. Further, using funds to purchase an off-the-shelf product is not allowed. |
+| Mandated Constraint 2 | The total cost of the components used in this design must not exceed $750. |
+|:--|:--|
+| Rationale 2 | The final deliverable must be a competitor in the open market. Further, using funds to purchase an off-the-shelf product is not allowed. |
 
-| Mandated Constraint 3 | The system must be able to analyze inputs to produce desired results in real time.                                                                                                         |
-|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Rationale 3           | Real time analysis and response is an integral component of the cyclops ride assist system. More precisely, desired results are only of value if they can be delivered on time every time. |
+| Mandated Constraint 3 | The system must be able to analyze inputs to produce desired results in real time. |
+|:--|:--|
+| Rationale 3 | Real time analysis and response is an integral component of the cyclops ride assist system. More precisely, desired results are only of value if they can be delivered on time every time. |
 
 ### 3.2. Naming Conventions and Definitions
 #### 3.2.1. Naming Conventions
-| Name    | Explanation                                                   |
-|---------|---------------------------------------------------------------|
-| Client  | See user.                                                     |
-| CRA     | Abbreviation of Cyclops Ride Assist.                          |
+| Name | Explanation |
+|:--|:--|
+| Client | See user. |
+| CRA | Abbreviation of Cyclops Ride Assist. |
 | Cyclist | A person who operates a bicycle as a means of transportation. |
-| User    | A person who will operate the final product. See Cyclist.     |
+| User | A person who will operate the final product. See Cyclist. |
 
 #### 3.2.2. Constants
 - Gravity = 9.81 m/s<sup>2</sup>
 #### 3.2.3. Monitored Variables
-| Monitor Name | Monitor Description                                                                            | Monitor Type | Units  |
-|--------------|------------------------------------------------------------------------------------------------|--------------|--------|
-| αx           | Measures acceleration parallel to the path of  the bicycle.                                    | acceleration | m/s2   |
-| αy           | Measures acceleration perpendicular to the path of  the bicycle along the plane of the ground. | acceleration | m/s2   |
-| αz           | Measures acceleration in the vertical direction.                                               | acceleration | m/s2   |
-| tilt         | Measures the vertical tilt of the system relative to a calibrated absolute level.              | rotation     | rad    |
-| vfront       | Video feed from the front facing camera.                                                       | Video        | N/A    |
-| vrear        | Video feed from the rear facing camera.                                                        | Video        | N/A    |
-| sw_flashlight        | Switch which controls the flashlight.                                                  | Boolean      | N/A    |
+| Monitor Name | Monitor Description | Monitor Type | Units |
+|:--|:--|:--|:--|
+| αx | Measures acceleration parallel to the path of  the bicycle. | acceleration | m/s2 |
+| αy | Measures acceleration perpendicular to the path of  the bicycle along the plane of the ground. | acceleration | m/s2 |
+| αz | Measures acceleration in the vertical direction. | acceleration | m/s2 |
+| tilt | Measures the vertical tilt of the system relative to a calibrated absolute level. | rotation | rad |
+| vfront | Video feed from the front facing camera. | Video | N/A |
+| vrear | Video feed from the rear facing camera. | Video | N/A |
+| sw_flashlight | Switch which controls the flashlight. | Boolean | N/A |
 #### 3.2.4. Controlled Variables
-| Controlled Name | Controlled Description                             | Controlled Type | Units  |
-|-----------------|----------------------------------------------------|-----------------|--------|
-| led_blind_spot  | Indicates a vehicle is in the bicycles blind spot. | Boolean        | N/A    |
-| flashlight  | Indicates the state of the flashlight. | Boolean        | N/A    |
+| Controlled Name | Controlled Description | Controlled Type | Units |
+|:--|:--|:--|:--|
+| led_blind_spot | Indicates a vehicle is in the bicycles blind spot. | Boolean | N/A |
+| flashlight | Indicates the state of the flashlight. | Boolean | N/A |
+
 ### 3.3. Relevant Facts and Assumptions  
 #### 3.3.1. Relevant Facts  
 - A Raspberry Pi can consume up to [6.4 watts](https://www.pidramble.com/wiki/benchmarks/power-consumption) of power under maximum CPU load.
 #### 3.3.2. Assumptions  
 Assumptions will enable developers to cull the scope of the problem(s) being undertaken. As such, assumptions will detail limitations of the system.  
-| Assumption 1 | Cyclists will mount and dismount their bikes with care.                                                                                                                                                                           |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Assumption 1 | Cyclists will mount and dismount their bikes with care. |
+|:--|:--|
 | Rationale 1  | Violent mounting and dismounting of one's bicycle may result in unintended triggering of crash detection and subsequent video logging. The system will not be able to distinguish between violent (dis)mounting and true crashes. |
 
-| Assumption 2 | While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available.                                                                                                                                                                                     |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Rationale 2  | The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers. | 
+| Assumption 2 | While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available. |
+|:--|:--|
+| Rationale 2 | The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers. | 
 
 ## 4. Context Diagrams  
+<div align="center">
 <p id="scd">Figure 4.1: CRA System Context Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
 
+</div>
+
 ## 5. Functional Decomposition Diagrams
+<div align="center">
 <p id="fdd">Figure 5.1: CRA Functional Decomposition Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
@@ -192,6 +205,8 @@ Assumptions will enable developers to cull the scope of the problem(s) being und
 
 ![image](https://user-images.githubusercontent.com/46848538/194148016-d0cf9829-a4b2-468f-9141-8821ec97a692.png)  
 
+</div>
+
 ## 6. Functional Requirements
 ### 6.1. Scope of Work
 CRA will be separated into 3 main components: Microcontroller, Blindspot, Crash Detection. The scope of the Functional requirements will include the mounting, microcontroller, blindspot monitoring, crash monitoring, and forward visibility systems. Each system will be developed as its own module and then brought together with communications between each module facilitated through the microcontroller. Members of the team will be distributed to each member to be completed with the final goal being to merge each for a final product.
@@ -203,59 +218,59 @@ The scope of the product will be a physical enclosure which will contain all of 
 
 #### 6.4.1. CRA Requirements
 | CFR1       | CRA must be able to light up LED when a close car/vehicle is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should be able to visually inform the rider that there is a car in their blindspot |
 
 | CFR2       | CRA must be able to provide a live video feed through out users ride                |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA needs the live feed inorder for its computer vision to detect vehicles and for video logging from the crash detection |
 
 | CFR3       | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az)               |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA needs the accurate acceleration to determine when a crash has occured |
 
 | CFR4       | CRA must be able to take in accurate velocity information                |
-|:----------|:---------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA needs the accurate velocity to determine when the user is moving to activate both crash and blindspot systems |
 
 | CFR5       | CRA must know when the user is moving. Such that: Moving = V<sub>bike</sub> > 0              |
-|:----------|:---------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should only log a crash once it has been establish that the user was moving on their bike |
 
 | CFR6       | CRA must recognize a vehicle within the video feed. Such that: isVehicle = Feed(vrear) where if vrear contains vehicle -> isVehicle = 1            |
-|:----------|:---------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should recognize that there is a car in the users blindspot |
 
 | CFR7       | CRA must recognize the user has crashed. Such that: crashed = CrashMonitor(A<sub>bike</sub>) where if A<sub>bike</sub> > AcceptableG -> crashed = 1        |
-|:----------|:---------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should recognize when to discard buffered video footage and when to save it. |
 
 | CFR8       | CRA must clip/log the last BUFFER_TIME_MINUTES minutes of the Video Feed when a crash is detected. Such that videoLog(vfront) - > V, SD = {C1, C2 ..}       |
-|:----------|:---------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should save the video feed of the moments leading up to the crash on the integrated SD card |
 
 | CFR9       | CRA must be able to notify when the SD card is full. Such that: sdFull = isSDFull(SD) where if SD.size()/(clipSize * clipCount) $<$ clipSize -> sdFull = 1    |
-|:----------|:---------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should save the video feed of the moments leading up to the crash on the integrated SD card |
 
 | CFR10       | CRA must only be able to run the crash detection when an SD card is inserted into the system    |
-|:----------|:---------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should only be able to run the crash detection functionality once an SD card is included in the system |
 
 | CFR11       | CRA shall be able to determine when a componenet is no longer operational due to low power levels. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub>   |
-|:----------|:----------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should only be able to run the crash detection functionality once an SD card is included in the system |
 
 | CFR12       | CRA must be able to continue running its video feed after a clip has been logged |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
 
 | CFR13       | CRA must be able to continue running its crash detection system after a crash has been detected |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
 
 | CFR14       | CRA must be able turn on front lights when prompted by the user. Such that lightON = illuminationResp(flashLightState) |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:--|:--|
 | Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
 
 
@@ -561,55 +576,55 @@ The scope of the product will be a physical enclosure which will contain all of 
 | Rationale |The lifespan could increase or decrease when designing the product|
 ### 9.2. Unlikely Changes
 | CFR1       | CRA must be able to light up LED when a close car/vehicle is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:-----------|:----|
 | Rationale | This is one of the core function blind spot detection |
 
 | CFR2       | CRA must be able to provide a live video feed through out users ride                |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:-----------|:----|
 | Rationale | This is one of the core function crash detection |
 
 | CFR3       | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az)               |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:-----------|:----|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR4       | CRA must be able to take in accurate velocity information                |
-|:----------|:---------------------------------------------------------------------------------------|
+|:----------|:---|
 | Rationale | This is one of the core requirement of crash detection and blind spot detection |
 
 | CFR5       | CRA must know when the user is moving. Such that: Moving = V<sub>bike</sub> > 0              |
-|:----------|:---------------------------------------------------------------------------------------|
+|:----------|:---|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR7       | CRA must recognize the user has crashed. Such that: crashed = CrashMonitor(A<sub>bike</sub>) where if A<sub>bike</sub> > AcceptableG -> crashed = 1        |
-|:----------|:---------------------------------------------------------------------------------------|
+|:----------|:---|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR8       | CRA must clip/log the last BUFFER_TIME_MINUTES of the Video Feed when a crash is detected. Such that videoLog(vfront) - > V, SD = {C1, C2 ..}       |
-|:----------|:---------------------------------------------------------------------------------------|
+|:----------|:---|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR9       | CRA must be able to notify when the SD card is full. Such that: sdFull = isSDFull(SD) where if SD.size()/(clipSize * clipCount) $<$ clipSize -> sdFull = 1    |
-|:----------|:---------------------------------------------------------------------------------------|
+|:----------|:---|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR10       | CRA must only be able to run the crash detection when an SD card is inserted into the system    |
-|:----------|:---------------------------------------------------------------------------------------|
+|:----------|:---|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR11       | CRA shall be able to determine when a componenet is no longer operational due to low power levels. Such that: ErrorLowPower= V<sub>battery</sub> $<$ V<sub>min</sub>|
-|:----------|:----------------------------------------------------------------------------------------|
+|:----------|:----|
 | Rationale | Components needed to be powered in order to have CRA fully working at all times |
 
 | CFR12       | CRA must be able to continue running its video feed after a clip has been logged |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:-----------|:----|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR13       | CRA must be able to continue running its crash detection system after a crash has been detected |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:-----------|:----|
 | Rationale | This is one of the core requirement of crash detection |
 
 | CFR14       | CRA must be able turn on front lights when prompted by the user. Such that lightON = illuminationResp(flashLightState) |
-|:-----------|:----------------------------------------------------------------------------------------|
+|:-----------|:----|
 | Rationale | This is the core function of the headlamp |
 
 | CNFR2 | CRA will be contained in a mechanically created system mounted on the bicycle.|                                                                            
