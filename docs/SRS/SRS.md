@@ -1,7 +1,7 @@
 <div align="center">
 
 # Software Requirements Specification <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -92,7 +92,8 @@ Manny Lemos (lemosm1)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
-- 
+- [Table 10.1.1: List of Symbolic Parameters](#sp)
+
 ## List of Figures <!-- omit in toc -->
 - [Figure 4.1: CRA System Context Diagram](#scd)  
 - [Figure 5.1: CRA Functional Decomposition Diagram](#fdd)  
@@ -106,7 +107,7 @@ Manny Lemos (lemosm1)
 
 | Date | Developer(s) | Change |
 |:--|:--|:--|
-| 2022-10-03 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document Created |
+| 2022-10-03 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
 | 2022-10-20 | Amos Yu | Improved formatting |
 
 </div>
@@ -272,9 +273,6 @@ The scope of the product will be a physical enclosure which will contain all of 
 | CFR14       | CRA must be able turn on front lights when prompted by the user. Such that lightON = illuminationResp(flashLightState) |
 |:--|:--|
 | Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
-
-
-
 
 ## 7. Non-Functional Requirements
 ### 7.1. Look and Feel Requirements
@@ -801,12 +799,19 @@ The scope of the product will be a physical enclosure which will contain all of 
 
 ## 10. Appendix
 ### 10.1. Symbolic Parameters
+
+<div align="center">
+
+<p id="sp">Table 10.1.1: List of Symbolic Parameters</p>
+
 | Parameter | Description |
 |:--|:--|
 | BUFFER_TIME_MINUTES | The length of footage that will be saved after an accident occurs (in minutes). |
 | UPLOAD_TIME_SECONDS | The maximum time required to upload a video to the external storage device (in seconds). |
 | RESPONSE_TIME_MILLISECONDS | The maximum time required to update the output upon a change in the input (in milliseconds). |
 | LOW_BATTERY_ALERT_TIME_SECONDS | The maximum time after startup required to indicate if the system is low on battery (in seconds). |
+
+</div>
 
 ### 10.2. Reflection
 

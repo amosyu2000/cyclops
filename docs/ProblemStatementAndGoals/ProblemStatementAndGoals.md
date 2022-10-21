@@ -1,7 +1,7 @@
 <div align="center">
 
 # Problem Statement And Goals <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -29,6 +29,7 @@ Manny Lemos (lemosm1)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
+- [Table 5.1.1: List of Symbolic Parameters](#sb)
 
 ## List of Figures <!-- omit in toc -->
 
@@ -78,4 +79,13 @@ Record the distance and places/roads travelled from start to finish on the mobil
 ## 5. Appendix
 
 ### 5.1. Symbolic Parameters
-BUFFER_TIME_MINUTES - The length of footage that will be saved after an accident occurs (in minutes). 
+
+<div align="center">
+
+<p id="sp">Table 5.1.1: List of Symbolic Parameters</p>
+
+| Parameter | Description |
+|:--|:--|
+| BUFFER_TIME_MINUTES | The length of footage that will be saved after an accident occurs (in minutes). |
+
+</div>
