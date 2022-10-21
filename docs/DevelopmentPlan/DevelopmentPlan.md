@@ -1,7 +1,7 @@
 <div align="center">
 
 # Development Plan <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -37,7 +37,7 @@ Manny Lemos (lemosm1)
 
 | Date | Developer(s) | Change |
 |:--|:--|:--|
-| 2022-09-22 | Brian Le | Document Created |
+| 2022-09-22 | Brian Le | Document created |
 | 2022-09-23 | Brian Le | Detailed steps and tools |
 | 2022-10-20 | Amos Yu | Improved formatting |
 

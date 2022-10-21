@@ -1,8 +1,8 @@
-# Software Requirements Specification (SRS) and Commonality Analysis (CA)
+<div align="center">
 
-<The SRS is for a single product.  The CA is for a family of related 
-products>
+# Software Requirements Specification (SRS)
 
-The folders and files for this folder are as follows:
+[![image](https://img.shields.io/badge/DOCUMENTATION-MD-informational?style=for-the-badge)](./SRS.md)
+[![image](https://img.shields.io/badge/DOCUMENTATION-PDF-red?style=for-the-badge)](./SRS.pdf)
 
-SRS.md - This file is the Software Requirements Specification for Cyclops.
+</div>

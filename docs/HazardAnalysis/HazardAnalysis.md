@@ -1,7 +1,7 @@
 <div align="center">
 
 # Hazard Analysis <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -157,6 +157,7 @@ Crash Detection | H1-1 | False negative crash detection. | The current loop of v
 | Mount housing to bicycle. | H5-1 | Mount failure. | Housing is dropped to the ground. | a. Mount is impacted by debris. <br/> b. Rattling loosens mount grip. | a. Place mount in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Instruct user to firmly tighten the mount to their bicycle. Line the gripping portion of the mount with rubber. | a. SR-2, IR-1 <br/> b. SR-2, IR-1 |
 
 </div>
+
 ## 8. Safety and Security Requirements
 
 ### 8.1. Safety Requirements
