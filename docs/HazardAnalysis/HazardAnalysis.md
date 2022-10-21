@@ -1,13 +1,15 @@
-<h1 align="center">Hazard Analysis</h1> <!-- omit in toc -->
-<p align="center">
-	Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>
-	<b>Team 9</b><br/>
-	Aaron Li (lia79)<br/>
-	Amos Cheung (cheuny2)<br/>
-	Amos Yu (yua25)<br/>
-	Brian Le (leb7)<br/>
-	Manny Lemos (lemosm1)<br/>
-</p> 
+<div align="center">
+
+# Hazard Analysis <!-- omit in toc -->
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+__Team 9__  
+Aaron Li (lia79)  
+Amos Cheung (cheuny2)  
+Amos Yu (yua25)  
+Brian Le (leb7)  
+Manny Lemos (lemosm1)  
+
+</div>
 
 ## Table Of Contents <!-- omit in toc -->
 - [1. Revision History](#1-revision-history)
@@ -46,17 +48,23 @@
 - [9. Roadmap](#9-roadmap)
 - [10. Appendix](#10-appendix)
 
-## List of Figures <!-- omit in toc -->
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
 - [Table 7.2.1: Failure Modes and Effect Analysis](#fmea)
 
+## List of Figures <!-- omit in toc -->
+
 ## 1. Revision History
+<div align="center">
+
 <p id="rh">Table 1.1: Revision History</p>
 
 | Date | Developer(s) | Change |
 |:--|:--|:--|
 | 2022-10-19 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
+| 2022-10-20 | Amos Yu | Improved formatting |
+
+</div>
 
 ## 2. Introduction
 This document is the hazard analysis of Cyclops Ride Assist (CRA) system. CRA is an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bicycle or motorcyle. Features include blind spot detection, crash detection, and automatic video capture and upload. 
@@ -134,19 +142,21 @@ The hazard analysis as outlined in this document will be conducted within the ph
 ## 7. Failure Modes and Effect Analysis
 ### 7.1. Hazards Out of Scope
 ### 7.2. Failure Modes and Effect Analysis Table
+<div align="center">
 <p id="fmea">Table 7.2.1: Failure Modes and Effect Analysis</p>
 
 | Design Function | Ref # | Failure Mode | Effects of Failures | Causes of Failure | Recommended Action | SR |
 |:--|:--|:--|:--|:--|:--|:--|
-Crash Detection		| H1-1		| False negative crash detection. | The current loop of video will not be logged to the storage device. | a. Sensor failure (bias, drift, complete failure, precision degradation). <br/> b. Crash was not violent enough to trigger a crash detection sequence.\end{tabular | a. Perform a sensor calibration and test when the system is turned on. Indicate an issue if one is detected. <br/> b. Allow users to force video loop logging with a  button. | a. SR-1 <br/> b. AR-1|
+Crash Detection | H1-1 | False negative crash detection. | The current loop of video will not be logged to the storage device. | a. Sensor failure (bias, drift, complete failure, precision degradation). <br/> b. Crash was not violent enough to trigger a crash detection sequence.\end{tabular | a. Perform a sensor calibration and test when the system is turned on. Indicate an issue if one is detected. <br/> b. Allow users to force video loop logging with a  button. | a. SR-1 <br/> b. AR-1|
 | | H1-2 | False positive crash detection. | An unnecessary loop of video will be logged to the storage device. | a. Sensor failure (bias, drift, complete failure, precision degradation). <br/> b. A non-crash event had trademark features of a crash (e.g. high g forces, tipping). | a. Same as H1-1a <br/> b. Allow user to cancel video loop logging with a button. | a. SR-1 <br/> b. AR-1 |
-Video Logging | H2-1 | Storage device cannot accommodate the loop of video attempting to be logged.	| Video loop will not be logged to the storage device. | a. Video loop is too large to be logged on the storage device. | a. Log the most recent half of the current video loop, and halve the length of the video loop going forward. When sufficient storage is available on the storage device, standard video loop length should be reinstated. 
-| a.SR-3 | H2-2 | Front/Rear facing camera. | Camera footage will be void or non-optimal in the event of a camera loop logging. | a. Debris obstructs the camera's view. <br/> b. Complete camera or camera feed failure. | a. Place the camera in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Perform a camera feed check when the system is turned on. Indicate an issue if one is detected. | a. IR-1 <br/> b. SR-1 |
+| Video Logging | H2-1 | Storage device cannot accommodate the loop of video attempting to be logged. | Video loop will not be logged to the storage device. | a. Video loop is too large to be logged on the storage device. | a. Log the most recent half of the current video loop, and halve the length of the video loop going forward. When sufficient storage is available on the storage device, standard video loop length should be reinstated. | a.SR-3 |
+| | H2-2 | Front/Rear facing camera. | Camera footage will be void or non-optimal in the event of a camera loop logging. | a. Debris obstructs the camera's view. <br/> b. Complete camera or camera feed failure. | a. Place the camera in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Perform a camera feed check when the system is turned on. Indicate an issue if one is detected. | a. IR-1 <br/> b. SR-1 |
 | Blind Spot Detection | H3-1 | False negative blind spot detection. | A vehicle exists in the users blind spot, but they are not alerted. | a. The vehicle is not recognized by the computer vision program. <br/> b. The rear facing camera is obstructed by debris. <br/> c. The rear facing camera or camera feed fails. | a. Provide a separate lesser warning for non-vehicles that are detected in the users blind spot. <br/> b. Same as H2-2a <br/> c. Same as H2-2b | a. SR-4 <br/> b. SR-1 <br/> c. SR-1 |
 | | H3-2 | False positive blind spot detection. | A user is alerted that a vehicle exists in their blindspot when no vehicle is present | a. Debris obstructs the rear facing camera's view. | a. Same as H2-2a | a. SR-1 |
 | Housing to protect hardware. | H4-1 | Housing integrity is violated. | Internal hardware components  are damaged or destroyed. | a. Housing is submerged in water (e.g. rain, puddle lake). <br/> b. Housing is violently rattled. <br/> c. Housing is dropped to the ground. | a. Make housing waterproof <br/> b. Protect the microcontroller from vibrations using damping. <br/> c. Make the housing robust and resistant to damage do to shock. | a. IR-1 <br/> b. SR-2, IR-1 <br/> b. SR-2 |
 | Mount housing to bicycle. | H5-1 | Mount failure. | Housing is dropped to the ground. | a. Mount is impacted by debris. <br/> b. Rattling loosens mount grip. | a. Place mount in a position unlikely to be impacted by debris (eg. not on underside of downtube) <br/> b. Instruct user to firmly tighten the mount to their bicycle. Line the gripping portion of the mount with rubber. | a. SR-2, IR-1 <br/> b. SR-2, IR-1 |
 
+</div>
 ## 8. Safety and Security Requirements
 
 ### 8.1. Safety Requirements

@@ -1,13 +1,15 @@
-<h1 align="center">Development Plan</h1> <!-- omit in toc -->
-<p align="center">
-	Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>
-	<b>Team 9</b><br/>
-	Aaron Li (lia79)<br/>
-	Amos Cheung (cheuny2)<br/>
-	Amos Yu (yua25)<br/>
-	Brian Le (leb7)<br/>
-	Manny Lemos (lemosm1)<br/>
-</p> 
+<div align="center">
+
+# Development Plan <!-- omit in toc -->
+Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.  
+__Team 9__  
+Aaron Li (lia79)  
+Amos Cheung (cheuny2)  
+Amos Yu (yua25)  
+Brian Le (leb7)  
+Manny Lemos (lemosm1)  
+
+</div>
 
 ## Table of Contents <!-- omit in toc -->
 - [1. Revision History](#1-revision-history)
@@ -26,7 +28,10 @@
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
 
+## List of Figures <!-- omit in toc -->
+
 ## 1. Revision History
+<div align="center">
 
 <p id="rh">Table 1: Revision History</p>
 
@@ -34,6 +39,9 @@
 |:--|:--|:--|
 | 2022-09-22 | Brian Le | Document Created |
 | 2022-09-23 | Brian Le | Detailed steps and tools |
+| 2022-10-20 | Amos Yu | Improved formatting |
+
+</div>
 
 ## 2. Version Control
 
