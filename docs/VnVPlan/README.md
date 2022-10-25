@@ -1,5 +1,8 @@
-# Test Plan
+<div align="center">
 
-The folders and files for this folder are as follows:
+# System Verification and Validation Plan
 
-Describe ...
+[![image](https://img.shields.io/badge/DOCUMENTATION-MD-informational?style=for-the-badge)](./VnVPlan.md)
+[![image](https://img.shields.io/badge/DOCUMENTATION-PDF-red?style=for-the-badge)](./VnVPlan.pdf)
+
+</div>
