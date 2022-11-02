@@ -107,13 +107,26 @@ Manny Lemos (lemosm1)
 </div>
 
 ## 2. Symbols, Abbreviations, and Acronyms
-| Name | Description |
-|:--|:--|
-| CRA | Abbreviation of Cyclops Ride Assist.|
-| Cyclist | A person who operates a bicycle as a means of transportation. |
-| User | A person who will operate the final product. See Cyclist. |
-| Client | See user. |
-| SRS | Software Requirements Specification |
+| Name 				| Description |
+|:--				|:--|
+| CRA 				| Abbreviation of Cyclops Ride Assist.|
+| Cyclist 			| A person who operates a bicycle as a means of transportation. |
+| User 				| A person who will operate the final product. See Cyclist. |
+| Client 			| See user. |
+| SRS 				| Software Requirements Specification |
+| αx  				| Measures acceleration parallel to the path of the bicycle. |
+| αy				| Measures acceleration perpendicular to the path of the bicycle along the plane of the ground. |
+| αz				| Measures acceleration in the vertical direction. |
+| tilt				| Measures the vertical tilt of the system relative to a calibrated absolute level. |
+| vfront			| Video feed from the front facing camera. |
+| vrear				| Video feed from the rear facing camera. |
+| sw_flashlight 	| Switch which controls the flashlight. |
+| led_blind_spot 	| Indicates a vehicle is in the bicycles blind spot. |
+
+
+
+
+
 
 
 
@@ -135,6 +148,8 @@ Group one will be responsible for any hardware testing. This includes testing of
 
 Group two will be responsible for software testing. This includes testing of the CRA crash detection, video logging, and vehicle blindspot detection. This group will be composed of Brian Le and Amos Yu.
 ### 4.2. SRS Verification Plan
+The requirements set about in the SRS document will be directly linked to test cases using the Traceability Between Test Cases and Requirements table found in section 5.3. 
+
 The SRS document has been verified as correct and complete using a number of methods. The Cyclops team has discussed the continued validity of this document and its requirements in team meetings. Further, peer reviews have been conducted on the document, concerns were raised, and issues were resolved.
 ### 4.3. Design Verification Plan
 Our design verification plan to fufill modular testing requirements is composed of two distinct sections; software unit testing, and modular hardware testing.
@@ -145,12 +160,16 @@ Modular hardware testing will occur as discrete components of the hardware are c
 ### 4.4. Verification and Validation Plan Verification Plan
 This document will be extensively reviewed by group members as project development progresses. The continued validity of this document will be maintained, and any missing information will be rectified. Moreover, peer reviews will be conducted. If any issues are presented, they will be addressed and resolved. 
 ### 4.5. Implementation Verification Plan
-Will involve static and dynamic techniques
-Plan for fulfilling systemwide implementation tests
+In order to successfully implement the CRA verification plan, a series of static and dynamic testing techniques will be used. At a high level, requirements specifications set about in the SRS document will be linked with the test cases laid out in the VnV plan and design documents. This framework of documents will then be subject to static testing. Specifically, this process will involve reviewing the aforementioned documents to provide a detailed scope of exactly what CRA aims to achieve as compared to what the testing of requirements will validate. Static testing will rigorously verify that the requirements for CRA are fulfilled by the code if testing is successful.
+
+Reaching beyond documentation, the software code will be subject to static testing. Manual reviews of code will be conducted by team members of CRA. Specifically, a team member who did not write a module under review will be responsible for the review. This structure aims to promote writing understandable well commented code which can be reviewed by a relatively unbiased third party. Further, system-wide static testing will also be used in the form of Pylint. This automated analysis tool will enforce coding standards and enable us to identify potential sources of issues. 
+
+The functionality of the systems hardware and software will be tested dynamically as a complete product. This testing will take the form of manual testing. The CRA team will mount the system to a bicycle and simulate a variety of behaviours with expected outcomes. The true outcomes of these cases, along with other characteristics of the system's response such as reaction time, will be analyzed and compared with the expected results.
 ### 4.6. Automated Testing and Verification Tools
 All automated testing of software will be conducted using Pytest. 
+All automated code analysis will be conducted using Pylint.
 ### 4.7. Software Validation Plan
-To validate that the software fufills all of the right requirements, we will continually amend and improve upon the testing methodologies used, and the components tested. The aim of this endeaver is to ensure that testing is directly aligned with any updates the the SRS document and any other documents which are directly tied to software requirements.
+To validate that the software fufills all of the correct requirements, we will continually amend and improve upon the testing methodologies used, and the components tested. The aim of this endeaver is to ensure that testing is directly aligned with any updates the the SRS document and any other documents which are directly tied to software requirements.
 ## 5. System Test Description
 ### 5.1. Tests for Functional Requirements
 #### 5.1.1. Vehicle Detection Test
@@ -634,8 +653,9 @@ To validate that the software fufills all of the right requirements, we will con
 Could CRA be set up and installed by a non-technical user?
 Would the size of the device be an encumbrance to a typical cyclist.
 ## 8. Reflection
-What knowledge and skills do we need to acquire for VnV?
-Where can we acquire these skills? -> Which option do we choose
-Talk about automated testing tools that we had to learn about mes
+In preparation for the validation process of testing and system verification, a number of skills must  be acquired. A greater depth of knowledge in these fields allows the CRA team to accurately substantiate the requirements set about in the SRS document via the testing methods identified in the VnV Plan.
+
+As discussed in section 4.3. Design Verification Plan and section 4.6. Automated Testing and Verification Tools, Pytest will be used for automated unit testing of the software code developed for CRA. As such, it is expected that CRA team members will be responsible for educating themselves on how to efficiently and effectively use the tools provided by Pytest. There are a number of great resources available online that will aid our team by providing specific information regarding problems we might encounter. Some of these sites include stackoverflow.com and geeksforgeeks.org. However, as a general introduction it is advised that CRA team members review the [pytest documentation](https://docs.pytest.org/en/7.1.x/getting-started.html) and use the [linkedin learning course](https://www.linkedin.com/learning/me/my-library/assigned?u=56982905) on pytest. 
+
 
 
