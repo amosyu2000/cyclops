@@ -156,103 +156,103 @@ To validate that the software fufills all of the right requirements, we will con
 #### 5.1.1. Vehicle Detection Test
 | CFRST1                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted on moving bike |
+| Input                         | vrear |
+| Output                        | led_blind_spot |
+| Test Case Derivation          | LED's should light up and be reflective of whether a car is located in the riders blind spot |
+| How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehhicle in the blind spot |
+| Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
 #### 5.1.2. Accelerometer Value Test
 | CFRST2                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | αx = 0, αy = 0, αz = 0 with CRA mounted on moving bike|
+| Input                         | Accelerometer electrical input caused by bike movement |
+| Output                        | αx, αy, αz |
+| Test Case Derivation          | The accelerometer should send updated values of the units acceleration accross all 3 axis (parallel, perpendicular, and vertical) |
+| How will test be performed    | The test will be done dinamically in a real world environment in which the accelerometer unit will be mounted onto the bike and experience various moves and changes in direction |
+| Requirements Referenced       | CFR3, CFR5 |
 #### 5.1.3. Crash Detection Test
 | CFRST3                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | αx != 0, αy != 0, αz != 0 with CRA mounted to moving bike |
+| Input                         | Accelerometer electrical input caused by bike movement|
+| Output                        | hasCrashed variable to reflect the status of the bike|
+| Test Case Derivation          | Cyclops should detech when a crash has occured when the acceleration of the rider has passed a certian threshold. This then prompts the CRA to perform task inresponse to the crash |
+| How will test be performed    | The test will be done dynamically in a real world environment in which the accelerometer unit will be mounted onto the bike and updates values as the bike experiences a large change in its acceleration (a crash) |
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
 #### 5.1.4. Video Logging Test
 | CFRST4                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted onto a bike |
+| Input                         | hasCrashed, vfront, vrear |
+| Output                        | Video log to be stored on a local SD |
+| Test Case Derivation          | CRA will log a snipped(last buffer_time_minutes minutes_ of the vfront feed when the user has crashed) |
+| How will test be performed    | The test will be done manually in a real world environment in which a test bike with the unit mounted will go through a simulated crash to trigger the crash procedure |
+| Requirements Referenced       | CFR7, CFR8 |
 #### 5.1.5. Full SD Test
 | CFRST5                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Static) |
+| Initial State                 | Application should be running, SD card should be full or near full capacity |
+| Input                         | SD card storage/space remaining |
+| Output                        | SD_storage_full LED and variable representing whether the SD card is too full for video logging |
+| Test Case Derivation          | CRA shall have a seperate LED to signify that the current card is full. The CRA should only be able to run when the SD card has ample storage space |
+| How will test be performed    | The system shall be turned on when a full/near full SD card in which the tester would then look to confirm that the LED prompts to empty out SD card |
+| Requirements Referenced       | CFR9, CFR10 |
 #### 5.1.6. Resume Detection Test
 | CFRST6                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Static) |
+| Initial State                 | CRA is mounted on a bike with the application is running and in its crashed state |
+| Input                         | N/A |
+| Output                        | N/A |
+| Test Case Derivation          | CRA should be expected to resume its vehicle and crash detection after a previous crash just been detected and logged |
+| How will test be performed    | Monitor the system after a crash state. The system is looked at to see if it continues to take in vfront and vrear feed and perform its vehicle and crash detection |
+| Requirements Referenced       | CFR12, CFR13 |
 #### 5.1.7. Front Light On Test
 | CFRST7                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | CRA is mounted on bike and light is set to off |
+| Input                         | flashLightState variable representing the state of the front light |
+| Output                        | Front light emitted |
+| Test Case Derivation          | The front light should be turned on when the user prompts it |
+| How will test be performed    | The test will be done dynamically in a real world environment in which the flashLightState will be toggled from off ot on. The test will be looking for whether the light gets emitted |
+| Requirements Referenced       | CFR14 |
 #### 5.1.8. Front Light Off Test
 | CFRST8                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | CRA is mounted on bike and light is set to on |
+| Input                         | flashLightState variable representing the state of the front light |
+| Output                        | Front light turned off |
+| Test Case Derivation          | The front light should be turned off when the user prompts it |
+| How will test be performed    | The test will be done dynamically in a real world environment in which the flashLightState will be toggled from on to off. This test will be looking for whether the light gets cut |
+| Requirements Referenced       | CFR14 |
 #### 5.1.9. Power On System Test
 | CFRST9                        | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | CRA is mounted on a bike and the system/isPoweredLED is off |
+| Input                         | Power button used to power on/off the system |
+| Output                        | isPoweredLED used to represent if the system is powered on |
+| Test Case Derivation          | LED's should light up and be reflective when the system/application has power and is running |
+| How will test be performed    | This test will be done dynamically in a real world environment where the power button is physically pressed to turn on CRA |
+| Requirements Referenced       | CFR11 |
 #### 5.1.10. Power Off System Test
 | CFRST10                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual (Dynamic) |
+| Initial State                 | CRA is mounted on a bike and system/isPOweredLED is on |
+| Input                         | Power button used to power on/off the system |
+| Output                        | isPoweredLED used to represent if the system is powered on |
+| Test Case Derivation          | LED's should turn off to reflective of then the system/application has been powered down |
+| How will test be performed    | This test will be done dynamically in a real world environment where the pwoer button is physicall pressed to turn off CRA |
+| Requirements Referenced       | CFR11 |
 ### 5.2. Tests for Nonfunctional Requirements
 #### 5.2.1. Appearance and Style Tests
 | CFRST10                       | |
