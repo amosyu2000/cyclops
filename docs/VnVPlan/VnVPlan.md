@@ -35,15 +35,14 @@ Manny Lemos (lemosm1)
 - [5. System Test Description](#5-system-test-description)
 	- [5.1. Tests for Functional Requirements](#51-tests-for-functional-requirements)
 		- [5.1.1. Vehicle Detection Test](#511-vehicle-detection-test)
-		- [5.1.2. Accelerometer Value Test](#512-accelerometer-value-test)
-		- [5.1.3. Crash Detection Test](#513-crash-detection-test)
-		- [5.1.4. Video Logging Test](#514-video-logging-test)
-		- [5.1.5. Full SD Test](#515-full-sd-test)
-		- [5.1.6. Resume Detection Test](#516-resume-detection-test)
-		- [5.1.7. Front Light On Test](#517-front-light-on-test)
-		- [5.1.8. Front Light Off Test](#518-front-light-off-test)
-		- [5.1.9. Power On System Test](#519-power-on-system-test)
-		- [5.1.10. Power Off System Test](#5110-power-off-system-test)
+		- [5.1.2. Crash Detection Test](#512-crash-detection-test)
+		- [5.1.3. Video Logging Test](#513-video-logging-test)
+		- [5.1.4. Full SD Test](#514-full-sd-test)
+		- [5.1.5. Resume Detection Test](#515-resume-detection-test)
+		- [5.1.6. Front Light On Test](#516-front-light-on-test)
+		- [5.1.7. Front Light Off Test](#517-front-light-off-test)
+		- [5.1.8. Power On System Test](#518-power-on-system-test)
+		- [5.1.9. Power Off System Test](#519-power-off-system-test)
 	- [5.2. Tests for Nonfunctional Requirements](#52-tests-for-nonfunctional-requirements)
 		- [5.2.1. Appearance and Style Tests](#521-appearance-and-style-tests)
 		- [5.2.2. Ease of Use Tests](#522-ease-of-use-tests)
@@ -104,26 +103,13 @@ Manny Lemos (lemosm1)
 </div>
 
 ## 2. Symbols, Abbreviations, and Acronyms
-| Name 				| Description |
-|:--				|:--|
-| CRA 				| Abbreviation of Cyclops Ride Assist.|
-| Cyclist 			| A person who operates a bicycle as a means of transportation. |
-| User 				| A person who will operate the final product. See Cyclist. |
-| Client 			| See user. |
-| SRS 				| Software Requirements Specification |
-| αx  				| Measures acceleration parallel to the path of the bicycle. |
-| αy				| Measures acceleration perpendicular to the path of the bicycle along the plane of the ground. |
-| αz				| Measures acceleration in the vertical direction. |
-| tilt				| Measures the vertical tilt of the system relative to a calibrated absolute level. |
-| vfront			| Video feed from the front facing camera. |
-| vrear				| Video feed from the rear facing camera. |
-| sw_flashlight 	| Switch which controls the flashlight. |
-| led_blind_spot 	| Indicates a vehicle is in the bicycles blind spot. |
-
-
-
-
-
+| Name | Description |
+|:--|:--|
+| CRA | Abbreviation of Cyclops Ride Assist.|
+| Cyclist | A person who operates a bicycle as a means of transportation. |
+| User | A person who will operate the final product. See Cyclist. |
+| Client | See user. |
+| SRS | Software Requirements Specification |
 
 
 
@@ -145,8 +131,6 @@ Group one will be responsible for any hardware testing. This includes testing of
 
 Group two will be responsible for software testing. This includes testing of the CRA crash detection, video logging, and vehicle blindspot detection. This group will be composed of Brian Le and Amos Yu.
 ### 4.2. SRS Verification Plan
-The requirements set about in the SRS document will be directly linked to test cases using the Traceability Between Test Cases and Requirements table found in section 5.3. 
-
 The SRS document has been verified as correct and complete using a number of methods. The Cyclops team has discussed the continued validity of this document and its requirements in team meetings. Further, peer reviews have been conducted on the document, concerns were raised, and issues were resolved.
 ### 4.3. Design Verification Plan
 Our design verification plan to fufill modular testing requirements is composed of two distinct sections; software unit testing, and modular hardware testing.
@@ -157,16 +141,12 @@ Modular hardware testing will occur as discrete components of the hardware are c
 ### 4.4. Verification and Validation Plan Verification Plan
 This document will be extensively reviewed by group members as project development progresses. The continued validity of this document will be maintained, and any missing information will be rectified. Moreover, peer reviews will be conducted. If any issues are presented, they will be addressed and resolved. 
 ### 4.5. Implementation Verification Plan
-In order to successfully implement the CRA verification plan, a series of static and dynamic testing techniques will be used. At a high level, requirements specifications set about in the SRS document will be linked with the test cases laid out in the VnV plan and design documents. This framework of documents will then be subject to static testing. Specifically, this process will involve reviewing the aforementioned documents to provide a detailed scope of exactly what CRA aims to achieve as compared to what the testing of requirements will validate. Static testing will rigorously verify that the requirements for CRA are fulfilled by the code if testing is successful.
-
-Reaching beyond documentation, the software code will be subject to static testing. Manual reviews of code will be conducted by team members of CRA. Specifically, a team member who did not write a module under review will be responsible for the review. This structure aims to promote writing understandable well commented code which can be reviewed by a relatively unbiased third party. Further, system-wide static testing will also be used in the form of Pylint. This automated analysis tool will enforce coding standards and enable us to identify potential sources of issues. 
-
-The functionality of the systems hardware and software will be tested dynamically as a complete product. This testing will take the form of manual testing. The CRA team will mount the system to a bicycle and simulate a variety of behaviours with expected outcomes. The true outcomes of these cases, along with other characteristics of the system's response such as reaction time, will be analyzed and compared with the expected results.
+Will involve static and dynamic techniques
+Plan for fulfilling systemwide implementation tests
 ### 4.6. Automated Testing and Verification Tools
 All automated testing of software will be conducted using Pytest. 
-All automated code analysis will be conducted using Pylint.
 ### 4.7. Software Validation Plan
-To validate that the software fufills all of the correct requirements, we will continually amend and improve upon the testing methodologies used, and the components tested. The aim of this endeaver is to ensure that testing is directly aligned with any updates the the SRS document and any other documents which are directly tied to software requirements.
+To validate that the software fufills all of the right requirements, we will continually amend and improve upon the testing methodologies used, and the components tested. The aim of this endeaver is to ensure that testing is directly aligned with any updates the the SRS document and any other documents which are directly tied to software requirements.
 ## 5. System Test Description
 ### 5.1. Tests for Functional Requirements
 #### 5.1.1. Vehicle Detection Test
@@ -174,52 +154,42 @@ To validate that the software fufills all of the correct requirements, we will c
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted on moving bike |
-| Input                         | vrear |
-| Output                        | led_blind_spot |
+| Input                         | Read video input |
+| Output                        | LED blindspot indicator |
 | Test Case Derivation          | LED's should light up and be reflective of whether a car is located in the riders blind spot |
 | How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehhicle in the blind spot |
 | Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
-#### 5.1.2. Accelerometer Value Test
-| CFRST2                        | |
-|:--                            |:--|
-| Control                       | Manual (Dynamic) |
-| Initial State                 | αx = 0, αy = 0, αz = 0 with CRA mounted on moving bike|
-| Input                         | Accelerometer electrical input caused by bike movement |
-| Output                        | αx, αy, αz |
-| Test Case Derivation          | The accelerometer should send updated values of the units acceleration accross all 3 axis (parallel, perpendicular, and vertical) |
-| How will test be performed    | The test will be done dinamically in a real world environment in which the accelerometer unit will be mounted onto the bike and experience various moves and changes in direction |
-| Requirements Referenced       | CFR3, CFR5 |
-#### 5.1.3. Crash Detection Test
+#### 5.1.2. Crash Detection Test
 | CFRST3                        | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
-| Initial State                 | αx != 0, αy != 0, αz != 0 with CRA mounted to moving bike |
+| Initial State                 | Accelerometer input with CRA mounted to moving bike |
 | Input                         | Accelerometer electrical input caused by bike movement|
-| Output                        | hasCrashed variable to reflect the status of the bike|
-| Test Case Derivation          | Cyclops should detech when a crash has occured when the acceleration of the rider has passed a certian threshold. This then prompts the CRA to perform task inresponse to the crash |
-| How will test be performed    | The test will be done dynamically in a real world environment in which the accelerometer unit will be mounted onto the bike and updates values as the bike experiences a large change in its acceleration (a crash) |
+| Output                        | Video log/clip |
+| Test Case Derivation          | Cyclops should detech when a crash has occured when the acceleration of the rider has passed a certian threshold. This then prompts the CRA to perform video logging task inresponse to the crash |
+| How will test be performed    | The test will be done dynamically in a real world environment in which the accelerometer unit will be mounted onto the bike and updates values as the bike experiences a large change in its acceleration (a crash). The SD card will then be verified if a clip has been logged |
 | Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
-#### 5.1.4. Video Logging Test
+#### 5.1.3. Video Logging Test
 | CFRST4                        | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted onto a bike |
-| Input                         | hasCrashed, vfront, vrear |
+| Input                         | Crash detection system, front and reach video input |
 | Output                        | Video log to be stored on a local SD |
 | Test Case Derivation          | CRA will log a snipped(last buffer_time_minutes minutes_ of the vfront feed when the user has crashed) |
 | How will test be performed    | The test will be done manually in a real world environment in which a test bike with the unit mounted will go through a simulated crash to trigger the crash procedure |
 | Requirements Referenced       | CFR7, CFR8 |
-#### 5.1.5. Full SD Test
+#### 5.1.4. Full SD Test
 | CFRST5                        | |
 |:--                            |:--|
 | Control                       | Manual (Static) |
 | Initial State                 | Application should be running, SD card should be full or near full capacity |
 | Input                         | SD card storage/space remaining |
-| Output                        | SD_storage_full LED and variable representing whether the SD card is too full for video logging |
+| Output                        | SD_storage_full LED whether the SD card is too full for video logging |
 | Test Case Derivation          | CRA shall have a seperate LED to signify that the current card is full. The CRA should only be able to run when the SD card has ample storage space |
 | How will test be performed    | The system shall be turned on when a full/near full SD card in which the tester would then look to confirm that the LED prompts to empty out SD card |
 | Requirements Referenced       | CFR9, CFR10 |
-#### 5.1.6. Resume Detection Test
+#### 5.1.5. Resume Detection Test
 | CFRST6                        | |
 |:--                            |:--|
 | Control                       | Manual (Static) |
@@ -227,39 +197,39 @@ To validate that the software fufills all of the correct requirements, we will c
 | Input                         | N/A |
 | Output                        | N/A |
 | Test Case Derivation          | CRA should be expected to resume its vehicle and crash detection after a previous crash just been detected and logged |
-| How will test be performed    | Monitor the system after a crash state. The system is looked at to see if it continues to take in vfront and vrear feed and perform its vehicle and crash detection |
+| How will test be performed    | Monitor the system after a crash state. The system is looked at to see if it continues to take in front and rear video feed and perform its vehicle and crash detection |
 | Requirements Referenced       | CFR12, CFR13 |
-#### 5.1.7. Front Light On Test
+#### 5.1.6. Front Light On Test
 | CFRST7                        | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | CRA is mounted on bike and light is set to off |
-| Input                         | flashLightState variable representing the state of the front light |
+| Input                         | Flash light button |
 | Output                        | Front light emitted |
 | Test Case Derivation          | The front light should be turned on when the user prompts it |
-| How will test be performed    | The test will be done dynamically in a real world environment in which the flashLightState will be toggled from off ot on. The test will be looking for whether the light gets emitted |
+| How will test be performed    | The test will be done dynamically in a real world environment in which the front light will be toggled from off ot on. The test will be looking for whether the light gets emitted |
 | Requirements Referenced       | CFR14 |
-#### 5.1.8. Front Light Off Test
+#### 5.1.7. Front Light Off Test
 | CFRST8                        | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | CRA is mounted on bike and light is set to on |
-| Input                         | flashLightState variable representing the state of the front light |
+| Input                         | Flash light button |
 | Output                        | Front light turned off |
 | Test Case Derivation          | The front light should be turned off when the user prompts it |
-| How will test be performed    | The test will be done dynamically in a real world environment in which the flashLightState will be toggled from on to off. This test will be looking for whether the light gets cut |
+| How will test be performed    | The test will be done dynamically in a real world environment in which the front light will be toggled from on to off. This test will be looking for whether the light gets cut |
 | Requirements Referenced       | CFR14 |
-#### 5.1.9. Power On System Test
+#### 5.1.8. Power On System Test
 | CFRST9                        | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | CRA is mounted on a bike and the system/isPoweredLED is off |
 | Input                         | Power button used to power on/off the system |
-| Output                        | isPoweredLED used to represent if the system is powered on |
+| Output                        | LED used to represent if the system is powered on |
 | Test Case Derivation          | LED's should light up and be reflective when the system/application has power and is running |
 | How will test be performed    | This test will be done dynamically in a real world environment where the power button is physically pressed to turn on CRA |
 | Requirements Referenced       | CFR11 |
-#### 5.1.10. Power Off System Test
+#### 5.1.9. Power Off System Test
 | CFRST10                       | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
@@ -611,9 +581,8 @@ To validate that the software fufills all of the correct requirements, we will c
 Could CRA be set up and installed by a non-technical user?
 Would the size of the device be an encumbrance to a typical cyclist.
 ## 8. Reflection
-In preparation for the validation process of testing and system verification, a number of skills must  be acquired. A greater depth of knowledge in these fields allows the CRA team to accurately substantiate the requirements set about in the SRS document via the testing methods identified in the VnV Plan.
-
-As discussed in section 4.3. Design Verification Plan and section 4.6. Automated Testing and Verification Tools, Pytest will be used for automated unit testing of the software code developed for CRA. As such, it is expected that CRA team members will be responsible for educating themselves on how to efficiently and effectively use the tools provided by Pytest. There are a number of great resources available online that will aid our team by providing specific information regarding problems we might encounter. Some of these sites include stackoverflow.com and geeksforgeeks.org. However, as a general introduction it is advised that CRA team members review the [pytest documentation](https://docs.pytest.org/en/7.1.x/getting-started.html) and use the [linkedin learning course](https://www.linkedin.com/learning/me/my-library/assigned?u=56982905) on pytest. 
-
+What knowledge and skills do we need to acquire for VnV?
+Where can we acquire these skills? -> Which option do we choose
+Talk about automated testing tools that we had to learn about mes
 
 
