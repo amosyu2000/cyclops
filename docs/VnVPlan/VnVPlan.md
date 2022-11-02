@@ -226,7 +226,7 @@ To validate that the software fufills all of the right requirements, we will con
 | Initial State                 | CRA is mounted on a bike and the system/isPoweredLED is off |
 | Input                         | Power button used to power on/off the system |
 | Output                        | LED used to represent if the system is powered on |
-| Test Case Derivation          | LED's should light up and be reflective when the system/application has power and is running |
+| Test Case Derivation          | LED's should light up and be show that the system/application has power and is running |
 | How will test be performed    | This test will be done dynamically in a real world environment where the power button is physically pressed to turn on CRA |
 | Requirements Referenced       | CFR11 |
 #### 5.1.9. Power Off System Test
@@ -236,7 +236,7 @@ To validate that the software fufills all of the right requirements, we will con
 | Initial State                 | CRA is mounted on a bike and system/isPOweredLED is on |
 | Input                         | Power button used to power on/off the system |
 | Output                        | isPoweredLED used to represent if the system is powered on |
-| Test Case Derivation          | LED's should turn off to reflective of then the system/application has been powered down |
+| Test Case Derivation          | LED's should turn off to reflect that the system/application has been powered down |
 | How will test be performed    | This test will be done dynamically in a real world environment where the pwoer button is physicall pressed to turn off CRA |
 | Requirements Referenced       | CFR11 |
 ### 5.2. Tests for Nonfunctional Requirements
