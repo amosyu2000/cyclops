@@ -45,39 +45,36 @@ Manny Lemos (lemosm1)
 		- [5.1.9. Power On System Test](#519-power-on-system-test)
 		- [5.1.10. Power Off System Test](#5110-power-off-system-test)
 	- [5.2. Tests for Nonfunctional Requirements](#52-tests-for-nonfunctional-requirements)
-		- [5.2.1. Appearance and Style Tests](#521-appearance-and-style-tests)
-		- [5.2.2. Ease of Use Tests](#522-ease-of-use-tests)
-		- [5.2.3. John Doe](#523-john-doe)
-		- [5.2.4. Learning Tests](#524-learning-tests)
-		- [5.2.5. Understandability Tests](#525-understandability-tests)
-		- [5.2.6. Accessibility Tests](#526-accessibility-tests)
-		- [5.2.7. Speed and Latency Tests](#527-speed-and-latency-tests)
-		- [5.2.8. John Doe](#528-john-doe)
-		- [5.2.9. John Doe](#529-john-doe)
-		- [5.2.10. John Doe](#5210-john-doe)
-		- [5.2.11. John Doe](#5211-john-doe)
-		- [5.2.12. John Doe](#5212-john-doe)
-		- [5.2.13. Safety-Critical Tests](#5213-safety-critical-tests)
-		- [5.2.14. John Doe](#5214-john-doe)
-		- [5.2.15. John Doe](#5215-john-doe)
-		- [5.2.16. Precision and Accuracy Tests](#5216-precision-and-accuracy-tests)
-		- [5.2.17. John Doe](#5217-john-doe)
-		- [5.2.18. John Doe](#5218-john-doe)
-		- [5.2.19. Reliability and Availability Test](#5219-reliability-and-availability-test)
-		- [5.2.20. Robustness and Fault-Tolerance Tests](#5220-robustness-and-fault-tolerance-tests)
-		- [5.2.21. Capacity Tests](#5221-capacity-tests)
-		- [5.2.22. Scalability and Extensibility Tests](#5222-scalability-and-extensibility-tests)
-		- [5.2.23. Longevity Tests](#5223-longevity-tests)
-		- [5.2.24. Physical Environment Tests](#5224-physical-environment-tests)
+		- [5.2.1. Appearance and Style Test](#521-appearance-and-style-test)
+		- [5.2.2. Hardware Ease of Use Test](#522-hardware-ease-of-use-test)
+		- [5.2.3. Software Ease of Use Test](#523-software-ease-of-use-test)
+		- [5.2.4. Learning Test](#524-learning-test)
+		- [5.2.5. Understandability Test](#525-understandability-test)
+		- [5.2.6. Accessibility Test](#526-accessibility-test)
+		- [5.2.7. Power Response Speed Test](#527-power-response-speed-test)
+		- [5.2.8. Video Upload Speed and Latency Test](#528-video-upload-speed-and-latency-test)
+		- [5.2.9. Crash Detection Speed and Latency Test](#529-crash-detection-speed-and-latency-test)
+		- [5.2.10. Car Detection Speed and Latency Test](#5210-car-detection-speed-and-latency-test)
+		- [5.2.11. External Safety-Critical Test](#5211-external-safety-critical-test)
+		- [5.2.12. CRA Emission Safety-Critical Test](#5212-cra-emission-safety-critical-test)
+		- [5.2.13. CRA Decimal Precision Test](#5213-cra-decimal-precision-test)
+		- [5.2.14. CRA Accelerometer Accuracy Test](#5214-cra-accelerometer-accuracy-test)
+		- [5.2.15. CRA Camera Time Accuracy Test](#5215-cra-camera-time-accuracy-test)
+		- [5.2.16. Reliability and Availability Test](#5216-reliability-and-availability-test)
+		- [5.2.17. Robustness and Fualt-Tolerance Test](#5217-robustness-and-fualt-tolerance-test)
+		- [5.2.18. Max Storage Capacity Test](#5218-max-storage-capacity-test)
+		- [5.2.19. Low Battery Capacity Test](#5219-low-battery-capacity-test)
+		- [5.2.20. Scalability and Extensibility Test](#5220-scalability-and-extensibility-test)
+		- [5.2.21. Longevity Test](#5221-longevity-test)
+		- [5.2.22. Physical Environment Test](#5222-physical-environment-test)
+		- [5.2.23. Interfacing with Adjacent Systems Test](#5223-interfacing-with-adjacent-systems-test)
+		- [5.2.24. Productization and Release Test](#5224-productization-and-release-test)
 		- [5.2.25. Interfacing with Adjacent Systems Test](#5225-interfacing-with-adjacent-systems-test)
-		- [5.2.26. Productization and Release Tests](#5226-productization-and-release-tests)
-		- [5.2.27. Maintenance Tests](#5227-maintenance-tests)
-		- [5.2.28. Adaptability Tests](#5228-adaptability-tests)
-		- [5.2.29. Access Tests](#5229-access-tests)
-		- [5.2.30. Privacy Tests](#5230-privacy-tests)
-		- [5.2.31. Cultural Tests](#5231-cultural-tests)
-		- [5.2.32. Compliance Tests](#5232-compliance-tests)
-		- [5.2.33. Standards Tests](#5233-standards-tests)
+		- [5.2.26. Access Security Test](#5226-access-security-test)
+		- [5.2.27. Privacy Test](#5227-privacy-test)
+		- [5.2.28. Cultural Test](#5228-cultural-test)
+		- [5.2.29. Compliance Test](#5229-compliance-test)
+		- [5.2.30. Standards Test](#5230-standards-test)
 - [6. Unit Tests](#6-unit-tests)
 	- [6.1. Unit Testing Scope](#61-unit-testing-scope)
 	- [6.2. Test for Functional Requirements](#62-test-for-functional-requirements)
@@ -88,7 +85,7 @@ Manny Lemos (lemosm1)
 		- [6.3.2. Module X](#632-module-x)
 - [7. Appendix](#7-appendix)
 	- [7.1. Symbolic Parameters](#71-symbolic-parameters)
-	- [7.2. Usability Survey Questions?](#72-usability-survey-questions)
+	- [7.2. Usability Survey Questions for Non Functional Tests](#72-usability-survey-questions-for-non-functional-tests)
 - [8. Reflection](#8-reflection)
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
@@ -254,336 +251,306 @@ To validate that the software fufills all of the right requirements, we will con
 | How will test be performed    | sus |
 | Requirements Referenced       | sus |
 ### 5.2. Tests for Nonfunctional Requirements
-#### 5.2.1. Appearance and Style Tests
-| CFRST10                       | |
+#### 5.2.1. Appearance and Style Test
+| CNFRST1                       | |  
+|:--                            |:--|  
+| Control                       | Manual, Static |  
+| Initial State                 | CRA has been created.|  
+| Input                         | The user will view the CRA.|  
+| Output                        | CRA and associated software application is considered appealing, fitted, safe, and unintrusive. |  
+| Test Case Derivation          | Stakeholders and developers will view the CRA and software application and give a response using a Usability Survey. |  
+| How will test be performed    | A visual inspection test will be given to identify whether or not the CRA and software meets our requirements (as outlined below). A Usability Survey with a score of 10 with a needed average score of 80% will be required to satisfy the test. The user will also be asked if they would change the design or if they would want to add their own customizations. |  
+| Requirements Referenced       | CNFR1, CNFR 2, CNFR3, CNFR4, CNFR9, CNFR12, CNFR47 |  
+#### 5.2.2. Hardware Ease of Use Test
+| CNFRST2                       | |  
+|:--                            |:--|  
+| Control                       | Manual, Static |  
+| Initial State                 | CRA is currently not mounted on the bicycle. |  
+| Input                         | The user will view and handle the CRA’s mechanical system. |  
+| Output                        | Placing the CRA onto the bicycle with minimal effort. |  
+| Test Case Derivation          | The CRA should be able to be mounted onto the bicycle as it will be constructed in a way that reduces the amount of potential human error. The CRA will also allow the user to place the hardware system wherever they please (excluding the cameras) to increase customization. |  
+| How will test be performed    | The CRA will be given to various users and stakeholders. The function of the CRA will be stated and we will allow the user to place the CRA onto the bicycle. The developers and testers will run twenty recorded timed tests and the average will be taken. |  
+| Requirements Referenced       | CNFR5, CNFR7, CNFR8, CNFR9, CNFR14 |  
+#### 5.2.3. Software Ease of Use Test
+| CNFRST3                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.2. Ease of Use Tests
-| CFRST10                       | |
+| Control                       | Manual, Static |  
+| Initial State                 | The CRA software application is closed. |  
+| Input                         | The user will press the System On button. |  
+| Output                        | The CRA software application should open and be ready for use after the system loads. |  
+| Test Case Derivation          | The CRA software application will need to open right after loading the system to ensure that the user will be able to use the CRA as soon as possible. |  
+| How will test be performed    | The developers will test at different time intervals and button presses to ensure that the system is working as intended. Meetings will be used to address concerns. The testers will ask the users for feedback using a survey. |  
+| Requirements Referenced       | CNFR6, CNFR7, CNFR8 |  
+#### 5.2.4. Learning Test
+| CNFRST4                       | |  
+|:--                            |:--|  
+| Control                       | Manual, Static |  
+| Initial State                 | The CRA will be powered off and mounted onto the bicycle properly. |  
+| Input                         | The user will have an instruction manual with all added functionalities of the CRA including startup, shutdown etc. |  
+| Output                        | The user will be able to operate the CRA to its full extent. |  
+| Test Case Derivation          | The CRA must be easy to use for any user and can be easily re-created.  |  
+| How will test be performed    | The instruction manual will be given to various stakeholders and people to try to use the CRA. A Usability Survey will be used to gauge the effectiveness on a scale of 10 with a passing grade of 80%. |  
+| Requirements Referenced       | CNFR10, CNFR11, CNFR41 |  
+#### 5.2.5. Understandability Test  
+| CNFRST5                       | |  
+|:--                            |:--|  
+| Control                       | Manual, Static |  
+| Initial State                 | The instruction manual will be provided and software application of the CRA will be turned on. |  
+| Input                         | A user will view the information on the instruction manual and software application. |  
+| Output                        | The user will be able to understand the language, words, symbols. |  
+| Test Case Derivation          | The manual and system will be designed in a way that uses non-technical language and is easily interpreted by a regular user with zero prior experience. |  
+| How will test be performed    | The instruction manual and view of the software system will be given to various stakeholders and people to try to understand the functions of the CRA. A Usability Survey will be used to gauge the effectiveness on a scale of 10 with a passing grade of 80%.  |  
+| Requirements Referenced       | CNFR5, CNFR6, CNFR7, CNFR8, CNFR41 |  
+#### 5.2.6. Accessibility Test  
+| CNFRST6                       | |  
+|:--                            |:--|  
+| Control                       | Manual, Dynamic |   
+| Initial State                 | CRA will be mounted onto the bicycle and powered on. |  
+| Input                         | A vehicle is detected.  |  
+| Output                        | An audiovisual cue to let the user know of the vehicle. |  
+| Test Case Derivation          | Similar to CFRST1, CRA will be able to output an LED light to alert the user. We will run this test multiple times. |  
+| How will test be performed    | The test will be the same as CFRST1. The test will be run twenty different times. |  
+| Requirements Referenced       | CNFR13 |  
+#### 5.2.7. Power Response Speed Test
+| CNFRST7                       | |  
+|:--                            |:--|  
+| Control                       | Manual, Static |  
+| Initial State                 | The CRA will be mounted onto the bicycle with the power button off. |  
+| Input                         | The power button will be pressed. |  
+| Output                        | The CRA will turn on within RESPONSE_TIME_MILLISECONDS as outlined in our SRS. |  
+| Test Case Derivation          | The lower the value, the faster a user will be able to use the CRA quickly and be on their way which will improve satisfaction for the user. |  
+| How will test be performed    | The system will be powered on and the amount of time to start the system will be measured. The developers and testers will run twenty recorded tests and the average will be taken. |  
+| Requirements Referenced       | CNFR15 |  
+#### 5.2.8. Video Upload Speed and Latency Test
+| CNFRST8                       | |  
+|:--                            |:--|  
+| Control                       | Manual, Dynamic |  
+| Initial State                 | The CRA system power will be on. |  
+| Input                         | The CRA will create a video. |  
+| Output                        | The video will be uploaded to the external storage device. |  
+| Test Case Derivation          | We want to see that the video is uploaded to the external storage device with a max time of UPLOAD_TIME_SECONDS as defined in the SRS. |  
+| How will test be performed    | The time between creating and uploading a video will be timed using a stopwatch. The developers and testers will run twenty recorded tests and the average will be taken. |  
+| Requirements Referenced       | CNFR16 |  
+#### 5.2.9. Crash Detection Speed and Latency Test
+| CNFRST9                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.3. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Dynamic |
+| Initial State                 | The CRA system power will be on and will be mounted onto the bicycle. |
+| Input                         | The acceleration of the bicycle drops quickly as seen in CFRST3. |
+| Output                        | The CRA will keep the recording of the video before and after the collision as outlined in CNFR17 and this will be determined within 1s. |
+| Test Case Derivation          | The CRA should be able to detect if there is a crash within 1s to allow the user to have the needed footage. |
+| How will test be performed    | A crash will be simulated to test and a stopwatch will be used to measure the time taken. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR17 |
+#### 5.2.10. Car Detection Speed and Latency Test
+| CNFRST10                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.4. Learning Tests
-| CFRST10                       | |
+| Control                       | Manual, Dynamic, Functional |
+| Initial State                 | The CRA software detection will be loaded and running.  |
+| Input                         | Cars and other objects will be placed in the view of the camera.  |
+| Output                        | The software will correctly detect vehicles vs other objects. |
+| Test Case Derivation          | We need to make sure that the blindspot detection is for vehicles and not stationary objects such as a fire hydrant or tree.  |
+| How will test be performed    | We will be running the module by itself and implementing it into the system to run further tests. A score of 80% on our learned software will suffice. The score is displayed when we run the test. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR18 |
+#### 5.2.11. External Safety-Critical Test
+| CNFRST11                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.5. Understandability Tests
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA has been created. |
+| Input                         | The CRA will be placed on the vehicle. |
+| Output                        | The CRA will not cause any external damage to the bicycle and the wires will not protrude into the bicycle workings. |
+| Test Case Derivation          | We will make sure that there is no external damage to the bicycle and that the wires will not affect or become tangled to ensure safety.  |
+| How will test be performed    | Users will place the CRA onto their own bicycles. Once placed on, the developers and testers will verify that the CRA is not hindering any of the bicycle’s functions. We will ask for feedback from the user on if it hinders their riding as well. |
+| Requirements Referenced       | CNFR21, CNFR23 |
+#### 5.2.12. CRA Emission Safety-Critical Test
+| CNFRST12                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.6. Accessibility Tests
-| CFRST10                       | |
+| Control                       | Manual, Dynamic, Functional |
+| Initial State                 | The CRA has been powered on. |
+| Input                         | The CRA is in use by a user. |
+| Output                        | The CRA will not emit any emissions to the atmosphere. |
+| Test Case Derivation          | This is to ensure that the CRA is emission-friendly and environmentally safe. Chemicals harmful to the environment will not be used. |
+| How will test be performed    | The CRA will be run twenty different times and will be checked for any sounds that could be a leak and checked for any possible burning. Any signs of degradation will be noted and presented in a meeting. |
+| Requirements Referenced       | CNFR22 |
+#### 5.2.13. CRA Decimal Precision Test
+| CNFRST13                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.7. Speed and Latency Tests
-| CFRST10                       | |
+| Control                       | Manual, Dynamic, Functional |
+| Initial State                 | The CRA is powered on.  |
+| Input                         | A component of the CRA will be run that includes measurements. |
+| Output                        | The component will have all decimal places rounded to three (3) decimal places. |
+| Test Case Derivation          | This is to ensure that all our components will have the same number of decimals which will allow for relative precision with each other.  |
+| How will test be performed    | Different components will have tests run in parallel including the speed, time (milliseconds), etc. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR24 |
+#### 5.2.14. CRA Accelerometer Accuracy Test
+| CNFRST14                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.8. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Dynamic, Functional  |
+| Initial State                 | The CRA will be present and mounted on the bicycle. |
+| Input                         | The accelerometer will be given force so that αx != 0 and/or αy != 0 and/or αz != 0 and CRA will have a velocity |
+| Output                        | The accelerometer will generate values and the speed reading will be accurate within 1km/h. |
+| Test Case Derivation          | We need to be able to determine the speed of the CRA and other vehicles. |
+| How will test be performed    | The CRA will be run at a certain speed with another external speedometer and accelerometer to determine accuracy. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR25 |
+#### 5.2.15. CRA Camera Time Accuracy Test
+| CNFRST15                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.9. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Dynamic, Functional  |
+| Initial State                 | The camera and the CRA are set up correctly.  |
+| Input                         | The acceleration of the CRA stops abruptly and becomes αx = 0 and/or αy = 0 and/or αz = 0 |
+| Output                        | The camera should retrieve the video information of BUFFER_TIME_MINUTES within 1 second.  |
+| Test Case Derivation          | We need to be sure to save all the footage that is required for the user. |
+| How will test be performed    | A crash will be simulated and the delay between the “crash” and output video will be noted. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR26 |
+#### 5.2.16. Reliability and Availability Test
+| CNFRST16                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.10. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Dynamic, Functional  |
+| Initial State                 | The SD card is either empty or has footage located on the device and is loaded onto the CRA. |
+| Input                         | A video is uploaded to the SD card. |
+| Output                        | The CRA will allow for another video to be uploaded immediately. |
+| Test Case Derivation          | This is to make sure that CRA can continuously run for the user in the event of more than one accident. |
+| How will test be performed    | A video will be uploaded to the CRA and immediately after, the CRA will be stopped once again. A video will be created once again. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR27, CNFR28 |
+#### 5.2.17. Robustness and Fualt-Tolerance Test
+| CNFRST10                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.11. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA has been created and is powered on or off. |
+| Input                         | The CRA is accidentally dropped from the bicycle. |
+| Output                        | The CRA will continue working as intended. |
+| Test Case Derivation          | The CRA must be built to withstand accidents anywhere and at anytime (under any realistic condition or weather) |
+| How will test be performed    | A drop test will be performed along with an air pressure test to determine if the CRA is sealed properly. Furthermore, any possible water damage from rain, puddles, etc. will be tested. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR29 |
+#### 5.2.18. Max Storage Capacity Test
+| CNFRST18                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.12. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Dynamic |
+| Initial State                 | The CRA will be powered on. |
+| Input                         | The CRA will run as usual with a near-full (90%) SD card. |
+| Output                        | The CRA will alert the user with a notification to let them know that the system is full. |
+| Test Case Derivation          | The CRA must have enough capacity to continue storing footage of any incidents.  |
+| How will test be performed    | The SD card will be filled with videos or pictures. The CRA will start and an alert will show on the software application. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR19, CNFR30 |
+#### 5.2.19. Low Battery Capacity Test
+| CNFRST19                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.13. Safety-Critical Tests
-| CFRST10                       | |
+| Control                       | Manual, Dynamic |
+| Initial State                 | The CRA will be powered on. |
+| Input                         | The CRA will run as usual with a near-empty (20%) battery. |
+| Output                        | The CRA will alert the user with a notification to let them know that the battery is running out.  |
+| Test Case Derivation          | The CRA must have enough battery capacity to keep the whole system running.  |
+| How will test be performed    | The battery will be depleted to 20%. Multiple batteries and types of batteries will be used.. The battery will be placed into the console and an alert will be awaited upon. The developers and testers will run twenty recorded tests and the average will be taken. |
+| Requirements Referenced       | CNFR20 |
+#### 5.2.20. Scalability and Extensibility Test
+| CNFRST20                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.14. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA will be created.  |
+| Input                         | The CRA has all components connected.  |
+| Output                        | The CRA will run as expected with extra storage and software for additional and extended components.  |
+| Test Case Derivation          | The system needs to be developed with the future in mind to ensure that the CRA can be used by clients further down the road. |
+| How will test be performed    | Tests will include a Usability Survey to see how users would want to expand the CRA or if they have concerns with their own bicycles.  |
+| Requirements Referenced       | CNFR31, CNFR32 |
+#### 5.2.21. Longevity Test
+| CNFRST21                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.15. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA will be created. |
+| Input                         | The CRA has all components connected. |
+| Output                        | The CRA will run as expected for a certain period of time before maintenance or cleaning is required.  |
+| Test Case Derivation          | This will ensure that the product is able to last for at least a year before requiring maintenance.  |
+| How will test be performed    | Constant use will allow the development team to see when the expected maintenance will be. This will be a continuous test. The product will also be distributed to users and feedback will be gathered through a survey where it will be discussed in a meeting.  |
+| Requirements Referenced       | CNFR33 |
+#### 5.2.22. Physical Environment Test
+| CNFRST22                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.16. Precision and Accuracy Tests
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA is present and mounted on the bicycle |
+| Input                         | The bicycle is outdoors on the road.  |
+| Output                        | The CRA will work as intended with all desired functionalities. |
+| Test Case Derivation          | Ensure the CRA is workable outside and not just inside for testing.  |
+| How will test be performed    | The developers will use the CRA outside to ensure that it is working as intended. The developers and testers will run twenty recorded tests. |
+| Requirements Referenced       | CNFR34, CNFR35 |
+#### 5.2.23. Interfacing with Adjacent Systems Test
+| CNFRST23                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.17. John Doe
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA will be created. |
+| Input                         | The CRA will have all components connected and will be connected to an external system like a PC.  |
+| Output                        | The CRA will work as intended.  |
+| Test Case Derivation          | The CRA will work with all types of PCs, OS, software to ensure all can use the system.  |
+| How will test be performed    | The CRA will be connected to various computer systems, adapters, PCs, laptops from different users. A pass would be if the PC is able to read the external device. The developers and testers will run twenty recorded tests.  |
+| Requirements Referenced       | CNFR36, CNFR42 |
+#### 5.2.24. Productization and Release Test
+| CNFRST24                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.18. John Doe
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.19. Reliability and Availability Test
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.20. Robustness and Fault-Tolerance Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.21. Capacity Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.22. Scalability and Extensibility Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.23. Longevity Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.24. Physical Environment Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA software and items list will be created. |
+| Input                         | The CRA software and items listed on Github as a public repository.  |
+| Output                        | The software and hardware can be easily found and purchased if a user would like to develop it further. |
+| Test Case Derivation          | The CRA is a publicly available open-source system. |
+| How will test be performed    | Check using different Github accounts across different browsers to ensure that the repository is public and all required information is present.  |
+| Requirements Referenced       | CNFR37, CNFR38 |
 #### 5.2.25. Interfacing with Adjacent Systems Test
-| CFRST10                       | |
+| CNFRST25                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.26. Productization and Release Tests
-| CFRST10                       | |
+| Control                       | Manual, Dynamic, Functional |
+| Initial State                 | The CRA will be powered on. |
+| Input                         | The CRA will run as usual. |
+| Output                        | The CRA will output errors to a crash log file.  |
+| Test Case Derivation          | The CRA will tell the developers through crash logs how the software or hardware failed so that the developers can easily diagnose and fix the issue. |
+| How will test be performed    | Small errors will be recreated (unplugged, missing hardware, software bug, etc). Multiple iterations of these issues will be run and the crash logs will be checked each time.  |
+| Requirements Referenced       | CNFR39, CNFR40 |
+#### 5.2.26. Access Security Test
+| CNFRST26                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.27. Maintenance Tests
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | N/A |
+| Input                         | The CRA’s external storage device card is connected to the user’s PC. |
+| Output                        | The PC will allow the user to view the files and videos required.  |
+| Test Case Derivation          | This is to ensure that the CRA does not encrypt or corrupt files when uploading.  |
+| How will test be performed    | The SD card will be placed into different PCs, laptops and tested to see if it is readable. The developers and testers will run twenty recorded tests.  |
+| Requirements Referenced       | CNFR43 |
+#### 5.2.27. Privacy Test
+| CNFRST27                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.28. Adaptability Tests
-| CFRST10                       | |
+| Control                       | Manual, Dynamic |
+| Initial State                 | CRA is powered on.  |
+| Input                         | The video will be placed onto the SD card through the Raspberry Pi |
+| Output                        |The video will only be stored locally on the SD card |
+| Test Case Derivation          | This is to ensure that the Raspberry Pi does not upload to the Internet or the cloud.  |
+| How will test be performed    | A video will be uploaded onto the SD card through the Raspberry Pi. Using an external adapter and PC, the video will be viewed locally.   |
+| Requirements Referenced       | CNFR44, CNFR45 |
+#### 5.2.28. Cultural Test
+| CNFRST28                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.29. Access Tests
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | The CRA will be on. An instruction manual will be present. |
+| Input                         | The software and instruction manual will be opened. |
+| Output                        | The software and instruction manual are in English (Canadian) |
+| Test Case Derivation          | The developers will create in English so it should not be changed to another language. |
+| How will test be performed    | The CRA will be powered on and the manual will be opened by developers. |
+| Requirements Referenced       | CNFR46 |
+#### 5.2.29. Compliance Test
+| CNFRST29                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.30. Privacy Tests
-| CFRST10                       | |
+| Control                       | Manual, Static |
+| Initial State                 | N/A |
+| Input                         | The CRA will be created.  |
+| Output                        | The CRA will follow as closely to the average bicycle standard for weight and size restrictions. |
+| Test Case Derivation          | CRA will adhere to all types of bicycles. |
+| How will test be performed    | Various types of bicycles across different brands will be observed to check for possible restrictions. A survey will be done with a group of twenty users with varying types of bicycles.    |
+| Requirements Referenced       | CNFR48 |
+#### 5.2.30. Standards Test
+| CNFRST30                       | |
 |:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.31. Cultural Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.32. Compliance Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 5.2.33. Standards Tests
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+| Control                       | Manual, Static |
+| Initial State                 | N/A |
+| Input                         | The CRA will be created.  |
+| Output                        | The CRA will comply with all of the product quality standards for automotive products.  |
+| Test Case Derivation          | We need to ensure that our product is up to par with the products on the market currently.  |
+| How will test be performed    | Documentation will be reviewed on quality for automotive products and compare it to the CRA. Any potential signs of a breach of a standard will be discussed in a team meeting. |
+| Requirements Referenced       | CNFR49 |
 ## 6. Unit Tests
 ### 6.1. Unit Testing Scope
 ### 6.2. Test for Functional Requirements
@@ -630,9 +597,25 @@ To validate that the software fufills all of the right requirements, we will con
 | Requirements Referenced       | sus |
 ## 7. Appendix
 ### 7.1. Symbolic Parameters
-### 7.2. Usability Survey Questions?
-Could CRA be set up and installed by a non-technical user?
-Would the size of the device be an encumbrance to a typical cyclist.
+### 7.2. Usability Survey Questions for Non Functional Tests
+
+| CNFRST Reference| Question |
+|:--                            |:--|
+| CNFRST1| Is the CRA designed in a way that is appealing? |
+| CNFRST1| Is the CRA designed in a way that is non-intrusive? |
+| CNFRST1| What would you add to the CRA if you were the designer? |
+| CNFRST3| Is the CRA software designed in a way that is appealing? |
+| CNFRST3| How would you rate the CRA’s software GUI and application? |
+| CNFRST3| Was the Power ON system button easy to use? |
+| CNFRST4| Do you think you understand the CRA as a whole more now with the manual? |
+| CNFRST5| Is the document you were presented non-technical? |
+| CNFRST4, CNFRST5| How would you rate the understandability of the instruction manual provided? |
+| CNFRST11| How would you rate the overall feelability of the CRA to your bicycle? |
+| CNFRST11| Does the CRA hinder your ability to ride your bicycle? If so, in what way? |
+| CNFRST21 | Is there any way that you would like to expand the CRA?| sus |
+| CNFRST21| Do you have any concerns with the CRA on your own personal bicycle? |
+| CNFRST29| What is your brand and model of bicycle and if you know, what are the size and weight restrictions? |
+
 ## 8. Reflection
 What knowledge and skills do we need to acquire for VnV?
 Where can we acquire these skills? -> Which option do we choose
