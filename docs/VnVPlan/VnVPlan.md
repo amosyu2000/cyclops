@@ -559,7 +559,7 @@ To validate that the software fufills all of the right requirements, we will con
 | CNFRST4, CNFRST5| How would you rate the understandability of the instruction manual provided? |
 | CNFRST11| How would you rate the overall feelability of the CRA to your bicycle? |
 | CNFRST11| Does the CRA hinder your ability to ride your bicycle? If so, in what way? |
-| CNFRST21 | Is there any way that you would like to expand the CRA?| sus |
+| CNFRST21 | Is there any way that you would like to expand the CRA?|
 | CNFRST21| Do you have any concerns with the CRA on your own personal bicycle? |
 | CNFRST29| What is your brand and model of bicycle and if you know, what are the size and weight restrictions? |
 ## 8. Reflection
