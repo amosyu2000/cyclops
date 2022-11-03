@@ -80,11 +80,8 @@ Manny Lemos (lemosm1)
 - [6. Unit Tests](#6-unit-tests)
 	- [6.1. Unit Testing Scope](#61-unit-testing-scope)
 	- [6.2. Test for Functional Requirements](#62-test-for-functional-requirements)
-		- [6.2.1. Module X](#621-module-x)
-		- [6.2.2. Module X](#622-module-x)
 	- [6.3. Test for Nonfunctional Requirements](#63-test-for-nonfunctional-requirements)
-		- [6.3.1. Module X](#631-module-x)
-		- [6.3.2. Module X](#632-module-x)
+	- [6.4. Traceability Between Test Cases and Modules](#64-traceability-between-test-cases-and-modules)
 - [7. Appendix](#7-appendix)
 	- [7.1. Symbolic Parameters](#71-symbolic-parameters)
 	- [7.2. Usability Survey Questions?](#72-usability-survey-questions)
@@ -576,47 +573,8 @@ To validate that the software fufills all of the right requirements, we will con
 ## 6. Unit Tests
 ### 6.1. Unit Testing Scope
 ### 6.2. Test for Functional Requirements
-#### 6.2.1. Module X
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 6.2.2. Module X
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
 ### 6.3. Test for Nonfunctional Requirements
-#### 6.3.1. Module X
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
-#### 6.3.2. Module X
-| CFRST10                       | |
-|:--                            |:--|
-| Control                       | sus |
-| Initial State                 | sus |
-| Input                         | sus |
-| Output                        | sus |
-| Test Case Derivation          | sus |
-| How will test be performed    | sus |
-| Requirements Referenced       | sus |
+### 6.4. Traceability Between Test Cases and Modules
 ## 7. Appendix
 ### 7.1. Symbolic Parameters
 ### 7.2. Usability Survey Questions?
