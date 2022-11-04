@@ -1,2 +1,1 @@
-Instructions for installing your software.  You should also include uninstall
-instructions.
+Check the [wiki](https://github.com/amosyu2000/cyclops/wiki) for installation instructions.
