@@ -115,6 +115,7 @@ Manny Lemos (lemosm1)
 |:--|:--|:--|
 | 2022-10-03 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
 | 2022-10-20 | Amos Yu | Improved formatting |
+| 2022-11-06 | Amos Yu | Addressed peer review suggestions |
 
 </div>
 
@@ -186,9 +187,13 @@ Assumptions will enable developers to cull the scope of the problem(s) being und
 |:--|:--|
 | Rationale 1  | Violent mounting and dismounting of one's bicycle may result in unintended triggering of crash detection and subsequent video logging. The system will not be able to distinguish between violent (dis)mounting and true crashes. |
 
-| Assumption 2 | While on the road, cyclists will abide by traffic laws. This means travelling in marked bike lanes where available. |
+| Assumption 2 | Cyclists will travel in the same direction on the road as motorized traffic. |
 |:--|:--|
-| Rationale 2 | The system will not be able to distinguish between parked vehicles, which may appear momentarily in a cyclists blind-spot, and moving vehicles. As a result, if a cyclist is not travelling in designated bike lanes they may be subject to increased instances of false blind-spot detection triggers. | 
+| Rationale 2 | The blind spot monitoring is intended to warn the cyclist of danger when a car is approaching the cyclist from behind. If the cyclist is travelling in the opposite direction on the road as motorized traffic, the blind spot monitoring system is rendered ineffective as it is unable to detect danger due to cars approaching from the front. | 
+
+| Assumption 3 | Crashes occur at speed. |
+|:--|:--|
+| Rationale 3 | A crash involves a rapid deceleration from cycling speed to rest. A stationary cyclist who falls over on their bike does not constitute a crash. | 
 
 ## 4. Context Diagrams  
 <div align="center">
@@ -228,9 +233,9 @@ The scope of the product will be a physical enclosure which will contain all of 
 |:--|:--|
 | Rationale | CRA should be able to visually inform the rider that there is a car in their blindspot |
 
-| CFR2       | CRA must be able to provide a live video feed through out users ride                |
+| CFR2       | CRA must be able to continuously collect front- and rear-facing video feed throughout the user's ride                |
 |:--|:--|
-| Rationale | CRA needs the live feed inorder for its computer vision to detect vehicles and for video logging from the crash detection |
+| Rationale | CRA needs the live rear-facing video feed in order for its computer vision to detect vehicles. CRA needs the live front-facing video feed for video logging upon crash detection. |
 
 | CFR3       | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az)               |
 |:--|:--|
@@ -264,9 +269,9 @@ The scope of the product will be a physical enclosure which will contain all of 
 |:--|:--|
 | Rationale | CRA should only be able to run the crash detection functionality once an SD card is included in the system |
 
-| CFR11       | CRA shall be able to determine when a componenet is no longer operational due to low power levels. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub>   |
+| CFR11       | CRA shall be able to determine when a component is no longer operational due to low power levels. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub>   |
 |:--|:--|
-| Rationale | CRA should only be able to run the crash detection functionality once an SD card is included in the system |
+| Rationale | If a component is unable to perform its function as intended, it should be disabled rather than continue to provide unreliable data. |
 
 | CFR12       | CRA must be able to continue running its video feed after a clip has been logged |
 |:--|:--|
@@ -283,7 +288,7 @@ The scope of the product will be a physical enclosure which will contain all of 
 ## 7. Non-Functional Requirements
 ### 7.1. Look and Feel Requirements
 #### 7.1.1. Appearance Requirements 
-| CNFR1 | The appearance of CRA will be white. |
+| CNFR1 | The surface of CRA will have retroreflective regions. |
 |:--|:--|
 | Rationale | This is to act as a safety mechanism to allow the bicycle/motorbike to be more visible at night. |
 
@@ -316,9 +321,9 @@ The scope of the product will be a physical enclosure which will contain all of 
 |:--|:--|
 | Rationale | This is to ensure that the system can be understood easily by different age groups. |
 
-| CNFR8 | CRA will be able to be used by people with minimal education or training. |
+| CNFR8 | CRA will be able to be used by people who have not have prior experience with the device. |
 |:--|:--|
-| Rationale | This is to ensure that the system can be understood easily and taught to different educational groups. |
+| Rationale | This is to ensure that the device can be used by anyone regardless of ability or educational background |
 
 #### 7.2.2. Personalization and Internationalization Requirements
 | CNFR9 | Users will be able to make small modifications to CRA. |
@@ -326,9 +331,9 @@ The scope of the product will be a physical enclosure which will contain all of 
 | Rationale | This is needed so that users can make adjustments to allow the system to better fit their own personal bicycle. |
 
 #### 7.2.3. Learning Requirements 
-| CNFR10 | CRA shall be easy for anyone to learn within a short time. |
+| CNFR10 | An instruction manual will accompany the CRA device. |
 |:--|:--|
-| Rationale | This is so that anyone can use the system easily. |
+| Rationale | This is to ensure that the device can be learned by anyone regardless of ability or educational background. |
 
 | CNFR11 | CRA will be able to be created by an engineer with one week of training. |
 |:--|:--|
@@ -416,16 +421,16 @@ The scope of the product will be a physical enclosure which will contain all of 
 #### 7.3.6. Capacity Requirements 
 | CNFR30 | CRA will be able to store multiple videos in an external storage system with a time of BUFFER_TIME_MINS. |
 |:--|:--|
-| Rationale |This is to ensure that the user is able to see past videos and continuously record new videos, minimizing downtime. |
+| Rationale | This is to ensure that the user is able to see past videos and continuously record new videos, minimizing downtime. |
 
 #### 7.3.7. Scalability and Extensibility Requirements 
 | CNFR31 | CRA will have extra room in its software and hardware storage to allow for additional components. |
 |:--|:--|
 | Rationale |This is to ensure that CRA is scaleable to additional upgrades. |
 
-| CNFR32 | CRA will be usable to all bicycle users within the next ten years. |
+| CNFR32 | CRA will be compatible with all bicycle models for the next ten years. |
 |:--|:--|
-| Rationale |This is to allow for continuous integration into newer bicycles. |
+| Rationale | This is to allow for continuous integration into newer bicycles. Users will be able to replace their bicycles without having to also replace their CRA. |
 
 #### 7.3.8. Longevity Requirements 
 | CNFR33 | CRA will have a lifespan of five years with expected cleaning and maintenance. |
