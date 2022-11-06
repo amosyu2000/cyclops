@@ -69,6 +69,7 @@ Manny Lemos (lemosm1)
 |:--|:--|:--|
 | 2022-10-19 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
 | 2022-10-20 | Amos Yu | Improved formatting |
+| 2022-11-06 | Amos Yu | Addressed peer review suggestions |
 
 </div>
 
@@ -76,15 +77,17 @@ Manny Lemos (lemosm1)
 This document is the hazard analysis of Cyclops Ride Assist (CRA) system. CRA is an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bicycle or motorcyle. Features include blind spot detection, crash detection, and automatic video capture and upload. 
 
 ## 3. Scope and Purpose
+The scope of the hazard analysis as outlined in this document will be kept within the physical/software space of the CRA system boundary. Hazards imposed by the outer environment, society, and user error will be considered out of the scope for this document.
+
 This document identifies potential hazards which arise due to failures in the hardware and software used in the CRA system, the causes and effects of these failures, plans for hazard mitigation, and the safety and security requirements which emerge as a result of this knowledge.
 
 ## 4. Definition of Hazard
-A hazard is any property of the CRA system that has the potential to cause harm in both the user and the various systems that make up CRA. In CRA, there are hazards in safety (video logging, vehicle detection) and physical (mount, enclosure). 
+A hazard is any property of the CRA system that has the potential to cause harm in both the user and the various systems that make up CRA. In CRA, there are hazards in safety (video logging, vehicle detection) and physical (mount, enclosure). A hazard is differentiated from an error in that an error simply results in degraded system performance but does not have the potential to cause harm.
 
 ## 5. Critical Assumptions
 There are no critical assumptions that were made. 
 ## 6. System Boundary
-The hazard analysis as outlined in this document will be conducted within the physical/software space of the CRA system boundary. This system boundary consists of all components within and on the surface of the physical space of the chassis and mounting bracket. The hazards can be classified by subdividing the system boundary into sub-systems and domains.
+The system boundary consists of all components within and on the surface of the physical space of the chassis and mounting bracket. The hazards can be classified by subdividing the system boundary into sub-systems and domains.
 
 ### 6.1. Chassis System Boundary
 #### 6.1.1. Physical Hazards
@@ -108,7 +111,6 @@ The hazard analysis as outlined in this document will be conducted within the ph
 - Poor mounting can cause the microcontroller to toss around within the chassis.
 - Openings in the chassis can introduce water and dust onto the microcontroller.
 - A power supply failure can damage the hardware on the microcontroller.
-- Forgetting to turn the microcontroller off can cause unnecessary battery consumption.
 #### 6.3.2. Software Hazards
 - A power supply failure can cause the software process to terminate at an illegal state.
 - Damage to the microcontroller board can cause the firmware to malfunction.
@@ -143,7 +145,6 @@ The hazard analysis as outlined in this document will be conducted within the ph
 - A loose switch can cause the headlamp to turn on/off unexpectedly.
 - Poor ergonomics can impede the operation of the switch in extreme conditions.
 - Shining light into the user's face can cause visual impairment.
-- Forgetting to turn the headlamp off can cause unnecessary battery consumption.
 
 ## 7. Failure Modes and Effect Analysis
 ### 7.1. Hazards Out of Scope
@@ -191,6 +192,11 @@ Crash Detection | H1-1 | False negative crash detection. | The current loop of v
 | AR-1 |  CRA will allow the users to access their videos freely from an external hardware storage drive. |  
 |:--|:--|  
 | Rationale | This is to allow the user to connect it to their own personal systems to view, delete their videos. There is no need for encryption as this would complicate the process. |  
+| Associated Hazards |  N/A |  
+
+| AR-2 |  CRA will be ergonomically designed to accomodate all cyclists, including cyclists with special physical accessibility needs. |  
+|:--|:--|  
+| Rationale | The design of the device should feel seamless without interfering with the user experience for cyclists with accessibility needs. |  
 | Associated Hazards |  N/A |  
 ### 8.3. Integrity Requirements
 | IR-1 |  The mounting system will be made with solid and sustainable material to ensure mechanical integrity. |  
