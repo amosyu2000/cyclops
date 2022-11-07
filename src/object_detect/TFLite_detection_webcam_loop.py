@@ -23,6 +23,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 #led
 GPIO.setup(4, GPIO.OUT)
+GPIO.setup(27, GPIO.OUT)
 #button
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
@@ -228,6 +229,7 @@ try:
                             GPIO.output(27, True)
                         else:
                             GPIO.output(27, False)
+
                         label = '%s: %d%%' % (object_name, int(scores[i]*100)) # Example: 'person: 72%'
                         labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2) # Get font size
                         label_ymin = max(ymin, labelSize[1] + 10) # Make sure not to draw label too close to top of window
