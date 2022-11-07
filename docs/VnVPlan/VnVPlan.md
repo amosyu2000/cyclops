@@ -43,6 +43,7 @@ Manny Lemos (lemosm1)
 		- [5.1.7. Front Light Off Test](#517-front-light-off-test)
 		- [5.1.8. Power On System Test](#518-power-on-system-test)
 		- [5.1.9. Power Off System Test](#519-power-off-system-test)
+		- [5.1.10. Missing SD Test](#5110-missing-sd-test)
 	- [5.2. Tests for Nonfunctional Requirements](#52-tests-for-nonfunctional-requirements)
 		- [5.2.1. Appearance and Style Test](#521-appearance-and-style-test)
 		- [5.2.2. Hardware Ease of Use Test](#522-hardware-ease-of-use-test)
@@ -96,6 +97,7 @@ Manny Lemos (lemosm1)
 | Date | Developer(s) | Change |
 |:--|:--|:--|
 | October 25, 2022 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
+| November 7, 2022 | Amos Yu | Addressed peer review suggestions |
 
 </div>
 
@@ -169,7 +171,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Input                         | Read video input |
 | Output                        | LED blindspot indicator |
 | Test Case Derivation          | LED's should light up and be reflective of whether a car is located in the riders blind spot |
-| How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehhicle in the blind spot |
+| How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the blind spot |
 | Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
 #### 5.1.2. Crash Detection Test
 | CFRST3                        | |
@@ -178,7 +180,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Initial State                 | Accelerometer input with CRA mounted to moving bike |
 | Input                         | Accelerometer electrical input caused by bike movement|
 | Output                        | Video log/clip |
-| Test Case Derivation          | Cyclops should detech when a crash has occured when the acceleration of the rider has passed a certian threshold. This then prompts the CRA to perform video logging task inresponse to the crash |
+| Test Case Derivation          | Cyclops should detect when a crash has occured when the acceleration of the rider has passed a certian threshold. This then prompts the CRA to perform video logging task inresponse to the crash |
 | How will test be performed    | The test will be done dynamically in a real world environment in which the accelerometer unit will be mounted onto the bike and updates values as the bike experiences a large change in its acceleration (a crash). The SD card will then be verified if a clip has been logged |
 | Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
 #### 5.1.3. Video Logging Test
@@ -198,7 +200,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Initial State                 | Application should be running, SD card should be full or near full capacity |
 | Input                         | SD card storage/space remaining |
 | Output                        | SD_storage_full LED whether the SD card is too full for video logging |
-| Test Case Derivation          | CRA shall have a seperate LED to signify that the current card is full. The CRA should only be able to run when the SD card has ample storage space |
+| Test Case Derivation          | CRA will have reduced functionality when the SD card is almost full. |
 | How will test be performed    | The system shall be turned on when a full/near full SD card in which the tester would then look to confirm that the LED prompts to empty out SD card |
 | Requirements Referenced       | CFR9, CFR10 |
 #### 5.1.5. Resume Detection Test
@@ -251,6 +253,16 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Test Case Derivation          | LED's should turn off to reflect that the system/application has been powered down |
 | How will test be performed    | This test will be done dynamically in a real world environment where the pwoer button is physicall pressed to turn off CRA |
 | Requirements Referenced       | CFR11 |
+#### 5.1.10. Missing SD Test
+| CFRST5                        | |
+|:--                            |:--|
+| Control                       | Manual (Static) |
+| Initial State                 | Application should be running, SD card should be full or near full capacity |
+| Input                         | Missing SD Card in memory slot |
+| Output                        | SD_storage_full LED on |
+| Test Case Derivation          | CRA will have reduced functionality when the SD card is missing. |
+| How will test be performed    | With the memory slot without an SD card in it, the device will be booted up and the SD_storage_full LED observed. |
+| Requirements Referenced       | CFR9, CFR10 |
 ### 5.2. Tests for Nonfunctional Requirements
 #### 5.2.1. Appearance and Style Test
 | CNFRST1                       | |  
