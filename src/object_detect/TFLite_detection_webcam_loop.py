@@ -184,6 +184,8 @@ try:
             #for frame1 in camera.capture_continuous(rawCapture, format="bgr",use_video_port=True):
             while True:
 
+                carExist = False
+
                 # Start timer (for calculating frame rate)
                 t1 = cv2.getTickCount()
 
@@ -225,10 +227,10 @@ try:
 
                         # Draw label
                         object_name = labels[int(classes[i])] # Look up object name from "labels" array using class index
+                        
+                        # Turn on LED
                         if object_name == 'car':
                             GPIO.output(27, True)
-                        else:
-                            GPIO.output(27, False)
 
                         label = '%s: %d%%' % (object_name, int(scores[i]*100)) # Example: 'person: 72%'
                         labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2) # Get font size
@@ -253,6 +255,8 @@ try:
     
                 status = cv2.imwrite(path, frame)
 
+                # Turn off LED
+                GPIO.output(27, False)
 
                 # Press 'q' to quit
                 if cv2.waitKey(1) == ord('q') or led_on and not GPIO.input(17):
@@ -267,6 +271,7 @@ try:
                     break
 finally:
     GPIO.output(4, False)
+    GPIO.output(27, False)
     GPIO.cleanup()
 
     # Clean up
