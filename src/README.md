@@ -1,5 +1,5 @@
-# Project Name Source Code
+<div align="center">
 
-The folders and files for this project are as follows:
+# Source Code
 
-...
+</div>
