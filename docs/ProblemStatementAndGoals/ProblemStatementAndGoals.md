@@ -20,12 +20,15 @@ Manny Lemos (lemosm1)
 ## Table of Contents <!-- omit in toc -->
 - [1. Revision History](#1-revision-history)
 - [2. Problem Statement](#2-problem-statement)
+  - [2.1 Problem](#21-problem)
+  - [2.1 Inputs and Outputs](#21-inputs-and-outputs)
+  - [2.2 Stakeholders](#22-stakeholders)
 - [3. Goals](#3-goals)
   - [3.1. Reliable Blindspot Monitoring](#31-reliable-blindspot-monitoring)
   - [3.2. Convenient Mounting and Dismounting](#32-convenient-mounting-and-dismounting)
   - [3.3. Accurate Crash Detection](#33-accurate-crash-detection)
   - [3.4. Video Buffering and Saving](#34-video-buffering-and-saving)
-  - [3.5. Headlamp](#35-headlamp)
+  - [3.5. Automatic Lighting System](#35-automatic-lighting-system)
 - [4. Stretch Goals](#4-stretch-goals)
   - [4.1. Emergency Response Integration](#41-emergency-response-integration)
   - [4.2. Mobile App](#42-mobile-app)
@@ -48,12 +51,33 @@ Manny Lemos (lemosm1)
 |:--|:--|:--|
 | 2022-10-19 | All | Document creation |
 | 2022-10-20 | Amos Yu | Improved formatting |
+| 2022-11-09 | Aaron Li | Updated content |
 
 </div>
 
 ## 2. Problem Statement
-Cycling is an economic mode of transportation which has an extremely low carbon footprint. As North America pursues greener goals, it is expected that more people will adopt cycling as their primary method of transportation. However, many North American roads were not designed with cyclists in mind; some roads do not have any bike lanes to speak of, and many of those that do are nothing more than additional paint on an already narrow lane-way. Naturally, a combined road where multi-ton vehicles are speeding past cyclists is a recipe for disaster. When vehicles impact cyclists, the mismatch in size and mass may result in a cyclist's serious injury or even death. Evidently, any means to improve the safety of cyclists before, during, and after a crash is of vital importance to all who share the road, and more specifically those who travel by bicycle.
 
+### 2.1 Problem
+
+As North America pursues greener goals, it is expected a higher percentage of people will adopt cycling as their primary method of transportation as for its relatively low carbon footprint compared to automobiles. However, many roads were not designed and developed with cyclists in mind. Even with dedicated bicycle lanes, cyclists may find themselves in fear as cars, trucks, and buses dart past with a far greater speed and momentum. In the worst cases, accidents may occur leading to both physical injuries and emotional trauma for the cyclist, the automobile driver, their respective families, and the community. Therefore, it is vital that this system will be used to increase the safety of the road, allowing drivers and cyclists to share the road responsibly.  
+This project will deliver on the following goals listed in Section 3.  
+
+### 2.1 Inputs and Outputs
+The inputs will be as follows: 
+- The user will be able to mount system onto their own personal bicycle. 
+
+The outputs will be as follows:
+- The system will stay on the bicycle until manual intervention by the user. 
+- The system will be powered on and fully activated with all functionalities. 
+- The system will be able to provide the following goals as outlined in Section 3 - Goals. 
+- The user will have a safe experience travelling from their start to their destination. 
+- The user will be able to easily dismount the system from their vehicle. 
+
+### 2.2 Stakeholders 
+The stakeholders in this project are as follows:
+  - Cyclists: These will be the main users of this system. 
+  - Automotive vehicle users: These users are also involved in ensuring the safety of all on the road. 
+  - The development team of Cyclops: These will be the primary developers of the Cyclops Ride Assist project. 
 ## 3. Goals
 
 ### 3.1. Reliable Blindspot Monitoring
@@ -68,8 +92,8 @@ As long as it is mounted on the bicycle, the system will collect data on the mov
 ### 3.4. Video Buffering and Saving
 As long as it is mounted on the bicycle, the system will collect video footage. The system will buffer the past BUFFER_TIME_MINUTES minutes of footage and will delete all older footage. In the event of an accident, the system will save the buffer footage. The user will be able to access saved footage.
 
-### 3.5. Headlamp
-The user will be able to turn on and off the headlamp.When turned on, the headlamp will illuminate the path in front of the bicycle in low-light conditions. When turned on, the headlamp will not decrease the quality of the video footage.
+### 3.5. Automatic Lighting System 
+The user will be able to turn on and off the headlamp. When turned on, the headlamp will illuminate the path in front of the bicycle in low-light conditions. When turned on, the headlamp will not decrease the quality of the video footage. Furthermore, the light will be able to detect any changes in lighting and turn itself on or off automatically. 
 
 ## 4. Stretch Goals
 
