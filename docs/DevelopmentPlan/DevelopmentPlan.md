@@ -32,7 +32,7 @@ Manny Lemos (lemosm1)
 - [7. Overall System Workflow Plan](#7-overall-system-workflow-plan)
 - [8. Proof of Concept Demonstration Plan](#8-proof-of-concept-demonstration-plan)
 - [9. Software Development and Engineering Tools and Technology](#9-software-development-and-engineering-tools-and-technology)
-- [9. Handling Changes](#9-handling-changes)
+- [10. Handling Changes](#10-handling-changes)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
@@ -151,11 +151,11 @@ Hardware:
  - Autodesk Inventor: Inventor will be utilized for creating 3D models for the physical aspects of Cyclops including the mount and housing. 
  - Autodesk EAGLE: EAGLE will be used to design the PCB electrical schematic. 
  - Printed Circuit Board (PCB): A PCB will be used for all electrical components and will contain soldered parts. Cables and resistors will be provided by the team. 
- -  Bike: Tester bike will be used to simulate and test the functionalities of Cyclops in a real time environment.
+ - Bike: Tester bike will be used to simulate and test the functionalities of Cyclops in a real time environment.
  - Webcam: A webcam will be used as a camera for both front and back-facing camera. 
  - Machining Tools: A variety of machining tools will be used in order to create the electro-mechanical system. For example, power drills, screwdrivers, soldering irons, etc. 
 
-## 9. Handling Changes
+## 10. Handling Changes
 
 Team members will also be encouraged to follow the format within **CONTRIBUTING.md**:
 
@@ -164,6 +164,6 @@ Team members will also be encouraged to follow the format within **CONTRIBUTING.
  3. Perform unit testings to verify that the issue is still prevalent.
  4. Perform regression testing to ensure that there are no further issues appearing.
  5. Merge to the Master branch.
- 6. Close the issue
+ 6. Close the issue.
 
 

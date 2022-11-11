@@ -51,7 +51,7 @@ Manny Lemos (lemosm1)
 |:--|:--|:--|
 | 2022-10-19 | All | Document creation |
 | 2022-10-20 | Amos Yu | Improved formatting |
-| 2022-11-09 | Aaron Li | Updated document |
+| 2022-11-09 | Aaron Li | Updated content |
 
 </div>
 
@@ -71,6 +71,7 @@ The outputs will be as follows:
 - The system will be powered on and fully activated with all functionalities. 
 - The system will be able to provide the following goals as outlined in Section 3 - Goals. 
 - The user will have a safe experience travelling from their start to their destination. 
+- The user will be able to easily dismount the system from their vehicle. 
 
 ### 2.2 Stakeholders 
 The stakeholders in this project are as follows:
