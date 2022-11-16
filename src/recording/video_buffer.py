@@ -26,9 +26,13 @@ class Buffer:
 		self.video_length = video_length
 		self.output_directory = save_directory
 		self.temp_directory = temp_directory
+		for f in os.listdir(self.temp_directory):
+			os.remove(os.path.join(self.temp_directory, f))
 		self.camera_id = camera_id
 		self.cap = cv2.VideoCapture(self.camera_id) # create a capture object
-		if resolution < 0:
+
+		# select resolution (auto, 480p, 720p, or 1080p)
+		if resolution < 0: 
 			self.frame_width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
 			self.frame_height = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
 		elif resolution == 0:
@@ -72,39 +76,34 @@ class Buffer:
 
 		# release the current result video, this allows it to be accessed
 		self.result.release()
-		output_file_name = time.strftime("%Y_%m_%d-%I_%M_%S_%p") +'.mp4'
+		output_file_name = time.strftime("%Y_%m_%d__%H_%M_%S_%p") +'.mp4'
 
-		# trim the oldest video to achieve a concatenated video time == self.video_length
-		idx = (self.vid_num+1)%self.num_partitions
-		if os.path.isfile(self.temp_directory + str(idx) + ".mp4"):
-			(
-				ffmpeg
-				.input(self.temp_directory + str(idx) + ".mp4")
-				.trim(start_frame = self.curr_frames, end_frame = self.max_frames)
-				.setpts ('PTS-STARTPTS') # sets start time to start frame
-				.output (self.temp_directory + str(idx) + "_.mp4", loglevel="quiet")
-				.run(overwrite_output=True)
-			) # rename the file to the expected naming pattern (#.mp4)
-			os.rename(self.temp_directory + str(idx) + "_.mp4", self.temp_directory + str(idx) + ".mp4")
-
-		# store videos as ffmpeg.input objects in an array chronologically
-		file_arr = []
+		# store videos names in txt file to be concatenated using ffmpeg demux
+		f = open(self.temp_directory + "concat_list.txt", "w")
+		num_files = 0
 		for i in range(self.vid_num+1, self.num_partitions):
 			if os.path.isfile(self.temp_directory + str(i) + ".mp4"):
-				file_arr.append(ffmpeg.input(self.temp_directory + str(i) + ".mp4"))
+				f.write("file '" + self.temp_directory + str(i) + ".mp4'\n")
+				num_files += 1
 		for i in range(0, self.vid_num+1):
 			if os.path.isfile(self.temp_directory + str(i) + ".mp4"):
-				file_arr.append(ffmpeg.input(self.temp_directory + str(i) + ".mp4"))
-		# concatanate files & rename the output
-		(
-			ffmpeg
-			.concat(*file_arr)
-			.output(self.output_directory + output_file_name, loglevel="quiet")
-			.run(overwrite_output=True)
-		)
-		# delete unused files
-		for i in range(0, len(file_arr)):
-			os.remove(self.temp_directory + str(i) + ".mp4")
+				f.write("file '" + self.temp_directory + str(i) + ".mp4'\n")
+				num_files += 1
+		f.close()
+		if num_files > 1:
+			# concatanate files & rename the output
+			(
+				ffmpeg
+				.input(self.temp_directory + "concat_list.txt", format='concat', safe=0)
+				.output(self.output_directory + output_file_name, loglevel="quiet", c='copy')
+				.run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
+			)
+		else:
+			os.rename(self.temp_directory + str(0) + ".mp4", self.output_directory + output_file_name)
+
+		# delete files in temp directory
+		for f in os.listdir(self.temp_directory):
+			os.remove(os.path.join(self.temp_directory, f))
 		# reset parameters
 		self.curr_frames = 0
 		self.vid_num = 0
@@ -120,7 +119,8 @@ class Buffer:
 		# Implementation:
 		# sequentially write clips with number_frames = self.fps * self.video_length = self.max_frames
 		# clips are named 0.mp4, 1.mp4, ... , str(self.num_partitions-1).mp4
-		# once self.num_partitions clips have been written, begin overwritting 0.mp4 as this footage is beyond self.video_length
+		# once self.num_partitions clips have been written, begin overwritting str(self.vid_num).mp4 
+		# 	as this footage is beyond self.video_length
 
 		while(self.run_buffer):
 			self.lock.acquire()
@@ -135,15 +135,15 @@ class Buffer:
 				self.curr_frames = 0
 				self.result.release()
 				self.vid_num = (self.vid_num+1)%(self.num_partitions)
-				self.result = cv2.VideoWriter(  self.temp_directory + str(self.vid_num) + ".mp4", 		# save directory + file name
-												cv2.VideoWriter_fourcc('m', 'p', '4', 'v'),					# use mp4v codec
-												self.fps, 													# fps
-												(self.frame_width, self.frame_height))						# frame size
+				self.result = cv2.VideoWriter(  self.temp_directory + str(self.vid_num) + ".mp4", 	# save directory + file name
+												cv2.VideoWriter_fourcc('m', 'p', '4', 'v'),			# use mp4v codec
+												self.fps, 											# fps
+												(self.frame_width, self.frame_height))				# frame size
 
 			# release the lock before the end of the while loop to allow other
 			# pieces of the code to grab the mutex  
 			self.lock.release()
-			time.sleep(0.0001)
+			time.sleep(0.000001) 
 
 		# exit sequence
 		# release cap & destroy cv2 windows -> then exit
