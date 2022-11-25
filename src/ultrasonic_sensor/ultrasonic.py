@@ -3,6 +3,15 @@ import time
 
 class Ultrasonic:
 	def __init__(self, pin_trigger, pin_echo, distance_min, distance_max, unit):
+		"""
+		Initialize the GPIO pins for the ultrasonic sensor
+
+		@pin_trigger: Pin number on the pi corresponding to the trigger pin on the sensor
+		@pin_echo: Pin number on the pi corresponding to the echo pin on the sensor
+		@distance_min: The closest distance that the ultrasonic sensor should detect
+		@distance_max: The furthest distance that the ultrasonic sensor should detect
+		@unit: Unit of the min and max distances (ex. cm)
+		"""
 		#set GPIO Pins
 		self.PIN_TRIGGER = pin_trigger
 		self.PIN_ECHO = pin_echo
@@ -19,6 +28,9 @@ class Ultrasonic:
 		self.unit = unit
 
 	def distance_absolute(self):
+		"""
+		Get the absolute distance of an object in front of the sensor, in the unit specified
+		"""
 		# set Trigger to HIGH
 		GPIO.output(self.PIN_TRIGGER, True)
 
@@ -46,6 +58,9 @@ class Ultrasonic:
 			return distance_cm
 	
 	def distance_percentage(self):
+		"""
+		Get the distance of an object in front of the sensor as a percentage between the min and max distances
+		"""
 		return (self.distance_max - self.distance_absolute()) / (self.distance_max - self.distance_min)
 
 	def cleanup(self):

@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-adafruit-circuitpython-adxl34x = "*"
+"rpi.gpio" = "*"
 matplotlib = "*"
+adafruit-circuitpython-adxl34x = "*"
 
 [dev-packages]
 
