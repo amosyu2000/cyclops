@@ -1,9 +1,9 @@
 import RPi.GPIO as GPIO
 import time
-from led import LED
-from ultrasonic import Ultrasonic
+from ultrasonic_sensor.led import LED
+from ultrasonic_sensor.ultrasonic import Ultrasonic
 
-class Live_Ultrasonic():
+class Start():
 	def __init__(self):
 		led = LED(17, 22, 23, 25, 27)
 		ultrasonic = Ultrasonic(pin_trigger=18, pin_echo=24, distance_min=0, distance_max=50, unit="cm")
@@ -19,4 +19,4 @@ class Live_Ultrasonic():
 
 
 if __name__ == '__main__':
-	Live_Ultrasonic()
+	Start()
