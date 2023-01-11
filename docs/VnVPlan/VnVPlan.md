@@ -129,11 +129,13 @@ Specifically, this document will address testing pertaining to both the software
 [SRS Document](https://github.com/amosyu2000/cyclops/blob/main/docs/SRS/SRS.md)
 ## 4. Plan
 ### 4.1. Verification and Validation Team
-There will be two distinct subgroups of the verification and validation team.  
+There will be two distinct groups of the verification and validation team.  
 
-Group one will be responsible for any hardware testing. This includes testing of the CRA housing, mount, circuitry, sensors, and video feeds. This group will be composed of Amos Cheung, Aaron Li, and Manny Lemos.  
+Group one will be responsible for any hardware testing. This includes testing of the CRA housing, mount, circuitry, sensors, and video feeds. This group will be composed of Amos Cheung, Aaron Li, and Manny Lemos. The group will have an integration lead, who has the added responsibility of ensuring the hardware integrates well with the software. Manny Lemos will be the integration lead.  
 
-Group two will be responsible for software testing. This includes testing of the CRA crash detection, video logging, and vehicle blindspot detection. This group will be composed of Brian Le and Amos Yu.  
+Group two will be responsible for software testing. This includes testing of the CRA crash detection, video logging, and vehicle blindspot detection. This group will be composed of Brian Le and Amos Yu. The group will have an integration lead, who has the added responsibility of ensuring the software integrates well with the hardware. Amos Yu will be the integration lead.  
+
+Each group is responsible for receiving, testing, and communicating feedback given by peer reviewers, TAs, and the end user regarding the features under their domain.  
 
 ### 4.2. SRS Verification Plan
  The requirements set about in the SRS document will be directly linked to test cases using the Traceability Between Test Cases and Requirements table found in section 5.3.   
