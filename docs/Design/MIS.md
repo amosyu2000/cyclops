@@ -182,10 +182,9 @@ Composed of a class Buffer. Provides the functionality of starting, stopping, an
   - resolution : integer
 #### 11.1.4. Likely Changes
 - Reduce the number of input parameters to the instantiation of the Buffer class. These inputs will be replaced by fixed parameters which are deemed most suitable.
-- 
 #### 11.1.5. Unlikely Changes
-- change the video clipping implementation such that 
-
+- Change the camera being used from a USB web-camera to the Raspberry Pi Camera Module.
+  - Subsequently, a large portion of the code for the Buffer class will have to be rewritten.
 ## 12. Timeline
 | Date | Task                                                                                                    | Person                | Testing                                                                                                                                                                          |
 |-------------------|---------------------------------------------------------------------------------------------------------|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
