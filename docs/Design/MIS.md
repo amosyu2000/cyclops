@@ -31,9 +31,10 @@ Manny Lemos (lemosm1)
 	- [8.1. Raspberry Pi Mechanical Specifications](#81-raspberry-pi-mechanical-specifications)
 	- [8.2. Polylactic Acid (PLA) Material](#82-polylactic-acid-pla-material)
 - [9. Electrical Components](#9-electrical-components)
-	- [9.1. Raspberry Pi Electrical Specifications](#91-raspberry-pi-electrical-specifications)
-	- [9.2. Resistor Specifications](#92-resistor-specifications)
-	- [9.3. Breadboard Specifications](#93-breadboard-specifications)
+	- [9.1. CRA Electrical Specifications](#91-cra-electrical-specifications)
+	- [9.2. Raspberry Pi Electrical Specifications](#92-raspberry-pi-electrical-specifications)
+	- [9.3. Resistor Specifications](#93-resistor-specifications)
+	- [9.4. Breadboard Specifications](#94-breadboard-specifications)
 - [10. Communication Protocols](#10-communication-protocols)
 	- [10.1. USB Protocol](#101-usb-protocol)
 - [11. Software Modules](#11-software-modules)
@@ -55,6 +56,10 @@ Manny Lemos (lemosm1)
 ## List of Figures <!-- omit in toc -->
 - [Figure 4.1.1: CRA System Context Diagram](#scd)
 - [Figure 5.1: CRA Functional Decomposition Diagram](#fdd)
+- [Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic](#rpps)
+- [Figure 9.1.1: CRA Circuit Diagram](#ccd)
+- [Figure 9.1.2: CRA Breadboard Schematic](#cbs)
+- [Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram](#rpes)
 
 ## 1. Revision History
 <div align="center">
@@ -99,10 +104,10 @@ Manny Lemos (lemosm1)
 Reference: 
 ## 8. Mechanical Hardware
 
-### 8.1. Raspberry Pi Mechanical Specifications   
+### 8.1. Raspberry Pi Mechanical Specifications  
 
 <div align="center">
-<p id="fdd">Figure 8.1: Raspberry Pi Mechanical Drawing and Schematic</p>
+<p id="rpps">Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213242698-29e0ad61-2088-429e-91e5-0e97043f7a81.png)  
 
@@ -129,16 +134,29 @@ The mechanical specifications of PLA are as follows:
 
 ## 9. Electrical Components
 
-### 9.1. Raspberry Pi Electrical Specifications 
+
+### 9.1. CRA Electrical Specifications
+
 <div align="center">
-<p id="fdd">Figure 8.1: Raspberry Pi Electrical Schematic</p>
+<p id="ccd">Figure 9.1.1: CRA Circuit Diagram</p>
+
+![image](https://user-images.githubusercontent.com/46848538/213303316-aaa5c7b9-9049-4c29-99ec-831ef7829bec.png)
+
+<p id="cbs">Figure 9.1.2: CRA Breadboard Schematic</p>
+
+![image](https://user-images.githubusercontent.com/46848538/213303319-a90aff03-9621-4622-940e-068fe115fd24.png)
+
+</div>
+
+### 9.2. Raspberry Pi Electrical Specifications 
+<div align="center">
+<p id="rpes">Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213247210-1cf36f4d-d1d2-463e-be8d-ee6f19534f09.png)  
 
 </div>
 
-
-### 9.2. Resistor Specifications
+### 9.3. Resistor Specifications
 
 | Part | Specification |   
 |:--|:--|   
@@ -148,7 +166,7 @@ The mechanical specifications of PLA are as follows:
 
 Reference:
 
-### 9.3. Breadboard Specifications
+### 9.4. Breadboard Specifications
 
 | Part | Specification |   
 |:--|:--|   
