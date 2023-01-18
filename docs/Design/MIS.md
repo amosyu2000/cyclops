@@ -105,6 +105,38 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 
 ## 6. System Variables
 
+### 6.1 Monitored and Controlled Variables
+
+The following are a list of variables that are to be monitored.
+
+| Monitor Var | Monitor Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+distance_cm | Distance | [0, 10000] | cm | Distance to closest obstacle |
+| curr_frames | Frequency | [0, 30] | FPS | The rate at which the video buffer can sample a frame for video feed |
+| run_buffer | Boolean | N/A | N/A | Boolean of if the buffer should run or not
+| average_of | Acceleration | [-16, 16] | G's | Takes a rolling average of the xyz acceleration points | 
+| avg_x | Acceleration | N/A | m/s<sup>2</sup> | Acceleration in the x plane |
+| avg_y | Acceleration | N/A | m/s<sup>2</sup> | Acceleration in the y plane |
+| avg_z | Acceleration | N/A | m/s<sup>2</sup> | Acceleration in the z plane |
+| avg_norm | Acceleration | N/A | m/s<sup>2</sup> | Normal of the accelerations |
+
+The following are a list of variables that are to be controlled.
+
+| Monitor Var | Controlled Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+| lock | Mutex | N/A | N/A | Mutex |
+| data_points | Size | TBD | N/A | Maximum number of data points to show on the plot and kept track of | 
+| GPIO | Boolean | N/A | N/A | Toggle for LEDs to display sensor data
+| frame_width | Soze | [640, 1920] | px | Capture resolution |
+| frame_height | Size | [480, 1080] | px | Capture resolution |
+| video_length | Time | [0 - 60] | Seconds | The length in seconds of the requested video |
+
+### 6.2 Contants
+
+| Constant Var | Constant Type | Value | Units | Comments |
+|:--|:--|:--|:--|:--|
+
+
 ## 7. User Interfaces
 ### 7.1. Buttons
 
