@@ -26,9 +26,16 @@ Manny Lemos (lemosm1)
 - [5. Project Overview](#5-project-overview)
 - [6. System Variables](#6-system-variables)
 - [7. User Interfaces](#7-user-interfaces)
+	- [7.1. Buttons](#71-buttons)
 - [8. Mechanical Hardware](#8-mechanical-hardware)
+	- [8.1. Raspberry Pi Mechanical Specifications](#81-raspberry-pi-mechanical-specifications)
+	- [8.2. Polylactic Acid (PLA) Material](#82-polylactic-acid-pla-material)
 - [9. Electrical Components](#9-electrical-components)
+	- [9.1. Raspberry Pi Electrical Specifications](#91-raspberry-pi-electrical-specifications)
+	- [9.2. Resistor Specifications](#92-resistor-specifications)
+	- [9.3. Breadboard Specifications](#93-breadboard-specifications)
 - [10. Communication Protocols](#10-communication-protocols)
+	- [10.1. USB Protocol](#101-usb-protocol)
 - [11. Software Modules](#11-software-modules)
 	- [11.1. video\_buffer.py](#111-video_bufferpy)
 		- [11.1.1. Module Implementation](#1111-module-implementation)
@@ -40,6 +47,7 @@ Manny Lemos (lemosm1)
 - [13. Appendix](#13-appendix)
 	- [13.1. Reflection](#131-reflection)
 		- [13.1.1. Solution Limitations](#1311-solution-limitations)
+	- [13.2. References](#132-references)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
@@ -86,12 +94,74 @@ Manny Lemos (lemosm1)
 ## 6. System Variables
 
 ## 7. User Interfaces
+### 7.1. Buttons
 
+Reference: 
 ## 8. Mechanical Hardware
+
+### 8.1. Raspberry Pi Mechanical Specifications   
+
+<div align="center">
+<p id="fdd">Figure 8.1: Raspberry Pi Mechanical Drawing and Schematic</p>
+
+![image](https://user-images.githubusercontent.com/58313755/213242698-29e0ad61-2088-429e-91e5-0e97043f7a81.png)  
+
+</div>
+The mechanical specifications of the Raspberry Pi is as follows:
+
+| Part | Specification |   
+|:--|:--|   
+| INSERT | SPEC |   
+| INSERT | SPEC |   
+| INSERT | SPEC |   
+
+### 8.2. Polylactic Acid (PLA) Material
+
+The mechanical chassis and frame will be created using Polylactic Acid (PLA) filament, molded through a Prusa i3 MK3s 3D printer. 
+
+The mechanical specifications of PLA are as follows:
+| Part | Specification |   
+|:--|:--|   
+| PLA | Brian Le |   
+| 2022-09-23 | Brian Le |   
+| 2022-10-20 | Amos Yu |    
+
 
 ## 9. Electrical Components
 
+### 9.1. Raspberry Pi Electrical Specifications 
+<div align="center">
+<p id="fdd">Figure 8.1: Raspberry Pi Electrical Schematic</p>
+
+![image](https://user-images.githubusercontent.com/58313755/213247210-1cf36f4d-d1d2-463e-be8d-ee6f19534f09.png)  
+
+</div>
+
+
+### 9.2. Resistor Specifications
+
+| Part | Specification |   
+|:--|:--|   
+| INSERT | SPEC |   
+| INSERT | SPEC |   
+| INSERT | SPEC |   
+
+Reference:
+
+### 9.3. Breadboard Specifications
+
+| Part | Specification |   
+|:--|:--|   
+| INSERT | SPEC |   
+| INSERT | SPEC |   
+| INSERT | SPEC |   
+
 ## 10. Communication Protocols
+
+### 10.1. USB Protocol
+
+Reference: 
+
 
 ## 11. Software Modules
 ### 11.1. video_buffer.py
@@ -123,3 +193,11 @@ Composed of a class Buffer. Provides the functionality of starting, stopping, an
 ### 13.1. Reflection
 
 #### 13.1.1. Solution Limitations
+
+### 13.2. References
+
+[1] "Raspberry Pi 4 Mechanical Drawing", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf
+
+[2] "What is PLA?", 2023. [Online]. Available: https://www.twi-global.com/technical-knowledge/faqs/what-is-pla
+
+[3] "Raspberry Pi 4 Electrical Schematic", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-reduced-schematics.pdf
