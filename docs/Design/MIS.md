@@ -96,7 +96,7 @@ Manny Lemos (lemosm1)
 ## 11. Software Modules
 ### 11.1. video_buffer.py
 #### 11.1.1. Module Implementation
-Composed of a class Buffer. Provides the functionality of starting, stopping, and logging a video clip. 
+Composed of a single class, Buffer. Provides the functionality of starting, stopping, and logging a video clip. 
 #### 11.1.2. Module Secrets
 - Video capture instance.
 - Frames of video clips.
@@ -112,12 +112,17 @@ Composed of a class Buffer. Provides the functionality of starting, stopping, an
   - resolution : integer
 #### 11.1.4. Likely Changes
 - Reduce the number of input parameters to the instantiation of the Buffer class. These inputs will be replaced by fixed parameters which are deemed most suitable.
-- 
 #### 11.1.5. Unlikely Changes
 - change the video clipping implementation such that 
 
 ## 12. Timeline
-
+| Date | Task                                                                                                    | Person                | Testing                                                                                                                                                                          |
+|-------------------|---------------------------------------------------------------------------------------------------------|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2023-01-22        | Creation of crash detection algorithm.                                                                  | Manny Lemos, Amos Yu  | Automated testing to determine response under a wide range of accelerometer inputs.                                                                                              |
+| 2023-01-25        | Update design and 3D print hardware case to accommodate the camera, battery pack, and mounting bracket. | Aaron Li, Amos Cheung | Manual testing. Ensure everything fits as expected.                                                                                                                              |
+| 2023-01-28        | Design and 3D print a mounting bracket to attach the hardware case to bicycle fork.                     | Aaron Li, Manny Lemos | Manual testing. Ensure the mounting bracket can support the weight of the loaded hardware case sufficiently. Ensure the mounting bracket will function for common bicycle forks. |
+| 2023-01-31        | Swap breadboard and jumper wires for PCB and soldered connections.                                      | Amos Cheung           | Manual testing. Verify connections using multimeter.                                                                                                                             |
+| 2023-02-05        | Integration of all software modules.                                                                    | Brian Le, Amos Yu     | Manual Testing. Mount the hardware to the bicycle and ensure it functions as detailed in the SRS Document.                                                                       |
 ## 13. Appendix
 
 ### 13.1. Reflection
