@@ -30,11 +30,12 @@ Manny Lemos (lemosm1)
 - [9. Electrical Components](#9-electrical-components)
 - [10. Communication Protocols](#10-communication-protocols)
 - [11. Software Modules](#11-software-modules)
-	- [11.1. (MODULE 1 TITLE)](#111-module-1-title)
-		- [11.1.1. Module Secrets](#1111-module-secrets)
-		- [11.1.2. Module Relationships](#1112-module-relationships)
-		- [11.1.3. Likely Changes](#1113-likely-changes)
-		- [11.1.4. Unlikely Changes](#1114-unlikely-changes)
+	- [11.1. video\_buffer.py](#111-video_bufferpy)
+		- [11.1.1. Module Implementation](#1111-module-implementation)
+		- [11.1.2. Module Secrets](#1112-module-secrets)
+		- [11.1.3. Module Relationships](#1113-module-relationships)
+		- [11.1.4. Likely Changes](#1114-likely-changes)
+		- [11.1.5. Unlikely Changes](#1115-unlikely-changes)
 - [12. Timeline](#12-timeline)
 - [13. Appendix](#13-appendix)
 	- [13.1. Reflection](#131-reflection)
@@ -93,16 +94,27 @@ Manny Lemos (lemosm1)
 ## 10. Communication Protocols
 
 ## 11. Software Modules
-
-### 11.1. (MODULE 1 TITLE)
-
-#### 11.1.1. Module Secrets
-
-#### 11.1.2. Module Relationships
-
-#### 11.1.3. Likely Changes
-
-#### 11.1.4. Unlikely Changes
+### 11.1. video_buffer.py
+#### 11.1.1. Module Implementation
+Composed of a class Buffer. Provides the functionality of starting, stopping, and logging a video clip. 
+#### 11.1.2. Module Secrets
+- Video capture instance.
+- Frames of video clips.
+- Video codec.
+#### 11.1.3. Module Relationships
+- Receives the following Buffer class instantiation parameters from __main__.py
+  - video_length : integer
+  - num_partitions : integer
+  - fps : integer
+  - save_directory : string
+  - temp_directory : string
+  - camera_id : integer
+  - resolution : integer
+#### 11.1.4. Likely Changes
+- Reduce the number of input parameters to the instantiation of the Buffer class. These inputs will be replaced by fixed parameters which are deemed most suitable.
+- 
+#### 11.1.5. Unlikely Changes
+- change the video clipping implementation such that 
 
 ## 12. Timeline
 
