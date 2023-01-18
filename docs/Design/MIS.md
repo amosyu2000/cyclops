@@ -68,10 +68,15 @@ Manny Lemos (lemosm1)
 </div>
 
 ## 2. Introduction
+This document is the Modular Interface Specification of Cyclops Ride Assist (CRA) system. The purpose of this document is to outline the design specification for each component in CRA and serve as the basis for implementation work when building the system. 
 
 ## 3. Purpose
+The purpose of this project is to create a system that helps cyclists to have a more secured experience especially on roads without bike lanes.
+
+Cyclops Ride Assist (CRA) is going to be an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bike, such as blind spot detection and crash detection. The system will also have a built in headlamp that will illuminate during night time, not just for the cyclist to see but also for cars around to realize the bike.
 
 ## 4. Scope
+CRA is going to be a bike assist system with convenient mounting, accurate crash detection, video buffering and saving, reliable blindspot monitoring and a user controlled headlamp that helps cyclist to have a peace of mind while riding on the road. Although CRA is primarily targeted towards road cyclists, it will able be useful for cyclists who ride on mountains or trails.
 
 ### 4.1. System Context
 
