@@ -561,6 +561,8 @@ Cyclops ride assist aims to fill the ride monitoring and crash avoidance gap in 
 
 **Battery Life:** For cyclists who go on multi hour long bicycle rides, battery life may be of concern. The Raspberry Pi used to perform computations is not particularly battery efficient compared to more project specific embedded computers who do not have as much computational overhead. The capacity of the current battery pack being used is 10,000mah. To improve battery life, a higher capacity battery pack could be purchased. However, a higher capacity battery pack is almost certain to come along with the unwanted side effects of a larger size and heavier weight. 
 
+**Ultrasonic Sensor:** For the blindspot detection, our ultrasonic sensor is viable up to 4 meters however. The effectiveness of this is then limited when dectecting an object from range. Temperature is also a major limiting factor as accuracy can be changed in temeratures of 5 - 19 degrees. One way we can look to improve on the performance and accuracy of our object detection would be to use a higher quality sensor for cyclops which can decrease these problems.
+
  ### 13.2. References
 
 [1] "Raspberry Pi 4 Mechanical Drawing", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf
@@ -579,5 +581,6 @@ Cyclops ride assist aims to fill the ride monitoring and crash avoidance gap in 
 
 [8] "4 Band Resistor Color Code Calculator", 2023. [Online]. Available: https://www.digikey.ca/en/resources/conversion-calculators/conversion-calculator-resistor-color-code
 
+[9] K. Gross, “Ultrasonic sensors: Advantages and limitations,” MaxBotix Inc., 28-Oct-2020. [Online]. Available: https://www.maxbotix.com/articles/advantages-limitations-ultrasonic-sensors.htm/. [Accessed: 18-Jan-2023]. 
 
 
