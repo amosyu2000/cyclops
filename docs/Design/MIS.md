@@ -35,10 +35,14 @@ Manny Lemos (lemosm1)
 	- [9.1. CRA Electrical Specifications](#91-cra-electrical-specifications)
 	- [9.2. Raspberry Pi Electrical Specifications](#92-raspberry-pi-electrical-specifications)
 	- [9.3. Printed Circuit Board (PCB) Specifications](#93-printed-circuit-board-pcb-specifications)
-	- [9.4. Resistor Specifications](#94-resistor-specifications)
+	- [9.4. Accelerometer Specifications](#94-accelerometer-specifications)
+	- [9.5. Radar Sensor Specifications](#95-radar-sensor-specifications)
+	- [9.6. Camera Specifications](#96-camera-specifications)
+	- [9.7. Resistor Specifications](#97-resistor-specifications)
 - [10. Communication Protocols](#10-communication-protocols)
 	- [10.1. USB Protocol](#101-usb-protocol)
 	- [10.2. Wi-Fi Protocol](#102-wi-fi-protocol)
+	- [10.3. I2C Protocol](#103-i2c-protocol)
 - [11. Software Modules](#11-software-modules)
 	- [11.1. video\_buffer.py](#111-video_bufferpy)
 	- [11.2. acceleration\_plot.py](#112-acceleration_plotpy)
@@ -61,6 +65,10 @@ Manny Lemos (lemosm1)
 - [Figure 9.1.1: CRA Circuit Diagram](#ccd)
 - [Figure 9.1.2: CRA Breadboard Schematic](#cbs)
 - [Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram](#rpies)
+- [Figure 9.4.1: Accelerometer Sensor Diagram](#asd)
+- [Figure 9.5.1: Radar Sensor Diagram](#rsd)
+- [Figure 9.7.1: Resistor 220 Ohms](#r220)
+- [Figure 9.7.2: Resistor 1.2k Ohms](#r12k)
 - [Figure 11.0.1: CRA Software Stack](#css)
 
 ## 1. Revision History
@@ -266,15 +274,78 @@ The printed circuit board will be used to combine all the electrical hardware wi
 | Thickness | 1.6mm |   
 | Material | Glass Giber FR4 |   
 | Hole-Pitch | 2.54mm | 
-| Hold-diameter | 1mm |   
+| Hole-diameter | 1mm |   
 
-### 9.4. Resistor Specifications
+### 9.4. Accelerometer Specifications
 
-| Part | Specification |   
+The accelerometer will be used to determine when a crash has occured. The accelerometer used is the ADXL-345 and the specifications are as follows, as outlined by Analog Devices [5]. 
+
+| Accelerometer Specifications | Value |   
 |:--|:--|   
-| INSERT | SPEC |   
-| INSERT | SPEC |   
-| INSERT | SPEC |   
+| Voltage Range | 2.0V to 3.6V |   
+| Interfaces | SPI and I2C |   
+| Temperature Range | -40C to 85C |   
+| Axis | 3-Axis (X,Y,Z) | 
+| Resolution | 10-bit | 
+
+<div align="center">
+<p id="asd">Figure 9.4.1: Accelerometer Sensor Diagram [5]</p>
+
+![image](https://user-images.githubusercontent.com/58313755/213337993-6efc55c0-f281-432d-bbbd-4ff78e75fa65.png)  
+
+</div>
+
+
+### 9.5. Radar Sensor Specifications
+
+The radar sensor will be used to sense when a car is a certain distance away from a vehicle or large object. The radar sensor that is being used is the HC-SR04. The specifications will be as follows, as noted by Elec Freaks [6]. 
+
+| Radar Sensor Specifications | Value |   
+|:--|:--|   
+| Dimensions | 45mm x 20mm x 15mm |   
+| Voltage | 15 mA |   
+| Frequency | 40Hz |   
+| Maximum Range | 4m | 
+| Minimum Range | 2cm | 
+| Measuring Angle | 15deg | 
+| Trigger Input Signal | 10us TTL pulse| 
+| Echo Input Signal | Trigger Input Signal + Proportional Range | 
+
+
+<div align="center">
+<p id="rsd">Figure 9.5.1: Radar Sensor Diagram [6]</p>
+
+![image](https://user-images.githubusercontent.com/58313755/213338155-603d739b-801f-4f6a-b7a0-1c20f1802983.png)  
+
+</div>
+
+### 9.6. Camera Specifications
+
+The camera will be used to record the crash footage for a period of time. The camera that is being used is the Ootoking 1080p webcam, that can be referenced on Amazon.ca [7].
+| Camera Specification | Value |   
+|:--|:--|   
+| Dimension | 3cm x 4cm x 2cm|   
+| Weight | 55g |   
+| Resolution | 1080p |
+
+### 9.7. Resistor Specifications
+Resistors will be used to ensure that the electric current is controlled and that any voltage spikes will not damage the components located on the CRA. The resistors are 4-band resistors and are of 220 Ohms and 1.2k Ohms as shown by Digikey [8]. 
+
+<div align="center">
+
+<p id="r220">Figure 9.7.1: Resistor with 220 Ohms</p>
+![image](https://user-images.githubusercontent.com/58313755/213349323-a8a92c4f-437d-4670-a278-7c6d454ea6a5.png)  
+
+</div>
+
+<div align="center">
+
+<p id="r12k">Figure 9.7.2: Resistor with 1.2k Ohms</p>
+![image](https://user-images.githubusercontent.com/58313755/213349398-fab2ee2d-e341-401e-9c1f-e161055ec47c.png
+)  
+
+</div>
+
 
 ## 10. Communication Protocols
 
@@ -290,6 +361,13 @@ In order to communicate and transmit data, the USB protocol will be used. The fo
 The Wi-Fi protocol is the 802.11ac protocol. This protocol allows for connections from frequencies of 2.4GHz or 5.0Ghz. This protocol will be used for the following. 
 
 | Wifi Protocol | Purpose |   
+|:--|:--|   
+| 802.11ac | This wireless protocol will allow the users to connect to the CRA remotely through various methods including SSH. Furthermore, this protocol allows users to connect their CRA to either a 2.4 or 5.0GHz wireless network. | 
+
+### 10.3. I2C Protocol
+The I2C protocol will be used for communication with the accelerometer. 
+
+| I2C Protocol | Purpose |   
 |:--|:--|   
 | 802.11ac | This wireless protocol will allow the users to connect to the CRA remotely through various methods including SSH. Furthermore, this protocol allows users to connect their CRA to either a 2.4 or 5.0GHz wireless network. | 
 ## 11. Software Modules
@@ -433,3 +511,14 @@ Cyclops ride assist aims to fill the ride monitoring and crash avoidance gap in 
 [3] "Raspberry Pi 4 Electrical Schematic", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-reduced-schematics.pdf
 
 [4] "Elegoo Double Sided PCB Board Kit", 2023. [Online]. Available: https://www.elegoo.com/en-ca/products/elegoo-double-sided-pcb-board-kit
+
+[5] "ADXL-345 Datasheet", 2023. [Online]. Available: https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf
+
+[6] "HC-SR04 Datasheet", 2023. [Online]. Available: https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf
+
+[7] "1080p Webcam", 2023. [Online]. Available: https://www.amazon.ca/Microphone-Otooking-Streaming-Conferencing-Recording/dp/B08HYDZ6TN/ref=zg_bs_23883740011_sccl_10/140-3616671-2115546?psc=1
+
+[8] "4 Band Resistor Color Code Calculator", 2023. [Online]. Available: https://www.digikey.ca/en/resources/conversion-calculators/conversion-calculator-resistor-color-code
+
+
+
