@@ -589,21 +589,9 @@ Receives the following led class construction parameters through `__init__()`.
 | Parameter | Type | Description |
 |:--|:--|:--|
 pin_trigger | integer | Pin number on the pi corresponding to the trigger pin on the sensor |
-
-| Parameter | Type | Description |
-|:--|:--|:--|
 pin_echo | integer | Pin number on the pi corresponding to the echo pin on the sensor |
-
-| Parameter | Type | Description |
-|:--|:--|:--|
 distance_min | integer | The closest distance that the ultrasonic sensor should detect |
-
-| Parameter | Type | Description |
-|:--|:--|:--|
 distance_max | integer | The furthest distance that the ultrasonic sensor should detect |
-
-| Parameter | Type | Description |
-|:--|:--|:--|
 unit | string | Unit of the min and max distances (ex. cm) |
 
 __Likely Changes__
