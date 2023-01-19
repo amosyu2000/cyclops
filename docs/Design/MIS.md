@@ -93,13 +93,13 @@ Manny Lemos (lemosm1)
 
 ## 6. System Variables
 
-### 6.1 Monitored and Controlled Variables
+### 6.1. Monitored and Controlled Variables
 
 The following are a list of variables that are to be monitored.
 
 | Monitor Var | Monitor Type | Range | Units | Comments |
 |:--|:--|:--|:--|:--|
-distance_cm | Distance | [0, 10000] | cm | Distance to closest obstacle |
+distance_cm | Distance | [0, 4000] | cm | Distance to closest obstacle |
 | curr_frames | Frequency | [0, 30] | FPS | The rate at which the video buffer can sample a frame for video feed |
 | run_buffer | Boolean | N/A | N/A | Boolean of if the buffer should run or not
 | average_of | Acceleration | [-16, 16] | G's | Takes a rolling average of the xyz acceleration points | 
@@ -119,14 +119,28 @@ The following are a list of variables that are to be controlled.
 | frame_height | Size | [480, 1080] | px | Capture resolution |
 | video_length | Time | [0 - 60] | Seconds | The length in seconds of the requested video |
 
-### 6.2 Contants
+### 6.2. Contants
 
 | Constant Var | Constant Type | Value | Units | Comments |
 |:--|:--|:--|:--|:--|
 
 
 ## 7. User Interfaces
-### 7.1. Buttons
+
+### 7.1. Inputs
+
+| Input Name | Input Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+| Power Button | Physical | [0, 1] | N/A | Button that is used to power on the system and automatically run the blindspot/crash detection scripts |
+| Mount | Physical | N/A | N/A | Mount used to secure Cyclops to the bike |
+
+
+### 7.2. Outputs
+
+| Output Name | Output Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+| LEDS | Visual | [0, 1] | N/A | LEDS to indicate the distance of an object in your blindspot as well as to signify that the cyclops is on an running |
+| SD | Physical | N/A | N/A | SD slot is used to store the video buffer when a crash has been detected |
 
 Reference: 
 ## 8. Mechanical Hardware
