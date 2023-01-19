@@ -25,8 +25,11 @@ Manny Lemos (lemosm1)
 	- [4.1. System Context](#41-system-context)
 - [5. Project Overview](#5-project-overview)
 - [6. System Variables](#6-system-variables)
+	- [6.1. Monitored and Controlled Variables](#61-monitored-and-controlled-variables)
+	- [6.2. Contants](#62-contants)
 - [7. User Interfaces](#7-user-interfaces)
-	- [7.1. Buttons](#71-buttons)
+	- [7.1. Inputs](#71-inputs)
+	- [7.2. Outputs](#72-outputs)
 - [8. Mechanical Hardware](#8-mechanical-hardware)
 	- [8.1. Raspberry Pi Mechanical Specifications](#81-raspberry-pi-mechanical-specifications)
 	- [8.2. Polylactic Acid (PLA) Material](#82-polylactic-acid-pla-material)
@@ -38,7 +41,8 @@ Manny Lemos (lemosm1)
 	- [9.4. Accelerometer Specifications](#94-accelerometer-specifications)
 	- [9.5. Radar Sensor Specifications](#95-radar-sensor-specifications)
 	- [9.6. Camera Specifications](#96-camera-specifications)
-	- [9.7. Resistor Specifications](#97-resistor-specifications)
+	- [9.7. Headlamp Specifications](#97-headlamp-specifications)
+	- [9.8. Resistor Specifications](#98-resistor-specifications)
 - [10. Communication Protocols](#10-communication-protocols)
 	- [10.1. USB Protocol](#101-usb-protocol)
 	- [10.2. Wi-Fi Protocol](#102-wi-fi-protocol)
@@ -46,7 +50,8 @@ Manny Lemos (lemosm1)
 - [11. Software Modules](#11-software-modules)
 	- [11.1. video\_buffer.py](#111-video_bufferpy)
 	- [11.2. acceleration\_plot.py](#112-acceleration_plotpy)
-	- [11.3. (MODULE NAME).py](#113-module-namepy)
+	- [11.3. led.py](#113-ledpy)
+	- [11.4. ultrasonic\_sensor.py](#114-ultrasonic_sensorpy)
 - [12. Timeline](#12-timeline)
 - [13. Appendix](#13-appendix)
 	- [13.1. Reflection](#131-reflection)
@@ -130,12 +135,12 @@ distance_cm | Distance | [0, 4000] | cm | Distance to closest obstacle |
 
 The following are a list of variables that are to be controlled.
 
-| Monitor Var | Controlled Type | Range | Units | Comments |
+| Controlled Var | Controlled Type | Range | Units | Comments |
 |:--|:--|:--|:--|:--|
 | lock | Mutex | N/A | N/A | Mutex |
 | data_points | Size | TBD | N/A | Maximum number of data points to show on the plot and kept track of | 
 | GPIO | Boolean | N/A | N/A | Toggle for LEDs to display sensor data
-| frame_width | Soze | [640, 1920] | px | Capture resolution |
+| frame_width | Size | [640, 1920] | px | Capture resolution |
 | frame_height | Size | [480, 1080] | px | Capture resolution |
 | video_length | Time | [0 - 60] | Seconds | The length in seconds of the requested video |
 
@@ -143,7 +148,8 @@ The following are a list of variables that are to be controlled.
 
 | Constant Var | Constant Type | Value | Units | Comments |
 |:--|:--|:--|:--|:--|
-
+| g | Acceleration | 9.81 | m/s<sup>2</sup> | Acceleration due to gravity |
+| c<sub>s</sub> | Speed | 343 | m/s | Speed of sound |
 
 ## 7. User Interfaces
 
@@ -153,7 +159,8 @@ The following are a list of variables that are to be controlled.
 |:--|:--|:--|:--|:--|
 | Power Button | Physical | [0, 1] | N/A | Button that is used to power on the system and automatically run the blindspot/crash detection scripts |
 | Mount | Physical | N/A | N/A | Mount used to secure Cyclops to the bike |
-
+| Battery Port | Physical | N/A | N/A | Port for charging the battery bank |
+| Storage Device Port | Physical | N/A | N/A | Port for inserting the SD Card |
 
 ### 7.2. Outputs
 
@@ -162,7 +169,6 @@ The following are a list of variables that are to be controlled.
 | LEDS | Visual | [0, 5] | N/A | 5 LEDS are used to indicate the distance of an object in your blindspot as well as to signify that the cyclops is on an running |
 | SD | Physical | N/A | N/A | SD slot is used to store the video buffer when a crash has been detected |
 
-Reference: 
 ## 8. Mechanical Hardware
 
 ### 8.1. Raspberry Pi Mechanical Specifications   
@@ -173,7 +179,7 @@ Reference:
 ![image](https://user-images.githubusercontent.com/58313755/213242698-29e0ad61-2088-429e-91e5-0e97043f7a81.png)  
 
 </div>
-The Raspberry Pi 4 Model B is the microcomputer that will be used for all software and processing. The mechanical specifications of the Raspberry Pi is as follows:
+The Raspberry Pi 4 Model B is the microcontroller that will be used for all software and processing. The mechanical specifications of the Raspberry Pi is as follows:
 
 | Raspberry Pi Mechanical Specifications | Value |   
 |:--|:--|   
@@ -184,6 +190,12 @@ The Raspberry Pi 4 Model B is the microcomputer that will be used for all softwa
 | Operating Temperature | 0-50C |   
 | Audio | 4-Pole Stereo Audio |   
 | Video | Composite Video |   
+
+The requirements traceability of the Raspberry Pi is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Raspberry Pi | CFR11 | CNFR6, CNFR11, CNFR20, CNFR28, CNFR29, CNFR31, CNFR33, CNFR36, CNFR37 |
 
 ### 8.2. Polylactic Acid (PLA) Material
 
@@ -230,9 +242,13 @@ The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer.
 | Weight | 15 grams |   
 | Material | PLA |   
 
+The requirements traceability of the mechanical frame is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Mechanical Frame | n/a | CNFR1, CNFR2, CNFR3, CNFR4, CNFR5, CNFR9, CNFR11, CNFR14, CNFR21, CNFR22, CNFR23, CNFR28, CNFR29, CNFR32, CNFR33, CNFR35, CNFR40, CNFR48, CNFR49 |
 
 ## 9. Electrical Components
-
 
 ### 9.1. CRA Electrical Specifications
 
@@ -276,6 +292,12 @@ The printed circuit board will be used to combine all the electrical hardware wi
 | Hole-Pitch | 2.54mm | 
 | Hole-diameter | 1mm |   
 
+The requirements traceability of the printed circuit board is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Printed circuit board | CFR3, CFR11 | CNFR2, CNFR4, CNFR11, CNFR29, CNFR31, CNFR33, CNFR40 |
+
 ### 9.4. Accelerometer Specifications
 
 The accelerometer will be used to determine when a crash has occured. The accelerometer used is the ADXL-345 and the specifications are as follows, as outlined by Analog Devices [5]. 
@@ -287,6 +309,12 @@ The accelerometer will be used to determine when a crash has occured. The accele
 | Temperature Range | -40C to 85C |   
 | Axis | 3-Axis (X,Y,Z) | 
 | Resolution | 10-bit | 
+
+The requirements traceability of the accelerometer is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Accelerometer | CFR3, CFR5 | CNFR15, CNFR17, CNFR24, CNFR25, CNFR29, CNFR33, CNFR35 |
 
 <div align="center">
 <p id="asd">Figure 9.4.1: Accelerometer Sensor Diagram [5]</p>
@@ -311,6 +339,12 @@ The radar sensor will be used to sense when a car is a certain distance away fro
 | Trigger Input Signal | 10us TTL pulse| 
 | Echo Input Signal | Trigger Input Signal + Proportional Range | 
 
+The requirements traceability of the radar sensor is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Radar sensor | CFR1, CFR2 | CNFR2, CNFR4, CNFR15, CNFR18, CNFR29, CNFR33 |
+
 
 <div align="center">
 <p id="rsd">Figure 9.5.1: Radar Sensor Diagram [6]</p>
@@ -328,7 +362,21 @@ The camera will be used to record the crash footage for a period of time. The ca
 | Weight | 55g |   
 | Resolution | 1080p |
 
-### 9.7. Resistor Specifications
+The requirements traceability of the camera is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Camera | CFR2, CFR6, CFR12 | CNFR2, CNFR7, CNFR15, CNFR27, CNFR33, CNFR35 |
+
+### 9.7. Headlamp Specifications
+
+The headlamp will be a forward facing LED with its own battery source. The requirements traceability of the headlamp is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Headlamp | CFR14 | CNFR1, CNFR7, CNFR8, CNFR13, CNFR35, CNFR40, CNFR48, CNFR49 |
+
+### 9.8. Resistor Specifications
 Resistors will be used to ensure that the electric current is controlled and that any voltage spikes will not damage the components located on the CRA. The resistors are 4-band resistors and are of 220 Ohms and 1.2k Ohms as shown by Digikey [8]. 
 
 <div align="center">
@@ -349,6 +397,12 @@ Resistors will be used to ensure that the electric current is controlled and tha
 
 
 ## 10. Communication Protocols
+
+The requirements traceability of all communication protocols is as follows:
+
+| Modules | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| USB, Wi-Fi, I2C | CFR9, CFR10 | CNFR16, CNFR19, CNFR36, CNFR40, CNFR42. CNFR43, CNFR44, CNFR45 |
 
 ### 10.1. USB Protocol
 In order to communicate and transmit data, the USB protocol will be used. The following ports will be mainly used for the following: 
@@ -417,6 +471,14 @@ __Unlikely Changes__
 - Change the camera being used from a USB web-camera to the Raspberry Pi Camera Module.
   - Subsequently, a large portion of the code for the Buffer class will have to be rewritten.
 
+__Traceability__
+
+The requirements traceability of the video_buffer.py class is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| video_buffer.py | CFR2, CFR8, CFR9, CFR12 | CNFR6, CNFR12, CNFR15, CNFR16, CNFR19, CNFR26, CNFR27, CNFR30, CNFR37, CNFR38, CNFR39, CNFR43, CNFR44 |
+
 ### 11.2. acceleration_plot.py
 
 __Module Implementation__
@@ -461,11 +523,18 @@ __Unlikely Changes__
 
 - Functions related to the visualization of acceleration data are useful in testing, but may be removed to improve the performance of the embedded system.
 
+__Traceability__
+
+The requirements traceability of the acceleration_plot.py class is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| acceleration_plot.py | CFR3, CFR5, CFR7, CFR13 | CNFR6, CNFR12, CNFR15, CNFR17, CNFR24, CNFR29, CNFR37, CNFR38, CNFR39 |
+
 ### 11.3. led.py
 
 __Module Implementation__
 A class named led. Provides the functionalty of mapping Rasperry Pi pin to LEDs and also turning on/off the individuals LED.
-
 
 __Module Secrets__
 
@@ -494,11 +563,18 @@ __Unlikely Changes__
 
 - No unlikely changes
 
+__Traceability__
+
+The requirements traceability of the led.py class is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| led.py | CFR1 | CNFR6, CNFR8, CNFR12, CNFR13, CNFR18, CNFR37, CNFR38, CNFR39 |
+
 ### 11.4. ultrasonic_sensor.py
 
 __Module Implementation__
 A class named ultrasonic_sensor. Provides the functionalty of measuring the distance of the object using ultrasonic sensor.
-
 
 __Module Secrets__
 
@@ -530,7 +606,6 @@ distance_max | integer | The furthest distance that the ultrasonic sensor should
 |:--|:--|:--|
 unit | string | Unit of the min and max distances (ex. cm) |
 
-
 __Likely Changes__
 
 - Number of LEDs.
@@ -540,6 +615,14 @@ __Likely Changes__
 __Unlikely Changes__
 
 - No unlikely changes
+
+__Traceability__
+
+The requirements traceability of the ultrasonic_sensor.py class is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| ultrasonic_sensor.py | CFR1 | CNFR6, CNFR12, CNFR15, CNFR18, CNFR37, CNFR38, CNFR39 |
 
 ## 12. Timeline
 | Date | Task                                                                                                    | Person                | Testing                                                                                                                                                                          |
@@ -563,7 +646,7 @@ Cyclops ride assist aims to fill the ride monitoring and crash avoidance gap in 
 
 **Ultrasonic Sensor:** For the blindspot detection, our ultrasonic sensor is viable up to 4 meters however. The effectiveness of this is then limited when dectecting an object from range. Temperature is also a major limiting factor as accuracy can be changed in temeratures of 5 - 19 degrees. One way we can look to improve on the performance and accuracy of our object detection would be to use a higher quality sensor for cyclops which can decrease these problems.
 
- ### 13.2. References
+### 13.2. References
 
 [1] "Raspberry Pi 4 Mechanical Drawing", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf
 
@@ -582,5 +665,3 @@ Cyclops ride assist aims to fill the ride monitoring and crash avoidance gap in 
 [8] "4 Band Resistor Color Code Calculator", 2023. [Online]. Available: https://www.digikey.ca/en/resources/conversion-calculators/conversion-calculator-resistor-color-code
 
 [9] K. Gross, “Ultrasonic sensors: Advantages and limitations,” MaxBotix Inc., 28-Oct-2020. [Online]. Available: https://www.maxbotix.com/articles/advantages-limitations-ultrasonic-sensors.htm/. [Accessed: 18-Jan-2023]. 
-
-
