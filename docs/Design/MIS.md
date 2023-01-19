@@ -105,8 +105,52 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 
 ## 6. System Variables
 
+### 6.1. Monitored and Controlled Variables
+
+The following are a list of variables that are to be monitored.
+
+| Monitor Var | Monitor Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+distance_cm | Distance | [0, 4000] | cm | Distance to closest obstacle |
+| curr_frames | Frequency | [0, 30] | FPS | The rate at which the video buffer can sample a frame for video feed |
+| run_buffer | Boolean | N/A | N/A | Boolean of if the buffer should run or not
+| average_of | Acceleration | [-16, 16] | G's | Takes a rolling average of the xyz acceleration points | 
+| avg_x | Acceleration | N/A | m/s<sup>2</sup> | Acceleration in the x plane |
+| avg_y | Acceleration | N/A | m/s<sup>2</sup> | Acceleration in the y plane |
+| avg_z | Acceleration | N/A | m/s<sup>2</sup> | Acceleration in the z plane |
+| avg_norm | Acceleration | N/A | m/s<sup>2</sup> | Normal of the accelerations |
+
+The following are a list of variables that are to be controlled.
+
+| Monitor Var | Controlled Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+| lock | Mutex | N/A | N/A | Mutex |
+| data_points | Size | TBD | N/A | Maximum number of data points to show on the plot and kept track of | 
+| GPIO | Boolean | N/A | N/A | Toggle for LEDs to display sensor data
+| frame_width | Soze | [640, 1920] | px | Capture resolution |
+| frame_height | Size | [480, 1080] | px | Capture resolution |
+| video_length | Time | [0 - 60] | Seconds | The length in seconds of the requested video |
+
+### 6.2. Contants
+
+| Constant Var | Constant Type | Value | Units | Comments |
+|:--|:--|:--|:--|:--|
+
 ## 7. User Interfaces
-### 7.1. Buttons
+### 7.1. Inputs
+
+| Input Name | Input Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+| Power Button | Physical | [0, 1] | N/A | Button that is used to power on the system and automatically run the blindspot/crash detection scripts |
+| Mount | Physical | N/A | N/A | Mount used to secure Cyclops to the bike |
+
+### 7.2. Outputs
+
+| Output Name | Output Type | Range | Units | Comments |
+|:--|:--|:--|:--|:--|
+| LEDS | Visual | [0, 5] | N/A | 5 LEDS are used to indicate the distance of an object in your blindspot as well as to signify that the cyclops is on an running |
+| SD | Physical | N/A | N/A | SD slot is used to store the video buffer when a crash has been detected |
+
 ## 8. Mechanical Hardware
 
 ### 8.1. Raspberry Pi Mechanical Specifications   
