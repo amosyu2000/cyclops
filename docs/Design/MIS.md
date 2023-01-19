@@ -334,6 +334,7 @@ Resistors will be used to ensure that the electric current is controlled and tha
 <div align="center">
 
 <p id="r220">Figure 9.7.1: Resistor with 220 Ohms</p>
+
 ![image](https://user-images.githubusercontent.com/58313755/213349323-a8a92c4f-437d-4670-a278-7c6d454ea6a5.png)  
 
 </div>
@@ -341,8 +342,8 @@ Resistors will be used to ensure that the electric current is controlled and tha
 <div align="center">
 
 <p id="r12k">Figure 9.7.2: Resistor with 1.2k Ohms</p>
-![image](https://user-images.githubusercontent.com/58313755/213349398-fab2ee2d-e341-401e-9c1f-e161055ec47c.png
-)  
+
+![image](https://user-images.githubusercontent.com/58313755/213349398-fab2ee2d-e341-401e-9c1f-e161055ec47c.png)  
 
 </div>
 
