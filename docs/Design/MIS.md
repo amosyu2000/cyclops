@@ -107,8 +107,6 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 
 ## 7. User Interfaces
 ### 7.1. Buttons
-
-Reference: 
 ## 8. Mechanical Hardware
 
 ### 8.1. Raspberry Pi Mechanical Specifications   
