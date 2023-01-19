@@ -199,7 +199,7 @@ Assumptions will enable developers to cull the scope of the problem(s) being und
 <div align="center">
 <p id="scd">Figure 4.1: CRA System Context Diagram</p>
 
-![image](https://user-images.githubusercontent.com/68861121/193955661-d965823f-079b-444f-9cb3-cf34a120ac87.png)  
+![image](https://user-images.githubusercontent.com/46848538/213323907-9c962406-62c2-4108-8010-261398c026c2.png)  
 
 </div>
 
@@ -207,7 +207,7 @@ Assumptions will enable developers to cull the scope of the problem(s) being und
 <div align="center">
 <p id="fdd">Figure 5.1: CRA Functional Decomposition Diagram</p>
 
-![image](https://user-images.githubusercontent.com/46848538/194148017-fdbf2709-8ab7-48b0-b066-e4e0d635e83c.png)  
+![image](https://user-images.githubusercontent.com/46848538/213323584-7ad14da3-8865-4878-8e06-ba42eb49f347.png)  
 
 <p id="dfd">Figure 5.2: CRA Data Flow Diagram</p>
 
