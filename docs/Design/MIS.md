@@ -30,22 +30,23 @@ Manny Lemos (lemosm1)
 - [8. Mechanical Hardware](#8-mechanical-hardware)
 	- [8.1. Raspberry Pi Mechanical Specifications](#81-raspberry-pi-mechanical-specifications)
 	- [8.2. Polylactic Acid (PLA) Material](#82-polylactic-acid-pla-material)
+	- [8.3. Mechanical Design](#83-mechanical-design)
 - [9. Electrical Components](#9-electrical-components)
 	- [9.1. CRA Electrical Specifications](#91-cra-electrical-specifications)
 	- [9.2. Raspberry Pi Electrical Specifications](#92-raspberry-pi-electrical-specifications)
-	- [9.3. Resistor Specifications](#93-resistor-specifications)
-	- [9.4. Breadboard Specifications](#94-breadboard-specifications)
-- [10. Communication Protocols](#10-communication-protocols)
-	- [10.1. USB Protocol](#101-usb-protocol)
-- [11. Software Modules](#11-software-modules)
-	- [11.1. video\_buffer.py](#111-video_bufferpy)
-	- [11.2. acceleration\_plot.py](#112-acceleration_plotpy)
-	- [11.3. (MODULE NAME).py](#113-module-namepy)
-- [12. Timeline](#12-timeline)
-- [13. Appendix](#13-appendix)
-	- [13.1. Reflection](#131-reflection)
-		- [13.1.1. Solution Limitations](#1311-solution-limitations)
-	- [13.2. References](#132-references)
+	- [9.3. Printed Circuit Board (PCB) Specifications](#93-printed-circuit-board-pcb-specifications)
+	- [9.4. Resistor Specifications](#94-resistor-specifications)
+	- [9.5. USB Protocol](#95-usb-protocol)
+	- [9.6. Wi-Fi Protocol](#96-wi-fi-protocol)
+- [10. Software Modules](#10-software-modules)
+	- [10.1. video\_buffer.py](#101-video_bufferpy)
+	- [10.2. acceleration\_plot.py](#102-acceleration_plotpy)
+	- [10.3. (MODULE NAME).py](#103-module-namepy)
+- [11. Timeline](#11-timeline)
+- [12. Appendix](#12-appendix)
+	- [12.1. Reflection](#121-reflection)
+		- [12.1.1. Solution Limitations](#1211-solution-limitations)
+	- [12.2. References](#122-references)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
@@ -54,9 +55,11 @@ Manny Lemos (lemosm1)
 - [Figure 4.1.1: CRA System Context Diagram](#scd)
 - [Figure 5.1: CRA Functional Decomposition Diagram](#fdd)
 - [Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic](#rpps)
+- [Figure 8.3.1: Mechanical Housing Drawing Top](#mdht)
+- [Figure 8.3.2: Mechanical Housing Drawing Bottom](#mhdb)
 - [Figure 9.1.1: CRA Circuit Diagram](#ccd)
 - [Figure 9.1.2: CRA Breadboard Schematic](#cbs)
-- [Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram](#rpes)
+- [Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram](#rpies)
 - [Figure 11.0.1: CRA Software Stack](#css)
 
 ## 1. Revision History
@@ -67,6 +70,7 @@ Manny Lemos (lemosm1)
 | Date | Developer(s) | Change |
 |:--|:--|:--|
 | 2023-01-17 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
+| 2023-01-18 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document updated with corresponding sections |
 
 </div>
 
@@ -107,33 +111,70 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 Reference: 
 ## 8. Mechanical Hardware
 
-### 8.1. Raspberry Pi Mechanical Specifications  
+### 8.1. Raspberry Pi Mechanical Specifications   
 
 <div align="center">
-<p id="rpps">Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic</p>
+<p id="rpimd">Figure 8.1.1: Raspberry Pi Mechanical Drawing and Schematic [1]</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213242698-29e0ad61-2088-429e-91e5-0e97043f7a81.png)  
 
 </div>
-The mechanical specifications of the Raspberry Pi is as follows:
+The Raspberry Pi 4 Model B is the microcomputer that will be used for all software and processing. The mechanical specifications of the Raspberry Pi is as follows:
 
-| Part | Specification |   
+| Raspberry Pi Mechanical Specifications | Value |   
 |:--|:--|   
-| INSERT | SPEC |   
-| INSERT | SPEC |   
-| INSERT | SPEC |   
+| Dimensions |  85mm x 56mm | 
+| CPU | Quad core Cortex-A72 (ARM V8) | 
+| Ports | USB3, USB2, USB-C, HDMI, MicroSD |   
+| RAM | 4GB |   
+| Operating Temperature | 0-50C |   
+| Audio | 4-Pole Stereo Audio |   
+| Video | Composite Video |   
 
 ### 8.2. Polylactic Acid (PLA) Material
 
 The mechanical chassis and frame will be created using Polylactic Acid (PLA) filament, molded through a Prusa i3 MK3s 3D printer. 
 
-The mechanical specifications of PLA are as follows:
-| Part | Specification |   
-|:--|:--|   
-| PLA | Brian Le |   
-| 2022-09-23 | Brian Le |   
-| 2022-10-20 | Amos Yu |    
+The color of the PLA material was chosen to be white in order to reflect the NFRs outlined in the SRS document, specifically CNFR1. 
 
+The mechanical specifications of PLA are as follows [2]:
+
+| PLA Specifications | Value |   
+|:--|:--|   
+| Heat Deflection Temperature | 52C |   
+| Density | 1.24 g/cm3 |   
+| Tensile Strength | 50MPa |    
+
+### 8.3. Mechanical Design
+
+The mechanical chassis and frame is shown below in Figure 8.3. Each module outlined in the above sections will be fitted with a frame or mount to allow for ease-of-use and protection. 
+
+The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer. 
+<div align="center">
+<p id="mhdt">Figure 8.3.1: Mechanical Housing Drawing Top</p>
+
+![image](https://user-images.githubusercontent.com/58313755/213313607-af71d40e-9ca5-408c-966d-48411e60234f.png)  
+
+</div>
+
+| Mechanical Frame Top Component Specification | Value |   
+|:--|:--|   
+| Dimensions | 91.25mm x 60mm x 19mm |   
+| Weight | 23grams | 
+| Material | PLA | 
+
+<div align="center">
+<p id="mhdb">Figure 8.3.2: Mechanical Housing Drawing Bottom</p>
+
+![image](https://user-images.githubusercontent.com/58313755/213313743-9a756f6c-f0cb-4c9f-b2b1-f3c17105ddc7.png)  
+
+</div>
+
+| Mechanical Frame Bottom Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | 91.25mm x 60mm x 6mm |   
+| Weight | 15 grams |   
+| Material | PLA | 
 
 ## 9. Electrical Components
 
@@ -151,15 +192,36 @@ The mechanical specifications of PLA are as follows:
 
 </div>
 
-### 9.2. Raspberry Pi Electrical Specifications 
+### 9.2. Raspberry Pi Electrical Specifications
+
+The Raspberry Pi 4's reduced electrical schematic can be seen below. Using various pins and ports provided, CRA will be able to accomplish what is set out in the scope. 
 <div align="center">
-<p id="rpes">Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram</p>
+<p id="rpies">Figure 9.2.1: Raspberry Pi Circuit Diagram [3]</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213247210-1cf36f4d-d1d2-463e-be8d-ee6f19534f09.png)  
 
 </div>
 
-### 9.3. Resistor Specifications
+| Raspberry Pi Electrical Specifications | Value |   
+|:--|:--|   
+| Microchip | 64-bit SoC @ 1.5GHz | 
+| Pins | 40 Pin GPIO Header | 
+| Voltage | 5V DC via USB-C/GPIO Header |   
+| Amperage | 3A |   
+
+### 9.3. Printed Circuit Board (PCB) Specifications
+
+The printed circuit board will be used to combine all the electrical hardware with its respective software interfaces. Using soldering techniques, each wire and resistor will be soldered to its respective hole. The PCB specifications are listed below, referenced from Elegoo [4].
+
+| PCB Specifications | Value |   
+|:--|:--|   
+| Dimensions | 5cm x 7cm |   
+| Thickness | 1.6mm |   
+| Material | Glass Giber FR4|   
+| Hole-Pitch | 2.54mm| 
+| Hold-diameter | 1mm|   
+
+### 9.4. Resistor Specifications
 
 | Part | Specification |   
 |:--|:--|   
@@ -167,24 +229,22 @@ The mechanical specifications of PLA are as follows:
 | INSERT | SPEC |   
 | INSERT | SPEC |   
 
-Reference:
+### 9.5. USB Protocol
+In order to communicate and transmit data, the USB protocol will be used. The following ports will be mainly used for the following: 
 
-### 9.4. Breadboard Specifications
-
-| Part | Specification |   
+| USB | Purpose |   
 |:--|:--|   
-| INSERT | SPEC |   
-| INSERT | SPEC |   
-| INSERT | SPEC |   
+| USB 3.0 | The USB 3.0 ports will be used to connect to external cameras or other devices like keyboards, mice, external storage devices, and other computers to allow for greater ease-of-use and accessibility. |   
+| USB-C | The USB-C port will be used to charge the CRA when the battery falls below the desired power percentage. |   
 
-## 10. Communication Protocols
+### 9.6. Wi-Fi Protocol
+The Wi-Fi protocol is the 802.11ac protocol. This protocol allows for connections from frequencies of 2.4GHz or 5.0Ghz. This protocol will be used for the following. 
 
-### 10.1. USB Protocol
+| Wifi Protocol | Purpose |   
+|:--|:--|   
+| 802.11ac | This wireless protocol will allow the users to connect to the CRA remotely through various methods including SSH. Furthermore, this protocol allows users to connect their CRA to either a 2.4 or 5.0GHz wireless network. |   
 
-Reference: 
-
-
-## 11. Software Modules
+## 10. Software Modules
 
 All software modules are classes implemented in Python 3.9. Software modules are constructed and executed by threaded `start.py` classes. The `__main__.py` class should immediately begin running upon startup of the Raspberry Pi OS.
 
@@ -195,7 +255,7 @@ All software modules are classes implemented in Python 3.9. Software modules are
 
 </div>
 
-### 11.1. video_buffer.py
+### 10.1. video_buffer.py
 
 __Module Implementation__
 
@@ -230,7 +290,7 @@ __Unlikely Changes__
 - Change the camera being used from a USB web-camera to the Raspberry Pi Camera Module.
   - Subsequently, a large portion of the code for the Buffer class will have to be rewritten.
 
-### 11.2. acceleration_plot.py
+### 10.2. acceleration_plot.py
 
 __Module Implementation__
 
@@ -274,7 +334,7 @@ __Unlikely Changes__
 
 - Functions related to the visualization of acceleration data are useful in testing, but may be removed to improve the performance of the embedded system.
 
-### 11.3. (MODULE NAME).py
+### 10.3. (MODULE NAME).py
 
 __Module Implementation__
 
@@ -296,7 +356,7 @@ __Unlikely Changes__
 
 - 
 
-## 12. Timeline
+## 11. Timeline
 | Date | Task                                                                                                    | Person                | Testing                                                                                                                                                                          |
 |-------------------|---------------------------------------------------------------------------------------------------------|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2023-01-22        | Creation of crash detection algorithm.                                                                  | Manny Lemos, Amos Yu  | Automated testing to determine response under a wide range of accelerometer inputs.                                                                                              |
@@ -305,21 +365,23 @@ __Unlikely Changes__
 | 2023-01-31        | Swap breadboard and jumper wires for PCB and soldered connections.                                      | Amos Cheung           | Manual testing. Verify connections using multimeter.                                                                                                                             |
 | 2023-02-05        | Integration of all software modules.                                                                    | Brian Le, Amos Yu     | Manual Testing. Mount the hardware to the bicycle and ensure it functions as detailed in the SRS Document.           
 
-## 13. Appendix
+## 12. Appendix
 
-### 13.1. Reflection
+### 12.1. Reflection
 Cyclops ride assist aims to fill the ride monitoring and crash avoidance gap in the cycling market. This solution takes the form of a camera, accelerometer, and distance sensor. These inputs are parsed by an embedded computer to provide users with warning lights when vehicles are approaching, and an automatically logged clip if a crash is detected.
-#### 13.1.1. Solution Limitations
+#### 12.1.1. Solution Limitations
 **Camera Resolution:** The maximum camera resolution possible with the current implementation is 640p. This is due to the data transfer speeds being limited by the USB connection made between the camera and the Raspberry Pi. Using the Raspberry Camera Module is an alternative to the current implementation which would overcome the USB bandwidth issue and could increase the resolution to 1080p. This alternative comes with the downside of addition cost and recording software rewriting because the Pi Camera Module uses custom libraries.
 
 **Camera Position:** With the current implementation the camera is seated atop the bicycle forks facing forward. This provides video capture of the volume of space in front of the cyclist. The limitation of this implementation is evident, there is no camera footage of the volume of space behind the rider. An alternative to the current state would be to add an additional camera with a view behind the cyclist. However, due to the current USB bandwidth issues with a single camera and the lack of support for dual Raspberry Pi Camera Modules this change is not feasible. A possible alternative would be changing the position of the current camera to face being the cyclist.
 
 **Battery Life:** For cyclists who go on multi hour long bicycle rides, battery life may be of concern. The Raspberry Pi used to perform computations is not particularly battery efficient compared to more project specific embedded computers who do not have as much computational overhead. The capacity of the current battery pack being used is 10,000mah. To improve battery life, a higher capacity battery pack could be purchased. However, a higher capacity battery pack is almost certain to come along with the unwanted side effects of a larger size and heavier weight. 
 
- ### 13.2. References
+ ### 12.2. References
 
-[1] "Raspberry Pi 4 Mechanical Drawing", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf
+[1] "Raspberry Pi 4 Mechanical Drawing", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf   
 
-[2] "What is PLA?", 2023. [Online]. Available: https://www.twi-global.com/technical-knowledge/faqs/what-is-pla
+[2] "What is PLA?", 2023. [Online]. Available: https://www.twi-global.com/technical-knowledge/faqs/what-is-pla   
 
-[3] "Raspberry Pi 4 Electrical Schematic", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-reduced-schematics.pdf
+[3] "Raspberry Pi 4 Electrical Schematic", 2018. [Online]. Available: https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-reduced-schematics.pdf   
+
+[4] "Elegoo Double Sided PCB Board Kit", 2023. [Online]. Available: https://www.elegoo.com/en-ca/products/elegoo-double-sided-pcb-board-kit   
