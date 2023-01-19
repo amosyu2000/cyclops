@@ -382,27 +382,85 @@ __Unlikely Changes__
 
 - Functions related to the visualization of acceleration data are useful in testing, but may be removed to improve the performance of the embedded system.
 
-### 11.3. (MODULE NAME).py
+### 11.3. led.py
 
 __Module Implementation__
-
+A class named led. Provides the functionalty of mapping Rasperry Pi pin to LEDs and also turning on/off the individuals LED.
 
 
 __Module Secrets__
 
-- 
+- Rasberry Pi pin setups.
+- Implementation of turning the LEDs on/off.
 
 __Module Relationships__
 
+Receives the following led class construction parameters through `__init__()`.
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+pins | integer | Pin number on the Rasberry Pi for connecting the LEDs |
+
+Turning on the LEDs based on the percentage it is at through `percentage_high()`.
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+percent | integer | Percentage of LEDs that should be turned on |
+
+__Likely Changes__
+
+- No likely changes
+
+__Unlikely Changes__
+
+- No unlikely changes
+
+### 11.4. ultrasonic_sensor.py
+
+__Module Implementation__
+A class named ultrasonic_sensor. Provides the functionalty of measuring the distance of the object using ultrasonic sensor.
+
+
+__Module Secrets__
+
+- Rasberry Pi pin setups.
+- Calculation for the distance of object from ultrasonic sensor.
+- Time it takes for the ultrasonic sensor to pikc up the object.
+
+__Module Relationships__
+
+Receives the following led class construction parameters through `__init__()`.
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+pin_trigger | integer | Pin number on the pi corresponding to the trigger pin on the sensor |
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+pin_echo | integer | Pin number on the pi corresponding to the echo pin on the sensor |
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+distance_min | integer | The closest distance that the ultrasonic sensor should detect |
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+distance_max | integer | The furthest distance that the ultrasonic sensor should detect |
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+unit | string | Unit of the min and max distances (ex. cm) |
 
 
 __Likely Changes__
 
-- 
+- Number of LEDs.
+- Distance unit.
+- Maximum and minimum distance the ultrasonic sensor should detect.
 
 __Unlikely Changes__
 
-- 
+- No unlikely changes
 
 ## 12. Timeline
 | Date | Task                                                                                                    | Person                | Testing                                                                                                                                                                          |
