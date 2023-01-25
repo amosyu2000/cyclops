@@ -6,7 +6,7 @@ from ultrasonic_sensor.ultrasonic import Ultrasonic
 class Start():
 	def __init__(self):
 		led = LED(17, 22, 23, 25, 27)
-		ultrasonic = Ultrasonic(pin_trigger=18, pin_echo=24, distance_min=0, distance_max=50, unit="cm")
+		ultrasonic = Ultrasonic(pin_trigger=18, pin_echo=24, distance_min=0, distance_max=200, unit="cm")
 
 		try:
 			while True:
