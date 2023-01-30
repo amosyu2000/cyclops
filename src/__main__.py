@@ -1,21 +1,35 @@
-import threading
+from threading import Event, Thread
+from gpiozero import Button
+import os
+import RPi.GPIO as GPIO
+from print_handler import print_handler
 import accelerometer.start as Accelerometer
 import ultrasonic_sensor.start as Ultrasonic
 import recording.start as Recording
 
-from gpiozero import Button
-import os
+""" Poweron sequence """
+GPIO.setmode(GPIO.BCM)
+POWER_STATUS_LED = 20
+GPIO.setup(POWER_STATUS_LED, GPIO.OUT)
+GPIO.output(POWER_STATUS_LED, True)
+print_handler("Main", "Program started")
 
-isCrashed = False # parameter will be updated when a crash is detected 
+""" Events """
+poweroff_event = Event()
 
-accelerometer_thread = threading.Thread(name="accelerometer", target=Accelerometer.Start)
-accelerometer_thread.start()
+""" Threads """
+threads = [
+	Thread(target=Accelerometer.Start, args=[poweroff_event]),
+	Thread(target=Ultrasonic.Start, args=[poweroff_event]),
+	# Thread(target=lambda: Recording.Start(isCrashed)),
+]
+[ thread.start() for thread in threads ]
 
-ultrasonic_thread = threading.Thread(name="ultrasonic", target=Ultrasonic.Start)
-ultrasonic_thread.start()
-
-# recording_thread = threading.Thread(name="recording", target=lambda: Recording.Start(isCrashed))
-# recording_thread.start()
-
+""" Poweroff sequence """
 Button(21).wait_for_press()
-os.system("sudo poweroff")
+poweroff_event.set()
+[ thread.join() for thread in threads ]
+GPIO.output(POWER_STATUS_LED, False)
+GPIO.cleanup(POWER_STATUS_LED)
+print_handler("Main", "Program stopped")
+# os.system("sudo poweroff")

@@ -1,5 +1,6 @@
 import math
 import RPi.GPIO as GPIO
+from print_handler import print_handler
 
 class LED:
 	def __init__(self, *pins):
@@ -20,15 +21,15 @@ class LED:
 		@percent: Percentage of lights to turn on (ex. 0.65 of five lights will turn on three lights)
 		"""
 		max_i = math.floor(percent * self.partitions)
-		print("LED output set to (", end="")
+		print_output = ""
 		for i in range(self.partitions):
 			if (i <= max_i):
 				GPIO.output(self.pins[i], GPIO.HIGH)
-				print("1", end="")
+				print_output += "1"
 			else:
 				GPIO.output(self.pins[i], GPIO.LOW)
-				print("0", end="")
-		print(")")
+				print_output += "0"
+		print_handler("LED", f"Output set to {print_output}")
 
-	def cleanup(self):
-		GPIO.cleanup()
+	def close(self):
+		[ GPIO.cleanup(pin) for pin in self.pins ]

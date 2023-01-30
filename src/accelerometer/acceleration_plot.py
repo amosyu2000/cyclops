@@ -1,33 +1,30 @@
 import matplotlib.pyplot as plt
-import numpy as np
-from statistics import fmean
+import time
+from accelerometer.acceleration import Acceleration
+from print_handler import print_handler
 
 class Acceleration_Plot:
-	def __init__(self, data_points, average_of=1):
+	def __init__(self, acceleration, data_points):
 		"""
 		Create a matplotlib plot to display live acceleration data
 
+		@acceleration: An Acceleration object
 		@data_points: Maximum number of data points to show on the plot
-		@average_of: Takes a rolling average of the xyz acceleration points
 		"""
-		
+
+		self.acceleration = acceleration
 		self.data_points = data_points
-		self.average_of = average_of
 
-		self.raw_x = [0] * self.average_of
-		self.raw_y = [0] * self.average_of
-		self.raw_z = [0] * self.average_of
-		self.raw_norm = [0] * self.average_of
-		self.avg_x = []
-		self.avg_y = []
-		self.avg_z = []
-		self.avg_norm = []
-		self.t = []
+		self.points_x = []
+		self.points_y = []
+		self.points_z = []
+		self.points_norm = []
+		self.points_t = []
 
-		self.plt_xline, = plt.plot(self.t, self.avg_x, 'r', label="x")
-		self.plt_yline, = plt.plot(self.t, self.avg_y, 'b', label="y")
-		self.plt_zline, = plt.plot(self.t, self.avg_z, 'g', label="z")
-		self.plt_normline, = plt.plot(self.t, self.avg_norm, 'k', label="norm")
+		self.plt_xline, = plt.plot(self.points_t, self.points_x, 'r', label="x")
+		self.plt_yline, = plt.plot(self.points_t, self.points_y, 'b', label="y")
+		self.plt_zline, = plt.plot(self.points_t, self.points_z, 'g', label="z")
+		self.plt_normline, = plt.plot(self.points_t, self.points_norm, 'k', label="norm")
 		self.plt_ax = plt.gca()
 
 		plt.legend(loc="upper left")
@@ -35,45 +32,34 @@ class Acceleration_Plot:
 		plt.xlabel("Time")
 		plt.ylabel("Acceleration (m/s^2)")
 
-	def update(self, x, y, z, t):
+	def update(self):
 		"""
-		Add a new set of acceleration data to the plot
-
-		@x: x component of acceleration
-		@y: y component of acceleration
-		@z: z component of acceleration
-		@t: time
+		Update the plot with new acceleration data
 		"""
 
-		self.raw_x.append(x)
-		self.raw_y.append(y)
-		self.raw_z.append(z)
-		self.raw_norm.append(np.linalg.norm([x,y,z]))
+		self.acceleration.temp_log()
 
-		self.raw_x.pop(0)
-		self.raw_y.pop(0)
-		self.raw_z.pop(0)
-		self.raw_norm.pop(0)
+		self.points_x.append(self.acceleration.get_avg_x())
+		self.points_y.append(self.acceleration.get_avg_y())
+		self.points_z.append(self.acceleration.get_avg_z())
+		self.points_norm.append(self.acceleration.get_avg_norm())
+		self.points_t.append(time.time())
 
-		self.avg_x.append(fmean(self.raw_x))
-		self.avg_y.append(fmean(self.raw_y))
-		self.avg_z.append(fmean(self.raw_z))
-		self.avg_norm.append(fmean(self.raw_norm))
-		self.t.append(t)
+		if len(self.points_t) > self.data_points:
+			self.points_x.pop(0)
+			self.points_y.pop(0)
+			self.points_z.pop(0)
+			self.points_norm.pop(0)
+			self.points_t.pop(0)
 
-		if len(self.t) > self.data_points:
-			self.avg_x.pop(0)
-			self.avg_y.pop(0)
-			self.avg_z.pop(0)
-			self.avg_norm.pop(0)
-			self.t.pop(0)
-
-		self.plt_xline.set_data(self.t, self.avg_x)
-		self.plt_yline.set_data(self.t, self.avg_y)
-		self.plt_zline.set_data(self.t, self.avg_z)
-		self.plt_normline.set_data(self.t, self.avg_norm)
+		self.plt_xline.set_data(self.points_t, self.points_x)
+		self.plt_yline.set_data(self.points_t, self.points_y)
+		self.plt_zline.set_data(self.points_t, self.points_z)
+		self.plt_normline.set_data(self.points_t, self.points_norm)
 		self.plt_ax.relim()
 		self.plt_ax.autoscale_view()
+
+		print_handler("Acceleration_Plot", "Updated plot")
 
 	def pause(self, seconds):
 		"""
@@ -83,3 +69,11 @@ class Acceleration_Plot:
 		"""
 
 		plt.pause(seconds)
+
+	def close(self):
+		"""
+		Close the plot and the log file
+		"""
+
+		plt.close()
+		self.acceleration.close()
