@@ -1,5 +1,7 @@
 import RPi.GPIO as GPIO
 import time
+from csv_handler import CSV_Handler
+from print_handler import print_handler
 
 class Ultrasonic:
 	def __init__(self, pin_trigger, pin_echo, distance_min, distance_max, unit):
@@ -27,6 +29,9 @@ class Ultrasonic:
 		self.distance_max = distance_max
 		self.unit = unit
 
+		self.csv_handler = CSV_Handler(f"ultrasonic/log_ultrasonic_{time.strftime('%Y-%m-%d_%H:%M:%S')}.csv")
+		self.csv_handler.open()
+
 	def distance_absolute(self):
 		"""
 		Get the absolute distance of an object in front of the sensor, in the unit specified
@@ -51,10 +56,11 @@ class Ultrasonic:
 
 		# time difference between start and arrival
 		TimeElapsed = StopTime - StartTime
+		self.csv_handler.writerow([TimeElapsed])
 
 		if (self.unit == "cm"):
 			distance_cm = (TimeElapsed * 34300) / 2
-			print("Ultrasonic read distance of %.1fcm" % distance_cm)
+			print_handler("Ultrasonic", "Distance of %.1fcm" % distance_cm)
 			return distance_cm
 	
 	def distance_percentage(self):
@@ -63,5 +69,14 @@ class Ultrasonic:
 		"""
 		return (self.distance_max - self.distance_absolute()) / (self.distance_max - self.distance_min)
 
-	def cleanup(self):
-		GPIO.cleanup()
+	def export_log(self):
+		"""
+		Save the last x seconds of acceleration data to its own csv file
+		"""
+
+		self.csv_handler.export_latest(seconds=3)
+
+	def close(self):
+		self.csv_handler.close()
+		GPIO.cleanup(self.PIN_TRIGGER)
+		GPIO.cleanup(self.PIN_ECHO)
