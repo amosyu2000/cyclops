@@ -455,7 +455,8 @@ Receives the following Buffer class construction parameters through `__init__()`
 | Parameter | Type | Description |
 |:--|:--|:--|
 | video_length | integer | The length in seconds of the requested video. |
-| num_partitions | integer | [2->10] more partitions = higher concatenation time and lower storage usage |
+| num_partitions | integer | [2->10] The number of clips which will be combined to form the output video. As num_partitions increases; video concatenation time increases, disk storage decreases.
+ |
 | fps | integer | Number of frames requested from camera every second. |
 | save_directory | string | The full directory you wish to save recordings at |
 | temp_directory | string | The full directory used to temporarily store .mp4 clips |

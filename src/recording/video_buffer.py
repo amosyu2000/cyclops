@@ -15,7 +15,7 @@ class Buffer:
 		of recorded material is available to be logged at any given time.
 
 		@video_length: The length in seconds of the requested video.
-		@num_partitions: [2->10] more partitions = higher concatenation time and lower storage usage
+		@num_partitions: [2->10] The number of clips which will be combined to form the output video. As num_partitions increases; video concatenation time increases, disk storage decreases.
 		@fps: Number of frames requested from camera every second.
 		@save_Directory: The full directory you wish to save recordings at
 		@temp_Directory: The full directory used to temporarily store .mp4 clips
