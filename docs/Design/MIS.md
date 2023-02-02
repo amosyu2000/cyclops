@@ -70,6 +70,7 @@ Manny Lemos (lemosm1)
 - [Figure 9.1.1: CRA Circuit Diagram](#ccd)
 - [Figure 9.1.2: CRA Breadboard Schematic](#cbs)
 - [Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram](#rpies)
+- [Figure 9.2.2: Raspberry Pi 4 Model B Pinouts](#rpipo)
 - [Figure 9.4.1: Accelerometer Sensor Diagram](#asd)
 - [Figure 9.5.1: Radar Sensor Diagram](#rsd)
 - [Figure 9.7.1: Resistor 220 Ohms](#r220)
@@ -255,11 +256,11 @@ The requirements traceability of the mechanical frame is as follows:
 <div align="center">
 <p id="ccd">Figure 9.1.1: CRA Circuit Diagram</p>
 
-![image](https://user-images.githubusercontent.com/46848538/213303316-aaa5c7b9-9049-4c29-99ec-831ef7829bec.png)
+![image](https://user-images.githubusercontent.com/46848538/216133678-bd7ad3f0-3fd8-4e60-9aec-e8bef374c11f.png)
 
 <p id="cbs">Figure 9.1.2: CRA Breadboard Schematic</p>
 
-![image](https://user-images.githubusercontent.com/46848538/213303319-a90aff03-9621-4622-940e-068fe115fd24.png)
+![image](https://user-images.githubusercontent.com/46848538/216133679-a3d83d86-fe36-49d6-95bd-0fd43678ab74.png)
 
 </div>
 
@@ -267,9 +268,13 @@ The requirements traceability of the mechanical frame is as follows:
 
 The Raspberry Pi 4's reduced electrical schematic can be seen below. Using various pins and ports provided, CRA will be able to accomplish what is set out in the scope. 
 <div align="center">
-<p id="rpies">Figure 9.2.1: Raspberry Pi Circuit Diagram [3]</p>
+<p id="rpies">Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram [3]</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213247210-1cf36f4d-d1d2-463e-be8d-ee6f19534f09.png)  
+
+<p id="rpipo">Figure 9.2.2: Raspberry Pi 4 Model B Pinouts</p>
+
+![image](https://user-images.githubusercontent.com/46848538/216134255-84d21f3c-331d-4725-91e4-e9f4208d1137.png) 
 
 </div>
 
