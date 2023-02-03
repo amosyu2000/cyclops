@@ -66,6 +66,7 @@ Manny Lemos (lemosm1)
 ## List of Figures <!-- omit in toc -->
 - [Figure 4.1.1: CRA System Context Diagram](#scd)
 - [Figure 5.1: CRA Functional Decomposition Diagram](#fdd)
+- [Figure 5.2: CRA Module Hierarchy Diagram](#acd)
 - [Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic](#rpps)
 - [Figure 8.3.1: Mechanical Housing Drawing Top](#mdht)
 - [Figure 8.3.2: Mechanical Housing Drawing Bottom](#mhdb)
@@ -87,6 +88,7 @@ Manny Lemos (lemosm1)
 | Date | Developer(s) | Change |
 |:--|:--|:--|
 | 2023-01-17 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
+| 2023-02-02 | Amos Cheung | Updated Timeline and Module Hierchary based on peer review |
 
 </div>
 
@@ -122,7 +124,7 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 
 ### 5.2. Module Hierarchy
 <div align="center">
-<p id="fdd">Figure 5.22: CRA Module Hierarchy Diagram</p>
+<p id="acd">Figure 5.2: CRA Module Hierarchy Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/47584370/216482302-8ad78f07-3834-49dd-a846-d0c5b37750f9.png)  
 
