@@ -24,6 +24,8 @@ Manny Lemos (lemosm1)
 - [4. Scope](#4-scope)
 	- [4.1. System Context](#41-system-context)
 - [5. Project Overview](#5-project-overview)
+	- [5.1. Functional Decomposition](#51-functional-decomposition)
+	- [5.2. Module Hierarchy](#52-module-hierarchy)
 - [6. System Variables](#6-system-variables)
 	- [6.1. Monitored and Controlled Variables](#61-monitored-and-controlled-variables)
 	- [6.2. Constants](#62-constants)
@@ -64,6 +66,7 @@ Manny Lemos (lemosm1)
 ## List of Figures <!-- omit in toc -->
 - [Figure 4.1.1: CRA System Context Diagram](#scd)
 - [Figure 5.1: CRA Functional Decomposition Diagram](#fdd)
+- [Figure 5.2: CRA Module Hierarchy Diagram](#acd)
 - [Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic](#rpps)
 - [Figure 8.3.1: Mechanical Housing Drawing Top](#mdht)
 - [Figure 8.3.2: Mechanical Housing Drawing Bottom](#mhdb)
@@ -85,6 +88,7 @@ Manny Lemos (lemosm1)
 | Date | Developer(s) | Change |
 |:--|:--|:--|
 | 2023-01-17 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
+| 2023-02-02 | Amos Cheung | Updated Timeline and Module Hierchary based on peer review |
 
 </div>
 
@@ -110,10 +114,19 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 
 ## 5. Project Overview
 
+### 5.1. Functional Decomposition
 <div align="center">
 <p id="fdd">Figure 5.1: CRA Functional Decomposition Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/46848538/213323584-7ad14da3-8865-4878-8e06-ba42eb49f347.png)  
+
+</div>
+
+### 5.2. Module Hierarchy
+<div align="center">
+<p id="acd">Figure 5.2: CRA Module Hierarchy Diagram</p>
+
+![image](https://user-images.githubusercontent.com/47584370/216482302-8ad78f07-3834-49dd-a846-d0c5b37750f9.png)  
 
 </div>
 
