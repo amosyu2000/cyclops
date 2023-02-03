@@ -110,10 +110,19 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 
 ## 5. Project Overview
 
+### 5.1. Functional Decomposition
 <div align="center">
 <p id="fdd">Figure 5.1: CRA Functional Decomposition Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/46848538/213323584-7ad14da3-8865-4878-8e06-ba42eb49f347.png)  
+
+</div>
+
+### 5.2. Module Hierarchy
+<div align="center">
+<p id="fdd">Figure 5.22: CRA Module Hierarchy Diagram</p>
+
+![image](https://user-images.githubusercontent.com/47584370/216482302-8ad78f07-3834-49dd-a846-d0c5b37750f9.png)  
 
 </div>
 
