@@ -116,6 +116,7 @@ Manny Lemos (lemosm1)
 | 2022-10-03 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
 | 2022-10-20 | Amos Yu | Improved formatting |
 | 2022-11-06 | Amos Yu | Addressed peer review suggestions |
+| 2023-02-05 | Aaron Li | Updated SRS for current state |
 
 </div>
 
@@ -125,13 +126,13 @@ The purpose of this project is to create a system that helps cyclists to have a 
 
 Cyclops Ride Assist (CRA) is going to be an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bike, such as blind spot detection and crash detection. The system will also have a built in headlamp that will illuminate during night time, not just for the cyclist to see but also for cars around to realize the bike. 
 ### 2.2. Project Scope
-CRA is going to be a bike assist system with convenient mounting, accurate crash detection, video buffering and saving, reliable blindspot monitoring and a user controlled headlamp that helps cyclist to have a peace of mind while riding on the road. Although CRA is primarily targeted towards road cyclists, it will able be useful for cyclists who ride on mountains or trails.
+CRA is going to be a bike assist system with convenient mounting, accurate crash detection, video buffering and saving, reliable blindspot monitoring and a user controlled headlamp that helps cyclist to have peace of mind while riding on the road. Although CRA is primarily targeted towards road cyclists, it will able be useful for cyclists who ride on mountains or trails.
 ### 2.3. Behaviour Overview
-The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will store the past BUFFER_TIME_MINUTES of footage so the user can look back at the events leading up to the crash. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an indicator. The system also has a headlamp that is easily switched on and off for dark environment.
+The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will store the past BUFFER_TIME_MINUTES of footage so the user can look back at the events leading up to the crash. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an LED indicator. The system also has a headlamp that is easily switched on and off for dark environment.
 ### 2.4. Project Stakeholders
 The project stakeholders are as follows:  
 - The project proposers (Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos)
-- The project supervisor (Dr Spencer Smith)
+- The project supervisor (Dr. Spencer Smith)
 - The teaching assistants (Nicholas Annable)
 - The user (cyclist)
 ### 2.5. Product Users
@@ -149,7 +150,7 @@ A list of constraints which will adhered to during the design and development of
 
 | Mandated Constraint 3 | The system must be able to analyze inputs to produce desired results in real time. |
 |:--|:--|
-| Rationale 3 | Real time analysis and response is an integral component of the cyclops ride assist system. More precisely, desired results are only of value if they can be delivered on time every time. |
+| Rationale 3 | Real time analysis and response is an integral component of the Cyclops Ride Assist system. More precisely, desired results are only of value if they can be delivered on time every time. |
 
 ### 3.2. Naming Conventions and Definitions
 #### 3.2.1. Naming Conventions
@@ -170,7 +171,7 @@ A list of constraints which will adhered to during the design and development of
 | αz | Measures acceleration in the vertical direction. | acceleration | m/s2 |
 | tilt | Measures the vertical tilt of the system relative to a calibrated absolute level. | rotation | rad |
 | vfront | Video feed from the front facing camera. | Video | N/A |
-| vrear | Video feed from the rear facing camera. | Video | N/A |
+| vrear | Ultrasonic sensor input. | Ultrasonic Sensor | N/A |
 | sw_flashlight | Switch which controls the flashlight. | Boolean | N/A |
 #### 3.2.4. Controlled Variables
 | Controlled Name | Controlled Description | Controlled Type | Units |
@@ -221,37 +222,37 @@ Assumptions will enable developers to cull the scope of the problem(s) being und
 
 ## 6. Functional Requirements
 ### 6.1. Scope of Work
-CRA will be separated into 3 main components: Microcontroller, Blindspot, Crash Detection. The scope of the Functional requirements will include the mounting, microcontroller, blindspot monitoring, crash monitoring, and forward visibility systems. Each system will be developed as its own module and then brought together with communications between each module facilitated through the microcontroller. Members of the team will be distributed to each member to be completed with the final goal being to merge each for a final product.
+CRA will be separated into 3 main components: Microcontroller, Blindspot, Crash Detection. The scope of the functional requirements will include the mounting hardware, microcontroller, blindspot monitoring, crash monitoring, and forward visibility systems. Each system will be developed as its own module and then brought together with communications between each module facilitated through the microcontroller. Varying parts of the project will be distributed to each member to be completed with the final goal being to merge each for a final product.
 ### 6.2. Business Data Model and Data Dictionary
 Refer to section 3.2.3 Monitored Variables for the dictionary used throughout the Functional Requirements.
 ### 6.3. Scope of the Product
-The scope of the product will be a physical enclosure which will contain all of the microcontrollers, sensors, and battery required to facilitate all of CRA's functionalities. The product will be mounted onto a bike where CRA can then monitor a riders blindspot and whether they get into a crash. The blindspot detection will be relayed to the user through a visible LED on the enclosure facing a side which the user can clearly see in their FOV. The product will be capable of clipping/logging the last few seconds of real time video when the user gets into a crash. When visibility becomes an issue during late riding hours, the user will also have a light to turn on at their disposal for increased clarity.
+The scope of the product will be a physical enclosure which will contain the microcontroller, sensors, and battery required to facilitate all of CRA's functionalities. The product will be mounted onto a bike where CRA can then monitor a riders blindspot and whether a crash has occurred. The blindspot detection will be relayed to the user through a visible LED on the enclosure facing a side which the user can clearly see in their FOV. The product will be capable of clipping/logging the first and last few seconds of real time video when the user gets into a crash. When visibility becomes an issue during late riding hours, the user will also have a light to turn on at their disposal for increased clarity.
 ### 6.4. Functional Requirements
 
 #### 6.4.1. CRA Requirements
-| CFR1       | CRA must be able to light up LED when a close car/vehicle is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
+| CFR1       | CRA must be able to light up an LED when an object is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
 |:--|:--|
-| Rationale | CRA should be able to visually inform the rider that there is a car in their blindspot |
+| Rationale | CRA should be able to visually inform the rider that there is an obstacle approaching in their blindspot. |
 
-| CFR2       | CRA must be able to continuously collect front- and rear-facing video feed throughout the user's ride                |
+| CFR2       | CRA must be able to continuously collect data from a front-facing video feed throughout the user's ride.                |
 |:--|:--|
-| Rationale | CRA needs the live rear-facing video feed in order for its computer vision to detect vehicles. CRA needs the live front-facing video feed for video logging upon crash detection. |
+| Rationale | CRA needs the live front-facing video feed for video logging upon crash detection. |
 
 | CFR3       | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az)               |
 |:--|:--|
 | Rationale | CRA needs the accurate acceleration to determine when a crash has occured |
 
-| CFR4       | CRA must be able to take in accurate velocity information                |
+| CFR4       | CRA must be able to take in accurate velocity information.                |
 |:--|:--|
-| Rationale | CRA needs the accurate velocity to determine when the user is moving to activate both crash and blindspot systems |
+| Rationale | CRA needs an accurate velocity to determine when the user is moving to activate both crash and blindspot systems. |
 
 | CFR5       | CRA must know when the user is moving. Such that: Moving = V<sub>bike</sub> > 0              |
 |:--|:--|
-| Rationale | CRA should only log a crash once it has been establish that the user was moving on their bike |
+| Rationale | CRA should only log a crash once it has been established that the user was moving on their bike. |
 
-| CFR6       | CRA must recognize a vehicle within the video feed. Such that: isVehicle = Feed(vrear) where if vrear contains vehicle -> isVehicle = 1            |
+| CFR6       | CRA must recognize an object approaching through the an ultrasonic sensor such that: isVehicle = Feed(vrear) where if vrear contains object approaching at a certain distance -> isVehicle = 1            |
 |:--|:--|
-| Rationale | CRA should recognize that there is a car in the users blindspot |
+| Rationale | CRA should recognize that there is an object approaching in the users blindspot |
 
 | CFR7       | CRA must recognize the user has crashed. Such that: crashed = CrashMonitor(A<sub>bike</sub>) where if A<sub>bike</sub> > AcceptableG -> crashed = 1        |
 |:--|:--|
@@ -529,14 +530,14 @@ The scope of the product will be a physical enclosure which will contain all of 
 
 ## 8. Project Issues
 ### 8.1. Open Issues
-1. Creating accurate documentation for the system specifications.  
-2. Starting to develop the software, purchasing some hardware to begin system creation.  
+1. Updating to ensure accurate documentation for the system specifications.  
+2. Completing the development of the software, purchasing final hardware to finish off complete system.   
 ### 8.2. Off-the-Shelf Solutions
 #### 8.2.1. Ready-Made Products
 1. INNOVV ThirdEYE  
 - INNOVV ThirdEYE is a blindspot detection system for motorcycles that uses sensors to determine if there are any objects close to the user. It can be either used through a mirror lens or a watch.   
 - https://www.innovv.com/innovv-thirdeye  
-2. Senzar Motorcycle Sensor
+1. Senzar Motorcycle Sensor
 - The Senzar Motorcycle Sensor is another system that uses LEDs, vibration, and radar sensors.   
 - https://meetsenzar.com/pages/senzar-m1-motorcycle-bsm  
 #### 8.2.2. Reusable Components
