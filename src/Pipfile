@@ -9,7 +9,6 @@ matplotlib = "*"
 adafruit-circuitpython-adxl34x = "*"
 ffmpeg-python = "*"
 opencv-python = "==4.6.0.66"
-gpiozero = "*"
 pandas = "*"
 
 [dev-packages]

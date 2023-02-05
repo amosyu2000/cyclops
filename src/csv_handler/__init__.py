@@ -3,6 +3,8 @@ import io
 import os
 import pandas
 import time
+from dir_handler import Dir_Handler
+from print_handler import print_handler
 
 class CSV_Handler:
 	def __init__(self, filename):
@@ -13,10 +15,10 @@ class CSV_Handler:
 		@filename: File name of the csv file, location is defined by the CSV_Handler class
 		"""
 
-		self.output_dir = "/home/capstone/Documents"
+		self.filename = filename
 		self.temp_dir = "/home/capstone/Documents/temp"
-		self.output_filepath = f"{self.output_dir}/{filename}"
-		self.temp_filepath = f"{self.temp_dir}/{filename}"
+		self.temp_filepath = f"{self.temp_dir}/{self.filename}_{time.strftime('%Y-%m-%d_%H:%M:%S')}.csv"
+		self.dir_handler = Dir_Handler()
 		self.file = None
 		self.csv_writer = None
 		
@@ -33,6 +35,8 @@ class CSV_Handler:
 	def writerow(self, data_array):
 		"""
 		Write a new row of values to the open csv file
+
+		@data_array: list of values that will become a comma-separated line in the csv file
 		"""
 
 		if self.file_is_open():
@@ -40,7 +44,9 @@ class CSV_Handler:
 
 	def export_latest(self, seconds):
 		"""
-		Save the last x seconds of data from the csv
+		Save some data from the temporary csv to a more permanent file whose location is handled by Dir_Handler 
+
+		@seconds: The amount of time, in seconds, of past data to save
 		"""
 
 		# Temporarily close and reopen the file so that we can read the data from it
@@ -50,8 +56,10 @@ class CSV_Handler:
 
 		current_time = time.time()
 		export_df = df[df[0].between(current_time-seconds, current_time)]
-		os.makedirs(os.path.dirname(self.output_filepath), exist_ok=True)
-		export_df.to_csv(self.output_filepath, index=False, header=False)
+		output_filepath = f"{self.dir_handler.locate_export_dir(self.filename)}/{self.filename}_{time.strftime('%Y-%m-%d_%H:%M:%S')}.csv"
+		export_df.to_csv(output_filepath, index=False, header=False)
+
+		print_handler("CSV", f"Saved last {seconds} seconds of data to \"{output_filepath}\".")
 
 	def close(self):
 		if self.file_is_open():
