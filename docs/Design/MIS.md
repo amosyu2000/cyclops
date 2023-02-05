@@ -445,12 +445,12 @@ The I2C protocol will be used for communication with the accelerometer.
 | 802.11ac | This wireless protocol will allow the users to connect to the CRA remotely through various methods including SSH. Furthermore, this protocol allows users to connect their CRA to either a 2.4 or 5.0GHz wireless network. | 
 ## 11. Software Modules
 
-All software modules are classes implemented in Python 3.9. Software modules are constructed and executed by threaded `start.py` classes. The `__main__.py` class should immediately begin running upon startup of the Raspberry Pi OS.
+The main entry point of the program is the `__main__.py` script. All software modules are classes implemented in Python 3.9. Software modules are constructed and executed by threaded `Start` classes. Each module is instantiated by `__main__.py` and communicates with other threads via thread events. Upon startup of the Raspberry Pi, `__main__.py` should immediately begin execution. To shut down the Raspberry Pi, `__main__.py` should pass control to the OS to do a safe poweroff and terminate.
 
 <div align="center">
 <p id="css">Figure 11.0.1: CRA Software Stack</p>
 
-![image](https://user-images.githubusercontent.com/46848538/213317988-3e1dbebb-54af-4f58-bcc3-202ff45de1c2.png)
+![image](https://user-images.githubusercontent.com/46848538/216851907-190a5e21-1d07-40a5-bf8b-72de3d9cdf8f.png)
 
 </div>
 
