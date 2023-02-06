@@ -3,7 +3,7 @@ sys.path.append('../src')
 import pytest 
 import numpy as np
 import time
-from accelerometer.acceleration_plot import Acceleration_Plot
+from accelerometer_thread.acceleration_plot import Acceleration_Plot
 
 
 def test_data_points():
