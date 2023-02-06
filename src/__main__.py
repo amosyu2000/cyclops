@@ -26,7 +26,7 @@ u_capture_event = Event()
 """ Threads """
 threads = [
 	Thread(target=accelerometer_thread.Start, args=[poweroff_event, crash_event, a_capture_event]),
-	# Thread(target=camera_thread.Start, args=[poweroff_event, c_capture_event]),
+	Thread(target=camera_thread.Start, args=[poweroff_event, c_capture_event]),
 	Thread(target=capture_thread.Start, args=[poweroff_event, crash_event, a_capture_event, c_capture_event, u_capture_event]),
 	Thread(target=ultrasonic_thread.Start, args=[poweroff_event, u_capture_event]),
 ]

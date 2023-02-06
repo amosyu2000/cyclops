@@ -8,7 +8,7 @@ temp_directory ='/home/capstone/Documents/recording/temporary_files/'
 video_length        = 15
 num_partitions      = 2
 frames_per_second   = 30
-camera_number       = 0
+camera_number       = -1
 resolution          = 0
 app = video_capture.Buffer(video_length, num_partitions, frames_per_second, output_directory, temp_directory, camera_number, resolution)
 buffer = threading.Thread(name='start_buffer', target=app.start_buffer)
