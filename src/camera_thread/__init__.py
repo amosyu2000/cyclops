@@ -7,8 +7,8 @@ class Start:
 	def __init__(self, poweroff_event, capture_event):
 		print_handler("Thread", "Video Capture thread started")
 
-		video_length        = 120
-		num_partitions      = 10
+		video_length        = 60
+		num_partitions      = 3
 		frames_per_second   = 30
 		output_directory    = '/home/capstone/Documents/temp/'
 		temp_directory      = '/home/capstone/Documents/temp/video/'
