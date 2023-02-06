@@ -3,6 +3,7 @@ import ffmpeg
 import threading
 import time
 import os
+from print_handler import print_handler
 from dir_handler import Dir_Handler
 
 # TESTING LINE
@@ -93,16 +94,19 @@ class Buffer:
 				f.write("file '" + self.temp_directory + str(i) + ".mp4'\n")
 				num_files += 1
 		f.close()
-		if num_files > 1:
-			# concatanate files & rename the output
-			(
-				ffmpeg
-				.input(self.temp_directory + "concat_list.txt", format='concat', safe=0)
-				.output(self.output_directory + output_file_name, loglevel="quiet", c='copy')
-				.run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
-			)
-		else:
-			os.rename(self.temp_directory + str(0) + ".mp4", self.output_directory + output_file_name)
+		try:
+			if num_files > 1:
+				# concatanate files & rename the output
+				(
+					ffmpeg
+					.input(self.temp_directory + "concat_list.txt", format='concat', safe=0)
+					.output(self.output_directory + output_file_name, loglevel="quiet", c='copy')
+					.run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
+				)
+			else:
+				os.rename(self.temp_directory + str(0) + ".mp4", self.output_directory + output_file_name)
+		except:
+			print_handler("", self.output_directory + output_file_name + "Failed to save")
 
 		# delete files in temp directory
 		for f in os.listdir(self.temp_directory):

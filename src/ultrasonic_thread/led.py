@@ -29,7 +29,7 @@ class LED:
 			else:
 				GPIO.output(self.pins[i], GPIO.LOW)
 				print_output += "0"
-		print_handler("LED", f"Output set to {print_output}")
+		#print_handler("LED", f"Output set to {print_output}")
 
 	def close(self):
 		[ GPIO.cleanup(pin) for pin in self.pins ]
