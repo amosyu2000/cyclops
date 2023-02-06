@@ -3,6 +3,7 @@ import ffmpeg
 import threading
 import time
 import os
+from dir_handler import Dir_Handler
 
 # TESTING LINE
 from datetime import datetime
@@ -63,6 +64,7 @@ class Buffer:
 		self.lock = threading.Lock() # mutex
 		self.run_buffer = True
 		self.num_partitions = num_partitions
+		self.dir_handler = Dir_Handler() # provides name of a dynamic output directory (dictated by time of capture button push)
 
 	def stop_buffer(self):
 		self.lock.acquire()
@@ -71,12 +73,13 @@ class Buffer:
 
 	def log_buffer(self):
 		self.lock.acquire()  
-		
+
 		startTime = datetime.now() # TESTING LINE
 
 		# release the current result video, this allows it to be accessed
 		self.result.release()
-		output_file_name = time.strftime("%Y_%m_%d__%H_%M_%S_%p") +'.mp4'
+		self.output_directory = self.dir_handler.locate_export_dir('video')
+		output_file_name = '/video_' + time.strftime('%Y-%m-%d_%H:%M:%S') + '.mp4'
 
 		# store videos names in txt file to be concatenated using ffmpeg demux
 		f = open(self.temp_directory + "concat_list.txt", "w")
@@ -125,7 +128,6 @@ class Buffer:
 		while(self.run_buffer):
 			self.lock.acquire()
 			ret, frame = self.cap.read() # get most recent from from cap
-			cv2.imshow("video", frame)
 
 			if self.curr_frames < self.max_frames:
 				# continue current video

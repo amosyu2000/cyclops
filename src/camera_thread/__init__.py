@@ -1,4 +1,5 @@
 import threading
+from threading import Event
 from camera_thread.video_capture import Buffer
 from print_handler import print_handler
 
@@ -9,8 +10,8 @@ class Start:
 		video_length        = 120
 		num_partitions      = 10
 		frames_per_second   = 30
-		output_directory    = '/home/capstone/Documents/recording/output_files/'
-		temp_directory      = '/home/capstone/Documents/recording/temporary_files/'
+		output_directory    = '/home/capstone/Documents/temp/'
+		temp_directory      = '/home/capstone/Documents/temp/video/'
 		camera_number       = -1
 		resolution          = 0
 		
@@ -24,4 +25,4 @@ class Start:
 		cap.stop_buffer()
 
 if __name__ == '__main__':
-	Start()
+	Start(Event(), Event())
