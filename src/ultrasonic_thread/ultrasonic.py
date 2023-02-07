@@ -60,7 +60,7 @@ class Ultrasonic:
 
 		if (self.unit == "cm"):
 			distance_cm = (TimeElapsed * 34300) / 2
-			#print_handler("Ultrasonic", "Distance of %.1fcm" % distance_cm)
+			print_handler("Ultrasonic", "Distance of %.1fcm" % distance_cm)
 			return distance_cm
 	
 	def distance_percentage(self):

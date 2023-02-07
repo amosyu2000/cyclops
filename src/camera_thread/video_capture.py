@@ -10,7 +10,7 @@ from dir_handler import Dir_Handler
 from datetime import datetime
 
 class Buffer:
-	def __init__(self, video_length:int, num_partitions:int, fps:int, save_directory:str, temp_directory:str, camera_id:int, resolution:int):
+	def __init__(self, video_length:int, num_partitions:int, fps:int, temp_directory:str, camera_id:int, resolution:int):
 
 		"""
 		Write and overwrite sequential recordings such that a minimum of video_length time 
@@ -24,49 +24,50 @@ class Buffer:
 		@camera_id: -1 -> Automatically detect camera, >=0 -> Manually identify by webcam index
 		@resolution: -1 -> Automatically detect resolution, 0 -> 640x480, 1 ->  1280x720, 2 -> 1920x1080
 		"""
+		try: 
+			self.video_length = video_length
+			self.temp_directory = temp_directory
+			for f in os.listdir(self.temp_directory):
+				os.remove(os.path.join(self.temp_directory, f))
+			self.camera_id = camera_id
+			self.cap = cv2.VideoCapture(self.camera_id) # create a capture object
 
-		self.video_length = video_length
-		self.output_directory = save_directory
-		self.temp_directory = temp_directory
-		for f in os.listdir(self.temp_directory):
-			os.remove(os.path.join(self.temp_directory, f))
-		self.camera_id = camera_id
-		self.cap = cv2.VideoCapture(self.camera_id) # create a capture object
+			# select resolution (auto, 480p, 720p, or 1080p)
+			if resolution < 0: 
+				self.frame_width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+				self.frame_height = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+			elif resolution == 0:
+				self.frame_width = 640
+				self.frame_height = 480
+			elif resolution == 1:
+				self.frame_width = 1280
+				self.frame_height = 720
+			else:
+				self.frame_width = 1920
+				self.frame_height = 1080
+				
+			self.fps = fps
 
-		# select resolution (auto, 480p, 720p, or 1080p)
-		if resolution < 0: 
-			self.frame_width = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-			self.frame_height = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-		elif resolution == 0:
-			self.frame_width = 640
-			self.frame_height = 480
-		elif resolution == 1:
-			self.frame_width = 1280
-			self.frame_height = 720
-		else:
-			self.frame_width = 1920
-			self.frame_height = 1080
+			# setting capture parameters
+			self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG")) 
+			self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.frame_width)
+			self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.frame_height)
+			self.cap.set(cv2.CAP_PROP_FPS, self.fps)
+			self.vid_num = 0
+			self.result = cv2.VideoWriter(  self.temp_directory + str(self.vid_num) + ".mp4", # save location
+											cv2.VideoWriter_fourcc('m', 'p', '4', 'v'),			# use mp4v codec
+											self.fps, 											# fps
+											(self.frame_width, self.frame_height))				# frame size
 			
-		self.fps = fps
-
-		# setting capture parameters
-		self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG")) 
-		self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.frame_width)
-		self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.frame_height)
-		self.cap.set(cv2.CAP_PROP_FPS, self.fps)
-		self.vid_num = 0
-		self.result = cv2.VideoWriter(  self.temp_directory + str(self.vid_num) + ".mp4", # save location
-										cv2.VideoWriter_fourcc('m', 'p', '4', 'v'),			# use mp4v codec
-										self.fps, 											# fps
-										(self.frame_width, self.frame_height))				# frame size
-		
-		self.max_frames = int(self.fps) * self.video_length / (num_partitions-1)
-		self.curr_frames = 0
-		self.lock = threading.Lock() # mutex
-		self.run_buffer = True
-		self.num_partitions = num_partitions
-		self.dir_handler = Dir_Handler() # provides name of a dynamic output directory (dictated by time of capture button push)
-
+			self.max_frames = int(self.fps) * self.video_length / (num_partitions-1)
+			self.curr_frames = 0
+			self.lock = threading.Lock() # mutex
+			self.run_buffer = True
+			self.num_partitions = num_partitions
+			self.dir_handler = Dir_Handler() # provides name of a dynamic output directory (dictated by time of capture button push)
+		except:
+			print_handler("Error - video_capture.py", "Error during video initialization sequence. Check camera usb connection.")
+	
 	def stop_buffer(self):
 		self.lock.acquire()
 		self.run_buffer = False
@@ -79,7 +80,7 @@ class Buffer:
 
 		# release the current result video, this allows it to be accessed
 		self.result.release()
-		self.output_directory = self.dir_handler.locate_export_dir('video')
+		output_directory = self.dir_handler.locate_export_dir('video')
 		output_file_name = '/video_' + time.strftime('%Y-%m-%d_%H:%M:%S') + '.mp4'
 
 		# store videos names in txt file to be concatenated using ffmpeg demux
@@ -100,13 +101,13 @@ class Buffer:
 				(
 					ffmpeg
 					.input(self.temp_directory + "concat_list.txt", format='concat', safe=0)
-					.output(self.output_directory + output_file_name, loglevel="quiet", c='copy')
+					.output(output_directory + output_file_name, loglevel="quiet", c='copy')
 					.run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
 				)
 			else:
-				os.rename(self.temp_directory + str(0) + ".mp4", self.output_directory + output_file_name)
+				os.rename(self.temp_directory + str(0) + ".mp4", output_directory + output_file_name)
 		except:
-			print_handler("", self.output_directory + output_file_name + "Failed to save")
+			print_handler("Error - video_capture.py", "An error occured while concatenating or saving the output video at: "+output_directory + output_file_name)
 
 		# delete files in temp directory
 		for f in os.listdir(self.temp_directory):
