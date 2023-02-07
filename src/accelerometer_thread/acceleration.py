@@ -37,7 +37,7 @@ class Acceleration:
 		"""
 
 		[x,y,z] = self.accelerometer.acceleration
-		# print_handler("Acceleration", f"Readings of ({x}, {y}, {z})")
+		print_handler("Acceleration", f"Readings of ({x}, {y}, {z})")
 		norm = np.linalg.norm([x,y,z])
 
 		self.raw_x.append(x)
