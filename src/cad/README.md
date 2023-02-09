@@ -4,4 +4,4 @@
 
 </div>
 
-.ipt, .stl, .gcode for Prusa MK3 printers. 
+.ipt, .stl files for use on Prusa i3 MK3S printers. 
