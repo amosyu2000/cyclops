@@ -19,7 +19,7 @@ __Team 9__
 
 North American cities are shifting from a car-centric design to greener forms of transportation. It is expected that more people will adopt cycling as their primary method of commuting. However, it is difficult for a cyclist to keep track of everything going on around them, especially during busy times.
 
-Cyclops Ride Assist (CRA) will be an easy-to-use system that mounts on the bike that will allow its users to have full detection of their surroundings during their trip from start to finish, cameras to capture and record from various angles, and sensors to detect vehicles in blind-spots and accidents. In the event of any cycling collision, CRA will automatically record the scene for any investigations. 
+Cyclops Ride Assist (CRA) is an easy-to-use Ride monitoring system that is mounted on a user's bicycle. It provides its users with comprehensive crash avoidance paired with intelligent crash detection triggering camera footage and sensor data logging.  CRA safeguards its user's on their rides from start to finish.
 
 ## Schedule 
 | Date              | Description     |
