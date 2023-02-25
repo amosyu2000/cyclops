@@ -7,7 +7,7 @@ from dir_handler import Dir_Handler
 from print_handler import print_handler
 
 class CSV_Handler:
-	def __init__(self, filename):
+	def __init__(self, filename, temp_dir):
 		"""
 		Utility class for handling all actions related to csv files
 		Remember to run open() before anything, and close() when you're done
@@ -16,7 +16,7 @@ class CSV_Handler:
 		"""
 
 		self.filename = filename
-		self.temp_dir = "/home/capstone/Documents/temp"
+		self.temp_dir = temp_dir
 		self.temp_filepath = f"{self.temp_dir}/{self.filename}_{time.strftime('%Y-%m-%d_%H:%M:%S')}.csv"
 		self.dir_handler = Dir_Handler()
 		self.file = None

@@ -35,7 +35,7 @@ class Start_Plot:
 
 		while not poweroff_event.is_set():
 			self.acceleration_plot.update()
-			self.acceleration_plot.pause(1)
+			self.acceleration_plot.pause(0.1)
 
 		self.acceleration_plot.close()
 

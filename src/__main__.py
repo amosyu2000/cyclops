@@ -9,6 +9,7 @@ import ultrasonic_thread
 
 """ Poweron sequence """
 POWER_STATUS_LED = 20
+LOG_STATUS_LED = 20
 POWER_OFF_BUTTON = 16
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(POWER_STATUS_LED, GPIO.OUT)
@@ -25,10 +26,10 @@ u_capture_event = Event()
 
 """ Threads """
 threads = [
-	Thread(target=accelerometer_thread.Start, args=[poweroff_event, crash_event, a_capture_event]),
-	Thread(target=camera_thread.Start, args=[poweroff_event, c_capture_event]),
+	#Thread(target=accelerometer_thread.Start, args=[poweroff_event, crash_event, a_capture_event]),
+	Thread(target=camera_thread.Start, args=[poweroff_event, c_capture_event, LOG_STATUS_LED]),
+	#Thread(target=ultrasonic_thread.Start, args=[poweroff_event, u_capture_event]),
 	Thread(target=capture_thread.Start, args=[poweroff_event, crash_event, a_capture_event, c_capture_event, u_capture_event]),
-	Thread(target=ultrasonic_thread.Start, args=[poweroff_event, u_capture_event]),
 ]
 [ thread.start() for thread in threads ]
 
@@ -40,4 +41,4 @@ GPIO.output(POWER_STATUS_LED, False)
 GPIO.cleanup(POWER_STATUS_LED)
 GPIO.cleanup(POWER_OFF_BUTTON)
 print_handler("Main", "Program stopped")
-os.system("sudo poweroff")
+#UNCOMMENT ME os.system("sudo poweroff")
