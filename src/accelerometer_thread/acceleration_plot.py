@@ -59,7 +59,7 @@ class Acceleration_Plot:
 		self.plt_ax.relim()
 		self.plt_ax.autoscale_view()
 
-		print_handler("Acceleration_Plot", "Updated plot")
+		# print_handler("Acceleration_Plot", "Updated plot")
 
 	def pause(self, seconds):
 		"""

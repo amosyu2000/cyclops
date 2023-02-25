@@ -1,27 +1,43 @@
-import threading
-from threading import Event
-from camera_thread.video_capture import Buffer
+from threading import Event, Thread
+import time
+from camera_thread.video_capture import Threaded_Video_Writing
 from print_handler import print_handler
+import RPi.GPIO as GPIO
 
 class Start:
-	def __init__(self, poweroff_event, capture_event):
-		print_handler("Thread", "Video Capture thread started")
-
-		video_length        = 60
-		num_partitions      = 3
-		frames_per_second   = 30
-		temp_directory      = '/home/capstone/Documents/temp/video/'
-		camera_number       = -1
-		resolution          = 0
+	def __init__(self, poweroff_event, capture_event, LOG_STATUS_LED):
 		
-		cap = Buffer(video_length, num_partitions, frames_per_second, temp_directory, camera_number, resolution)
-		buffer = threading.Thread(name='start_buffer', target=cap.start_buffer) # start_buffer runs as a distint thread, enabling start.py to continue running
-		buffer.start()
+		video_length = 60 # min length of video captures in seconds
+		fps = 30
+
+		max_frames = video_length * fps
+		frame_counter = 0
+		video_writer = Threaded_Video_Writing(fps)
+
+		print_handler("Thread - Camera", "Video Camera thread started")
+
+		loop_time = float(1/fps)
 		while not poweroff_event.is_set():
-			if capture_event.is_set():
-				cap.log_buffer()
+			start_time = time.time()
+			if not capture_event.is_set():
+				video_writer.write_frame()
+				frame_counter += 1
+				if frame_counter == max_frames:
+					video_writer.refresh()
+					frame_counter = 0
+				else:
+					sleep_time = loop_time - (time.time()-start_time) - .0005 # the final term is a tuning parameter
+					if sleep_time > 0:
+						time.sleep(sleep_time)
+			else:
+				video_writer.log_video()
 				capture_event.clear()
-		cap.stop_buffer()
+				for i in range(4):
+					GPIO.output(LOG_STATUS_LED, i%2)
+					time.sleep(0.1)
+		
+		video_writer.close()
+		print_handler("Thread - Camera", "Video Camera thread safely stopped")
 
 if __name__ == '__main__':
 	Start(Event(), Event())

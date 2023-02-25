@@ -26,7 +26,7 @@ class Acceleration:
 		self.avg_z = 0
 		self.avg_norm = 0
 
-		self.csv_handler = CSV_Handler("accelerometer")
+		self.csv_handler = CSV_Handler("accelerometer", "/home/capstone/Documents/temp/accelerometer")
 		self.csv_handler.open()
 
 	def read(self):
@@ -37,7 +37,7 @@ class Acceleration:
 		"""
 
 		[x,y,z] = self.accelerometer.acceleration
-		print_handler("Acceleration", f"Readings of ({x}, {y}, {z})")
+		#print_handler("Acceleration", f"Readings of ({x}, {y}, {z})")
 		norm = np.linalg.norm([x,y,z])
 
 		self.raw_x.append(x)

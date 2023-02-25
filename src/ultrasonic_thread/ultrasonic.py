@@ -29,7 +29,7 @@ class Ultrasonic:
 		self.distance_max = distance_max
 		self.unit = unit
 
-		self.csv_handler = CSV_Handler("ultrasonic")
+		self.csv_handler = CSV_Handler("ultrasonic", "/home/capstone/Documents/temp/ultrasonic")
 		self.csv_handler.open()
 
 	def distance_absolute(self):
@@ -60,7 +60,7 @@ class Ultrasonic:
 
 		if (self.unit == "cm"):
 			distance_cm = (TimeElapsed * 34300) / 2
-			print_handler("Ultrasonic", "Distance of %.1fcm" % distance_cm)
+			#print_handler("Ultrasonic", "Distance of %.1fcm" % distance_cm)
 			return distance_cm
 	
 	def distance_percentage(self):

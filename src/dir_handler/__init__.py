@@ -45,5 +45,5 @@ class Dir_Handler:
 		@num: Integer to suffix the folder name
 		"""
 		new_dirname = f"{self.parent_dir}/{self.export_dirname}_{str(num).zfill(3)}"
-		os.makedirs(new_dirname, exist_ok=False)
+		os.makedirs(new_dirname, exist_ok=True)
 		return new_dirname

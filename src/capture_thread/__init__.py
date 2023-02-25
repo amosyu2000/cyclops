@@ -5,7 +5,7 @@ from print_handler import print_handler
 
 class Start:
 	def __init__(self, poweroff_event, crash_event, *thread_capture_events):
-		print_handler("Thread", "Capture thread started")
+		print_handler("Thread - Capture", "Capture thread started")
 
 		self.PIN_CAPTURE = 21
 		self.thread_capture_events = thread_capture_events
@@ -21,7 +21,7 @@ class Start:
 			time.sleep(0.1)
 
 		self.close()
-		print_handler("Thread", "Capture thread safely stopped")
+		print_handler("Thread - Capture", "Capture thread safely stopped")
 
 	def capture_button_pushed(self, pin):
 		print_handler("Capture", f"Button {pin} pushed")

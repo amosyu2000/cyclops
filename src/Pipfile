@@ -10,6 +10,9 @@ adafruit-circuitpython-adxl34x = "*"
 ffmpeg-python = "*"
 opencv-python = "==4.6.0.66"
 pandas = "*"
+picamera = "*"
+imutils = "*"
+colorama = "*"
 
 [dev-packages]
 
