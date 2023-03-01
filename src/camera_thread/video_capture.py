@@ -19,8 +19,7 @@ class Threaded_Video_Writing():
         self.temp_dir = '/home/capstone/Documents/temp/video/'
         self.clear_tmp()
 
-        # provides name of a dynamic output directory
-        self.dir_handler = Dir_Handler() 
+        self.dir_handler = Dir_Handler() # provides name of a dynamic output directory
 
         # Create video capture object
         self.capture = cv2.VideoCapture(-1)

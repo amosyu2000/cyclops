@@ -13,6 +13,8 @@ class CSV_Handler:
 		Remember to run open() before anything, and close() when you're done
 
 		@filename: File name of the csv file, location is defined by the CSV_Handler class
+
+		@temp_dir: The directory to temporarily store files at. (Terminated without backslash)
 		"""
 
 		self.filename = filename
