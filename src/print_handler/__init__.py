@@ -16,7 +16,7 @@ def print_handler(domain, string):
 	elif domain == "Thread - Camera":
 		print(Fore.WHITE + f"{time.ctime()}: " + Fore.CYAN + f"[{domain}] {string}")
 	elif domain == "Thread - Lidar":
-		print(Fore.WHITE + f"{time.ctime()}: " + Fore.PURPLE + f"[{domain}] {string}")
+		print(Fore.WHITE + f"{time.ctime()}: " + Fore.MAGENTA + f"[{domain}] {string}")
 	elif domain == "Thread - Capture":
 		print(Fore.WHITE + f"{time.ctime()}: " + Fore.BLUE + f"[{domain}] {string}")
 	else:

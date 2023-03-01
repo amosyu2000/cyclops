@@ -1,11 +1,11 @@
 <div align="center">
 
-# Ultrasonic Sensor
+# Lidar Sensor
 
 </div>
 
 ## Hardware
-[HC-SR04](https://pimylifeup.com/raspberry-pi-distance-sensor/)
+[TF-Luna (8m)](http://en.benewake.com/product/detail/5e1c1fd04d839408076b6255.html)
 
 ## Usage
-In the `src` directory, run `pipenv run python -m ultrasonic_thread.__init__`
+In the `src` directory, run `pipenv run python -m lidar_thread.__init__`
