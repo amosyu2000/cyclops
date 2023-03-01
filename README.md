@@ -33,6 +33,7 @@ Cyclops Ride Assist (CRA) will be an easy-to-use system that mounts on the bike 
 | November 14, 2022 | Proof of Concept demo |
 | January 17, 2023 | Design Document started |
 | February 9, 2023 | Revision 0 demo |
+| March 1, 2023 | Verification and Validation Report started |
 
 ## Repository Structure
 ### Source Code
