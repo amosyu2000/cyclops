@@ -57,18 +57,32 @@ Manny Lemos (lemosm1)
 </div>
 
 ## 2. Symbols, Abbreviations, and Acronyms
-(check VnVPlan document)
+| Name | Description |
+|:--|:--|
+| CRA | Abbreviation of Cyclops Ride Assist.|
+| Cyclist | A person who operates a bicycle as a means of transportation. |
+| User | A person who will operate the final product. See Cyclist. |
+| Client | See user. |
+| SRS | Software Requirements Specification |
+| αx | Measures acceleration parallel to the path of the bicycle. |
+| αy | Measures acceleration perpendicular to the path of the bicycle along the plane of the ground. |
+| αz | Measures acceleration in the vertical direction. |
+| tilt | Measures the vertical tilt of the system relative to a calibrated absolute level. |
+| vfront | Video feed from the front facing camera. |
+| vrear | Video feed from the rear facing camera. |
+| sw_flashlight | Switch which controls the flashlight. |
+| led_blind_spot | Indicates a vehicle is in the bicycles blind spot.|
 
 ## 3. General Information
 
 ### 3.1. Purpose
-(Why does this document exist - see LazyBots VnV Report)
+The purpose of this document is to outline the steps taken for validation, verification, and testing of the functionality of Cyclops Ride Assist (CRA).
 
 ### 3.2. Scope
-(How far we will take the testing - see LazyBots VnV Report)
+This document will focus on the testing procedures and pass/fail requirement to ensure each subsystems in CRA would be working individually and also as a whole. Black box testing will be the main testing used to software and hardware components.
 
 ### 3.3. Background
-(Overview about what Cyclops does - see LazyBots VnV Report)
+Cyclops Ride Assist (CRA) is going to be an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bike, such as blind spot detection and crash detection. The system will also have a built in headlamp that will illuminate during night time, not just for the cyclist to see but also for cars around to realize the bike.
 
 ## 4. Functional Requirements Evaluation
 (For each of the 14 FRs, describe test plan and factors to consider when testing - see SRS)
