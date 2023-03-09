@@ -1,29 +1,3 @@
-- [1. Revision History](#1-revision-history)
-- [2. Symbols, Abbreviations, and Acronyms](#2-symbols-abbreviations-and-acronyms)
-- [3. General Information](#3-general-information)
-	- [3.1. Purpose](#31-purpose)
-	- [3.2. Scope](#32-scope)
-	- [3.3. Background](#33-background)
-- [4. Functional Requirements Evaluation](#4-functional-requirements-evaluation)
-- [5. Non-Functional Requirements Evaluation](#5-non-functional-requirements-evaluation)
-	- [5.1. Look and Feel Requirements](#51-look-and-feel-requirements)
-	- [5.2. Usability and Humanity Requirements](#52-usability-and-humanity-requirements)
-	- [5.3. Performance Requirements](#53-performance-requirements)
-	- [5.4. Operational and Environmental Requirements](#54-operational-and-environmental-requirements)
-	- [5.5. Maintainability and Support Requirements](#55-maintainability-and-support-requirements)
-	- [5.6. Security Requirements](#56-security-requirements)
-	- [5.7. Cultural and Political Requirements](#57-cultural-and-political-requirements)
-	- [5.8. Legal Requirements](#58-legal-requirements)
-- [6. Testing](#6-testing)
-	- [6.1. Blind Spot Detection](#61-blind-spot-detection)
-	- [6.2. Crash Detection](#62-crash-detection)
-	- [6.3. Video/Data Logging](#63-videodata-logging)
-	- [6.4. Power](#64-power)
-	- [6.5. Mounting](#65-mounting)
-- [7. Changes Due to Testing](#7-changes-due-to-testing)
-- [8. Code Coverage Metrics](#8-code-coverage-metrics)
-- [9. Appendix](#9-appendix)
-	- [9.1. Reflection](#91-reflection)
 <div align="center">
 
 <a href="https://github.com/amosyu2000/cyclops">
@@ -73,6 +47,12 @@ Manny Lemos (lemosm1)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
+- [Table 1.2: Blind Spot Detection Tests](#t1.2)
+- [Table 1.3: Crash Detection Tests](#t1.3)
+- [Table 1.4: Video/Data Logging Tests](#t1.4)
+- [Table 1.5: Power Tests](#t1.5)
+- [Table 1.6: Mounting Tests](#t1.6)
+- [Table 1.7: Code Coverage Metrics](#t1.7)
 
 ## List of Figures <!-- omit in toc -->
 
@@ -191,7 +171,7 @@ The main goal of testing the blindspot detection would be to test the functional
 
 <div align="center">
 
-<p id="rh">Table 1.2: Blind Spot Detection Tests</p>
+<p id="t1.2">Table 1.2: Blind Spot Detection Tests</p>
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -209,7 +189,7 @@ Each test performed for the crash detection unit will have CRA 2 main units alre
 
 <div align="center">
 
-<p id="rh">Table 1.3: Crash Detection Tests</p>
+<p id="t1.3">Table 1.3: Crash Detection Tests</p>
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -231,7 +211,7 @@ Each test will be performed by having the CRA unit experience and trigger a cras
 
 <div align="center">
 
-<p id="rh">Table 1.4: Video/Data Logging Tests</p>
+<p id="t1.4">Table 1.4: Video/Data Logging Tests</p>
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -251,7 +231,7 @@ CRA has configured the power button such that both the crash detection and blind
 
 <div align="center">
 
-<p id="rh">Table 1.5: Power Tests</p>
+<p id="t1.5">Table 1.5: Power Tests</p>
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -266,7 +246,7 @@ The physical system of the CRA consists of two separate housing units that each 
 
 <div align="center">
 
-<p id="rh">Table 1.6: Mounting Tests</p>
+<p id="t1.6">Table 1.6: Mounting Tests</p>
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -298,7 +278,7 @@ Code coverage is determined by whether a specific sub system and code was exerci
 
 <div align="center">
 
-<p id="rh">Table 1.7: Code Coverage Metrics</p>
+<p id="t1.7">Table 1.7: Code Coverage Metrics</p>
 
 | File | Statements | | Condition | | Functions | | Lines | | 
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
