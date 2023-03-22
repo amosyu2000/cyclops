@@ -193,14 +193,14 @@ Each test performed for the crash detection unit will have CRA 2 main units alre
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| CD1 | Rider will ride in a straight line on a flat road for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | N/A - Nothing should happen | Nothing gets logged onto the SD | Pass |
-| CD2 | Rider will ride in a straight line over grass or a bumpy path for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | N/A - Nothing should happen | N/A - Nothing happened | Pass |
+| CD1 | Rider will ride in a straight line on a flat road for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | No crashed detected | No crashed detected | Pass |
+| CD2 | Rider will ride in a straight line over grass or a bumpy path for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | No crashed detected | No crashed detected | Pass |
 | CD3 | Rider will ride in a straight line for 5 seconds and then “crash” | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | Crash detection algorithm should prompt a video clip to be logged | Video clip was logged and stored on SD as well as crash information of moments before | Pass |
-| CD4 | Rider will hold the bike in their hand and let the bike drop/fall over | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | N/A - Nothing should happen | N/A - Nothing should happen | Pass |
+| CD4 | Rider will hold the bike in their hand and let the bike drop/fall over | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | No crashed detected | No crashed detected | Pass |
 | CD5 | Rider will hold the bike and jolt it forward and backwards for 5 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input | α_x readings should update to reflect the sudden change in acceleration | α_x readings updates to reflect the sudden change in acceleration | Pass |
 | CD6 | Rider will hold the bike and jolt it side to side (left to right) for 5 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input | α_y readings should update to reflect the sudden change in acceleration | α_y readings updates to reflect the sudden change in acceleration | Pass |
 | CD7 | Rider will hold the bike and jolt it up and down for 5 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input | α_z readings should update to reflect the sudden change in acceleration | α_z readings updates to reflect the sudden change in acceleration | Pass |
-| CD8 | Create another crash after recovering from the prior crash. Functionality should remain consistent | CFR12, CFR13 | Accelerometer electrical input | CRA should resume crash detection and recording video and data | CRA resumes crash detection and recording video and data | Pass |
+| CD8 | Create another crash after recovering from the prior crash.| CFR12, CFR13 | Accelerometer electrical input | CRA should resume crash detection and recording video and data | CRA resumes crash detection and recording video and data | Pass |
 </div>
 
 ### 6.3. Video/Data Logging
