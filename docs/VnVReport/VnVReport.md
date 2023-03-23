@@ -5,7 +5,7 @@
 </a>
 
 # Verification and Validation Report <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
+Cyclops Ride Assist: Real-time bicycle crash detection and rear vehicle monitoring.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -167,7 +167,7 @@ The testing of the non-functional required both qualitative and quantitive tests
 Testing was structured based on how the systems and subsystems were defined for the software of Cyclops. With the nature of how each major safety feature is composed of both electrical and software components, either white box or black box testing was utilized. If the unit required a real-world environment to fully work, black box testing was chosen and if the unit involved more algorithmic components, white box testing was chosen.
 
 ### 6.1. Blind Spot Detection
-The main goal of testing the blindspot detection would be to test the functionality of our lidar sensor as well as the algorithm used to convert the distance-based data into a visual representation (LED)’s. The visual representation of LEDs is configured such that each LED will represent a specific level/proximity to the rider of a vehicle or object. Our plan in unit testing would be to ensure that the LEDs are functioning from each extremity (close and far) ensuring that there is a visible object in the sensor's field of vision at all times. 
+The main goal of testing the rear vehicle detection would be to test the functionality of our lidar sensor as well as the algorithm used to convert the distance-based data into a visual representation (LED)’s. The visual representation of LEDs is configured such that each LED will represent a specific level/proximity to the rider of a vehicle or object. Our plan in unit testing would be to ensure that the LEDs are functioning from each extremity (close and far) ensuring that there is a visible object in the sensor's field of vision at all times. 
 
 <div align="center">
 
@@ -227,7 +227,7 @@ Each test will be performed by having the CRA unit experience and trigger a cras
 
 ### 6.4. Power
 
-CRA has configured the power button such that both the crash detection and blindspot detection should automatically start running once it has been pressed. The system also has configured the button to log the last bit of data once the power has been turned off (button is pressed again). 
+CRA has configured the power button such that both the crash detection and rear vehicle detection should automatically start running once it has been pressed. The system also has configured the button to log the last bit of data once the power has been turned off (button is pressed again). 
 
 <div align="center">
 
@@ -235,8 +235,8 @@ CRA has configured the power button such that both the crash detection and blind
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| P1 | CRA should automatically have the scripts of CRA’s crash and blindspot detection ran once powered on | CFR11, CNFR6 | Power button | Video and data should begin to be read in and LEDs should light up to indicate power on | Video and data begins to be read in and LEDs light up when powered on | Pass |
-| P2 | CRA should automatically clip and log the past 60 seconds of CRA’s crash and blindspot detection data once powered off | CFR11, CNFR6 | Power button | Data should be logged and saved within CSV locally when CRA has been powered off | Data is logged and saved within CSV locally when CRA was powered off | Pass | 
+| P1 | CRA should automatically have the scripts of CRA’s crash and rear vehicle detection ran once powered on | CFR11, CNFR6 | Power button | Video and data should begin to be read in and LEDs should light up to indicate power on | Video and data begins to be read in and LEDs light up when powered on | Pass |
+| P2 | CRA should automatically clip and log the past 60 seconds of CRA’s crash and rear vehicle detection data once powered off | CFR11, CNFR6 | Power button | Data should be logged and saved within CSV locally when CRA has been powered off | Data is logged and saved within CSV locally when CRA was powered off | Pass | 
 
 </div>
 
@@ -293,7 +293,7 @@ Code coverage is determined by whether a specific sub system and code was exerci
 ## 9. Appendix
 
 ### 9.1. Reflection
-The VnV Plan put about a solid foundation upon which the Cyclops team worked to verify and validate the numerous intricate components of the ride assist system. The testing identified in the VnV Plan was a response to the fundamental features required by the implementation chosen. Those features are blindspot detection, crash detection, video and data logging, and some baseline usability and stylistic requirements. 
+The VnV Plan put about a solid foundation upon which the Cyclops team worked to verify and validate the numerous intricate components of the ride assist system. The testing identified in the VnV Plan was a response to the fundamental features required by the implementation chosen. Those features are rear vehicle detection, crash detection, video and data logging, and some baseline usability and stylistic requirements. 
 
 As a result of tackling broader requirements in testing specifications as opposed to generating specific tests for specific implementations, the VnV Plan proved to be a robust document that withstood the changes made due to testing. Some of those changes include switching from ultrasonic to lidar distance sensing and decreasing the size of the system. In the first instance clearly predicting what was required was driven by the overarching concept of the system; improving user safety by indicating the distance of objects behind the rider. This brings about an important concept that the Cyclops team learned and will be sure to use in future Verification and Validation Planning; Test cases should be broad enough that implementation shifts will not render them obsolete, yet specific enough that every requirement is sure to be met under their cumulative rule. 
 
