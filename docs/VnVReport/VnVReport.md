@@ -175,7 +175,7 @@ The main goal of testing the blindspot detection would be to test the functional
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| BD1 | Object should be held up close to the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells 1 - 5 should all be lit up | LED stick cells1 - 5 were all lit up | Pass |
+| BD1 | Object should be held 0 - 1 meters to the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells 1 - 5 should all be lit up | LED stick cells1 - 5 were all lit up | Pass |
 | BD2 | Object will be 2 - 3 meters from the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells 1 - 3 should all be lit up | LED stick cells 1 - 2 were all lit up | Pass |
 | BD3 | Object will be greater than 5 meters from the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells should all be off | LED stick cells were all off | Pass |
 | BD4 | Blind Spot detection should have < 1 second in latency for updating the LEDS. We will hide an object away from the Ultrasonic sensors field of vision and then suddenly hold it in the view to see its reaction time | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR15 | Lidar sensor feed | LED stick cells should light up within 1 second once an object is put in the sensors field of vision | LED stick cells light up within 1 second once the object is put in the sensors field of vision | Pass |
@@ -270,7 +270,7 @@ While digging into technical specifications and the real-world usage of the ride
 
 
 ## 8. Code Coverage Metrics
-Code coverage is determined by whether a specific sub system and code was exercised or not during the execution of our test suite. For the code coverage, although there exists a lot of unit testing extensions that measure out these metrics for us, it is more accurate and effective for us to calculate these metrics ourselves due to the nature that the majority of our testing is done in a real world environment and limited use of PyTest. It is also noted that we will not be running unit testing for each of the respective constructor (init.py) files for each of the subsystems. Metrics that we are including in our coverage report includes:
+Code coverage is determined by whether a specific sub system and code was exercised or not during the execution of our test suite. For the code coverage, although there exists a lot of unit testing extensions that measure out these metrics for us, it is more accurate and effective for us to calculate these metrics ourselves due to the nature that the majority of our testing is done in a real world environment and limited use of PyTest. Coverage was collected my monitoring each segment of the system while running through all of the mentioned unit tests. We monitor and have set breakpoints for functions, statements, and conditions ensuring they run through during utilization of that specific sub system. It is also noted that we will not be running unit testing for each of the respective constructor (init.py) files for each of the subsystems. Metrics that we are including in our coverage report includes:
 - Function coverage: How many functions defined have been called
 - Statement coverage: How many of the statements in the in the program have been executed
 - Condition coverage: How many of the boolean sub-expressions have been testing for a true and a false value
