@@ -2,10 +2,9 @@ from threading import Event, Thread
 import time
 from camera_thread.video_capture import Threaded_Video_Writing
 from print_handler import print_handler
-import RPi.GPIO as GPIO
 
 class Start:
-	def __init__(self, poweroff_event, capture_event, LOG_STATUS_LED):
+	def __init__(self, poweroff_event, capture_event):
 		
 		video_length = 60 # min length of video captures in seconds
 		fps = 30
@@ -32,9 +31,6 @@ class Start:
 			else:
 				video_writer.log_video()
 				capture_event.clear()
-				for i in range(4):
-					GPIO.output(LOG_STATUS_LED, i%2)
-					time.sleep(0.1)
 		
 		video_writer.close()
 		print_handler("Thread - Camera", "Video Camera thread safely stopped")
