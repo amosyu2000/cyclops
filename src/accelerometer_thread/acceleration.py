@@ -1,91 +1,73 @@
-import adafruit_adxl34x
+import adafruit_adxl34x, time, queue, csv
 import numpy as np
 from statistics import fmean
-import time
-from csv_handler import CSV_Handler
 from print_handler import print_handler
+from dir_handler import Dir_Handler
 
 class Acceleration:
-	def __init__(self, i2c, average_of=1):
+	def __init__(self, sample_rate, i2c):
 		"""
 		Create a class for collecting, storing, and analyzing acceleration data
 
 		@i2c: A busio.I2C class
-		@average_of: Takes a rolling average of the xyz acceleration points
 		"""
 
 		self.accelerometer = adafruit_adxl34x.ADXL345(i2c)
-		self.average_of = average_of
+		self.accelerometer_data = queue.Queue(60*sample_rate) # retain last 60 econds of data
+		self.dir_handler = Dir_Handler() # access most recent output directory
 
-		self.raw_x = [0] * self.average_of
-		self.raw_y = [0] * self.average_of
-		self.raw_z = [0] * self.average_of
-		self.raw_norm = [0] * self.average_of
-		self.avg_x = 0
-		self.avg_y = 0
-		self.avg_z = 0
-		self.avg_norm = 0
+		# Axis Calibration
+		self.xyz_scaling_factors = [1.0, 1.0, 1.0]
+		self.x = 0
+		self.y = 0
+		self.z = 0
+		self.xy_norm = 0
+		self.xyz_norm = 0
 
-		self.csv_handler = CSV_Handler("accelerometer", "/home/capstone/Documents/temp/accelerometer")
-		self.csv_handler.open()
+	def display_scaling_factor():
+		print()
 
-	def read(self):
+	def read_data(self):
 		"""
 		Take acceleration and time readings from the ADXL345 accelerometer
 
 		returns: new x, y, z, norm, and time readings
 		"""
+		[self.x, self.y, self.z] = [a*b for a, b in zip(self.accelerometer.acceleration, self.xyz_scaling_factors)]
 
-		[x,y,z] = self.accelerometer.acceleration
-		#print_handler("Acceleration", f"Readings of ({x}, {y}, {z})")
-		norm = np.linalg.norm([x,y,z])
+		self.xy_norm = (self.x**2 + self.y**2)**0.5	# vector plane parrallel to ground
+		self.xyz_norm = (self.x**2 + self.y**2 + self.z**2)**0.5
 
-		self.raw_x.append(x)
-		self.raw_y.append(y)
-		self.raw_z.append(z)
-		self.raw_norm.append(norm)
+		if self.accelerometer_data.full():
+			self.accelerometer_data.get()
+		self.accelerometer_data.put([time.time(), self.x, self.y, self.z, self.xyz_norm])
 
-		self.raw_x.pop(0)
-		self.raw_y.pop(0)
-		self.raw_z.pop(0)
-		self.raw_norm.pop(0)
+	def is_crashed(self):
+		if self.xyz_norm / 9.81 > 3:
+			return True
+		else:
+			return False
 
-		self.avg_x = fmean(self.raw_x)
-		self.avg_y = fmean(self.raw_y)
-		self.avg_z = fmean(self.raw_z)
-		self.avg_norm = fmean(self.raw_norm)
-
-		return [x,y,z,norm]
-	
-	def temp_log(self):
-		"""
-		Take readings and dump them in a temporary log file
-		"""
-
-		self.csv_handler.writerow(self.read())
-
-	def export_log(self):
+	def export_data(self):
 		"""
 		Save the last x seconds of acceleration data to its own csv file
 		"""
-
-		self.csv_handler.export_latest(seconds=60)
+		try:
+			output_directory = self.dir_handler.locate_export_dir('accelerometer')
+			output_file_name = '/accelerometer_' + time.strftime('%Y-%m-%d_%H:%M:%S') + ".csv"
+			with open(output_directory + output_file_name, 'w') as csv_file:
+				writer = csv.writer(csv_file, delimiter=',')
+				writer.writerow(['Time', 'X', 'Y', 'Z', 'Norm'])
+				while not self.accelerometer_data.empty():
+					writer.writerow(self.accelerometer_data.get())
+			csv_file.close
+		except:
+			print_handler("Thread - Acceleration", "An error occured while saving the data at: " + output_directory + output_file_name)
+		else:
+			print_handler("Thread - Acceleration", "Saved last 60 seconds of data to: " + output_directory + output_file_name)
 
 	def close(self):
 		"""
 		Close the log file
 		"""
-
-		self.csv_handler.close()
-
-	def get_avg_x(self):
-		return self.avg_x
-
-	def get_avg_y(self):
-		return self.avg_y
-
-	def get_avg_z(self):
-		return self.avg_z
-
-	def get_avg_norm(self):
-		return self.avg_norm
+		self.accelerometer_data.empty()
