@@ -50,8 +50,9 @@ Manny Lemos (lemosm1)
 - [11. Software Modules](#11-software-modules)
 	- [11.1. video\_capture.py](#111-video_capturepy)
 	- [11.2. acceleration.py](#112-accelerationpy)
-	- [11.3. led.py](#113-ledpy)
-	- [11.4. ultrasonic\_sensor.py](#114-ultrasonic_sensorpy)
+	- [11.3. \__init_\_.py - LED\_Handler](#113-_init_py---led_handler)
+	- [11.4. lidar.py](#114-lidarpy)
+	- [11.3. \__init_\_.py - Dir\_Handler](#113-_init_py---dir_handler)
 - [12. Timeline](#12-timeline)
 - [13. Appendix](#13-appendix)
 	- [13.1. Reflection](#131-reflection)
@@ -142,7 +143,7 @@ The following are a list of variables that are to be monitored.
 | z | Size | c |  m/s<sup>2</sup> | The final acceleration vector provided by the accelerometer sensor. |
 | norm | Size | c |  m/s<sup>2</sup> | Vector sum of the 3 dimensions of acceleration. |
 | Lidar_serial | N/A | N/A | N/A | Lidar sensor object which is queried for distance readings, and monitored for errors. |
-| distance | Size | [0, 800] | cm | Used to store the current distance retrieved from the Lidar sensor.
+| distance | Size | [20, 800] | cm | Used to store the current distance retrieved from the Lidar sensor.
 
 The following are a list of variables that are to be controlled.
 
@@ -238,29 +239,62 @@ The mechanical chassis and frame is shown below in Figure 8.3. Each module outli
 
 The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer. 
 <div align="center">
-<p id="mhdt">Figure 8.3.1: Mechanical Housing Drawing Top</p>
+<p id="mhdt">Figure 8.3.1: Raspberry-Pi Housing and Mount Assembly</p>
 
-![image](https://user-images.githubusercontent.com/58313755/213313607-af71d40e-9ca5-408c-966d-48411e60234f.png)  
+![image]()  
 
 </div>
-
-| Mechanical Frame Top Component Specification | Value |   
-|:--|:--|   
-| Dimensions | 91.25mm x 60mm x 19mm |   
-| Weight | 23grams | 
-| Material | PLA | 
 
 <div align="center">
-<p id="mhdb">Figure 8.3.2: Mechanical Housing Drawing Bottom</p>
+<p id="mhdt">Figure 8.3.2:  Raspberry-Pi Housing Top Component </p>
 
-![image](https://user-images.githubusercontent.com/58313755/213313743-9a756f6c-f0cb-4c9f-b2b1-f3c17105ddc7.png)  
+![image]()  
 
 </div>
 
-| Mechanical Frame Bottom Component Specification | Value |   
+| Raspberry-Pi Housing Top Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | 91.25mm x 60mm x 6mm |   
-| Weight | 15 grams |   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
+| Material | PLA |  
+
+<div align="center">
+<p id="mhdt">Figure 8.3.3: Raspberry-Pi Housing Middle Component</p>
+
+![image]()  
+
+</div>
+
+| Raspberry-Pi Housing Middle Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
+| Material | PLA |  
+
+<div align="center">
+<p id="mhdt">Figure 8.3.3: Raspberry-Pi Housing Bottom Component</p>
+
+![image]()  
+
+</div>
+
+| Raspberry-Pi Housing Bottom Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
+| Material | PLA |  
+
+<div align="center">
+<p id="mhdb">Figure 8.3.4: Lidar Housing and Mount Assembly</p>
+
+![image](https://user-images.githubusercontent.com/68861121/227793053-7faab446-95ab-47e2-882a-b37502a3d5c6.png)  
+
+</div>
+
+| Lidar Housing Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
 | Material | PLA |   
 
 The requirements traceability of the mechanical frame is as follows:
@@ -449,12 +483,17 @@ Receives the following Threaded_Video_Writing class construction parameters thro
 
 __Likely Changes__
 
-- Reduce the number of input parameters to the instantiation of the Threaded_Video_Writing class. These inputs will be replaced by fixed parameters which are deemed most suitable.
+- Reduce the number of input parameters to the instantiation of the Threaded_Video_Writing class. These inputs will be replaced by fixed parameters which are deemed most suitable. 
+  - This change was implemented
+- Implement hardware accelerated video encoding.
+  - This will likely enable higher resolution video capture
+  - This change has not yet been implemented
 
 __Unlikely Changes__
 
 - Change the camera being used from a USB web-camera to the Raspberry Pi Camera Module.
   - Subsequently, a large portion of the code for the Threaded_Video_Writing class will have to be rewritten.
+  - This change has not yet been implemented
 
 __Traceability__
 
@@ -468,81 +507,95 @@ The requirements traceability of the video_capture.py class is as follows:
 
 __Module Implementation__
 
-A class named Acceleration. Provides functions for analyzing and visualizing acceleration data.
+A class named Acceleration. Provides functions for retrieving acceleration readings from the accelerometer, storing the past 60 seconds of readings to a queue, analyzing readings to determine is a crash has occurred, and logging the queue of readings to a non-volatile memory location in the form of a .csv file.
 
 __Module Secrets__
 
+- Amount of time to store acceleration readings for.
+- Acceleration Readings.
+- Acceleration scaling factors (calibrated).
 - Algorithm for computing if a crash has occurred.
-- Implementation details of the live plot.
+- Algorithm to translate queue of readings into .csv file.
 
 __Module Relationships__
 
-Receives the following Acceleration_Plot class construction parameters through `__init__()`.
+Receives the following Acceleration class construction parameters through `__init__()`.
 
 | Parameter | Type | Description |
 |:--|:--|:--|
-data_points | integer | Maximum number of data points to show on the plot |
-average_of | integer | Takes a rolling average of the xyz acceleration points |
+sample_rate | integer | Number of times per second to retrieve an accelerometer reading. This will determine the size of the required queue. |
+i2c | busio.I2C Class | Enables setup to accelerometer object by passing i2c as the communication protocol. |
 
-Receives incoming acceleration data through `update()`.
+Receives incoming acceleration data through `read_data()`.
 
 | Parameter | Type | Description |
 |:--|:--|:--|
 | x | float | x component of acceleration |
 | y | float | y component of acceleration |
 | z | float | z component of acceleration |
-| t | float | time |
 
-Computes, using the available acceleration data, and returns if a crash has occurred through `is_crash_detected()`.
+The scaled available acceleration data is analyzed, and a determination is returned through `is_crashed()`.
 
 | Returns | Description |
 |:--|:--|
 | boolean | If a crash has been detected |
 
+Receives the current permanent storage location through `Dir_Handler()`.
+
+| Parameter | Type | Description |
+|:--|:--|
+| dir_handler | string | Absolute directory of the current permanent capture storage location. |
+
 __Likely Changes__
 
 - Adding the ability to log acceleration data in CSV format, so that data can be collected in the field and brought back to the lab for analysis.
+  - This change has been implemented
 - Crash detection algorithm will likely be updated and refined as manual testing continues.
+  - This change has been implemented.
 
 __Unlikely Changes__
 
 - Functions related to the visualization of acceleration data are useful in testing, but may be removed to improve the performance of the embedded system.
+  - This change has been implemented.
 
 __Traceability__
 
-The requirements traceability of the acceleration_plot.py class is as follows:
+The requirements traceability of the acceleration.py class is as follows:
 
 | Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
 |:--|:--|:--|
-| acceleration_plot.py | CFR3, CFR5, CFR7, CFR13 | CNFR6, CNFR12, CNFR15, CNFR17, CNFR24, CNFR29, CNFR37, CNFR38, CNFR39 |
+| acceleration.py | CFR3, CFR5, CFR7, CFR13 | CNFR6, CNFR12, CNFR15, CNFR17, CNFR24, CNFR29, CNFR37, CNFR38, CNFR39 |
 
-### 11.3. led.py
+### 11.3. \__init__.py - LED_Handler
 
 __Module Implementation__
-A class named led. Provides the functionalty of mapping Rasperry Pi pin to LEDs and also turning on/off the individuals LED.
+A class named LED_Handler. Provides a startup, capture, dynamic capture error, dynamic rear object distance, and poweroff LED lighting animations for use with the 8 LED neopixel strip.
 
 __Module Secrets__
 
 - Rasberry Pi pin setups.
-- Implementation of turning the LEDs on/off.
+- Number of LEDs
+- Distance Display Color Gradient
+- Animation Implementations
 
 __Module Relationships__
 
-Receives the following led class construction parameters through `__init__()`.
+ `error_capture_sequence()` method receives `debug` when called.
 
 | Parameter | Type | Description |
 |:--|:--|:--|
-pins | integer | Pin number on the Rasberry Pi for connecting the LEDs |
+| debug | list | 3 boolean values mapping to Accelerometer, Camera, and LiDar capture events respectively. Successful capture is indicated by False, and Failed capture by True. |
 
-Turning on the LEDs based on the percentage it is at through `percentage_high()`.
+`distance_display()` method receives `distance` when called.
 
 | Parameter | Type | Description |
 |:--|:--|:--|
-percent | integer | Percentage of LEDs that should be turned on |
+| distance | integer | Distance in cm or objects in the rear. |
 
 __Likely Changes__
 
-- No likely changes
+- Enhance Power on animation to show an initialization debug. 
+  - This change has not yet been implemented.
 
 __Unlikely Changes__
 
@@ -550,22 +603,21 @@ __Unlikely Changes__
 
 __Traceability__
 
-The requirements traceability of the led.py class is as follows:
+The requirements traceability of the Led_Handler() class is as follows:
 
 | Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
 |:--|:--|:--|
-| led.py | CFR1 | CNFR6, CNFR8, CNFR12, CNFR13, CNFR18, CNFR37, CNFR38, CNFR39 |
+| Led_Handler() | CFR1 | CNFR6, CNFR8, CNFR12, CNFR13, CNFR18, CNFR37, CNFR38, CNFR39 |
 
-### 11.4. ultrasonic_sensor.py
+### 11.4. lidar.py
 
 __Module Implementation__
-A class named ultrasonic_sensor. Provides the functionalty of measuring the distance of the object using ultrasonic sensor.
+A class named Lidar. Provides the functionality of reading data from the rear facing lidar sensor, translating this data into a distance reading, storing the past 60 seconds of readings to a queue, and logging the queue of readings to a non-volatile memory location in the form of a .csv file.
 
 __Module Secrets__
 
-- Rasberry Pi pin setups.
-- Calculation for the distance of object from ultrasonic sensor.
-- Time it takes for the ultrasonic sensor to pikc up the object.
+- Rasberry Pi serial setup.
+- Algorithm to translate raw lidar sensor data into a distance reading.
 
 __Module Relationships__
 
@@ -573,17 +625,25 @@ Receives the following led class construction parameters through `__init__()`.
 
 | Parameter | Type | Description |
 |:--|:--|:--|
-pin_trigger | integer | Pin number on the pi corresponding to the trigger pin on the sensor |
-pin_echo | integer | Pin number on the pi corresponding to the echo pin on the sensor |
-distance_min | integer | The closest distance that the ultrasonic sensor should detect |
-distance_max | integer | The furthest distance that the ultrasonic sensor should detect |
-unit | string | Unit of the min and max distances (ex. cm) |
+sample_rate | integer | Number of distance sensor readings per second. |
+baud_rate | integer | Speed of communication over serial channel in bits per second. |
+
+Data is interpreted from the lidar distance sensor, and a distance is returned through `read_data()`.
+
+| Returns | Description |
+|:--|:--|
+| integer | distance in cm measured by the lidar distance sensor. |
+
+Receives the current permanent storage location through `Dir_Handler()`.
+
+| Parameter | Type | Description |
+|:--|:--|
+| dir_handler | string | Absolute directory of the current permanent capture storage location. |
 
 __Likely Changes__
 
-- Number of LEDs.
-- Distance unit.
-- Maximum and minimum distance the ultrasonic sensor should detect.
+- Some methodology to decrease noise.
+  - Perhaps some distance average or data linearization.
 
 __Unlikely Changes__
 
@@ -591,11 +651,47 @@ __Unlikely Changes__
 
 __Traceability__
 
-The requirements traceability of the ultrasonic_sensor.py class is as follows:
+The requirements traceability of the lidar.py class is as follows:
 
 | Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
 |:--|:--|:--|
-| ultrasonic_sensor.py | CFR1 | CNFR6, CNFR12, CNFR15, CNFR18, CNFR37, CNFR38, CNFR39 |
+| lidar.py | CFR1 | CNFR6, CNFR12, CNFR15, CNFR18, CNFR37, CNFR38, CNFR39 |
+
+### 11.3. \__init__.py - Dir_Handler
+
+__Module Implementation__
+A class named Dir_Handler. Provides the functionality of mounting a USB stick if any are available, as well as determining or creating the most up-to-date directory to permanently store a capture file at.
+
+__Module Secrets__
+
+- Algorithm to mount a USB stick
+- Algorithm to determine the most recent capture folder and the conditions under which a new folder must be created.
+- Parent directory of folders which will be created.
+
+__Module Relationships__
+
+ `locate_export_dir()` method receives `filename` when called.
+
+| Parameter | Type | Description |
+|:--|:--|:--|
+| filename | string | Name of the file to be saved excluding timestamps. |
+
+__Likely Changes__
+
+- Add intelligent USB stick mounting if a USB stick is detected. 
+  - This change has been implemented.
+
+__Unlikely Changes__
+
+- No unlikely changes
+
+__Traceability__
+
+The requirements traceability of the Dir_Handler() class is as follows:
+
+| Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
+|:--|:--|:--|
+| Dir_Handler() | ADD | ADD |
 
 ## 12. Timeline
 | Date | Task                                                                                                    | Person                | Testing                                                                                                                                                                          |
@@ -606,7 +702,7 @@ The requirements traceability of the ultrasonic_sensor.py class is as follows:
 | 2023-01-31        | Swap breadboard and jumper wires for PCB and soldered connections.                                      | Amos Cheung           | Manual testing. Verify connections using multimeter.                                                                                                                             |
 | 2023-02-05        | Integration of all software modules.                                                                    | Brian Le, Amos Yu     | Manual Testing. Mount the hardware to the bicycle and ensure it functions as detailed in the SRS Document.                                                                                                                            |       
 | 2023-02-09        | Rev0 Demonstration                                                                    | Brian Le, Amos Yu, Amos Cheung, Aaron Li, Manny Lemos     | Ensure all tasks in the timeline up to 2023-02-09 is completed and working as a whole.                                                                                                                            |
-| 2023-02-20        | Implement New Ultrasonic Sensor                                                                    | Amos Cheung, Amos Yu, Brian Le     | Manual testing. Ensure new ultrasonic sensor functions as detailed in the SRS document.                                                                                                                            |         
+| 2023-02-20        | Implement Lidar Sensor                                                                 | Amos Cheung, Amos Yu, Brian Le     | Manual testing. Ensure lidar sensor functions as detailed in the SRS document.                                                                                                                            |         
 
 ## 13. Appendix
 
@@ -619,7 +715,7 @@ Cyclops ride assist aims to fill the ride monitoring and crash avoidance gap in 
 
 **Battery Life:** For cyclists who go on multi hour long bicycle rides, battery life may be of concern. The Raspberry Pi used to perform computations is not particularly battery efficient compared to more project specific embedded computers who do not have as much computational overhead. The capacity of the current battery pack being used is 10,000mah. To improve battery life, a higher capacity battery pack could be purchased. However, a higher capacity battery pack is almost certain to come along with the unwanted side effects of a larger size and heavier weight. 
 
-**Ultrasonic Sensor:** For the blindspot detection, our ultrasonic sensor is viable up to 4 meters. [7] However, the effectiveness of this is then limited when detecting an object from range. Temperature is also a major limiting factor as accuracy can be changed in temperatures of 5 - 19 degrees. One way we can look to improve on the performance and accuracy of our object detection would be to use a higher quality sensor for cyclops which can decrease these problems.
+**Ultrasonic Sensor:** Prior to the Lidar sensor, an Ultrasonic distance sensor was used to measure the distance of rear objects. This Ultrasonic sensor was viable up to 2 metres. However, the effectiveness of this was extremely limited when detecting an object at the upper end of this range, or in an enclosed environment where ultrasonic signals bouncing off surfaces created noise. Temperature was also a major limiting factor as the accuracy was subject to change in temperatures of 5 - 19 degrees. One way we can look to improve on the performance and accuracy of our object detection would be to use a higher quality sensor for cyclops which would decrease these problems.
 
 ### 13.2. References
 
