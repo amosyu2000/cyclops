@@ -249,73 +249,73 @@ The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer.
 <div align="center">
 <p id="8.3.1">Figure 8.3.1: Raspberry-Pi Housing and Mount Assembly</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227802061-4f5e95e5-2458-45fc-9831-af0bd2069de0.png)  
 
 </div>
 
 <div align="center">
 <p id="8.3.2">Figure 8.3.2:  Raspberry-Pi Housing Top Component </p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227801065-39317eab-c4ca-4e80-a789-2157c4507197.png)  
 
 </div>
 
 | Raspberry-Pi Housing Top Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
-| Weight | MASS grams |   
+| Outer Dimensions | 6.9 mm x 80 mm x 125 mm |   
+| Weight | 8 grams |   
 | Material | PLA |  
 
 <div align="center">
 <p id="8.3.3">Figure 8.3.3: Raspberry-Pi Housing Middle Component</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227801192-44f274d3-31e4-4b06-a681-4bbb24093a4c.png)  
 
 </div>
 
 | Raspberry-Pi Housing Middle Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
-| Weight | MASS grams |   
+| Outer Dimensions | 41 mm x 80 mm x 125 mm |   
+| Weight | 9 grams |   
 | Material | PLA |  
 
 <div align="center">
 <p id="8.3.4">Figure 8.3.4: Raspberry-Pi Housing Bottom Component</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227801347-3773790b-c780-4255-b6e2-c199a5d80bd6.png)  
 
 </div>
 
 | Raspberry-Pi Housing Bottom Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
-| Weight | MASS grams |   
+| Outer Dimensions | 6.9 mm x 80 mm x 125 mm |   
+| Weight | 8 grams |   
 | Material | PLA |  
 
 <div align="center">
 <p id="8.3.5">Figure 8.3.5: Raspberry-Pi Housing Mount Top Component</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227801560-964c5cec-e2b7-4ee9-8ad4-4cedb07b8354.png)  
 
 </div>
 
 | Raspberry-Pi Housing Mount Top Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
-| Weight | MASS grams |   
+| Outer Dimensions | 30 mm x 69.5 mm x 20 mm |   
+| Weight | 8 grams |   
 | Material | PLA |  
 
 <div align="center">
 <p id="8.3.6">Figure 8.3.6: Raspberry-Pi Housing Mount Bottom Component</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227801900-34f4fee5-2cac-4bbd-a72d-a7c59de95d16.png)  
 
 </div>
 
 | Raspberry-Pi Housing Mount Bottom Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
-| Weight | MASS grams |   
+| Outer Dimensions | 30 mm x 69.5 mm x 20 mm |   
+| Weight | 8 grams |   
 | Material | PLA |  
 
 <div align="center">
@@ -328,40 +328,40 @@ The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer.
 <div align="center">
 <p id="mhdb">Figure 8.3.8: Lidar Housing Component</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227800229-5f5c2a8e-15d8-4b6f-bebd-12de190cc968.png)  
 
 </div>
 
 | Lidar Housing Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
+| Outer Dimensions | 40 mm x 51 mm x 16 mm |   
 | Weight | MASS grams |   
 | Material | PLA |   
 
 <div align="center">
 <p id="8.3.9">Figure 8.3.9: Lidar Housing Mount Top Component</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227800499-58692151-2862-4db9-854c-37f766230fb7.png)  
 
 </div>
 
 | Lidar Housing Mount Top Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
-| Weight | MASS grams |   
+| Outer Dimensions | 30 mm x 69.5 mm x 20 mm |   
+| Weight | 8 grams |   
 | Material | PLA |  
 
 <div align="center">
 <p id="8.3.10">Figure 8.3.10: Lidar Housing Mount Bottom Component</p>
 
-![image]()  
+![image](https://user-images.githubusercontent.com/68861121/227801619-fdae8d8f-5a9e-4b5b-a639-ceeb00bd38cc.png)  
 
 </div>
 
 | Lidar Housing Mount Bottom Component Specification | Value |   
 |:--|:--|   
-| Outer Dimensions | Height x Width x Depth |   
-| Weight | MASS grams |   
+| Outer Dimensions | 30 mm x 69.5 mm x 20 mm |   
+| Weight | 8 grams |   
 | Material | PLA |  
 
 The requirements traceability of the mechanical frames are as follows:
