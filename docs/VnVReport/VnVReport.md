@@ -5,7 +5,7 @@
 </a>
 
 # Verification and Validation Report <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
+Cyclops Ride Assist: Real-time bicycle crash detection and rear vehicle monitoring.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -167,7 +167,7 @@ The testing of the non-functional required both qualitative and quantitive tests
 Testing was structured based on how the systems and subsystems were defined for the software of Cyclops. With the nature of how each major safety feature is composed of both electrical and software components, either white box or black box testing was utilized. If the unit required a real-world environment to fully work, black box testing was chosen and if the unit involved more algorithmic components, white box testing was chosen.
 
 ### 6.1. Blind Spot Detection
-The main goal of testing the blindspot detection would be to test the functionality of our lidar sensor as well as the algorithm used to convert the distance-based data into a visual representation (LED)’s. The visual representation of LEDs is configured such that each LED will represent a specific level/proximity to the rider of a vehicle or object. Our plan in unit testing would be to ensure that the LEDs are functioning from each extremity (close and far) ensuring that there is a visible object in the sensor's field of vision at all times. 
+The main goal of testing the rear vehicle detection would be to test the functionality of our lidar sensor as well as the algorithm used to convert the distance-based data into a visual representation (LED)’s. The visual representation of LEDs is configured such that each LED will represent a specific level/proximity to the rider of a vehicle or object. Our plan in unit testing would be to ensure that the LEDs are functioning from each extremity (close and far) ensuring that there is a visible object in the sensor's field of vision at all times. 
 
 <div align="center">
 
@@ -175,7 +175,7 @@ The main goal of testing the blindspot detection would be to test the functional
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| BD1 | Object should be held up close to the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells 1 - 5 should all be lit up | LED stick cells1 - 5 were all lit up | Pass |
+| BD1 | Object should be held 0 - 1 meters to the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells 1 - 5 should all be lit up | LED stick cells1 - 5 were all lit up | Pass |
 | BD2 | Object will be 2 - 3 meters from the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells 1 - 3 should all be lit up | LED stick cells 1 - 2 were all lit up | Pass |
 | BD3 | Object will be greater than 5 meters from the rear sensor | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR12, CNFR25 | Lidar sensor feed | LED stick cells should all be off | LED stick cells were all off | Pass |
 | BD4 | Blind Spot detection should have < 1 second in latency for updating the LEDS. We will hide an object away from the Ultrasonic sensors field of vision and then suddenly hold it in the view to see its reaction time | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR15 | Lidar sensor feed | LED stick cells should light up within 1 second once an object is put in the sensors field of vision | LED stick cells light up within 1 second once the object is put in the sensors field of vision | Pass |
@@ -193,14 +193,14 @@ Each test performed for the crash detection unit will have CRA 2 main units alre
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| CD1 | Rider will ride in a straight line on a flat road for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | N/A - Nothing should happen | Nothing gets logged onto the SD | Pass |
-| CD2 | Rider will ride in a straight line over grass or a bumpy path for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | N/A - Nothing should happen | N/A - Nothing happened | Pass |
+| CD1 | Rider will ride in a straight line on a flat road for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | No crashed detected | No crashed detected | Pass |
+| CD2 | Rider will ride in a straight line over grass or a bumpy path for 10 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | No crashed detected | No crashed detected | Pass |
 | CD3 | Rider will ride in a straight line for 5 seconds and then “crash” | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | Crash detection algorithm should prompt a video clip to be logged | Video clip was logged and stored on SD as well as crash information of moments before | Pass |
-| CD4 | Rider will hold the bike in their hand and let the bike drop/fall over | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | N/A - Nothing should happen | N/A - Nothing should happen | Pass |
+| CD4 | Rider will hold the bike in their hand and let the bike drop/fall over | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input, front camera feed | No crashed detected | No crashed detected | Pass |
 | CD5 | Rider will hold the bike and jolt it forward and backwards for 5 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input | α_x readings should update to reflect the sudden change in acceleration | α_x readings updates to reflect the sudden change in acceleration | Pass |
 | CD6 | Rider will hold the bike and jolt it side to side (left to right) for 5 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input | α_y readings should update to reflect the sudden change in acceleration | α_y readings updates to reflect the sudden change in acceleration | Pass |
 | CD7 | Rider will hold the bike and jolt it up and down for 5 seconds | CFR3, CFR4, CFR5, CFR7 | Accelerometer electrical input | α_z readings should update to reflect the sudden change in acceleration | α_z readings updates to reflect the sudden change in acceleration | Pass |
-| CD8 | Create another crash after recovering from the prior crash. Functionality should remain consistent | CFR12, CFR13 | Accelerometer electrical input | CRA should resume crash detection and recording video and data | CRA resumes crash detection and recording video and data | Pass |
+| CD8 | Create another crash after recovering from the prior crash.| CFR12, CFR13 | Accelerometer electrical input | CRA should resume crash detection and recording video and data | CRA resumes crash detection and recording video and data | Pass |
 </div>
 
 ### 6.3. Video/Data Logging
@@ -227,7 +227,7 @@ Each test will be performed by having the CRA unit experience and trigger a cras
 
 ### 6.4. Power
 
-CRA has configured the power button such that both the crash detection and blindspot detection should automatically start running once it has been pressed. The system also has configured the button to log the last bit of data once the power has been turned off (button is pressed again). 
+CRA has configured the power button such that both the crash detection and rear vehicle detection should automatically start running once it has been pressed. The system also has configured the button to log the last bit of data once the power has been turned off (button is pressed again). 
 
 <div align="center">
 
@@ -235,8 +235,8 @@ CRA has configured the power button such that both the crash detection and blind
 
 | Test Number | Description | Requirement Referenced | Inputs | Expected Outputs | Actual Outputs | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| P1 | CRA should automatically have the scripts of CRA’s crash and blindspot detection ran once powered on | CFR11, CNFR6 | Power button | Video and data should begin to be read in and LEDs should light up to indicate power on | Video and data begins to be read in and LEDs light up when powered on | Pass |
-| P2 | CRA should automatically clip and log the past 60 seconds of CRA’s crash and blindspot detection data once powered off | CFR11, CNFR6 | Power button | Data should be logged and saved within CSV locally when CRA has been powered off | Data is logged and saved within CSV locally when CRA was powered off | Pass | 
+| P1 | CRA should automatically have the scripts of CRA’s crash and rear vehicle detection ran once powered on | CFR11, CNFR6 | Power button | Video and data should begin to be read in and LEDs should light up to indicate power on | Video and data begins to be read in and LEDs light up when powered on | Pass |
+| P2 | CRA should automatically clip and log the past 60 seconds of CRA’s crash and rear vehicle detection data once powered off | CFR11, CNFR6 | Power button | Data should be logged and saved within CSV locally when CRA has been powered off | Data is logged and saved within CSV locally when CRA was powered off | Pass | 
 
 </div>
 
@@ -270,7 +270,7 @@ While digging into technical specifications and the real-world usage of the ride
 
 
 ## 8. Code Coverage Metrics
-Code coverage is determined by whether a specific sub system and code was exercised or not during the execution of our test suite. For the code coverage, although there exists a lot of unit testing extensions that measure out these metrics for us, it is more accurate and effective for us to calculate these metrics ourselves due to the nature that the majority of our testing is done in a real world environment and limited use of PyTest. It is also noted that we will not be running unit testing for each of the respective constructor (init.py) files for each of the subsystems. Metrics that we are including in our coverage report includes:
+Code coverage is determined by whether a specific sub system and code was exercised or not during the execution of our test suite. For the code coverage, although there exists a lot of unit testing extensions that measure out these metrics for us, it is more accurate and effective for us to calculate these metrics ourselves due to the nature that the majority of our testing is done in a real world environment and limited use of PyTest. Coverage was collected my monitoring each segment of the system while running through all of the mentioned unit tests. We monitor and have set breakpoints for functions, statements, and conditions ensuring they run through during utilization of that specific sub system. It is also noted that we will not be running unit testing for each of the respective constructor (init.py) files for each of the subsystems. Metrics that we are including in our coverage report includes:
 - Function coverage: How many functions defined have been called
 - Statement coverage: How many of the statements in the in the program have been executed
 - Condition coverage: How many of the boolean sub-expressions have been testing for a true and a false value
@@ -293,7 +293,7 @@ Code coverage is determined by whether a specific sub system and code was exerci
 ## 9. Appendix
 
 ### 9.1. Reflection
-The VnV Plan put about a solid foundation upon which the Cyclops team worked to verify and validate the numerous intricate components of the ride assist system. The testing identified in the VnV Plan was a response to the fundamental features required by the implementation chosen. Those features are blindspot detection, crash detection, video and data logging, and some baseline usability and stylistic requirements. 
+The VnV Plan put about a solid foundation upon which the Cyclops team worked to verify and validate the numerous intricate components of the ride assist system. The testing identified in the VnV Plan was a response to the fundamental features required by the implementation chosen. Those features are rear vehicle detection, crash detection, video and data logging, and some baseline usability and stylistic requirements. 
 
 As a result of tackling broader requirements in testing specifications as opposed to generating specific tests for specific implementations, the VnV Plan proved to be a robust document that withstood the changes made due to testing. Some of those changes include switching from ultrasonic to lidar distance sensing and decreasing the size of the system. In the first instance clearly predicting what was required was driven by the overarching concept of the system; improving user safety by indicating the distance of objects behind the rider. This brings about an important concept that the Cyclops team learned and will be sure to use in future Verification and Validation Planning; Test cases should be broad enough that implementation shifts will not render them obsolete, yet specific enough that every requirement is sure to be met under their cumulative rule. 
 

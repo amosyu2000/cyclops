@@ -9,7 +9,7 @@ from print_handler import print_handler
 from dir_handler import Dir_Handler
 
 # Testing Lib
-from imutils.video import FPS
+#from imutils.video import FPS
 
 class Threaded_Video_Writing():
     def __init__(self, fps):
@@ -54,8 +54,8 @@ class Threaded_Video_Writing():
         Thread(target=self.grab_frame, args=()).start()
 
         # Tesing Line
-        self.grabFPS = FPS().start()
-        self.writeFPS = FPS().start()
+        #self.grabFPS = FPS().start()
+        #self.writeFPS = FPS().start()
 
     def clear_tmp(self):
         for f in os.listdir(self.temp_dir):
@@ -67,7 +67,7 @@ class Threaded_Video_Writing():
             if self.capture.isOpened():
                 (self.status, self.frame) = self.capture.read()
                 # Testing Line
-                self.grabFPS.update()
+                #self.grabFPS.update()
 
     def write_frame(self):
         # Save obtained frame into video output file
@@ -75,7 +75,7 @@ class Threaded_Video_Writing():
             self.output_video.write(self.frame)
 
             # Testing Line
-            self.writeFPS.update()
+            #self.writeFPS.update()
 
     def refresh(self):
         self.output_video.release()
@@ -130,9 +130,7 @@ class Threaded_Video_Writing():
         self.clear_tmp()
 
         # Testing Lines
-        self.grabFPS.stop()
-        self.writeFPS.stop()
-        print("[INFO] approx. FPS: {:.2f}".format(self.grabFPS.fps()))
-        print("[INFO] approx. FPS: {:.2f}".format(self.writeFPS.fps()))
-        
-        exit(1)
+        #self.grabFPS.stop()
+        #self.writeFPS.stop()
+        #print("[INFO] approx. FPS: {:.2f}".format(self.grabFPS.fps()))
+        #print("[INFO] approx. FPS: {:.2f}".format(self.writeFPS.fps()))
