@@ -63,19 +63,27 @@ Manny Lemos (lemosm1)
 - [Table 1.1: Revision History](#rh)
 
 ## List of Figures <!-- omit in toc -->
-- [Figure 4.1.1: CRA System Context Diagram](#scd)
-- [Figure 5.1: CRA Functional Decomposition Diagram](#fdd)
-- [Figure 5.2: CRA Module Hierarchy Diagram](#acd)
-- [Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic](#rpps)
-- [Figure 8.3.1: Mechanical Housing Drawing Top](#mdht)
-- [Figure 8.3.2: Mechanical Housing Drawing Bottom](#mhdb)
-- [Figure 9.1.1: CRA Circuit Diagram](#ccd)
-- [Figure 9.1.2: CRA Breadboard Schematic](#cbs)
-- [Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram](#rpies)
-- [Figure 9.2.2: Raspberry Pi 4 Model B Pinouts](#rpipo)
-- [Figure 9.4.1: Accelerometer Sensor Diagram](#asd)
-- [Figure 9.5.1: Radar Sensor Diagram](#rsd)
-- [Figure 11.0.1: CRA Software Stack](#css)
+- [Figure 4.1.1: CRA System Context Diagram](#4.1.1)
+- [Figure 5.1.1: CRA Functional Decomposition Diagram](#5.1.1)
+- [Figure 5.2.1: CRA Module Hierarchy Diagram](#5.2.1)
+- [Figure 8.1.1: Raspberry Pi 4 Model B Physical Schematic](#8.1.1)
+- [Figure 8.3.1: Figure 8.3.1: Raspberry-Pi Housing and Mount Assembly](#8.3.1)
+- [Figure 8.3.2: Raspberry-Pi Housing Top Component](#8.3.2)
+- [Figure 8.3.3: Raspberry-Pi Housing Middle Component](#8.3.3)
+- [Figure 8.3.4: Raspberry-Pi Housing Bottom Component](#8.3.4)
+- [Figure 8.3.5: Raspberry-Pi Housing Mount Top Component](#8.3.5)
+- [Figure 8.3.6: Raspberry-Pi Housing Mount Bottom Component](#8.3.6)
+- [Figure 8.3.7: Lidar Housing and Mount Assembly](#8.3.7)
+- [Figure 8.3.8: Lidar Housing Component](#8.3.8)
+- [Figure 8.3.9: Lidar Housing Mount Top Component](#8.3.9)
+- [Figure 8.3.10: Lidar Housing Mount Bottom Component](#8.3.10)
+- [Figure 9.1.1: CRA Circuit Diagram](#9.1.1)
+- [Figure 9.1.2: CRA Breadboard Schematic](#9.1.2)
+- [Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram](#9.2.1)
+- [Figure 9.2.2: Raspberry Pi 4 Model B Pinouts](#9.2.2)
+- [Figure 9.4.1: Accelerometer Sensor Diagram](#9.4.1)
+- [Figure 9.5.1: Lidar Sensor Diagram](#9.5.1)
+- [Figure 11.0.1: CRA Software Stack](#11.0.1)
 
 ## 1. Revision History
 <div align="center">
@@ -102,7 +110,7 @@ CRA will be an easily mountable, and quick to set up system that adds modern car
 ### 4.1. System Context
 
 <div align="center">
-<p id="scd">Figure 4.1.1: CRA System Context Diagram</p>
+<p id="4.1.1">Figure 4.1.1: CRA System Context Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/227060079-c7be38c6-cc82-4ef1-972d-ccbeb3c455c5.png)
 
@@ -112,7 +120,7 @@ CRA will be an easily mountable, and quick to set up system that adds modern car
 
 ### 5.1. Functional Decomposition
 <div align="center">
-<p id="fdd">Figure 5.1: CRA Functional Decomposition Diagram</p>
+<p id="5.1.1">Figure 5.1.1: CRA Functional Decomposition Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/227070616-2b526f35-920e-4b90-a4e2-564ba493f355.png)  
 
@@ -120,7 +128,7 @@ CRA will be an easily mountable, and quick to set up system that adds modern car
 
 ### 5.2. Module Hierarchy
 <div align="center">
-<p id="acd">Figure 5.2: CRA Module Hierarchy Diagram</p>
+<p id="5.2.1">Figure 5.2.1: CRA Module Hierarchy Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/227072978-55699c2b-670c-48f5-a939-d2e95884ddd8.png)  
 
@@ -196,7 +204,7 @@ The following are a list of variables that are to be controlled.
 ### 8.1. Raspberry Pi Mechanical Specifications   
 
 <div align="center">
-<p id="rpimd">Figure 8.1.1: Raspberry Pi Mechanical Drawing and Schematic [1]</p>
+<p id="8.1.1">Figure 8.1.1: Raspberry Pi Mechanical Drawing and Schematic [1]</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213242698-29e0ad61-2088-429e-91e5-0e97043f7a81.png)  
 
@@ -239,14 +247,14 @@ The mechanical chassis and frame is shown below in Figure 8.3. Each module outli
 
 The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer. 
 <div align="center">
-<p id="mhdt">Figure 8.3.1: Raspberry-Pi Housing and Mount Assembly</p>
+<p id="8.3.1">Figure 8.3.1: Raspberry-Pi Housing and Mount Assembly</p>
 
 ![image]()  
 
 </div>
 
 <div align="center">
-<p id="mhdt">Figure 8.3.2:  Raspberry-Pi Housing Top Component </p>
+<p id="8.3.2">Figure 8.3.2:  Raspberry-Pi Housing Top Component </p>
 
 ![image]()  
 
@@ -259,7 +267,7 @@ The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer.
 | Material | PLA |  
 
 <div align="center">
-<p id="mhdt">Figure 8.3.3: Raspberry-Pi Housing Middle Component</p>
+<p id="8.3.3">Figure 8.3.3: Raspberry-Pi Housing Middle Component</p>
 
 ![image]()  
 
@@ -272,7 +280,7 @@ The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer.
 | Material | PLA |  
 
 <div align="center">
-<p id="mhdt">Figure 8.3.3: Raspberry-Pi Housing Bottom Component</p>
+<p id="8.3.4">Figure 8.3.4: Raspberry-Pi Housing Bottom Component</p>
 
 ![image]()  
 
@@ -285,9 +293,42 @@ The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer.
 | Material | PLA |  
 
 <div align="center">
-<p id="mhdb">Figure 8.3.4: Lidar Housing and Mount Assembly</p>
+<p id="8.3.5">Figure 8.3.5: Raspberry-Pi Housing Mount Top Component</p>
+
+![image]()  
+
+</div>
+
+| Raspberry-Pi Housing Mount Top Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
+| Material | PLA |  
+
+<div align="center">
+<p id="8.3.6">Figure 8.3.6: Raspberry-Pi Housing Mount Bottom Component</p>
+
+![image]()  
+
+</div>
+
+| Raspberry-Pi Housing Mount Bottom Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
+| Material | PLA |  
+
+<div align="center">
+<p id="mhdb">Figure 8.3.7: Lidar Housing and Mount Assembly</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/227793053-7faab446-95ab-47e2-882a-b37502a3d5c6.png)  
+
+</div>
+
+<div align="center">
+<p id="mhdb">Figure 8.3.8: Lidar Housing Component</p>
+
+![image]()  
 
 </div>
 
@@ -297,7 +338,33 @@ The mechanical design was created using PLA and the Prusa i3 MK3s 3D printer.
 | Weight | MASS grams |   
 | Material | PLA |   
 
-The requirements traceability of the mechanical frame is as follows:
+<div align="center">
+<p id="8.3.9">Figure 8.3.9: Lidar Housing Mount Top Component</p>
+
+![image]()  
+
+</div>
+
+| Lidar Housing Mount Top Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
+| Material | PLA |  
+
+<div align="center">
+<p id="8.3.10">Figure 8.3.10: Lidar Housing Mount Bottom Component</p>
+
+![image]()  
+
+</div>
+
+| Lidar Housing Mount Bottom Component Specification | Value |   
+|:--|:--|   
+| Outer Dimensions | Height x Width x Depth |   
+| Weight | MASS grams |   
+| Material | PLA |  
+
+The requirements traceability of the mechanical frames are as follows:
 
 | Module | [Functional Requirements](../SRS/SRS.md#64-functional-requirements) | [Non-Functional Requirements](../SRS/SRS.md#7-non-functional-requirements) |
 |:--|:--|:--|
@@ -308,11 +375,11 @@ The requirements traceability of the mechanical frame is as follows:
 ### 9.1. CRA Electrical Specifications
 
 <div align="center">
-<p id="ccd">Figure 9.1.1: CRA Circuit Diagram</p>
+<p id="9.1.1">Figure 9.1.1: CRA Circuit Diagram</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/227234645-6bd65eb8-b8a0-4800-8071-e276d820305f.png)
 
-<p id="cbs">Figure 9.1.2: CRA Breadboard Schematic</p>
+<p id="9.1.2">Figure 9.1.2: CRA Breadboard Schematic</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/227234403-665eda97-7641-43ac-91a0-450ba33e1e1b.png)
 
@@ -322,11 +389,11 @@ The requirements traceability of the mechanical frame is as follows:
 
 The Raspberry Pi 4's reduced electrical schematic can be seen below. Using various pins and ports provided, CRA will be able to accomplish what is set out in the scope. 
 <div align="center">
-<p id="rpies">Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram [3]</p>
+<p id="9.2.1">Figure 9.2.1: Raspberry Pi 4 Model B Circuit Diagram [3]</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213247210-1cf36f4d-d1d2-463e-be8d-ee6f19534f09.png)  
 
-<p id="rpipo">Figure 9.2.2: Raspberry Pi 4 Model B Pinouts</p>
+<p id="9.2.2">Figure 9.2.2: Raspberry Pi 4 Model B Pinouts</p>
 
 ![image](https://user-images.githubusercontent.com/46848538/216134255-84d21f3c-331d-4725-91e4-e9f4208d1137.png) 
 
@@ -358,7 +425,7 @@ The requirements traceability of the accelerometer is as follows:
 | Accelerometer | CFR3, CFR5 | CNFR15, CNFR17, CNFR24, CNFR25, CNFR29, CNFR33, CNFR35 |
 
 <div align="center">
-<p id="asd">Figure 9.4.1: Accelerometer Sensor Diagram [4]</p>
+<p id="9.4.1">Figure 9.4.1: Accelerometer Sensor Diagram [4]</p>
 
 ![image](https://user-images.githubusercontent.com/58313755/213337993-6efc55c0-f281-432d-bbbd-4ff78e75fa65.png)  
 
@@ -388,7 +455,7 @@ The requirements traceability of the Lidar sensor is as follows:
 
 
 <div align="center">
-<p id="rsd">Figure 9.5.1: Lidar Sensor Diagram [5]</p>
+<p id="9.5.1">Figure 9.5.1: Lidar Sensor Diagram [5]</p>
 
 ![image](https://user-images.githubusercontent.com/68861121/227240854-94cbbfe8-6d49-402b-b4dd-11ef7e39059d.png)  
 
@@ -452,7 +519,7 @@ Bitwise continuous communication protocol which is used in two sensor applicatio
 The main entry point of the program is the `__main__.py` script. All software modules are classes implemented in Python 3.9. Software modules are constructed and executed by threaded `Start` classes. Each module is instantiated by `__main__.py` and communicates with other threads via thread events. Upon startup of the Raspberry Pi, `__main__.py` should immediately begin execution. To shut down the Raspberry Pi, `__main__.py` should pass control to the OS to do a safe poweroff and terminate.
 
 <div align="center">
-<p id="css">Figure 11.0.1: CRA Software Stack</p>
+<p id="11.0.1">Figure 11.0.1: CRA Software Stack</p>
 
 ![image](https://user-images.githubusercontent.com/46848538/216851907-190a5e21-1d07-40a5-bf8b-72de3d9cdf8f.png)
 
