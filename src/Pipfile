@@ -10,9 +10,13 @@ adafruit-circuitpython-adxl34x = "*"
 ffmpeg-python = "*"
 opencv-python = "==4.6.0.66"
 pandas = "*"
-picamera = "*"
 imutils = "*"
 colorama = "*"
+adafruit-circuitpython-neopixel = "*"
+adafruit-blinka = "*"
+install = "*"
+rpi-ws281x = "*"
+wget = "*"
 
 [dev-packages]
 
