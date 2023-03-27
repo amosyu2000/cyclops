@@ -23,7 +23,8 @@ Manny Lemos (lemosm1)
 - [3. General Information](#3-general-information)
 	- [3.1. Purpose](#31-purpose)
 	- [3.2. Scope](#32-scope)
-	- [3.3. Relevant Documentation](#33-relevant-documentation)
+	- [3.3. Background](#33-background)
+	- [3.4. Relevant Documentation](#34-relevant-documentation)
 - [4. Plan](#4-plan)
 	- [4.1. Verification and Validation Team](#41-verification-and-validation-team)
 	- [4.2. SRS Verification Plan](#42-srs-verification-plan)
@@ -124,8 +125,12 @@ The purpose of this document is to describe the testing, validation, and verific
 ### 3.2. Scope
 This validation and verification document lays the foundation for testing the CRA system. The requirements for correct system functionality presented in the SRS document will be extended upon to include specific, quantifiable metrics. Success in the testing described will verify that CRA has met these requirements in a measurable, meaningful way.
 
-Specifically, this document will address testing pertaining to both the software and hardware of CRA. Out of scope testing would include testing for requirements not covered in the SRS document. 
-### 3.3. Relevant Documentation
+Specifically, this document will address testing pertaining to both the software and hardware of CRA. Out of scope testing would include testing for requirements not covered in the SRS document.
+
+### 3.3. Background
+Cyclops Ride Assist(CRA) will be an easily mountable, and quick to set up system that adds modern car safety features onto any bike. These features include rear vehicle detection and alert, a continuous loop of the last 60 seconds of camera, accelerometer, and Lidar data, and crash identification and response. CRA is aimed at cyclists of all levels that frequently traverse road and gravel terrains. CRA is not designed to be used on extreme terrain such as downhill mountain biking.
+
+### 3.4. Relevant Documentation
 [SRS Document](https://github.com/amosyu2000/cyclops/blob/main/docs/SRS/SRS.md)
 ## 4. Plan
 ### 4.1. Verification and Validation Team

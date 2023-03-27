@@ -74,7 +74,7 @@ Manny Lemos (lemosm1)
 </div>
 
 ## 2. Introduction
-This document is the hazard analysis of Cyclops Ride Assist (CRA) system. CRA is an all-in-one, easily mountable, and quick to setup system that adds modern car safety features onto a bicycle or motorcyle. Features include blind spot detection, crash detection, and automatic video capture and upload. 
+This document is the hazard analysis of Cyclops Ride Assist (CRA) system. Cyclops Ride Assist(CRA) will be an easily mountable, and quick to set up system that adds modern car safety features onto any bike. These features include rear vehicle detection and alert, a continuous loop of the last 60 seconds of camera, accelerometer, and Lidar data, and crash identification and response. CRA is aimed at cyclists of all levels that frequently traverse road and gravel terrains. CRA is not designed to be used on extreme terrain such as downhill mountain biking.
 
 ## 3. Scope and Purpose
 The scope of the hazard analysis as outlined in this document will be kept within the physical/software space of the CRA system boundary. Hazards imposed by the outer environment, society, and user error will be considered out of the scope for this document.
