@@ -5,7 +5,7 @@
 </a>
 
 # Verification and Validation Report <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
+Cyclops Ride Assist: Real-time bicycle crash detection and rear vehicle monitoring.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
