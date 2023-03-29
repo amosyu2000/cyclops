@@ -82,7 +82,7 @@ class Buffer:
 		# release the current result video, this allows it to be accessed
 		self.result.release()
 		output_directory = self.dir_handler.locate_export_dir('video')
-		output_file_name = '/video_' + time.strftime('%Y-%m-%d_%H:%M:%S') + '.mp4'
+		output_file_name = '/video_' + time.strftime('%Y-%m-%d_%H-%M-%S') + '.mp4'
 
 		# store videos names in txt file to be concatenated using ffmpeg demux
 		f = open(self.temp_directory + "concat_list.txt", "w")

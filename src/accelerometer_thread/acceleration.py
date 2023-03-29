@@ -54,7 +54,7 @@ class Acceleration:
 		"""
 		try:
 			output_directory = self.dir_handler.locate_export_dir('accelerometer')
-			output_file_name = '/accelerometer_' + time.strftime('%Y-%m-%d_%H:%M:%S') + ".csv"
+			output_file_name = '/accelerometer_' + time.strftime('%Y-%m-%d_%H-%M-%S') + ".csv"
 			with open(output_directory + output_file_name, 'w') as csv_file:
 				writer = csv.writer(csv_file, delimiter=',')
 				writer.writerow(['Time', 'X', 'Y', 'Z', 'Norm'])

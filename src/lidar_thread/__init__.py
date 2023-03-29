@@ -11,7 +11,6 @@ class Start():
 		self.lidar = Lidar(sample_rate, baud_rate)
 		estimated_run_time = 0.001
 		sleep_time = 1.0/(sample_rate) - estimated_run_time
-		#try:
 		print_handler("Thread - Lidar", "Lidar thread started")
 
 		while not poweroff_event.is_set():
@@ -26,8 +25,6 @@ class Start():
 		# close the leds
 		self.lidar.close()
 		print_handler("Thread - Lidar", "Lidar thread safely stopped")
-		#except:
-			#print_handler("Thread - Lidar", "Error. The lidar module has failed!")
 
 if __name__ == '__main__':
 	Start(Event(), Event())
