@@ -30,7 +30,8 @@ class Lidar():
 			time.sleep(0.01)
 		raw_lidar_data = self.lidar_serial.read(9)
 		self.lidar_serial.reset_input_buffer()
-		if raw_lidar_data[0]!=0x59 or raw_lidar_data[1]!=0x59: # validate the data using first 2 bits
+		if raw_lidar_data[0]!=0x59 or raw_lidar_data[1]!=0x59: # validate the data using first 2 bytes
+			print_handler("Thread - Lidar", "Invalid Data")
 			return None
 		distance = (raw_lidar_data[2] + raw_lidar_data[3]*256)
 		signal_strength = raw_lidar_data[4] + raw_lidar_data[5]*256
@@ -44,7 +45,7 @@ class Lidar():
 	def export_data(self):
 		try:
 			output_directory = self.dir_handler.locate_export_dir('lidar')
-			output_file_name = '/lidar_' + time.strftime('%Y-%m-%d_%H:%M:%S') + ".csv"
+			output_file_name = '/lidar_' + time.strftime('%Y-%m-%d_%H-%M-%S') + ".csv"
 			with open(output_directory + output_file_name, 'w') as csv_file:
 				csv_file.write('Time, Distance, Signal Stength, Temperature\n')
 				while not self.lidar_data.empty():

@@ -5,13 +5,13 @@ from print_handler import print_handler
 from led_handler import Led_Handler
 
 class Start:
-	def __init__(self, poweroff_event, log_event, *thread_capture_events):
+	def __init__(self, led_handler, poweroff_event, log_event, *thread_capture_events):
 		print_handler("Thread - Capture", "Capture thread started")
 
 		self.log_event = log_event
 		self.PIN_CAPTURE = 21
 		self.thread_capture_events = thread_capture_events
-		self.led_handler = Led_Handler()
+		self.led_handler = led_handler
 
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setup(self.PIN_CAPTURE, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -21,19 +21,16 @@ class Start:
 			if self.log_event.is_set():
 				self.set_capture_events()
 				start_time = time.time()
-				graceful_exit = True
 				while self.is_set(): # verify that all thread_capture_events are lowered
 					if time.time()-start_time>6:
-						graceful_exit = False
 						break
 					time.sleep(0.1)
-				if graceful_exit:
+				debug = self.event_status()
+				if not debug[0] and not debug[1] and not debug[2]:
 					print_handler("Thread - Capture", "Capture sucessful")
-					self.led_handler.capture_sequence()
 				else:
-					debug = self.event_status()
 					print_handler("Thread - Capture", "Capture failed, alotted time has expired. \n[Accelerometer, Camera, LiDar] \nEvent Status: " + str(debug) + "\nExpected: [False, False, False]")
-					self.led_handler.error_capture_sequence(debug)
+				self.led_handler.capture_sequence(debug)
 				self.log_event.clear()
 			time.sleep(0.1)
 
