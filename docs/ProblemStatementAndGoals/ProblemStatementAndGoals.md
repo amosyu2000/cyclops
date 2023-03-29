@@ -52,7 +52,6 @@ Manny Lemos (lemosm1)
 | 2022-10-19 | All | Document creation |
 | 2022-10-20 | Amos Yu | Improved formatting |
 | 2022-11-09 | Aaron Li | Updated content |
-| 2023-03-15 | Aaron Li | Updated content |
 
 </div>
 
