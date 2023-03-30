@@ -12,7 +12,6 @@ class Lidar():
 			self.lidar_serial.open() # open serial port if not open
 		self.set_sample_rate(sample_rate)
 		self.lidar_data = queue.Queue(60*sample_rate) # retain the last 60 econds of data
-		self.dir_handler = Dir_Handler() # provides name of a dynamic output directory
 
 	def set_sample_rate(self, sample_rate:int):
 		"""
@@ -42,9 +41,9 @@ class Lidar():
 		self.lidar_data.put([time.time(), distance, signal_strength, temperature])
 		return distance
 		
-	def export_data(self):
+	def export_data(self, directory):
 		try:
-			output_directory = self.dir_handler.locate_export_dir('lidar')
+			output_directory = directory.get()
 			output_file_name = '/lidar_' + time.strftime('%Y-%m-%d_%H-%M-%S') + ".csv"
 			with open(output_directory + output_file_name, 'w') as csv_file:
 				csv_file.write('Time, Distance, Signal Stength, Temperature\n')

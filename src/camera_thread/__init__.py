@@ -1,10 +1,10 @@
 from threading import Event, Thread
-import time
+import time, queue
 from camera_thread.video_capture import Threaded_Video_Writing
 from print_handler import print_handler
 
 class Start:
-	def __init__(self, poweroff_event, capture_event):
+	def __init__(self, directory, poweroff_event, capture_event):
 		
 		video_length = 60 # min length of video captures in seconds
 		fps = 30
@@ -29,7 +29,7 @@ class Start:
 					if sleep_time > 0:
 						time.sleep(sleep_time)
 			else:
-				video_writer.log_video()
+				video_writer.log_video(directory)
 				capture_event.clear()
 		
 		video_writer.close()

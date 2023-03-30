@@ -1,6 +1,7 @@
 from threading import Event, Thread
 import os
 import RPi.GPIO as GPIO
+import queue
 from print_handler import print_handler
 from led_handler import Led_Handler
 import accelerometer_thread, camera_thread, lidar_thread, capture_thread
@@ -20,12 +21,15 @@ led_handler = Led_Handler(log_event)
 led_handler.startup_sequence()
 print_handler("Main", "Program started")
 
+""" Shared Directory Variable """
+directory = queue.Queue(3)
+
 """ Threads """
 threads = [
-	Thread(target=accelerometer_thread.Start, args=[poweroff_event, log_event, a_capture_event]),
-	Thread(target=camera_thread.Start, args=[poweroff_event, c_capture_event]),
-	Thread(target=lidar_thread.Start, args=[poweroff_event, l_capture_event, led_handler]),
-	Thread(target=capture_thread.Start, args=[led_handler, poweroff_event, log_event, a_capture_event, c_capture_event, l_capture_event]),
+	Thread(target=accelerometer_thread.Start, args=[directory, poweroff_event, log_event, a_capture_event]),
+	Thread(target=camera_thread.Start, args=[directory, poweroff_event, c_capture_event]),
+	Thread(target=lidar_thread.Start, args=[directory, poweroff_event, l_capture_event, led_handler]),
+	Thread(target=capture_thread.Start, args=[directory, led_handler, poweroff_event, log_event, a_capture_event, c_capture_event, l_capture_event]),
 ]
 [ thread.start() for thread in threads ]
 

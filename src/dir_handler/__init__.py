@@ -62,12 +62,9 @@ class Dir_Handler:
 					return f"/dev/{device_name}1"
 		return None
 
-	def locate_export_dir(self, filename):
+	def locate_export_dir(self):
 		"""
-		For a file with a given name, find and return an export folder for it to be saved to
-		Will either find an existing available folder or create a new one
-
-		@filename: Name of the file, excluding timestamps
+		For a file with a given name, create and return an export folder for it to be saved to
 		"""
 		all_dirs = list(filter(lambda d: self.export_dirname in d, next(os.walk(self.get_parent_dir()))[1]))
 		
@@ -77,13 +74,6 @@ class Dir_Handler:
 
 		# Now at least one directory exists, find latest one
 		latest_dirname = max(all_dirs)
-		latest_dir = f"{self.get_parent_dir()}/{latest_dirname}"
-
-		# If latest directory is not already used
-		os.makedirs(latest_dir, exist_ok=True)
-		latest_dir_files = next(os.walk(latest_dir))[2]
-		if len(list(filter(lambda f: filename in f, latest_dir_files))) == 0:
-			return latest_dir
 
 		# Now must create a new dir
 		latest_dirnum = int(latest_dirname.split("_")[-1])
