@@ -1,13 +1,13 @@
 import board
 import busio
-import time
+import time, queue
 from threading import Event
 from accelerometer_thread.acceleration import Acceleration
 # from accelerometer_thread.acceleration_plot import Acceleration_Plot
 from print_handler import print_handler
 
 class Start:
-	def __init__(self, poweroff_event, log_event, capture_event):
+	def __init__(self, directory, poweroff_event, log_event, capture_event):
 		print_handler("Thread - Acceleration", "Acceleration thread started")
 		self.i2c = busio.I2C(board.SCL, board.SDA)
 		sample_rate = 5 # hz
@@ -18,7 +18,7 @@ class Start:
 		while not poweroff_event.is_set():
 			start_time = time.time()
 			if capture_event.is_set():
-				self.acceleration.export_data()
+				self.acceleration.export_data(directory)
 				capture_event.clear()
 			self.acceleration.read_data()
 			if temp_flag == False:
@@ -29,7 +29,6 @@ class Start:
 			elif time.time() - acceleration_event_time > 10:
 				log_event.set()
 				temp_flag = False
-
 
 			sleep_time = loop_time - (time.time()-start_time)
 			if sleep_time > 0:

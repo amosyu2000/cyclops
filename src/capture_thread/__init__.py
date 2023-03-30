@@ -1,17 +1,20 @@
 import RPi.GPIO as GPIO
-import time
+import time, queue
 from threading import Event
 from print_handler import print_handler
 from led_handler import Led_Handler
+from dir_handler import Dir_Handler
 
 class Start:
-	def __init__(self, led_handler, poweroff_event, log_event, *thread_capture_events):
+	def __init__(self, directory, led_handler, poweroff_event, log_event, *thread_capture_events):
 		print_handler("Thread - Capture", "Capture thread started")
 
 		self.log_event = log_event
 		self.PIN_CAPTURE = 21
 		self.thread_capture_events = thread_capture_events
 		self.led_handler = led_handler
+		self.directory = directory
+		self.dir_handler = Dir_Handler() # provides name of a dynamic output directory
 
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setup(self.PIN_CAPTURE, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -19,6 +22,7 @@ class Start:
 
 		while not poweroff_event.is_set():
 			if self.log_event.is_set():
+				self.update_directory()
 				self.set_capture_events()
 				start_time = time.time()
 				while self.is_set(): # verify that all thread_capture_events are lowered
@@ -41,6 +45,11 @@ class Start:
 		print_handler("Thread - Capture", f"Button {pin} pushed")
 		self.log_event.set()
 	
+	def update_directory(self):
+		temp_directory = self.dir_handler.locate_export_dir()
+		for i in range(3):
+			self.directory.put(temp_directory)
+
 	def set_capture_events(self):
 		for event in self.thread_capture_events:
 			event.set()

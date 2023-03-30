@@ -5,7 +5,7 @@ import time
 from threading import Event
 
 class Start():
-	def __init__(self, poweroff_event, capture_event, led_handler):
+	def __init__(self, directory, poweroff_event, capture_event, led_handler):
 		sample_rate = 5 # potential sample rates [1-250]
 		baud_rate = 115200 # potential baudrates [9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600]
 		self.lidar = Lidar(sample_rate, baud_rate)
@@ -18,7 +18,7 @@ class Start():
 			distance = int(self.lidar.read_data() or 0)
 			led_handler.distance_display(distance)
 			if capture_event.is_set():
-				self.lidar.export_data()
+				self.lidar.export_data(directory)
 				capture_event.clear()
 			time.sleep(sleep_time)
 		

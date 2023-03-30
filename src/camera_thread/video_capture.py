@@ -1,5 +1,5 @@
 from threading import Thread
-import os
+import os, queue
 import shutil
 import cv2
 import ffmpeg
@@ -7,7 +7,6 @@ import subprocess
 
 import time
 from print_handler import print_handler
-from dir_handler import Dir_Handler
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -22,8 +21,6 @@ class Threaded_Video_Writing():
         # Temporary location where clips are stored -> Clear it
         self.temp_dir = '/home/capstone/Documents/temp/video/'
         self.clear_tmp()
-
-        self.dir_handler = Dir_Handler() # provides name of a dynamic output directory
 
         # Create video capture object
         self.capture = cv2.VideoCapture(-1, cv2.CAP_V4L2)
@@ -77,10 +74,10 @@ class Threaded_Video_Writing():
         self.output_num = (self.output_num+1)%2
         self.output_video = cv2.VideoWriter(self.temp_dir + str(self.output_num) + self.video_ext, self.codec, self.fps, (self.frame_width, self.frame_height))
     
-    def log_video(self):
+    def log_video(self, directory):
         # release the current result video -> this allows it to be accessed
         self.output_video.release()
-        output_directory = self.dir_handler.locate_export_dir('video')
+        output_directory = directory.get()
         output_file_name = '/video_' + time.strftime('%Y-%m-%d_%H-%M-%S') + self.video_ext
         # store videos names in txt file to be concatenated using ffmpeg demux
         f = open(self.temp_dir + "concat_list.txt", "w")

@@ -2,7 +2,6 @@ import adafruit_adxl34x, time, queue, csv
 import numpy as np
 from statistics import fmean
 from print_handler import print_handler
-from dir_handler import Dir_Handler
 
 class Acceleration:
 	def __init__(self, sample_rate, i2c):
@@ -14,7 +13,6 @@ class Acceleration:
 
 		self.accelerometer = adafruit_adxl34x.ADXL345(i2c)
 		self.accelerometer_data = queue.Queue(60*sample_rate) # retain last 60 econds of data
-		self.dir_handler = Dir_Handler() # access most recent output directory
 
 		# Axis Calibration
 		self.xyz_scaling_factors = [1.0, 1.0, 1.0]
@@ -48,12 +46,12 @@ class Acceleration:
 		else:
 			return False
 
-	def export_data(self):
+	def export_data(self, directory):
 		"""
 		Save the last x seconds of acceleration data to its own csv file
 		"""
 		try:
-			output_directory = self.dir_handler.locate_export_dir('accelerometer')
+			output_directory = directory.get()
 			output_file_name = '/accelerometer_' + time.strftime('%Y-%m-%d_%H-%M-%S') + ".csv"
 			with open(output_directory + output_file_name, 'w') as csv_file:
 				writer = csv.writer(csv_file, delimiter=',')
