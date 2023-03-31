@@ -1,10 +1,8 @@
 import sys
 sys.path.append('../src')
 import pytest 
-from ultrasonic_thread.ultrasonic import Ultrasonic
+from lidar_thread.lidar import Lidar
 
-def test_ultrasonic():
+def test_lidar_init():
+    lidar = Lidar(5, 115200)
     assert True
-    """
-        Unit testing for ultrasonic algorithm
-    """
