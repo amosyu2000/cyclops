@@ -3,11 +3,11 @@ sys.path.append('../src')
 import pytest 
 import numpy as np
 import time
-from accelerometer_thread.acceleration_plot import Acceleration_Plot
+from accelerometer_thread.acceleration import Acceleration
 
 
 def test_data_points():
-    acceleration_plot = Acceleration_Plot(data_points=50, average_of=3)
+    acceleration_plot = Acceleration(data_points=50, average_of=3)
     assert len(acceleration_plot.avg_norm) == 0
     acceleration_plot.avg_norm.append(5)
     assert len(acceleration_plot.avg_norm) == 1
