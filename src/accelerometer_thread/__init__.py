@@ -22,7 +22,7 @@ class Start:
 				capture_event.clear()
 			self.acceleration.read_data()
 			if temp_flag == False:
-				if self.acceleration.is_crashed(): 
+				if self.acceleration.is_crashed(upright_threshold = 8, climax_threshold = 20, smoothing = 4): 
 					print_handler("Thread - Acceleration", "Crash Detected!")
 					acceleration_event_time = time.time()
 					temp_flag = True
