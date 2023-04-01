@@ -26,7 +26,7 @@ class Start:
 				self.set_capture_events()
 				start_time = time.time()
 				while self.is_set(): # verify that all thread_capture_events are lowered
-					if time.time()-start_time>6:
+					if time.time()-start_time>10: # upper limit of assumed normal write time = 10s
 						break
 					time.sleep(0.1)
 				debug = self.event_status()
