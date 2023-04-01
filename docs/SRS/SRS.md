@@ -117,7 +117,7 @@ Manny Lemos (lemosm1)
 | 2022-10-20 | Amos Yu | Improved formatting |
 | 2022-11-06 | Amos Yu | Addressed peer review suggestions |
 | 2023-02-05 | Aaron Li | Updated SRS for current state |
-| 2023-02-05 | Aaron Li | Updated SRS for Rev1 |
+| 2023-04-01 | Aaron Li | Updated SRS for Rev1 |
 
 
 </div>
