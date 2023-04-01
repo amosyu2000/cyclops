@@ -93,8 +93,7 @@ Manny Lemos (lemosm1)
   - [9.1. Likely Changes](#91-likely-changes)
   - [9.2. Unlikely Changes](#92-unlikely-changes)
 - [10. Appendix](#10-appendix)
-  - [10.1. Symbolic Parameters](#101-symbolic-parameters)
-  - [10.2. Reflection](#102-reflection)
+  - [10.1. Reflection](#101-reflection)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
@@ -117,7 +116,7 @@ Manny Lemos (lemosm1)
 | 2022-10-20 | Amos Yu | Improved formatting |
 | 2022-11-06 | Amos Yu | Addressed peer review suggestions |
 | 2023-02-05 | Aaron Li | Updated SRS for current state |
-| 2023-04-01 | Aaron Li | Updated SRS for Rev1 |
+| 2023-04-01 | Aaron Li, Amos Yu | Updated SRS for Rev1 |
 
 
 </div>
@@ -131,15 +130,15 @@ Cyclops Ride Assist (CRA) is going to be an all-in-one, easily mountable, and qu
 CRA is going to be a bike assist system with convenient mounting, accurate crash detection, video buffering and saving, reliable rearview monitoring that helps cyclist to have peace of mind while riding on the road. Although CRA is primarily targeted towards road cyclists, it will able be useful for cyclists who ride on mountains or trails.
 
 ### 2.3. Behaviour Overview
-The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will store the past BUFFER_TIME_MINUTES of footage so the user can look back at the events leading up to the crash. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an LED indicator.    
+The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will store the past BUFFER_TIME of footage so the user can look back at the events leading up to the crash. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an LED indicator.    
 
 ### 2.4. Project Stakeholders
 The project stakeholders are as follows:  
 - The project proposers (Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos)
 - The project supervisor (Dr. Spencer Smith)
 - The teaching assistants (Nicholas Annable)
-- All cyclists    
-  
+- All cyclists 
+
 ### 2.5. Product Users
 The user will be all cyclists.
 ## 3. Project Constraints
@@ -167,22 +166,29 @@ A list of constraints which will adhered to during the design and development of
 | User | A person who will operate the final product. See Cyclist. |
 
 #### 3.2.2. Constants
-- Gravity = 9.81 m/s<sup>2</sup>
+| Constant Name | Constant Description | Type | Units |
+|:--|:--|:--|:--|
+| GRAVITY | Acceleration due to gravity. | float | m/s<sup>2</sup> |
+| CRASH_THRESHOLD | The maximum acceleration incurred during a crash. | integer | m/s<sup>2</sup> |
+| BUFFER_TIME | The length of footage that will be saved after an accident occurs. | integer | seconds |
+| UPLOAD_TIME | The maximum time required to upload a video to the external storage device. | integer | seconds |
+| RESPONSE_RATE | The maximum time required to update the output upon a change in the input. | integer | Hz |
 #### 3.2.3. Monitored Variables
-| Monitor Name | Monitor Description | Monitor Type | Units |
+| Monitor Name | Monitor Description | Type | Units |
 |:--|:--|:--|:--|
-| αx | Measures acceleration parallel to the path of  the bicycle. | acceleration | m/s2 |
-| αy | Measures acceleration perpendicular to the path of  the bicycle along the plane of the ground. | acceleration | m/s2 |
-| αz | Measures acceleration in the vertical direction. | acceleration | m/s2 |
-| tilt | Measures the vertical tilt of the system relative to a calibrated absolute level. | rotation | rad |
-| vfront | Video feed from the front facing camera. | Video | N/A |
-| vrear | Ultrasonic sensor input. | Ultrasonic Sensor | N/A |
-| sw_flashlight | Switch which controls the flashlight. | Boolean | N/A |
+| α<sub>x</sub> | Measures acceleration parallel to the path of  the bicycle. | float | m/s<sup>2</sup> |
+| α<sub>y</sub> | Measures acceleration perpendicular to the path of  the bicycle along the plane of the ground. | float | m/s<sup>2</sup> |
+| α<sub>z</sub> | Measures acceleration in the vertical direction. | float | m/s<sup>2</sup> |
+| tilt | Measures the horizontal tilt of the system calibrated relative to the ground. | float | m/s<sup>2</sup> |
+| norm | Measures the total magnitude of the acceleration vector. | float | m/s<sup>2</sup> |
+| v<sub>front</sub> | Video feed from the front facing camera. | video | 480p |
+| v<sub>rear</sub> | Data feed from the rear facing sensor. | float | m |
+
 #### 3.2.4. Controlled Variables
-| Controlled Name | Controlled Description | Controlled Type | Units |
+| Controlled Name | Controlled Description | Type | Units |
 |:--|:--|:--|:--|
-| led_blind_spot | Indicates a vehicle is in the bicycles blind spot. | Boolean | N/A |
-| flashlight | Indicates the state of the flashlight. | Boolean | N/A |
+| poweroff_flag | To control the power status of the system. | boolean | N/A |
+| log_flag | To indicate that video and data from the past BUFFER_TIME should be logged. | boolean | N/A |
 
 ### 3.3. Relevant Facts and Assumptions  
 #### 3.3.1. Relevant Facts  
@@ -213,7 +219,7 @@ Assumptions will enable developers to cull the scope of the problem(s) being und
 <div align="center">
 <p id="fdd">Figure 5.1: CRA Functional Decomposition Diagram</p>
 
-![image](https://user-images.githubusercontent.com/46848538/213323584-7ad14da3-8865-4878-8e06-ba42eb49f347.png)  
+![image](https://user-images.githubusercontent.com/46848538/229306937-48d4cd29-7b94-4d5c-85a8-b5544c440e25.png)  
 
 <p id="dfd">Figure 5.2: CRA Data Flow Diagram</p>
 
@@ -235,59 +241,51 @@ The scope of the product will be a physical enclosure which will contain the mic
 ### 6.4. Functional Requirements
 
 #### 6.4.1. CRA Requirements
-| CFR1       | CRA must be able to light up an LED when an object is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1              |
+| CFR1 | CRA must be able to incrementally light up a row of LEDs when an object is recognized. Such that: VehicleDetected = led_blind_spot(VF) where if VF = Vehicle is detected -> LEDLight = 1 |
 |:--|:--|
-| Rationale | CRA should be able to visually inform the rider that there is an obstacle approaching in their rearview . |
+| Rationale | CRA should be able to visually inform the rider that there is an obstacle approaching from the rear. |
 
-| CFR2       | CRA must be able to continuously collect data from a front-facing video feed throughout the user's ride.                |
+| CFR2 | CRA must be able to continuously collect data from a front-facing video feed throughout the user's ride. |
 |:--|:--|
 | Rationale | CRA needs the live front-facing video feed for video logging upon crash detection. |
 
-| CFR3       | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az)               |
+| CFR3 | CRA must be able to take in accurate acceleration information. Such that: A<sub>bike</sub> = Acceleration(ax, ay, az) |
 |:--|:--|
 | Rationale | CRA needs the accurate acceleration to determine when a crash has occured |
 
-| CFR4       | CRA must be able to take in accurate velocity information.                |
+| CFR4 | CRA must be able to take in accurate rear vehicle distance information. |
 |:--|:--|
-| Rationale | CRA needs an accurate velocity to determine when the user is moving to activate the crash system. |
+| Rationale | CRA needs an accurate distance to determine where the vehicle behind it is located. |
 
-| CFR5       | CRA must know when the user is moving. Such that: Moving = V<sub>bike</sub> > 0              |
+| CFR5 | CRA must know when the user is moving. Such that: Moving = V<sub>bike</sub> > 0 |
 |:--|:--|
 | Rationale | CRA should only log a crash once it has been established that the user was moving on their bike. |
 
-| CFR6       | CRA must recognize an object approaching through the an ultrasonic sensor such that: isVehicle = Feed(vrear) where if vrear contains object approaching at a certain distance -> isVehicle = 1            |
+| CFR6 | CRA must recognize an object approaching through the a rear-facing sensor such that: isVehicle = Feed(v<sub>rear</sub>) where if v<sub>rear</sub> contains object approaching at a certain distance -> isVehicle = 1 |
 |:--|:--|
 | Rationale | CRA should recognize that there is an object approaching in the users rearview. |
 
-| CFR7       | CRA must recognize the user has crashed. Such that: crashed = CrashMonitor(A<sub>bike</sub>) where if A<sub>bike</sub> > AcceptableG -> crashed = 1        |
+| CFR7 | CRA must recognize the user has crashed. Such that: crashed = CrashMonitor(A<sub>bike</sub>) where if A<sub>bike</sub> > AcceptableG -> crashed = 1 |
 |:--|:--|
 | Rationale | CRA should recognize when to discard buffered video footage and when to save it. |
 
-| CFR8       | CRA must clip/log the last BUFFER_TIME_MINUTES minutes of the Video Feed when a crash is detected. Such that videoLog(vfront) - > V, SD = {C1, C2 ..}       |
+| CFR8 | CRA must clip/log the last BUFFER_TIME and the following UPLOAD_TIME of the Video Feed when a crash is detected. Such that videoLog(v<sub>front</sub>) - > V, SD = {C1, C2 ..} |
 |:--|:--|
 | Rationale | CRA should save the video feed of the moments leading up to the crash on the integrated SD card |
 
-| CFR9       | CRA must be able to notify when the SD card is full. Such that: sdFull = isSDFull(SD) where if SD.size()/(clipSize * clipCount) $<$ clipSize -> sdFull = 1    |
-|:--|:--|
-| Rationale | CRA should save the video feed of the moments leading up to the crash on the integrated SD card |
-
-| CFR10       | CRA must only be able to run the crash detection when an SD card is inserted into the system    |
+| CFR10 | CRA must only be able to run the crash detection when an SD card is inserted into the system |
 |:--|:--|
 | Rationale | CRA should only be able to run the crash detection functionality once an SD card is included in the system |
 
-| CFR11       | CRA shall be able to determine when a component is no longer operational due to low power levels. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub>   |
+| CFR11 | CRA shall be able to determine when a component is no longer operational due to improper connection. Such that: ErrorLowPower = V<sub>battery</sub> $<$ V<sub>min</sub> |
 |:--|:--|
 | Rationale | If a component is unable to perform its function as intended, it should be disabled rather than continue to provide unreliable data. |
 
-| CFR12       | CRA must be able to continue running its video feed after a clip has been logged |
+| CFR12 | CRA must be able to continue running its video feed after a clip has been logged |
 |:--|:--|
 | Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
 
-| CFR13       | CRA must be able to continue running its crash detection system after a crash has been detected |
-|:--|:--|
-| Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
-
-| CFR14       | CRA must be able turn on front lights when prompted by the user. Such that lightON = illuminationResp(flashLightState) |
+| CFR13 | CRA must be able to continue running its crash detection system after a crash has been detected |
 |:--|:--|
 | Rationale | CRA should keep the system rolling in the case that the user is able to continue biking after an initial crash |
 
@@ -361,11 +359,11 @@ The scope of the product will be a physical enclosure which will contain the mic
 
 ### 7.3. Performance Requirements
 #### 7.3.1. Speed and Latency Requirements 
-| CNFR15 | CRA will have a maximum response time of RESPONSE_TIME_MILLISECONDS. |
+| CNFR15 | CRA will have a maximum response time of RESPONSE_RATE. |
 |:--|:--|
 | Rationale | This is to ensure that the user is able to use CRA quickly and get on their way. |
 
-| CNFR16 | CRA will upload the video file to the external storage with a max time of UPLOAD_TIME_SECONDS. |
+| CNFR16 | CRA will upload the video file to the external storage with a max time of UPLOAD_TIME. |
 |:--|:--|
 | Rationale | This is to ensure that the user is able to access their files quickly. |
 
@@ -614,7 +612,7 @@ The scope of the product will be a physical enclosure which will contain the mic
 |:----------|:---|
 | Rationale | This is one of the core requirement of crash detection |
 
-| CFR8       | CRA must clip/log the last BUFFER_TIME_MINUTES of the Video Feed when a crash is detected. Such that videoLog(vfront) - > V, SD = {C1, C2 ..}       |
+| CFR8       | CRA must clip/log the last BUFFER_TIME of the Video Feed when a crash is detected. Such that videoLog(v<sub>front</sub>) - > V, SD = {C1, C2 ..}       |
 |:----------|:---|
 | Rationale | This is one of the core requirement of crash detection |
 
@@ -815,22 +813,8 @@ The scope of the product will be a physical enclosure which will contain the mic
 | Rationale | This is to ensure the product is safe for the users and also the surroundings|
 
 ## 10. Appendix
-### 10.1. Symbolic Parameters
 
-<div align="center">
-
-<p id="sp">Table 10.1.1: List of Symbolic Parameters</p>
-
-| Parameter | Description |
-|:--|:--|
-| BUFFER_TIME_MINUTES | The length of footage that will be saved after an accident occurs (in minutes). |
-| UPLOAD_TIME_SECONDS | The maximum time required to upload a video to the external storage device (in seconds). |
-| RESPONSE_TIME_MILLISECONDS | The maximum time required to update the output upon a change in the input (in milliseconds). |
-| LOW_BATTERY_ALERT_TIME_SECONDS | The maximum time after startup required to indicate if the system is low on battery (in seconds). |
-
-</div>
-
-### 10.2. Reflection
+### 10.1. Reflection
 
 
 There is a lot of knowledge and skills that our team is going to need to acquire to successfully complete our capstone project. From learning how to write formal documentation such as the SRS to pushing to our Github repository, all these tasks have taught our team a lot about the non-coding side of software. 
