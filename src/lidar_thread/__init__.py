@@ -15,7 +15,7 @@ class Start():
 
 		while not poweroff_event.is_set():
 			# get distance & update LEDS
-			distance = int(self.lidar.read_data() or 0)
+			distance = int(self.lidar.read_data() or 999)
 			led_handler.distance_display(distance)
 			if capture_event.is_set():
 				self.lidar.export_data(directory)
