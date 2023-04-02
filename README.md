@@ -19,9 +19,16 @@ __Team 9__
 
 North American cities are shifting from a car-centric design to greener forms of transportation. It is expected that more people will adopt cycling as their primary method of commuting. However, it is difficult for a cyclist to keep track of everything going on around them, especially during busy times.
 
-Cyclops Ride Assist (CRA) will be an easy-to-use system that mounts on the bike that will allow its users to have full detection of their surroundings during their trip from start to finish, cameras to capture and record from various angles, and sensors to detect vehicles in blind-spots and accidents. In the event of any cycling collision, CRA will automatically record the scene for any investigations. 
+Cyclops Ride Assist (CRA) will be an easy-to-use system that mounts on the bike that will allow its users to have full detection of their surroundings during their trip from start to finish, cameras to capture and record from various angles, and sensors to detect vehicles in blind-spots and accidents. In the event of any cycling collision, CRA will automatically record the scene for future review. 
+
+## Video
+
+Click the thumbnail to be directed to our promotional video!
+
+[![Watch the video](https://img.youtube.com/vi/2H2faZxTyGI/maxresdefault.jpg)](https://youtu.be/2H2faZxTyGI)
 
 ## Schedule 
+
 | Date              | Description     |
 |-------------------|-----------------|
 | September 7, 2022 | Project started |
@@ -34,9 +41,13 @@ Cyclops Ride Assist (CRA) will be an easy-to-use system that mounts on the bike 
 | January 17, 2023 | Design Document started |
 | February 9, 2023 | Revision 0 demo |
 | March 1, 2023 | Verification and Validation Report started |
+| April 1, 2023 | Revision 1 demo |
+| April 11, 2023 | Capstone EXPO |
 
 ## Repository Structure
+
 ### Source Code
+
 We put all our code in the [Code tab](https://github.com/amosyu2000/cyclops). The file structure of the code is as follows.
 
 <details><summary>docs</summary>
@@ -44,16 +55,19 @@ We put all our code in the [Code tab](https://github.com/amosyu2000/cyclops). Th
 - Documentation for the project
 
 </details>
+
 <details><summary>refs</summary>
 
 - Reference material used for the project, including papers
 
 </details>
+
 <details><summary>src</summary>
 
 - Source code
 
 </details>
+
 <details><summary>test</summary>
 
 - Test cases
@@ -61,10 +75,20 @@ We put all our code in the [Code tab](https://github.com/amosyu2000/cyclops). Th
 </details>
 
 ### Issues
+
 We report and keep track of bugs that need to be fixed and things that need to be done in the [Issues tab](https://github.com/amosyu2000/cyclops/issues). 
+
 ### Contributing
+
 We contribute to the codebase by making pull requests, which are tracked in the [Pull requests tab](https://github.com/amosyu2000/cyclops/pulls).
+
 ### Meeting Minutes
+
 We schedule weekly meetings to discuss progress, setbacks, and deadlines. Meeting minutes are kept in the [Discussions tab](https://github.com/amosyu2000/cyclops/discussions).
+
 ### Wiki
+
 We write down things we've learned so that we can refer to it in the future. Documentation is kept in the [Wiki tab](https://github.com/amosyu2000/cyclops/wiki) and is updated frequently.
+
+## License
+See our [license file](./LICENSE).
