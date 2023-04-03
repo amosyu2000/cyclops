@@ -95,7 +95,6 @@ Manny Lemos (lemosm1)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
-- [Table 10.1.1: List of Symbolic Parameters](#sp)
 
 ## List of Figures <!-- omit in toc -->
 - [Figure 4.1: CRA System Context Diagram](#scd)  
@@ -132,7 +131,7 @@ CRA is going to be a bike assist system with convenient mounting, accurate crash
 
 ### 2.3. Behaviour Overview
 
-The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will store the past BUFFER_TIME of footage so the user can look back at the events leading up to the crash. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an LED indicator.
+The user can press the power button to turn on the CRA. Once it turns on, it will start to record the forward point of view of the bike. If a bike crash is detected, the system will save the past BUFFER_TIME seconds and the following MAX_UPLOAD_TIME seconds of footage and data so the user can look back at the events leading up to the crash. If the user presses the capture button, the system will save the past BUFFER_TIME seconds of footage and data. Also on the back side of the system, CRA will watch out for cars approaching the bike at blind spots and alert the cyclist with an LED indicator.
 
 ### 2.4. Project Stakeholders
 
@@ -183,7 +182,8 @@ A list of constraints which will adhered to during the design and development of
 | GRAVITY | Acceleration due to gravity. | float | m/s<sup>2</sup> |
 | CRASH_THRESHOLD | The maximum acceleration incurred during a crash. | integer | m/s<sup>2</sup> |
 | MAX_DISTANCE | The maximum distance that the rear vehicle detection will monitor. | float | m |
-| BUFFER_TIME | The length of footage that will be saved after an accident occurs. | integer | seconds |
+| BUFFER_TIME | The length of footage before the crash that will be saved. | integer | seconds |
+| MAX_UPLOAD_TIME | The maximum time required to upload a video to the external storage device. | integer | seconds |
 | RESPONSE_RATE | The polling rate at which the output is updated to match the current input. | integer | Hz |
 | FRAMERATE | The framerate of the front-facing video | integer | fps |
 
