@@ -5,7 +5,7 @@
 </a>
 
 # Verification and Validation Report <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and rear vehicle monitoring.<br/>  
+Cyclops Ride Assist: Real-time Monitoring System.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -66,7 +66,8 @@ Manny Lemos (lemosm1)
 | March 1, 2023 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
 | March 6, 2023 | Brian Le | Updated sections |     
 | March 6, 2023 | Amos Cheung | Updated sections |     
-| March 7, 2023 | Aaron Li | Updated sections |    
+| March 7, 2023 | Aaron Li | Updated sections |
+| April 3, 2023 | Amos Cheung | Changed name/description of someo of the sections. Refer to issue #322 for details |    
 
 
 </div>
