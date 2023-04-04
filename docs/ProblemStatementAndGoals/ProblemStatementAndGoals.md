@@ -63,6 +63,8 @@ Manny Lemos (lemosm1)
 
 As North America pursues greener goals, it is expected a higher percentage of people will adopt cycling as their primary method of transportation as for its relatively low carbon footprint compared to automobiles. However, many roads were not designed and developed with cyclists in mind. Even with dedicated bicycle lanes, cyclists may find themselves in fear as cars, trucks, and buses dart past with a far greater speed and momentum. In the worst cases, accidents may occur leading to both physical injuries and emotional trauma for the cyclist, the automobile driver, their respective families, and the community. Therefore, it is vital that this system will provide greater safety by increasing the awareness of cyclists on the road, allowing drivers and cyclists to share the road responsibly.
 
+Cyclops Ride Assist (CRA) is going to be an all-in-one, easily installable, and easy-to-use system that adds modern car safety features onto a bike, such as rear vehicle detection and crash detection. Furthermore, the CRA will feature automatic video, LiDAR, and accelerometer data upload to a flash drive.
+
 This solution to this problem will deliver on the following goals listed in [Section 3](#3-goals).
 
 ### 2.2. Stakeholders 
