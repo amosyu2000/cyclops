@@ -5,7 +5,7 @@
 </a>
 
 # Cyclops <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
+Cyclops Ride Assist: Real-Time Monitoring System.<br/>  
 __Team 9__  
 [Aaron Li](https://github.com/aaronhsli) (lia79)  
 [Amos Cheung](https://github.com/amoscheung99527) (cheuny2)  
@@ -19,7 +19,7 @@ __Team 9__
 
 North American cities are shifting from a car-centric design to greener forms of transportation. It is expected that more people will adopt cycling as their primary method of commuting. However, it is difficult for a cyclist to keep track of everything going on around them, especially during busy times.
 
-Cyclops Ride Assist (CRA) will be an easy-to-use system that mounts on the bike that will allow its users to have full detection of their surroundings during their trip from start to finish, cameras to capture and record from various angles, and sensors to detect vehicles in blind-spots and accidents. In the event of any cycling collision, CRA will automatically record the scene for future review. 
+Cyclops Ride Assist (CRA) will be a user-friendly, all-in-one, and easily mountable system that adds modern automobile safety features on any bicycle that will allow its users to have full detection of their surroundings during their trip from start to finish. This includes rear view detection using LiDAR sensors and an LED display, crash identification through an accelerometer, as well as a front-facing camera to capture and record footage. In the event of an accident, the CRA will automatically record a min of footage, the LiDAR data, as well as an acclerometer log for future review and analysis. 
 
 ## Video
 
