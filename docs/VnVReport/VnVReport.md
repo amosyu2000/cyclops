@@ -67,7 +67,7 @@ Manny Lemos (lemosm1)
 | March 6, 2023 | Brian Le | Updated sections |     
 | March 6, 2023 | Amos Cheung | Updated sections |     
 | March 7, 2023 | Aaron Li | Updated sections |
-| April 3, 2023 | Amos Cheung | Changed name/description of someo of the sections. Refer to issue #322 for details |    
+| April 3, 2023 | Amos Cheung | Changed name/description of some of the sections. Refer to issue #322 for details |    
 
 
 </div>
