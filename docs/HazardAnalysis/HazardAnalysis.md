@@ -45,16 +45,16 @@ Manny Lemos (lemosm1)
 	- [6.7. Memory System Boundary](#67-memory-system-boundary)
 		- [6.7.1. Physical Hazards](#671-physical-hazards)
 		- [6.7.2. Software Hazards](#672-software-hazards)
-- [8. Failure Modes and Effect Analysis](#8-failure-modes-and-effect-analysis)
-	- [8.1. Hazards Out of Scope](#81-hazards-out-of-scope)
-	- [8.2. Failure Modes and Effect Analysis Table](#82-failure-modes-and-effect-analysis-table)
-- [9. Safety and Security Requirements](#9-safety-and-security-requirements)
-	- [9.1. Safety Requirements](#91-safety-requirements)
-	- [9.2. Access Requirements](#92-access-requirements)
-	- [9.3. Integrity Requirements](#93-integrity-requirements)
-	- [9.4. Privacy Requirements](#94-privacy-requirements)
-- [10. Roadmap](#10-roadmap)
-- [11. Appendix](#11-appendix)
+- [7. Failure Modes and Effect Analysis](#7-failure-modes-and-effect-analysis)
+	- [7.1. Hazards Out of Scope](#71-hazards-out-of-scope)
+	- [7.2. Failure Modes and Effect Analysis Table](#72-failure-modes-and-effect-analysis-table)
+- [8. Safety and Security Requirements](#8-safety-and-security-requirements)
+	- [8.1. Safety Requirements](#81-safety-requirements)
+	- [8.2. Access Requirements](#82-access-requirements)
+	- [8.3. Integrity Requirements](#83-integrity-requirements)
+	- [8.4. Privacy Requirements](#84-privacy-requirements)
+- [9. Roadmap](#9-roadmap)
+- [10. Appendix](#10-appendix)
 
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
@@ -212,10 +212,9 @@ The software hazards contained within the memory system boundary are listed belo
 |:--|:--| 
 |Long File Write Time| Video may take more time to upload, creating a bottleneck in the system. |
 |Storage Overflow | Too many files located in the memory can cause the system to overheat if writes continue to occur. |
-7. |Power Supply Failure | A power supply failure or surge during file writing can corrupt the card.|
-- 
-## 8. Failure Modes and Effect Analysis
-### 8.1. Hazards Out of Scope
+|Power Supply Failure | A power supply failure or surge during file writing can corrupt the card.| 
+## 7. Failure Modes and Effect Analysis
+### 7.1. Hazards Out of Scope
 Hazards Out of Scope will not be considered in the Failure Modes and Effect Analysis listed below in Section 7.2.
 
 | Group  | Example |   
@@ -223,9 +222,7 @@ Hazards Out of Scope will not be considered in the Failure Modes and Effect Anal
 |External Environment|Bicycle hazards (brakes, cabling, frame), road conditions (construction zones, potholes, traffic),  other factors (precipitation, temperature, air quality)|
 |Society|City and rural design, video recording laws, theft, damage (graffiti)|
 |User Error|Improper use and installation, excessive carelessness during handling, low battery, low storage, and low maintenance upkeep|
- 
-
-### 8.2. Failure Modes and Effect Analysis Table
+### 7.2. Failure Modes and Effect Analysis Table
 The Failure Modes and Effect Analysis Table (FMEA) Table indicates the failure modes associated with certain design functions and the optimal response to minimize harm to the user or product. The FMEA able thus outlines the recommended course of action required for the CRA team to eliminate as many hazards or failures for its users.  
 
 <div align="center">
@@ -250,9 +247,9 @@ Crash Detection | H1-1 | False negative crash detection. | The current loop of v
 
 </div>
 
-## 9. Safety and Security Requirements
+## 8. Safety and Security Requirements
 
-### 9.1. Safety Requirements
+### 8.1. Safety Requirements
 | SR-1 |  A system welfare check will be conducted each time the CRA is powered on to verify that all cameras and sensors are successfully communicating with the microcontroller. |  
 |:--|:--|  
 | Rationale |A problem with the LiDAR sensor could result in unexpected rear view detection behaviour (false positives or false negatives). A problem with the rear facing camera could result in footage of a crash being lost. A problem with crash detection sensors could result in unexpected crash detection behaviour (false positives or false negatives).|  
@@ -273,7 +270,7 @@ Crash Detection | H1-1 | False negative crash detection. | The current loop of v
 | Rationale | This is to ensure that the camera is able to create and log video data as required on vehicle collision. This is also to ensure the LiDAR sensing is able to detect distances of objects accurately. |  
 | Associated Hazards |  H3-1a |  
 
-### 9.2. Access Requirements
+### 8.2. Access Requirements
 | AR-1 |  CRA will allow the users to access their videos freely from an external hardware storage drive. |  
 |:--|:--|  
 | Rationale | This is to allow the user to connect it to their own personal systems to view, delete their videos. There is no need for encryption as this would complicate the process. |  
@@ -284,7 +281,7 @@ Crash Detection | H1-1 | False negative crash detection. | The current loop of v
 | Rationale | The design of the device should feel seamless without interfering with the user experience for cyclists with accessibility needs. |  
 | Associated Hazards | H5-2b, H5-2c |  
 
-### 9.3. Integrity Requirements
+### 8.3. Integrity Requirements
 | IR-1 |  The mounting system will be made with solid and sustainable material to ensure mechanical integrity. |  
 |:--|:--|  
 | Rationale | This will be able to withstand changes in weather and temperature, accidental drops, and debris. |  
@@ -300,7 +297,7 @@ Crash Detection | H1-1 | False negative crash detection. | The current loop of v
 | Rationale | As we cannot economically create every part of the device ourselves, we will need to source basic parts from third-party manufacturers. These parts need to be reliable enough to operate as intended. |  
 | Associated Hazards | H2-3d, H7-1a |  
 
-### 9.4. Privacy Requirements
+### 8.4. Privacy Requirements
 | PR-1 |  CRA will not be connected to the internet but will be used and trained locally for CV purposes. |  
 |:--|:--|  
 | Rationale | This is to ensure that the footage of accidents will not be posted on the internet without the consent of the user. Instead all footage will be saved to an external hardware storage device. |   
@@ -311,9 +308,9 @@ Crash Detection | H1-1 | False negative crash detection. | The current loop of v
 | Rationale | This will ensure that the code running on the device follows the coding standards and is peer-reviewed by members of the team. |   
 | Associated Hazards | H7-2b |  
 
-## 10. Roadmap
+## 9. Roadmap
 The roadmap of CRA is a projection of the safety and security requirements listed above. The majority of these requirements will be implemented on the initial prototype and final application due to the nature of the system and its functionalities. Requirements will be constantly reevaluated with several factors in consideration such as time and project constraints. Towards the end of the project, the Hazard Analysis document will be an evaluation over the project to get an understanding of what risks have been successfully mitigated and which ones will still require work.
 
 With the conclusion of the CRA approaching, the Hazard Analysis was reconsidered to accomodate for any changes or additions. Changes included the introduction of camera and video logging for the rear vehicle detection camera, the LiDAR sensor along with the rear vehicle alerting LED system, as well as the removal of the use of computer vision. Throughout the design process and verification and validation phase, the Hazard Analysis was repeatedly considered which allowed the team to miitigate all risks outlined in this document. Further addendums or updates will be created in the case any discrepancies that arise. 
 
-## 11. Appendix
+## 10. Appendix
