@@ -5,7 +5,7 @@
 </a>
 
 # System Verification and Validation Plan <!-- omit in toc -->
-Cyclops Ride Assist: Real-time bicycle crash detection and blindspot monitoring.<br/>  
+Cyclops Ride Assist: Real-time monitoring system.<br/>  
 __Team 9__  
 Aaron Li (lia79)  
 Amos Cheung (cheuny2)  
@@ -34,16 +34,12 @@ Manny Lemos (lemosm1)
 	- [4.7. Software Validation Plan](#47-software-validation-plan)
 - [5. System Test Description](#5-system-test-description)
 	- [5.1. Tests for Functional Requirements](#51-tests-for-functional-requirements)
-		- [5.1.1. Vehicle Detection Test](#511-vehicle-detection-test)
+		- [5.1.1. Rear Vehicle Detection Test](#511-rear-vehicle-detection-test)
 		- [5.1.2. Crash Detection Test](#512-crash-detection-test)
-		- [5.1.3. Video Logging Test](#513-video-logging-test)
-		- [5.1.4. Full SD Test](#514-full-sd-test)
-		- [5.1.5. Resume Detection Test](#515-resume-detection-test)
-		- [5.1.6. Front Light On Test](#516-front-light-on-test)
-		- [5.1.7. Front Light Off Test](#517-front-light-off-test)
-		- [5.1.8. Power On System Test](#518-power-on-system-test)
-		- [5.1.9. Power Off System Test](#519-power-off-system-test)
-		- [5.1.10. Missing SD Test](#5110-missing-sd-test)
+		- [5.1.3. Video/Data Logging Test](#513-videodata-logging-test)
+		- [5.1.4. Power On System Test](#514-power-on-system-test)
+		- [5.1.5. Power Off System Test](#515-power-off-system-test)
+		- [5.1.10. Mounting Test](#5110-mounting-test)
 	- [5.2. Tests for Nonfunctional Requirements](#52-tests-for-nonfunctional-requirements)
 		- [5.2.1. Appearance and Style Test](#521-appearance-and-style-test)
 		- [5.2.2. Hardware Ease of Use Test](#522-hardware-ease-of-use-test)
@@ -109,14 +105,18 @@ Manny Lemos (lemosm1)
 | User | A person who will operate the final product. See Cyclist. |
 | Client | See user. |
 | SRS | Software Requirements Specification |
-| αx | Measures acceleration parallel to the path of the bicycle. |
-| αy | Measures acceleration perpendicular to the path of the bicycle along the plane of the ground. |
-| αz | Measures acceleration in the vertical direction. |
-| tilt | Measures the vertical tilt of the system relative to a calibrated absolute level. |
-| vfront | Video feed from the front facing camera. |
-| vrear | Video feed from the rear facing camera. |
-| sw_flashlight | Switch which controls the flashlight. |
-| led_blind_spot | Indicates a vehicle is in the bicycles blind spot.|
+| Video feed | A cycle of clips using a fifo queue implementation. Can be concatenated to form the last buffer_time seconds of video.  |
+| Lidar | Light Detection and Ranging. A range sensing method that uses a pulsed laser. |
+| LED stick | An array of 8 individually addressable RGB LEDs. |
+| α_x | Measures acceleration parallel to the path of the bicycle. |
+| α_y | Measures acceleration perpendicular to the path of the bicycle along the plane of the ground. |
+| α_z | Measures acceleration in the vertical direction. |
+| norm | A measure of the absolute value of the acceleration vector. |
+| tilt | A measure of acceleration vector in the xy plane. |
+| f_sampling_cd | Sampling frequency of the crash detection. |
+| f_sampling_bd | Sampling frequency of the rear vehicle detection. |
+| buffer_time | Seconds of video to save after a crash occurs. |
+
 
 ## 3. General Information
 ### 3.1. Purpose
@@ -133,7 +133,7 @@ There will be two distinct groups of the verification and validation team.
 
 Group one will be responsible for any hardware testing. This includes testing of the CRA housing, mount, circuitry, sensors, and video feeds. This group will be composed of Amos Cheung, Aaron Li, and Manny Lemos. The group will have an integration lead, who has the added responsibility of ensuring the hardware integrates well with the software. Manny Lemos will be the integration lead.  
 
-Group two will be responsible for software testing. This includes testing of the CRA crash detection, video logging, and vehicle blindspot detection. This group will be composed of Brian Le and Amos Yu. The group will have an integration lead, who has the added responsibility of ensuring the software integrates well with the hardware. Amos Yu will be the integration lead.  
+Group two will be responsible for software testing. This includes testing of the CRA crash detection, video logging, and rear vehicle detection. This group will be composed of Brian Le and Amos Yu. The group will have an integration lead, who has the added responsibility of ensuring the software integrates well with the hardware. Amos Yu will be the integration lead.  
 
 Each group is responsible for receiving, testing, and communicating feedback given by peer reviewers, TAs, and the end user regarding the features under their domain.  
 
@@ -165,78 +165,201 @@ All automated code analysis will be conducted using Pylint.
 To validate that the software fulfills all of the correct requirements, we will continually amend and improve upon the testing methodologies used, and the components tested. The aim of this endeavor is to ensure that testing is directly aligned with any updates to the SRS document and any other documents which are directly tied to software requirements.  
 ## 5. System Test Description
 ### 5.1. Tests for Functional Requirements
-#### 5.1.1. Vehicle Detection Test
-| CFRST1                        | |
+#### 5.1.1. Rear Vehicle Detection Test
+| BD1                        | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted on moving bike |
-| Input                         | Read video input |
+| Input                         | Lidar sensor feed |
 | Output                        | LED blindspot indicator |
-| Test Case Derivation          | LED's should light up and be reflective of whether a car is located in the riders blind spot |
-| How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the blind spot |
+| Test Case Derivation          | All leds should light up to indicate that the object is 0 - 1 meters from the rear sensor|
+| How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the rear spot |
 | Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
+
+| BD2                        | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted on moving bike |
+| Input                         | Lidar sensor feed |
+| Output                        | LED blindspot indicator |
+| Test Case Derivation          | 4 - 5 leds should light up to indicate that the object is 4 - 5 meters from the rear sensor|
+| How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the rear spot |
+| Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
+
+| BD3                        | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted on moving bike |
+| Input                         | Lidar sensor feed |
+| Output                        | LED blindspot indicator |
+| Test Case Derivation          | No leds should light up to indicate that the object is over 8 meters from the rear sensor|
+| How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the rear spot |
+| Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
+
+| BD4                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted on moving bike |
+| Input                         | Lidar sensor feed |
+| Output                        | LED blindspot indicator |
+| Test Case Derivation          | LED stick cells light up within 1 second once the object is put in the sensors field of vision |
+| How will test be performed    | Rear Vehicle detection should have < 1 second in latency for updating the LEDS. We will hide an object away from the Ultrasonic sensors field of vision and then suddenly hold it in the view to see its reaction time |
+| Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR15 |
+
 #### 5.1.2. Crash Detection Test
-| CFRST3                        | |
+| CD1                           | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Accelerometer input with CRA mounted to moving bike |
-| Input                         | Accelerometer electrical input caused by bike movement|
-| Output                        | Video log/clip |
-| Test Case Derivation          | Cyclops should detect when a crash has occured when the acceleration of the rider has passed a certian threshold. This then prompts the CRA to perform video logging task inresponse to the crash |
-| How will test be performed    | The test will be done dynamically in a real world environment in which the accelerometer unit will be mounted onto the bike and updates values as the bike experiences a large change in its acceleration (a crash). The SD card will then be verified if a clip has been logged |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | No Crash detection |
+| Test Case Derivation          | Cyclops should not react or change states when there is no crash |
+| How will test be performed    | Rider will ride in a straight line on a flat road for 10 seconds |
 | Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
-#### 5.1.3. Video Logging Test
-| CFRST4                        | |
+
+| CD2                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Accelerometer input with CRA mounted to moving bike |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | No Crash detection |
+| Test Case Derivation          | Cyclops should not react or change states when there is no crash |
+| How will test be performed    | Rider will ride in a straight line over grass or a bumpy path for 10 seconds |
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
+
+| CD3                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Accelerometer input with CRA mounted to moving bike |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | Video clip was logged and stored on SD as well as crash information of moments before |
+| Test Case Derivation          | Cyclops should react and change states when there is a crash. Crash detection algorithm should prompt a video clip to be logged |
+| How will test be performed    | Rider will ride in a straight line for 5 seconds and then “crash” |
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
+
+| CD4                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Accelerometer input with CRA mounted to held up bike |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | Video clip was logged and stored on SD as well as crash information of moments before |
+| Test Case Derivation          | Cyclops should not react or change states when there is no crash |
+| How will test be performed    | Rider will hold the bike in their hand and let the bike drop/fall over |
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
+
+| CD5                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Accelerometer input with CRA mounted to bike |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | α_x readings |
+| Test Case Derivation          | α_x readings should update to reflect the sudden change in acceleration |
+| How will test be performed    | Rider will hold the bike and jolt it forward and backwards for 5 seconds|
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
+
+| CD6                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Accelerometer input with CRA mounted to bike |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | α_y readings |
+| Test Case Derivation          | α_y readings should update to reflect the sudden change in acceleration |
+| How will test be performed    | Rider will hold the bike and jolt it forward and backwards for 5 seconds|
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
+
+| CD7                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Accelerometer input with CRA mounted to bike |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | α_z readings |
+| Test Case Derivation          | α_z readings should update to reflect the sudden change in acceleration |
+| How will test be performed    | Rider will hold the bike and jolt it forward and backwards for 5 seconds|
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
+
+| CD8                           | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Accelerometer input with CRA mounted to bike |
+| Input                         | Accelerometer electrical input, front camera feed |
+| Output                        | Video clip was logged and stored on SD as well as crash information of moments before |
+| Test Case Derivation          | CRA should resume crash detection and recording video and data |
+| How will test be performed    | Create another crash after recovering from the prior crash. |
+| Requirements Referenced       | CFR3, CFR4, CFR5, CFR7 |
+
+#### 5.1.3. Video/Data Logging Test
+| VDL1                          | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted onto a bike |
-| Input                         | Crash detection system, front and reach video input |
-| Output                        | Video log to be stored on a local SD |
-| Test Case Derivation          | CRA will log a snipped(last buffer_time_minutes minutes_ of the vfront feed when the user has crashed) |
-| How will test be performed    | The test will be done manually in a real world environment in which a test bike with the unit mounted will go through a simulated crash to trigger the crash procedure |
-| Requirements Referenced       | CFR7, CFR8 |
-#### 5.1.4. Full SD Test
-| CFRST5                        | |
-|:--                            |:--|
-| Control                       | Manual (Static) |
-| Initial State                 | Application should be running, SD card should be full or near full capacity |
-| Input                         | SD card storage/space remaining |
-| Output                        | SD_storage_full LED whether the SD card is too full for video logging |
-| Test Case Derivation          | CRA will have reduced functionality when the SD card is almost full. |
-| How will test be performed    | The system shall be turned on when a full/near full SD card in which the tester would then look to confirm that the LED prompts to empty out SD card |
-| Requirements Referenced       | CFR9, CFR10 |
-#### 5.1.5. Resume Detection Test
-| CFRST6                        | |
-|:--                            |:--|
-| Control                       | Manual (Static) |
-| Initial State                 | CRA is mounted on a bike with the application is running and in its crashed state |
-| Input                         | N/A |
-| Output                        | N/A |
-| Test Case Derivation          | CRA should be expected to resume its vehicle and crash detection after a previous crash just been detected and logged |
-| How will test be performed    | Monitor the system after a crash state. The system is looked at to see if it continues to take in front and rear video feed and perform its vehicle and crash detection |
-| Requirements Referenced       | CFR12, CFR13 |
-#### 5.1.6. Front Light On Test
-| CFRST7                        | |
+| Input                         | Vfront input |
+| Output                        | Video/Data log to be stored on a local SD |
+| Test Case Derivation          | The events of the video clip should be exactly the same as what was viewed 60 seconds prior |
+| How will test be performed    | Take note of event that happened in the field of view of vfront 60 seconds prior to crash |
+| Requirements Referenced       | CFR2, CFR7, CFR8 |
+
+| VDL2                          | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
-| Initial State                 | CRA is mounted on bike and light is set to off |
-| Input                         | Flash light button |
-| Output                        | Front light emitted |
-| Test Case Derivation          | The front light should be turned on when the user prompts it |
-| How will test be performed    | The test will be done dynamically in a real world environment in which the front light will be toggled from off ot on. The test will be looking for whether the light gets emitted |
-| Requirements Referenced       | CFR14 |
-#### 5.1.7. Front Light Off Test
-| CFRST8                        | |
+| Initial State                 | Application is running with CRA mounted onto a bike |
+| Input                         | Vfront input |
+| Output                        | Video/Data log to be stored on a local SD |
+| Test Case Derivation          | The past 60 seconds of events for α_x should be logged and stored within the CSV data log |
+| How will test be performed    | Prior to the crash, jolt CRA forward and backwards to log and verify the changes in α_x have been logged |
+| Requirements Referenced       | CFR3 |
+
+| VDL3                          | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
-| Initial State                 | CRA is mounted on bike and light is set to on |
-| Input                         | Flash light button |
-| Output                        | Front light turned off |
-| Test Case Derivation          | The front light should be turned off when the user prompts it |
-| How will test be performed    | The test will be done dynamically in a real world environment in which the front light will be toggled from on to off. This test will be looking for whether the light gets cut |
-| Requirements Referenced       | CFR14 |
-#### 5.1.8. Power On System Test
-| CFRST9                        | |
+| Initial State                 | Application is running with CRA mounted onto a bike |
+| Input                         | Vfront input |
+| Output                        | Video/Data log to be stored on a local SD |
+| Test Case Derivation          | The past 60 seconds of events for α_y should be logged and stored within the CSV data log |
+| How will test be performed    | Prior to the crash, jolt CRA forward and backwards to log and verify the changes in α_y have been logged |
+| Requirements Referenced       | CFR3 |
+
+| VDL4                          | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted onto a bike |
+| Input                         | Vfront input |
+| Output                        | Video/Data log to be stored on a local SD |
+| Test Case Derivation          | The past 60 seconds of events for α_z should be logged and stored within the CSV data log |
+| How will test be performed    | Prior to the crash, jolt CRA forward and backwards to log and verify the changes in α_z have been logged |
+| Requirements Referenced       | CFR3 |
+
+| VDL5                          | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted onto a bike |
+| Input                         | Power button, Vfront input, Accelerometer electrical input, front camera feed |
+| Output                        | Video/Data log to be stored on a local SD |
+| Test Case Derivation          | The next crash is detected and should be logged, verify that the file is a fresh file from the previous crash log |
+| How will test be performed    | When CRA is powered on, video and data logs should be stored on a new file |
+| Requirements Referenced       | CFR7, CRR8 |
+
+| VDL6                          | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted onto a bike |
+| Input                         | Power button, Vfront input, Accelerometer electrical input, front camera feed |
+| Output                        | Video/Data log to be stored on a local SD |
+| Test Case Derivation          | The next crash is detected and should be logged, verify that the file is a fresh file from the previous crash log |
+| How will test be performed    | When CRA detects a crash, the next crash after should have video and data logs stored on a new file |
+| Requirements Referenced       | CFR7, CRR8 |
+
+| VDL7                          | |
+|:--                            |:--|
+| Control                       | Manual (Dynamic) |
+| Initial State                 | Application is running with CRA mounted onto a bike |
+| Input                         | Power button, Vfront input, Accelerometer electrical input, front camera feed |
+| Output                        | Video/Data log to be stored on a local SD |
+| Test Case Derivation          | The values of the acceleration should update and reflect a drop within 1 second of use dropping the unit |
+| How will test be performed    | CRA video and data logs should be responsive and have latency of < 1 second. We will display the constant data outputs being read in by CRA and note if the values are changing within a reasonable time |
+| Requirements Referenced       | CFR7, CRR8 |
+
+#### 5.1.4. Power On System Test
+| P1                            | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | CRA is mounted on a bike and the system/isPoweredLED is off |
@@ -245,8 +368,8 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Test Case Derivation          | LED's should light up and be show that the system/application has power and is running |
 | How will test be performed    | This test will be done dynamically in a real world environment where the power button is physically pressed to turn on CRA |
 | Requirements Referenced       | CFR11 |
-#### 5.1.9. Power Off System Test
-| CFRST10                       | |
+#### 5.1.5. Power Off System Test
+| P2                       | |
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | CRA is mounted on a bike and system/isPOweredLED is on |
@@ -255,16 +378,28 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Test Case Derivation          | LED's should turn off to reflect that the system/application has been powered down |
 | How will test be performed    | This test will be done dynamically in a real world environment where the pwoer button is physicall pressed to turn off CRA |
 | Requirements Referenced       | CFR11 |
-#### 5.1.10. Missing SD Test
-| CFRST5                        | |
+#### 5.1.10. Mounting Test
+| M1                            | |
 |:--                            |:--|
 | Control                       | Manual (Static) |
-| Initial State                 | Application should be running, SD card should be full or near full capacity |
-| Input                         | Missing SD Card in memory slot |
-| Output                        | SD_storage_full LED on |
-| Test Case Derivation          | CRA will have reduced functionality when the SD card is missing. |
-| How will test be performed    | With the memory slot without an SD card in it, the device will be booted up and the SD_storage_full LED observed. |
+| Initial State                 | CRA is mounted on the bike |
+| Input                         | N/A |
+| Output                        | N/A |
+| Test Case Derivation          | The housing stays in place |
+| How will test be performed    | The main housing is resistant to shaking when mounted to the handlebars of the bicycle |
 | Requirements Referenced       | CFR9, CFR10 |
+
+| M2                            | |
+|:--                            |:--|
+| Control                       | Manual (Static) |
+| Initial State                 | CRA is mounted on the bike |
+| Input                         | N/A |
+| Output                        | N/A |
+| Test Case Derivation          | The housing stays in place |
+| How will test be performed    | The main housing is resistant to impact when mounted to the handlebars of the bicycle |
+| Requirements Referenced       | CFR9, CFR10 |
+
+
 ### 5.2. Tests for Nonfunctional Requirements
 #### 5.2.1. Appearance and Style Test
 | CNFRST1                       | |  
@@ -363,7 +498,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Initial State                 | The CRA software detection will be loaded and running.  |
 | Input                         | Cars and other objects will be placed in the view of the camera.  |
 | Output                        | The software will correctly detect vehicles vs other objects. |
-| Test Case Derivation          | We need to make sure that the blindspot detection is for vehicles and not stationary objects such as a fire hydrant or tree.  |
+| Test Case Derivation          | We need to make sure that the rear vehicle detection is for vehicles and not stationary objects such as a fire hydrant or tree.  |
 | How will test be performed    | We will be running the module by itself and implementing it into the system to run further tests. A score of 80% on our learned software will suffice. The score is displayed when we run the test. The developers and testers will run twenty recorded tests and the average will be taken. |
 | Requirements Referenced       | CNFR18 |
 #### 5.2.11. External Safety-Critical Test
