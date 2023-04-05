@@ -107,7 +107,7 @@ Manny Lemos (lemosm1)
 | Client | See user. |
 | SRS | Software Requirements Specification |
 | Video feed | A cycle of clips using a fifo queue implementation. Can be concatenated to form the last buffer_time seconds of video.  |
-| Lidar | Light Detection and Ranging. A range sensing method that uses a pulsed laser. |
+| LiDAR | Light Detection and Ranging. A range sensing method that uses a pulsed laser. |
 | LED stick | An array of 8 individually addressable RGB LEDs. |
 | α_x | Measures acceleration parallel to the path of the bicycle. |
 | α_y | Measures acceleration perpendicular to the path of the bicycle along the plane of the ground. |
@@ -126,7 +126,7 @@ The purpose of this document is to describe the testing, validation, and verific
 This validation and verification document lays the foundation for testing the CRA system. The requirements for correct system functionality presented in the SRS document will be extended upon to include specific, quantifiable metrics. Success in the testing described will verify that CRA has met these requirements in a measurable, meaningful way.
 
 ### 3.3. Background
-CRA will be an easily mountable, and quick to set up system that adds modern car safety features onto any bike. These features include rear vehicle detection and alert, a continuous loop of the last 60 seconds of camera, accelerometer, and Lidar data, and crash identification and response. CRA is aimed at cyclists of all levels that frequently traverse road and gravel terrains. CRA is not designed to be used on extreme terrain such as downhill mountain biking.
+CRA will be an easily mountable, and quick to set up system that adds modern car safety features onto any bike. These features include rear vehicle detection and alert, a continuous loop of the last 60 seconds of camera, accelerometer, and LiDAR data, and crash identification and response. CRA is aimed at cyclists of all levels that frequently traverse road and gravel terrains. CRA is not designed to be used on extreme terrain such as downhill mountain biking.
 
 Specifically, this document will address testing pertaining to both the software and hardware of CRA. Out of scope testing would include testing for requirements not covered in the SRS document. 
 ### 3.4. Relevant Documentation
@@ -174,8 +174,8 @@ To validate that the software fulfills all of the correct requirements, we will 
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted on moving bike |
-| Input                         | Lidar sensor feed |
-| Output                        | LED blindspot indicator |
+| Input                         | LiDAR sensor feed |
+| Output                        | LED rear vehicle indicator |
 | Test Case Derivation          | All leds should light up to indicate that the object is 0 - 1 meters from the rear sensor|
 | How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the rear spot |
 | Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
@@ -184,8 +184,8 @@ To validate that the software fulfills all of the correct requirements, we will 
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted on moving bike |
-| Input                         | Lidar sensor feed |
-| Output                        | LED blindspot indicator |
+| Input                         | LiDAR sensor feed |
+| Output                        | LED rear vehicle indicator |
 | Test Case Derivation          | 4 - 5 leds should light up to indicate that the object is 4 - 5 meters from the rear sensor|
 | How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the rear spot |
 | Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
@@ -194,8 +194,8 @@ To validate that the software fulfills all of the correct requirements, we will 
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted on moving bike |
-| Input                         | Lidar sensor feed |
-| Output                        | LED blindspot indicator |
+| Input                         | LiDAR sensor feed |
+| Output                        | LED rear vehicle indicator |
 | Test Case Derivation          | No leds should light up to indicate that the object is over 8 meters from the rear sensor|
 | How will test be performed    | This test will be done dynamically in a real world environment where the bike will be moving at a constant speed with the presense or absence of a vehicle in the rear spot |
 | Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12 |
@@ -204,8 +204,8 @@ To validate that the software fulfills all of the correct requirements, we will 
 |:--                            |:--|
 | Control                       | Manual (Dynamic) |
 | Initial State                 | Application is running with CRA mounted on moving bike |
-| Input                         | Lidar sensor feed |
-| Output                        | LED blindspot indicator |
+| Input                         | LiDAR sensor feed |
+| Output                        | LED rear vehicle indicator |
 | Test Case Derivation          | LED stick cells light up within 1 second once the object is put in the sensors field of vision |
 | How will test be performed    | Rear Vehicle detection should have < 1 second in latency for updating the LEDS. We will hide an object away from the Ultrasonic sensors field of vision and then suddenly hold it in the view to see its reaction time |
 | Requirements Referenced       | CFR1, CFR2, CFR6, CFR10, CFR12, CNFR15 |
@@ -420,7 +420,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Input                         | N/A |
 | Output                        | N/A |
 | Test Case Derivation          | The housing stays in place |
-| How will test be performed    | The lidar housing is resistant to shaking when mounted to the seat post |
+| How will test be performed    | The LiDAR housing is resistant to shaking when mounted to the seat post |
 | Requirements Referenced       | CNFR5, CNFR21 |
 
 | M5                            | |
@@ -430,7 +430,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Input                         | N/A |
 | Output                        | N/A |
 | Test Case Derivation          | The housing stays in place |
-| How will test be performed    | The lidar housing is resistant to impact when mounted to the seat post |
+| How will test be performed    | The LiDAR housing is resistant to impact when mounted to the seat post |
 | Requirements Referenced       | CNFR5, CNFR21 |
 
 | M6                            | |
@@ -440,7 +440,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Input                         | N/A |
 | Output                        | N/A |
 | Test Case Derivation          | The housing mounts securely |
-| How will test be performed    | Securely mount the lidar to the seat post |
+| How will test be performed    | Securely mount the LiDAR to the seat post |
 | Requirements Referenced       | CNFR13, CNFR21 |
 
 ### 5.2. Tests for Nonfunctional Requirements
