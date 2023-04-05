@@ -1,15 +1,18 @@
 from threading import Thread
-import os
+import os, queue
+import shutil
 import cv2
 import ffmpeg
 import subprocess
 
 import time
 from print_handler import print_handler
-from dir_handler import Dir_Handler
+
+import warnings
+warnings.filterwarnings('ignore')
 
 # Testing Lib
-from imutils.video import FPS
+#from imutils.video import FPS
 
 class Threaded_Video_Writing():
     def __init__(self, fps):
@@ -19,10 +22,8 @@ class Threaded_Video_Writing():
         self.temp_dir = '/home/capstone/Documents/temp/video/'
         self.clear_tmp()
 
-        self.dir_handler = Dir_Handler() # provides name of a dynamic output directory
-
         # Create video capture object
-        self.capture = cv2.VideoCapture(-1)
+        self.capture = cv2.VideoCapture(-1, cv2.CAP_V4L2)
         (self.status, self.frame) = self.capture.read()
 
         # Set resolution
@@ -43,8 +44,8 @@ class Threaded_Video_Writing():
         self.capture.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
 
         # Exposure Settings
-        self.capture.set(cv2.CAP_PROP_AUTO_EXPOSURE, 1) # Set exposure to manual mode
-        self.capture.set(cv2.CAP_PROP_EXPOSURE, self.fps) # exposure time = 1 / desired fps
+        # self.capture.set(cv2.CAP_PROP_AUTO_EXPOSURE, 1) # Set exposure to manual mode
+        # self.capture.set(cv2.CAP_PROP_EXPOSURE, self.fps) # exposure time = 1 / desired fps
 
         # Output Video Parameters
         self.output_num = 0
@@ -52,10 +53,6 @@ class Threaded_Video_Writing():
 
         # Start the thread to read frames from the video stream
         Thread(target=self.grab_frame, args=()).start()
-
-        # Tesing Line
-        self.grabFPS = FPS().start()
-        self.writeFPS = FPS().start()
 
     def clear_tmp(self):
         for f in os.listdir(self.temp_dir):
@@ -66,27 +63,22 @@ class Threaded_Video_Writing():
         while self.powering_off == False:
             if self.capture.isOpened():
                 (self.status, self.frame) = self.capture.read()
-                # Testing Line
-                self.grabFPS.update()
 
     def write_frame(self):
         # Save obtained frame into video output file
         if self.status:
             self.output_video.write(self.frame)
 
-            # Testing Line
-            self.writeFPS.update()
-
     def refresh(self):
         self.output_video.release()
         self.output_num = (self.output_num+1)%2
         self.output_video = cv2.VideoWriter(self.temp_dir + str(self.output_num) + self.video_ext, self.codec, self.fps, (self.frame_width, self.frame_height))
     
-    def log_video(self):
+    def log_video(self, directory):
         # release the current result video -> this allows it to be accessed
         self.output_video.release()
-        output_directory = self.dir_handler.locate_export_dir('video')
-        output_file_name = '/video_' + time.strftime('%Y-%m-%d_%H:%M:%S') + self.video_ext
+        output_directory = directory.get()
+        output_file_name = '/video_' + time.strftime('%Y-%m-%d_%H-%M-%S') + self.video_ext
         # store videos names in txt file to be concatenated using ffmpeg demux
         f = open(self.temp_dir + "concat_list.txt", "w")
         num_files = 0
@@ -109,8 +101,9 @@ class Threaded_Video_Writing():
                     .run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
                 )
             else:
-                os.rename(self.temp_dir + str(self.output_num) + self.video_ext, output_directory + output_file_name)
-        except:
+                shutil.move(self.temp_dir + str(self.output_num) + self.video_ext, output_directory + output_file_name)
+        except Exception as e:
+            print(e)
             print_handler("Thread - Camera", "An error occured while concatenating or saving the output video at: " + output_directory + output_file_name)
         else:
             print_handler("Thread - Camera", "Saved last 60 seconds of data to: " + output_directory + output_file_name)
@@ -122,17 +115,8 @@ class Threaded_Video_Writing():
 
     def close(self):
         self.powering_off = True
-        # if getting segmentation fault -> increase wait time
-        time.sleep(.1)
+        time.sleep(.1) # if getting segmentation fault -> increase wait time
         self.capture.release()
         self.output_video.release()
         cv2.destroyAllWindows()
         self.clear_tmp()
-
-        # Testing Lines
-        self.grabFPS.stop()
-        self.writeFPS.stop()
-        print("[INFO] approx. FPS: {:.2f}".format(self.grabFPS.fps()))
-        print("[INFO] approx. FPS: {:.2f}".format(self.writeFPS.fps()))
-        
-        exit(1)

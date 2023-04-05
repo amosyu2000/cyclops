@@ -1,6 +1,9 @@
 ## Python
 __pycache__
 
+## Inventor
+OldVersions/
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

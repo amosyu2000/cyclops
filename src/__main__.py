@@ -1,35 +1,35 @@
 from threading import Event, Thread
 import os
 import RPi.GPIO as GPIO
+import queue
 from print_handler import print_handler
-import accelerometer_thread
-import camera_thread
-import capture_thread
-import lidar_thread
-
-""" Poweron sequence """
-POWER_STATUS_LED = 20
-LOG_STATUS_LED = 20
-POWER_OFF_BUTTON = 16
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(POWER_STATUS_LED, GPIO.OUT)
-GPIO.setup(POWER_OFF_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.output(POWER_STATUS_LED, True)
-print_handler("Main", "Program started")
+from led_handler import Led_Handler
+import accelerometer_thread, camera_thread, lidar_thread, capture_thread
 
 """ Events """
 poweroff_event = Event()
-crash_event = Event()
+log_event = Event()
 a_capture_event = Event()
 c_capture_event = Event()
 l_capture_event = Event()
 
+""" Poweron sequence """
+POWER_OFF_BUTTON = 16
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(POWER_OFF_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+led_handler = Led_Handler(log_event)
+led_handler.startup_sequence()
+print_handler("Main", "Program started")
+
+""" Shared Directory Variable """
+directory = queue.Queue(3)
+
 """ Threads """
 threads = [
-	Thread(target=accelerometer_thread.Start, args=[poweroff_event, crash_event, a_capture_event]),
-	Thread(target=camera_thread.Start, args=[poweroff_event, c_capture_event, LOG_STATUS_LED]),
-	Thread(target=lidar_thread.Start, args=[poweroff_event, l_capture_event]),
-	Thread(target=capture_thread.Start, args=[poweroff_event, crash_event, a_capture_event, c_capture_event, l_capture_event]),
+	Thread(target=accelerometer_thread.Start, args=[directory, poweroff_event, log_event, a_capture_event]),
+	Thread(target=camera_thread.Start, args=[directory, poweroff_event, c_capture_event]),
+	Thread(target=lidar_thread.Start, args=[directory, poweroff_event, l_capture_event, led_handler]),
+	Thread(target=capture_thread.Start, args=[directory, led_handler, poweroff_event, log_event, a_capture_event, c_capture_event, l_capture_event]),
 ]
 [ thread.start() for thread in threads ]
 
@@ -37,8 +37,8 @@ threads = [
 GPIO.wait_for_edge(POWER_OFF_BUTTON, edge=GPIO.FALLING)
 poweroff_event.set()
 [ thread.join() for thread in threads ]
-GPIO.output(POWER_STATUS_LED, False)
-GPIO.cleanup(POWER_STATUS_LED)
+
+led_handler.poweroff_sequence()
 GPIO.cleanup(POWER_OFF_BUTTON)
 print_handler("Main", "Program stopped")
 os.system("sudo poweroff")
