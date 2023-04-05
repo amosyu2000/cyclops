@@ -23,7 +23,8 @@ Manny Lemos (lemosm1)
 - [3. General Information](#3-general-information)
 	- [3.1. Purpose](#31-purpose)
 	- [3.2. Scope](#32-scope)
-	- [3.3. Relevant Documentation](#33-relevant-documentation)
+	- [3.3. Background](#33-background)
+	- [3.4. Relevant Documentation](#34-relevant-documentation)
 - [4. Plan](#4-plan)
 	- [4.1. Verification and Validation Team](#41-verification-and-validation-team)
 	- [4.2. SRS Verification Plan](#42-srs-verification-plan)
@@ -39,7 +40,7 @@ Manny Lemos (lemosm1)
 		- [5.1.3. Video/Data Logging Test](#513-videodata-logging-test)
 		- [5.1.4. Power On System Test](#514-power-on-system-test)
 		- [5.1.5. Power Off System Test](#515-power-off-system-test)
-		- [5.1.10. Mounting Test](#5110-mounting-test)
+		- [5.1.6. Mounting Test](#516-mounting-test)
 	- [5.2. Tests for Nonfunctional Requirements](#52-tests-for-nonfunctional-requirements)
 		- [5.2.1. Appearance and Style Test](#521-appearance-and-style-test)
 		- [5.2.2. Hardware Ease of Use Test](#522-hardware-ease-of-use-test)
@@ -124,8 +125,11 @@ The purpose of this document is to describe the testing, validation, and verific
 ### 3.2. Scope
 This validation and verification document lays the foundation for testing the CRA system. The requirements for correct system functionality presented in the SRS document will be extended upon to include specific, quantifiable metrics. Success in the testing described will verify that CRA has met these requirements in a measurable, meaningful way.
 
+### 3.3. Background
+CRA will be an easily mountable, and quick to set up system that adds modern car safety features onto any bike. These features include rear vehicle detection and alert, a continuous loop of the last 60 seconds of camera, accelerometer, and Lidar data, and crash identification and response. CRA is aimed at cyclists of all levels that frequently traverse road and gravel terrains. CRA is not designed to be used on extreme terrain such as downhill mountain biking.
+
 Specifically, this document will address testing pertaining to both the software and hardware of CRA. Out of scope testing would include testing for requirements not covered in the SRS document. 
-### 3.3. Relevant Documentation
+### 3.4. Relevant Documentation
 [SRS Document](https://github.com/amosyu2000/cyclops/blob/main/docs/SRS/SRS.md)
 ## 4. Plan
 ### 4.1. Verification and Validation Team
@@ -378,7 +382,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Test Case Derivation          | LED's should turn off to reflect that the system/application has been powered down |
 | How will test be performed    | This test will be done dynamically in a real world environment where the pwoer button is physicall pressed to turn off CRA |
 | Requirements Referenced       | CFR11 |
-#### 5.1.10. Mounting Test
+#### 5.1.6. Mounting Test
 | M1                            | |
 |:--                            |:--|
 | Control                       | Manual (Static) |
@@ -387,7 +391,7 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Output                        | N/A |
 | Test Case Derivation          | The housing stays in place |
 | How will test be performed    | The main housing is resistant to shaking when mounted to the handlebars of the bicycle |
-| Requirements Referenced       | CFR9, CFR10 |
+| Requirements Referenced       | CNFR5, CNFR21 |
 
 | M2                            | |
 |:--                            |:--|
@@ -397,8 +401,47 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Output                        | N/A |
 | Test Case Derivation          | The housing stays in place |
 | How will test be performed    | The main housing is resistant to impact when mounted to the handlebars of the bicycle |
-| Requirements Referenced       | CFR9, CFR10 |
+| Requirements Referenced       | CNFR5, CNFR21 |
 
+| M3                            | |
+|:--                            |:--|
+| Control                       | Manual (Static) |
+| Initial State                 | CRA is mounted on the bike |
+| Input                         | N/A |
+| Output                        | N/A |
+| Test Case Derivation          | The housing mounts securely |
+| How will test be performed    | Securely mount the main housing the handlebars of the bicycle |
+| Requirements Referenced       | CNFR13, CNFR21 |
+
+| M4                            | |
+|:--                            |:--|
+| Control                       | Manual (Static) |
+| Initial State                 | CRA is mounted on the bike |
+| Input                         | N/A |
+| Output                        | N/A |
+| Test Case Derivation          | The housing stays in place |
+| How will test be performed    | The lidar housing is resistant to shaking when mounted to the seat post |
+| Requirements Referenced       | CNFR5, CNFR21 |
+
+| M5                            | |
+|:--                            |:--|
+| Control                       | Manual (Static) |
+| Initial State                 | CRA is mounted on the bike |
+| Input                         | N/A |
+| Output                        | N/A |
+| Test Case Derivation          | The housing stays in place |
+| How will test be performed    | The lidar housing is resistant to impact when mounted to the seat post |
+| Requirements Referenced       | CNFR5, CNFR21 |
+
+| M6                            | |
+|:--                            |:--|
+| Control                       | Manual (Static) |
+| Initial State                 | CRA is mounted on the bike |
+| Input                         | N/A |
+| Output                        | N/A |
+| Test Case Derivation          | The housing mounts securely |
+| How will test be performed    | Securely mount the lidar to the seat post |
+| Requirements Referenced       | CNFR13, CNFR21 |
 
 ### 5.2. Tests for Nonfunctional Requirements
 #### 5.2.1. Appearance and Style Test
