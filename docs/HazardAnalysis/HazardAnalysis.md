@@ -82,7 +82,7 @@ This document is the hazard analysis of the Cyclops Ride Assist (CRA) system. Th
 ## 3. Scope and Purpose
 The scope of this document will be kept within the physical and software space of the CRA system boundary. Hazards imposed by the outer environment, society, and user error will be considered out of the scope for this document. At each major phase of production, this document will be updated to reflect any hazards that come up. Phases of production will include software design and implentation, hardware design and implementation, software and hardware testing, etc. 
 
-The purpose of this document is to identify potential hazards which arise due to failures in the hardware and software used in the CRA system, the causes and effects of these failures, plans for hazard mitigation and potential elimination, and the safety and security requirements which emerge as a result of this knowledge.
+The purpose of this document is to identify potential hazards which arise due to failures in the hardware and software used in the CRA system, the causes and effects of these failures, plans for hazard mitigation and potential elimination, and the safety and security requirements which emerge as a result of this knowledge. Requirements can be found extensively in our  [SRS](../SRS/SRS.md).
     
 ## 4. Definition of Hazard
 A hazard is any property or condition in the CRA, that combined with environmental conditions, has the potential to cause harm to both the user and the various systems of the CRA. In the CRA, there are physical (mount, enclosure, wiring) and software hazards (video logging, vehicle detection) that will be mitigated to ensure safety-criticalness. A hazard is differentiable from an error in that an error results in degraded system performance but does not have the potential to cause harm. Hazards of the CRA will be discussed extensively in this document.    
@@ -215,7 +215,7 @@ The software hazards contained within the memory system boundary are listed belo
 |Power Supply Failure | A power supply failure or surge during file writing can corrupt the card.| 
 ## 7. Failure Modes and Effect Analysis
 ### 7.1. Hazards Out of Scope
-Hazards Out of Scope will not be considered in the Failure Modes and Effect Analysis listed below in Section 7.2.
+Hazards Out of Scope will not be considered in the Failure Modes and Effect Analysis listed below in [Section 7.2](#72-failure-modes-and-effect-analysis-table).
 
 | Group  | Example |   
 |:--|:--|

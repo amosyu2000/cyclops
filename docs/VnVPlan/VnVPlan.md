@@ -72,15 +72,10 @@ Manny Lemos (lemosm1)
 		- [5.2.28. Cultural Test](#5228-cultural-test)
 		- [5.2.29. Compliance Test](#5229-compliance-test)
 		- [5.2.30. Standards Test](#5230-standards-test)
-- [6. Unit Tests](#6-unit-tests)
-	- [6.1. Unit Testing Scope](#61-unit-testing-scope)
-	- [6.2. Test for Functional Requirements](#62-test-for-functional-requirements)
-	- [6.3. Test for Nonfunctional Requirements](#63-test-for-nonfunctional-requirements)
-	- [6.4. Traceability Between Test Cases and Modules](#64-traceability-between-test-cases-and-modules)
-- [7. Appendix](#7-appendix)
-	- [7.1. Symbolic Parameters](#71-symbolic-parameters)
-	- [7.2. Usability Survey Questions for Non Functional Tests](#72-usability-survey-questions-for-non-functional-tests)
-- [8. Reflection](#8-reflection)
+- [6. Appendix](#6-appendix)
+	- [6.1. Symbolic Parameters](#61-symbolic-parameters)
+	- [6.2. Usability Survey Questions for Non Functional Tests](#62-usability-survey-questions-for-non-functional-tests)
+- [7. Reflection](#7-reflection)
 ## List of Tables <!-- omit in toc -->
 - [Table 1.1: Revision History](#rh)
 
@@ -95,6 +90,8 @@ Manny Lemos (lemosm1)
 |:--|:--|:--|
 | October 25, 2022 | Aaron Li, Amos Cheung, Amos Yu, Brian Le, Manny Lemos | Document created |
 | November 7, 2022 | Amos Yu | Addressed peer review suggestions |
+| April 5, 2022 | Aaron Li | Re-edited for Rev1 |
+
 
 </div>
 
@@ -142,7 +139,7 @@ Group two will be responsible for software testing. This includes testing of the
 Each group is responsible for receiving, testing, and communicating feedback given by peer reviewers, TAs, and the end user regarding the features under their domain.  
 
 ### 4.2. SRS Verification Plan
- The requirements set about in the SRS document will be directly linked to test cases using the Traceability Between Test Cases and Requirements table found in section 5.3.   
+ The requirements set about in the SRS document will be directly linked to test cases using the Traceability Between Test Cases and Requirements table found in [Section 5.3](#53).   
 
 The SRS document has been verified as correct and complete using a number of methods. The Cyclops team has discussed the continued validity of this document and its requirements in team meetings. Further, peer reviews have been conducted on the document, concerns were raised, and issues were resolved.  
 
@@ -166,7 +163,7 @@ The functionality of the systems hardware and software will be tested dynamicall
 All automated testing of software will be conducted using Pytest.  
 All automated code analysis will be conducted using Pylint.  
 ### 4.7. Software Validation Plan
-To validate that the software fulfills all of the correct requirements, we will continually amend and improve upon the testing methodologies used, and the components tested. The aim of this endeavor is to ensure that testing is directly aligned with any updates to the SRS document and any other documents which are directly tied to software requirements.  
+To validate that the software fulfills all of the correct requirements, we will continually amend and improve upon the testing methodologies used, and the components tested. The aim of this endeavor is to ensure that testing is directly aligned with any updates to the SRS document and any other documents which are directly tied to software requirements.  These tests will also encompass all unit tests associated. 
 ## 5. System Test Description
 ### 5.1. Tests for Functional Requirements
 #### 5.1.1. Rear Vehicle Detection Test
@@ -744,14 +741,10 @@ To validate that the software fulfills all of the correct requirements, we will 
 | Test Case Derivation          | We need to ensure that our product is up to par with the products on the market currently.  |
 | How will test be performed    | Documentation will be reviewed on quality for automotive products and compare it to the CRA. Any potential signs of a breach of a standard will be discussed in a team meeting. |
 | Requirements Referenced       | CNFR49 |
-## 6. Unit Tests
-### 6.1. Unit Testing Scope
-### 6.2. Test for Functional Requirements
-### 6.3. Test for Nonfunctional Requirements
-### 6.4. Traceability Between Test Cases and Modules
-## 7. Appendix
-### 7.1. Symbolic Parameters
-### 7.2. Usability Survey Questions for Non Functional Tests
+
+## 6. Appendix
+### 6.1. Symbolic Parameters
+### 6.2. Usability Survey Questions for Non Functional Tests
 
 | CNFRST Reference| Question |
 |:--                            |:--|
@@ -769,15 +762,15 @@ To validate that the software fulfills all of the correct requirements, we will 
 | CNFRST21 | Is there any way that you would like to expand the CRA?|
 | CNFRST21| Do you have any concerns with the CRA on your own personal bicycle? |
 | CNFRST29| What is your brand and model of bicycle and if you know, what are the size and weight restrictions? |
-## 8. Reflection  
+## 7. Reflection  
 In preparation for the validation process of testing and system verification, a number of skills must be acquired. A greater depth of knowledge in these fields allows the CRA team to accurately substantiate the requirements set about in the SRS document via the testing methods identified in the VnV Plan.
 
-As discussed in section 4.3. Design Verification Plan and section 4.6. Automated Testing and Verification Tools, Pytest will be used for automated unit testing of the software code developed for CRA. As such, it is expected that CRA team members will be responsible for educating themselves on how to efficiently and effectively use the tools provided by Pytest. There are a number of great resources available online that will aid our team by providing specific information regarding problems we might encounter. Some of these sites include stackoverflow.com and geeksforgeeks.org. However, as a general introduction it is advised that CRA team members review the [pytest documentation](https://docs.pytest.org/en/7.1.x/getting-started.html) and use the [linkedin learning course](https://www.linkedin.com/learning/me/my-library/assigned?u=56982905) on pytest.   
+As discussed in [Section 4.3. Design Verification Plan](#43-design-verification-plan) and [Section 4.6. Automated Testing and Verification Tools](#46-automated-testing-and-verification-tools), Pytest will be used for automated unit testing of the software code developed for CRA. As such, it is expected that CRA team members will be responsible for educating themselves on how to efficiently and effectively use the tools provided by Pytest. There are a number of great resources available online that will aid our team by providing specific information regarding problems we might encounter. Some of these sites include stackoverflow.com and geeksforgeeks.org. However, as a general introduction it is advised that CRA team members review the [Pytest documentation](https://docs.pytest.org/en/7.1.x/getting-started.html) and use the [Linkedin Learning course](https://www.linkedin.com/learning/me/my-library/assigned?u=56982905) on pytest.   
   
-As this project is a complete product, combining both physical and software systems, the verification and validation process will need to stretch beyond automated software test suites. Specifically, the team will need to develop methods for testing the mechanical and electrical domains of the project, which are mainly listed as Tests For Nonfunctional Requirements in Section 5.2. These tests will likely be manually carried out, as creating an automated mechanical/electrical testing structure will surely fall beyond the scope of this project. To begin, the team will collectively need the knowledge and skills to properly diagnose electrical circuits and components by hand. To name a few, team members will need to know how to follow a schematic/wiring diagram, solder, and use a multimeter. As per the scope of this project, only one prototype will be built and shared amongst the five team members. Thus, each member will need to be able to apply these skills should any electrical problems arise while the prototype is in their possession. In the same way, the team will collectively need the knowledge and skills to validate the mechanical aspects of the system. Validation will require the team to manually and properly set up, execute, and diagnose physical tests (for example, impact tests and repetitive strain tests). Validation will also involve testing of the mechanical-electrical interface (for example, testing of the mounting of the circuit board/peripherals).  
+As this project is a complete product, combining both physical and software systems, the verification and validation process will need to stretch beyond automated software test suites. Specifically, the team will need to develop methods for testing the mechanical and electrical domains of the project, which are mainly listed as Tests For Nonfunctional Requirements in [Section 5.2](#52-tests-for-nonfunctional-requirements). These tests will likely be manually carried out, as creating an automated mechanical/electrical testing structure will surely fall beyond the scope of this project. To begin, the team will collectively need the knowledge and skills to properly diagnose electrical circuits and components by hand. To name a few, team members will need to know how to follow a schematic/wiring diagram, solder, and use a multimeter. As per the scope of this project, only one prototype will be built and shared amongst the five team members. Thus, each member will need to be able to apply these skills should any electrical problems arise while the prototype is in their possession. In the same way, the team will collectively need the knowledge and skills to validate the mechanical aspects of the system. Validation will require the team to manually and properly set up, execute, and diagnose physical tests (for example, impact tests and repetitive strain tests). Validation will also involve testing of the mechanical-electrical interface (for example, testing of the mounting of the circuit board/peripherals).  
   
-Another core component that CRA will be highly dependent on to be successful is how well the team can validate components and various systems detailed in Section 5.1. The team will have to be able to pick up an understanding on how to test and validate modules that communicate with modern libraries and interdisciplinary scientific fields. Knowledge on how to validate these components are well beyond the scope of the course so it will be one of the key areas that CRA shall focus on. Not only must the CRA team members learn how to develop with these libraries, but they must come full circle and be able to understand how these tools are expected to perform and transition into a real world environment. Accurate and consistent validation will be a result of the team understanding how expected outcomes are formalized and why each validation process should be considered as industry standard.
-Our last component to address is seen in Section 5.2 and 7 of the Tests For Nonfunctional Requirements and Usability Surveys. Many different testing tools are required to ensure that the CRA will be fully operable and with as little error as possible. However, one major point of emphasis is our user feedback and Usability Surveys. Many of our tests will be using feedback from stakeholders so it will be necessary for the CRA team to document these well. In order to track these responses, we will use a Google Form for submissions and a Google Sheets. All members will be expected to use the responses given to further build upon the CRA system. We will gather the knowledge and skills required to use these applications.Skills that are required for this section but not explicitly stated is our need for soft skills. Being able to communicate our questions effectively in words, analyze and diagnose the responses of our users, and create thoughtful unit tests based on their feedback is of utmost importance. All of our team looks forward to continuing to work with our stakeholders and their critique to continue to develop our system and our tests.    
+Another core component that CRA will be highly dependent on to be successful is how well the team can validate components and various systems detailed in [Section 5.1](#51-tests-for-functional-requirements). The team will have to be able to pick up an understanding on how to test and validate modules that communicate with modern libraries and interdisciplinary scientific fields. Knowledge on how to validate these components are well beyond the scope of the course so it will be one of the key areas that CRA shall focus on. Not only must the CRA team members learn how to develop with these libraries, but they must come full circle and be able to understand how these tools are expected to perform and transition into a real world environment. Accurate and consistent validation will be a result of the team understanding how expected outcomes are formalized and why each validation process should be considered as industry standard.
+Our last component to address is seen in [Section 5.2](#52-tests-for-nonfunctional-requirements) with the Tests For Nonfunctional Requirements and Usability Surveys. Many different testing tools are required to ensure that the CRA will be fully operable and with as little error as possible. However, one major point of emphasis is our user feedback and Usability Surveys. Many of our tests will be using feedback from stakeholders so it will be necessary for the CRA team to document these well. In order to track these responses, we will use a Google Form for submissions and a Google Sheets. All members will be expected to use the responses given to further build upon the CRA system. We will gather the knowledge and skills required to use these applications.Skills that are required for this section but not explicitly stated is our need for soft skills. Being able to communicate our questions effectively in words, analyze and diagnose the responses of our users, and create thoughtful unit tests based on their feedback is of utmost importance. All of our team looks forward to continuing to work with our stakeholders and their critique to continue to develop our system and our tests.    
     
 In summary, we can see that learning how to test effectively is very important to the CRA. Through continuously reading through and improving our VnV document, developing our software and hardware testing skills through the use of various resources, creating new system and unit tests, we will be able to effectively debug and rid our system of any potential errors. 
 
