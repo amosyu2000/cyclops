@@ -174,7 +174,7 @@ The Rear Housing Assembly will come pre-assembled to the users. All external com
 
 | Step Number |  Instruction |
 |:--|:--|
-| 1 | Complete Section 4.4.1.|
+| 1 | Complete [Section 4.4.1.](#441-mounting-the-main-housing-of-the-cra)|
 | 2 | Place the rear clamp onto the seat bar of your bicycle. Tighten the clamp by spinning the tightener clockwise. | 
 | 2 | Ensure the LiDAR sensor is facing away from the bicycle and is level. |
 | 3 | Ensure all cables are securely strapped to the bicycle such that no cable is overhanging.|
@@ -211,7 +211,7 @@ In order to setup the CRA prior to a trip, please do the following:
 
 | Step Number |  Instruction |
 |:--|:--|
-| 1 | Securely mount the CRA to your bicycle using Section 4.4 above. |
+| 1 | Securely mount the CRA to your bicycle using [Section 4.4](#44-mounting-and-dismounting-the-cra) above. |
 | 2 | Locate a portable battery capable of consistently outputting 5V. |
 | 2a | Ensure the battery is charged beyond 60%. |
 | 3 | Securely fasten the battery into the battery carrying pouch. |
@@ -267,7 +267,7 @@ Following a system detected collision or capture button press, the CRA will do t
 | 1 | Following a system detected crash or capture button press, the CRA will log 60 seconds of accelerometer, camera, and LiDAR data.  |
 | 2 | Following the logging, the user is notified separately of the success or failure of each of these 3 logging events. |
 | 3 | Wait between 0 to 10 seconds after a system detected crash or capture button press for all footage and data to log.|
-| 4 |Note the blinking color of the 3 LEDs closest to the user. Blue would indicate a SUCCESS and red would indicate a FAILURE. Please refer to Section 5: Troubleshooting for further help.|
+| 4 |Note the blinking color of the 3 LEDs closest to the user. Blue would indicate a SUCCESS and red would indicate a FAILURE. Please refer to [Section 6: Troubleshooting](#6-troubleshooting) for further help.|
 | 4a |The LEDs correspond to: <br/> Accelerometer (closest LED to user)<br/>  Camera (2nd closest LED to user) <br/> LiDAR (3rd closest LED to user)|
 
 <div align="center">
@@ -302,7 +302,7 @@ In the event of an error, please do the following:
 
 | Action |  Instruction |
 |:--|:--|
-| 1 | Determine the cause of the issue (camera, LiDAR, ) based on the LED lights as outlined in Step 3 and 4 of Section 4.4  |
+| 1 | Determine the cause of the issue (accelerometer, camear, LiDAR) based on the LED lights as outlined in Step 3 and 4 of [Section 5.4](#54-interpreting-a-capture-sequence-debug) |
 | 1a | If the accelerometer is the issue, open the CRA Main Housing. Check to see if the accelerometer cables are properly connected to the microcontroller. |
 | 1b | If the camera is the issue, open the CRA Main Housing. Check to see if the camera cables are properly connected to the microcontroller.|
 | 1c | If the LiDAR is the issue, ensure that the wires are connected properly at the CRA Rear Housing.|
