@@ -42,6 +42,8 @@ Click the thumbnail to be directed to our promotional video!
 | February 9, 2023 | Revision 0 demo |
 | March 1, 2023 | Verification and Validation Report started |
 | April 1, 2023 | Revision 1 demo |
+| April 5, 2023 | User Guide started |
+| April 5, 2023 | Reflection started |
 | April 11, 2023 | Capstone EXPO |
 
 ## Repository Structure
