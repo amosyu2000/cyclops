@@ -1,10 +1,12 @@
+<div align="center">
+
 # User Guide
 
-The user guide could also include video introductions and tutorials.
+[![image](https://img.shields.io/badge/DOCUMENTATION-MD-informational?style=for-the-badge)](./UserGuide.md)
+[![image](https://img.shields.io/badge/DOCUMENTATION-PDF-red?style=for-the-badge)](./UserGuide.pdf)
 
-The folders and files for this folder are as follows:
+</div>
 
-UserGuide.md 
-UserGuide.pdf
+
 
 
