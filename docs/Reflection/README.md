@@ -1,5 +1,8 @@
-# Development Plan
+<div align="center">
 
-The folders and files for this folder are as follows:
+# Reflection
 
-Describe ...
+[![image](https://img.shields.io/badge/DOCUMENTATION-MD-informational?style=for-the-badge)](./Reflection.md)
+[![image](https://img.shields.io/badge/DOCUMENTATION-PDF-red?style=for-the-badge)](./Reflection.pdf)
+
+</div>
