@@ -1,5 +1,7 @@
 # Presentations about your software
 
-The folders and files for this folder are as follows:
-
-- <fill in details>
+This folder contains all media submitted or presented during the various demos throughout the school year.
+- Proof Of Concept Demo
+- Rev0 Presentation
+- Final Presentation
+- Engineering EXPO
